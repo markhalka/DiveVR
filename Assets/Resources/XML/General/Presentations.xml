@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<presentations>
+
+  <location name="School" module="school" eyeContact="0" fillerWords="0" gestures="0" tone="0" score="0"></location>
+  <location name="Job interview" module="school" eyeContact="0" fillerWords="0" gestures="0" tone="0" score="0"></location>
+  <location name="Informal meeting" module="school" eyeContact="0" fillerWords="0" gestures="0" tone="0" score="0"></location>
+  <location name="Formal meeting" module="school" eyeContact="0" fillerWords="0" gestures="0" tone="0" score="0"></location>
+  <location name="Company presentation" module="school" eyeContact="0" fillerWords="0" gestures="0" tone="0" score="0"></location>
+
+
+
+</presentations>

@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &181164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 481164}
+  - 114: {fileID: 11434418}
+  - 114: {fileID: 11401356}
+  - 114: {fileID: 11477260}
+  - 114: {fileID: 11472290}
+  - 114: {fileID: 11416090}
+  m_Layer: 0
+  m_Name: HoldAll
+  m_TagString: HoldAll
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &481164
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181164}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 798.987793, y: 367.207336, z: -513.648987}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11401356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62675afce15a38c4ca6982cb8e10a3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11416090
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd85f4a648da5b04099fb752bc0190f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11434418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3161a0892ca1f5e47b3a9c23a07417ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11472290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a93c5023048544bb5ea580b5312fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NumberOfVariables: 0
+  NumberOfPoints: 0
+  NameList: []
+  UnitList: []
+  MaxList: []
+  IsSimulating: 0
+  CurrentStep: 0
+  MaximumVoltage: 0
+  MaximumCurrent: 0
+--- !u!114 &11477260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 845ff9a275736d14e9cdc1588a9e7d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Resistor: {fileID: 148406, guid: 6c26f10a767d58f4982e11917af86fd2, type: 2}
+  Capacitor: {fileID: 148406, guid: 2baa5ead974efdc45ae7dd7532075ecc, type: 2}
+  PulseVoltageSource: {fileID: 148406, guid: a2db53840df47c94388f953c5220fd34, type: 2}
+  Ground: {fileID: 148406, guid: 4f4ba4afa0987b74cbf2eb4b3206729d, type: 2}
+  Wire: {fileID: 163922, guid: 718d7032ebacbed41928414cddc0cd84, type: 2}
+  CurrentDot: {fileID: 170920, guid: 921e4acbc54e9834288173054304377e, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 181164}
+  m_IsPrefabParent: 1
