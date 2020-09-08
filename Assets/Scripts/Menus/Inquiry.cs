@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class Inquiry : MonoBehaviour
 {
-
-
     public Button submit;
     public Button skip;
     public TMPro.TMP_Text text;
@@ -29,13 +27,8 @@ public class Inquiry : MonoBehaviour
         skip.onClick.AddListener(delegate { takeSkip(); });
 
     }
-
     void takeSubmit()
     {
-        Debug.LogError("submiting");
-
-
-        //just gotta find the right lesson, thats it
         foreach (var grade in Information.xmlDoc.Descendants("grade"))
         {
             if ("Grade " + grade.Attribute("number").Value == Information.grade)
