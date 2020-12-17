@@ -41,8 +41,6 @@ public class Molecule : MonoBehaviour
     public Dictionary<int, Sprite> showPanelImages; //so this will store the index of the show panel, and the image associated with it 
 
 
-
-
     public ParticleSystem ps;
     public ParticleSystem ps2;
     public ParticleSystem ps3;

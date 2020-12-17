@@ -7,15 +7,12 @@ using UnityEngine.UI;
 public class InBetween : MonoBehaviour
 {
 
-
-
     public Image LoadingBar;
     public Button retry;
     public Button exit;
     public Button skipLoad;
 
     public GameObject redoPanel;
-
     public GameObject inquiry;
 
     public TMPro.TMP_Text title;
@@ -33,13 +30,7 @@ public class InBetween : MonoBehaviour
     public Button cancelSurvey;
     public Button dontShowSurvey;
 
-    //add the survye animation as well
-
-
-
     bool showedSurvey = false;
-
-
 
 
     void Start()
@@ -66,7 +57,7 @@ public class InBetween : MonoBehaviour
     }
 
 
-    #region surveyshit
+    #region survey
     public void takeSubmitSurvey()
     {
         Transform t = survey.transform.GetChild(0);

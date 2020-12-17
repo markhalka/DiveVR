@@ -7,6 +7,16 @@ using UnityEngine.UI;
 public class HomeMenu : MonoBehaviour
 {
 
+    public AudioClip buttonSound;
+    public AudioSource source;
+
+    public GameObject newSubjectPanel;
+    public Button defualt;
+    public Button placementTest;
+
+    public GameObject[] arrows;
+    public GameObject vrWarning;
+
     GameObject subheader;
 
     Vector3 offset = new Vector3(0, -30, 0);
@@ -21,15 +31,6 @@ public class HomeMenu : MonoBehaviour
     Color greyColor = new Color(194, 194, 194, 180);
     Color greyHighLight = new Color(231, 231, 255);
 
-    public AudioClip buttonSound;
-    public AudioSource source;
-
-    public GameObject newSubjectPanel;
-    public Button defualt;
-    public Button placementTest;
-
-    public GameObject[] arrows;
-    public GameObject vrWarning;
     void Start()
     {
         vrWarning.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { takeWithVR(); });

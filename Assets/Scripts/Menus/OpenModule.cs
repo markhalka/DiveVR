@@ -46,7 +46,6 @@ public class OpenModule : MonoBehaviour
     List<GameObject> buttons;
     int[] indecies;
 
-
     public Sprite[] images;
 
     public GameObject startPanel;
@@ -74,8 +73,6 @@ public class OpenModule : MonoBehaviour
         ParseData.startXML();
 
         startXML();
-
-
 
         indecies = new int[buttons.Count];
         for (int i = 0; i < buttons.Count; i++) //+1 for the back button
@@ -153,7 +150,6 @@ public class OpenModule : MonoBehaviour
     public GameObject grid;
     void createButton2(string header, string score, int index, int firstTopic)
     {
-        Debug.LogError(score + " openmod score");
 
         GameObject curr = Instantiate(MainButton, MainButton.transform, true);
         curr.transform.SetParent(grid.transform);

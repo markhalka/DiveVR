@@ -11,49 +11,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-//FF9A76
-//150, 150, 32, 32
-
-//for selected: FFF2CB
-
-//for text color: 0E4255
-
-//F9D155
-//button color
-
-//for blue is text color:
-//27507D
-
-
-//for text color title:
-//0E3E55
-
-//for text color white:
-//EBEBEB
-
-//another thing you can do is:
-//1. when you save it to topics, save it to the file at the same time, than you can get rid of xml.save topics and all that 
-
-
-
-//science test doens really work (maybe something to do with the delay, especially for quiz menu (the 3 choices), the table sometimes looks fucked up (like itsm issing random parts, or maybe its just the wrong shape)
-
-//reseting the hint for the table during swipe doesn't work
-
-//for the ahcievments, make sure there is an image to scroll
-//update the files to update the tutorial in science 
-
-
-//log in still not working the first time?/
-
-//start redoing data
-//get rid of all mentions of the expirments on dive for now 
-
-
-//also, when you earn points and come back, it is always wayy to high
-
-
-
 
 namespace PlayFab.Internal
 {
@@ -61,7 +18,6 @@ namespace PlayFab.Internal
     {
         // Encoded RSAPublicKey
         private static readonly string PUB_KEY = "";
-
 
         protected override bool ValidateCertificate(byte[] certificateData)
         {
@@ -74,47 +30,27 @@ namespace PlayFab.Internal
 public class StudentMenu : MonoBehaviour
 {
 
-
-    //ok, so just take a look at what you do in math, copy the code to write to the file, then thats pretty much it, double check student info to make sure it'll parse ahd than you are gucci 
-    //in science menu, if they start a quiz than hide the animation image (do this in database as well)
-
-    //ok, so you need to do 3 things:
-    //take a look at the version code, make sure it gets it from the right file 
-
-    //add animations to each of the panels
-    //add a function on wix to save the name 
-    //add a function here to save the name they enter 
-
-
-
-
-
     public TMPro.TMP_Text divePoints;
 
     public Button Shop;
     public Button Coins;
 
-
-    public GameObject sprite1;
-    public GameObject sprite2;
-
     public Button learning;
     public Button aboutMe;
 
+    public Button nameOk;
+    public Button tutorialOk;
+    public Button noTutorial;
+
+    public GameObject sprite1;
+    public GameObject sprite2;
     public GameObject level;
-    // public Image image;
+    public GameObject namePanel;
+    public GameObject tutorialPanel;
 
     public AudioSource source;
     public AudioClip buttonSound;
 
-    //ok, so the module menu works ok, just mke the gap between cells the same as the cell size
-    //get rid of the clicking animtion shit for now 
-
-    public GameObject namePanel;
-    public GameObject tutorialPanel;
-    public Button nameOk;
-    public Button tutorialOk;
-    public Button noTutorial;
     public TMPro.TMP_InputField nameField;
 
     bool doneLoading = false;
@@ -127,11 +63,8 @@ public class StudentMenu : MonoBehaviour
 
         initButtons();
 
-
-
-
-
         Information.currentScene = "StudentMenu";
+
         if (Information.isParent)
         {
             learning.gameObject.SetActive(false);
@@ -140,18 +73,13 @@ public class StudentMenu : MonoBehaviour
         if (Information.xmlDoc != null)
         {
             doneLoading = true;
-            return; //it was already loaded 
+            return;
         }
 
-        Debug.LogError("not returning");
         StartCoroutine(handleStreak());
         StartCoroutine(GetRequest());
 
-
-
-        //  tempLoad();
-
-
+        //tempload
 
         if (Information.name == "none")
         {
@@ -186,8 +114,6 @@ public class StudentMenu : MonoBehaviour
         uwr.certificateHandler = certHandler;
 
         yield return uwr.SendWebRequest();
-
-
 
         if (uwr.isNetworkError)
         {
@@ -238,18 +164,11 @@ public class StudentMenu : MonoBehaviour
         doneLoading = true;
     }
 
-    //ok, here are the steps:
-    //1. change the masterxml doc (data.xml) and the master user xml doc (userdata)
-    //2. change this thing to get the individual users xml file 
-
-
 
 
     IEnumerator GetRequest()
     {
-        Debug.LogError("at get request");
         CustomCertificateHandler certHandler = new CustomCertificateHandler();
-
 
         UnityWebRequest uwr = UnityWebRequest.Get(Information.loadDocUrl);
         uwr.chunkedTransfer = false;

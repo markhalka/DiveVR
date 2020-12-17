@@ -60,13 +60,7 @@ public class Inquiry : MonoBehaviour
 
     void takeSkip()
     {
-        //just close it
-        Debug.Log("closing");
         gameObject.SetActive(false);
     }
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 }

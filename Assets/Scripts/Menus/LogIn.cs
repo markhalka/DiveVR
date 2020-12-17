@@ -24,7 +24,6 @@ public class LogIn : MonoBehaviour
     public Button webpage;
 
 
-
     void Start()
     {
         submit.onClick.AddListener(delegate { StartCoroutine(handleLogIn()); });
@@ -98,8 +97,6 @@ public class LogIn : MonoBehaviour
     int checkLogIn(string result, string username)
     {
 
-
-        Debug.LogError(result + " result from parent");
         if (result.Split(',').Length == 2)
         {
             Information.name = result.Split(',')[1];
@@ -221,10 +218,7 @@ public class LogIn : MonoBehaviour
         output.text = outputText;
 
         Debug.LogError("the name is: " + Information.name);
-
-
     }
-
 
 
     void openWebsite()

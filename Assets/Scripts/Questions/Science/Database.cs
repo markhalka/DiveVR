@@ -79,7 +79,7 @@ public class Database : MonoBehaviour
         initFunctions();
     }
 
-    #region startPanel shit 
+    #region startPanel 
     List<int> startPanels;
     int finishStart = 0;
     void initStartPanels()

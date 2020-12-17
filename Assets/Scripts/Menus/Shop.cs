@@ -122,7 +122,6 @@ public class Shop : MonoBehaviour
         buyAnyway.onClick.AddListener(delegate { takePurchaseConfirm(); }); //here is where you actually buy the gift card
         saveButton.onClick.AddListener(delegate { takeSaveButton(); }); //this should close, it and return to student menu
 
-
         initGiftCardButtons();
     }
 

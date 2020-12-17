@@ -146,7 +146,7 @@ public class DiveGame : MonoBehaviour
         public Bubbles(GameObject bubbleRef)
         {
             gameObject = bubbleRef;
-            gameObject.GetComponent<Button>().onClick.AddListener
+            // gameObject.GetComponent<Button>().onClick.AddListener
             random = new System.Random();
         }
 
