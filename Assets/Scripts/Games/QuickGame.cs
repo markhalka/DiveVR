@@ -549,11 +549,6 @@ public class QuickGame : MonoBehaviour
 
     void Update()
     {
-        if (gameOver && ai.GetComponent<MathAI>().isPlaying)
-        {
-            ai.GetComponent<MathAI>().isPlaying = false;
-        }
-
         if (Information.doneLoading)
         {
             //Information.nextScene++;

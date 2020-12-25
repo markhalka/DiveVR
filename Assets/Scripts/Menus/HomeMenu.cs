@@ -6,47 +6,37 @@ using UnityEngine.UI;
 
 public class HomeMenu : MonoBehaviour
 {
+    public GameObject[] arrows;
+    public GameObject vrWarning;
+    public GameObject subjects;
+    public GameObject grades;
+    public GameObject newSubjectPanel;
+
+    public Button defualt;
+    public Button placementTest;
+    public Button back;
+
+    public TMP_Text title;
 
     public AudioClip buttonSound;
     public AudioSource source;
 
-    public GameObject newSubjectPanel;
-    public Button defualt;
-    public Button placementTest;
-
-    public GameObject[] arrows;
-    public GameObject vrWarning;
-
-    GameObject subheader;
-
-    Vector3 offset = new Vector3(0, -30, 0);
-    Scroll scroll;
-
-    List<GameObject> buttons;
-    List<int> headerIndeciesList;
-    List<int> subheaderIndeciesList;
-    int[] headerIndecies;
-    int[] subheaderIndecies;
-
-    Color greyColor = new Color(194, 194, 194, 180);
-    Color greyHighLight = new Color(231, 231, 255);
 
     void Start()
     {
         vrWarning.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { takeWithVR(); });
         vrWarning.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(delegate { takeBack(); });
         vrWarning.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(delegate { takeWithoutVR(); });
-        //   vrWarning.transform.GetChild(4).GetComponent<Button>().onClick.AddListener(delegate { moreInfo(); });
+        vrWarning.transform.GetChild(4).GetComponent<Button>().onClick.AddListener(delegate { moreInfo(); });
 
         defualt.onClick.AddListener(delegate { takeDefault(); });
         placementTest.onClick.AddListener(delegate { takeLearningPlan(); });
 
-        startThing();
+        initButtons();
         Information.currentScene = "HomeMenu";
 
     }
-
-
+    
     void OnEnable()
     {
         Information.isSelect = false;
@@ -54,16 +44,24 @@ public class HomeMenu : MonoBehaviour
 
     }
 
-    #region version2
+    void initButtons()
+    {
+        back.onClick.AddListener(delegate { takeSubjectBack(); });
+        List<GameObject> newEntities = new List<GameObject>();
+        for (int i = 0; i < subjects.transform.childCount; i++)
+        {
+            newEntities.Add(subjects.transform.GetChild(i).gameObject);
+        }
+        for (int i = 0; i < grades.transform.childCount; i++)
+        {
+            newEntities.Add(grades.transform.GetChild(i).gameObject);
+        }
+        Information.click2d = true;
+        Information.updateEntities = newEntities.ToArray();
+    }
 
 
-
-    public GameObject subjects;
-    public GameObject grades;
-    public TMP_Text title;
-    public Button back;
-
-
+    #region subjects
     void subjectUpdate()
     {
 
@@ -73,14 +71,9 @@ public class HomeMenu : MonoBehaviour
             source.Play();
 
             Information.subject = Information.currentBox.transform.GetChild(0).GetComponent<TMPro.TMP_Text>().text.ToLower();
-            /*   if(Information.subject != "science")
-               {
-                   return; //that should work
-               } */
 
             if (Information.subject == "public speaking")
             {
-                //ok, then just load open mod
                 Information.grade = "Grade Deep";
                 if (!closeMenu)
                 {
@@ -107,54 +100,6 @@ public class HomeMenu : MonoBehaviour
         }
     }
 
-    void takeGradeBack()
-    {
-        source.clip = buttonSound;
-        source.Play();
-
-        grades.gameObject.SetActive(false);
-        subjects.gameObject.SetActive(true);
-        title.text = "Choose a subject!";
-        back.onClick.RemoveAllListeners();
-        back.onClick.AddListener(delegate { takeSubjectBack(); });
-
-    }
-    void startThing()
-    {
-        //  Information.isSelect = true;
-        back.onClick.AddListener(delegate { takeSubjectBack(); });
-        List<GameObject> newEntities = new List<GameObject>();
-        for (int i = 0; i < subjects.transform.childCount; i++)
-        {
-            newEntities.Add(subjects.transform.GetChild(i).gameObject);
-        }
-        for (int i = 0; i < grades.transform.childCount; i++)
-        {
-            newEntities.Add(grades.transform.GetChild(i).gameObject);
-        }
-        Information.click2d = true;
-        Information.updateEntities = newEntities.ToArray();
-        // startXML();
-    }
-
-    void Update()
-    {
-        //  Debug.LogError("")
-        if (Information.isInMenu)
-        {
-
-            return;
-        }
-        Debug.LogError("not in menu");
-        if (subjects.activeSelf)
-        {
-            subjectUpdate();
-        }
-        else
-        {
-            gradeUpdate();
-        }
-    }
     void takeSubjectBack()
     {
         source.clip = buttonSound;
@@ -163,15 +108,9 @@ public class HomeMenu : MonoBehaviour
         SceneManager.LoadScene("StudentMenu");
     }
 
-    void takeNewBack()
-    {
-        title.text = "Choose a grade!";
-        grades.SetActive(true);
-        newSubjectPanel.SetActive(false);
-        back.onClick.AddListener(delegate { takeGradeBack(); });
-    }
+    #endregion
 
-
+    #region grades
     void gradeUpdate()
     {
         if (Information.currentBox != null)
@@ -179,12 +118,7 @@ public class HomeMenu : MonoBehaviour
             source.clip = buttonSound;
             source.Play();
 
-            //   Information.grade = "Grade 5";
-            //you need to fix it here, just get the index and then go from there?
-
-
             Information.grade = "Grade " + getGradeNumber();
-
 
             if (Information.isStudentInfo)
             {
@@ -211,11 +145,29 @@ public class HomeMenu : MonoBehaviour
                 {
                     SceneManager.LoadScene("ModuleMenu");
                 }
-
             }
-            // SceneManager.LoadScene("ModuleMenu");
             Information.currentBox = null;
         }
+    }
+
+    void takeNewBack()
+    {
+        title.text = "Choose a grade!";
+        grades.SetActive(true);
+        newSubjectPanel.SetActive(false);
+        back.onClick.AddListener(delegate { takeGradeBack(); });
+    }
+
+    void takeGradeBack()
+    {
+        source.clip = buttonSound;
+        source.Play();
+
+        grades.gameObject.SetActive(false);
+        subjects.gameObject.SetActive(true);
+        title.text = "Choose a subject!";
+        back.onClick.RemoveAllListeners();
+        back.onClick.AddListener(delegate { takeSubjectBack(); });
     }
 
     int getGradeNumber()
@@ -228,6 +180,19 @@ public class HomeMenu : MonoBehaviour
             }
         }
         return -1;
+    }
+
+    #endregion
+
+
+    bool closeMenu = false;
+    void takeBack()
+    {
+        source.clip = buttonSound;
+        source.Play();
+
+        closeMenu = true;
+
     }
 
     public void takeLearningPlan()
@@ -269,16 +234,23 @@ public class HomeMenu : MonoBehaviour
 
     }
 
-    bool closeMenu = false;
-    void takeBack()
+
+    void Update()
     {
-        source.clip = buttonSound;
-        source.Play();
+        if (Information.isInMenu)
+        {
+            return;
+        }
 
-        closeMenu = true;
-
+        if (subjects.activeSelf)
+        {
+            subjectUpdate();
+        }
+        else
+        {
+            gradeUpdate();
+        }
     }
-    #endregion
 
 }
 

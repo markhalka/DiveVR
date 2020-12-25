@@ -108,6 +108,7 @@ public class Information
     //   public static List<Help> helpMath;
     //   public static List<Help> helpScience;
 
+    public static bool doneLoadingDocuments = false;
     public static bool doneLoading = false;
     public static bool skip = false;
 
@@ -205,8 +206,6 @@ public class Information
 
 
     public static string lesson; //<- get rid of this after the test 
-
-    public static Scroll scroll;
 
     public static int lableIndex = 0;
     public static int panelIndex = 0;

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class DiveGame : MonoBehaviour
 {
-
+/*
 
     public GameObject fishContainer;
     public GameObject sharkContainer;
@@ -466,4 +466,5 @@ public class DiveGame : MonoBehaviour
         }
 
     }
+*/
 }

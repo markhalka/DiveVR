@@ -23,10 +23,14 @@ public class LogIn : MonoBehaviour
     public Button submit;
     public Button webpage;
 
+    Website network;
+
 
     void Start()
     {
-        submit.onClick.AddListener(delegate { StartCoroutine(handleLogIn()); });
+        network = new Website();
+
+        submit.onClick.AddListener(delegate { takeSubmit(); });
         webpage.onClick.AddListener(delegate { openWebsite(); });
         guest.onClick.AddListener(delegate { takeGuest(); });
         logInButton.onClick.AddListener(delegate { takeLogIn(); });
@@ -39,6 +43,13 @@ public class LogIn : MonoBehaviour
         SceneManager.LoadScene("StudentMenu");
     }
 
+    void takeSubmit()
+    {
+        string username = usernameField.text;
+        string password = passwordField.text;
+        StartCoroutine(network.GetRequest(Information.loginUrl + username + "/" + password, handleLogIn));
+    }
+
     void takeLogIn()
     {
         initScreen.SetActive(false);
@@ -46,53 +57,25 @@ public class LogIn : MonoBehaviour
     }
 
     int checkOutput = -1;
-    IEnumerator handleLogIn()
+
+    void handleLogIn(string result)
     {
         source.clip = buttonClick;
         source.Play();
-
-        CustomCertificateHandler certHandler = new CustomCertificateHandler();
-
-        string username = usernameField.text;
-        string password = passwordField.text;
-
-        UnityWebRequest uwr = UnityWebRequest.Get(Information.loginUrl + username + "/" + password);
-        uwr.chunkedTransfer = false;
-        uwr.certificateHandler = certHandler;
-
-        yield return uwr.SendWebRequest();
-
-        if (uwr.isNetworkError)
-        {
-            Debug.Log("Error While Sending: " + uwr.error);
-            checkOutput = -1;
-            buttonClicked();
-            yield break;
-        }
-        else
-        {
-            Debug.Log("Received");
-        }
-
-        string result = uwr.downloadHandler.text;
 
         if (result.Contains("no user"))
         {
             Debug.LogError("no user, checking parent");
             checkOutput = 0;
             buttonClicked();
-            //  uwr = UnityWebRequest.Get(Information.parentLoginUrl + username + "/" + password);
         }
         else
         {
-            checkOutput = checkLogIn(result, username);
+            checkOutput = checkLogIn(result, usernameField.text);
             buttonClicked();
         }
-
     }
 
-
-    //ok, so when you find the parent, than just return the users username and log in like that 
 
     int checkLogIn(string result, string username)
     {
@@ -205,9 +188,7 @@ public class LogIn : MonoBehaviour
 
                 //   Information.address = Website.GET(Information.addressUrl);
                 SceneManager.LoadScene("StudentMenu");
-
-                //set up the name 
-                //    StartCoroutine(getName());                        
+                     
             }
 
         }

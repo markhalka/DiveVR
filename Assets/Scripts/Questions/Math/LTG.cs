@@ -291,22 +291,9 @@ public class LTG : MonoBehaviour
     //ok, so for this one you need to init checkpoints and user points
     //for use checkpoints you need to get the position from the coordinates 
 
-    public GameObject[] arrows;
-    Scroll scroll;
-    public GameObject lowerbound;
-    public GameObject upperbound;
     public void mixedBarQuestion()
     {
-
-        if (scroll == null)
-        {
-            Information.lowerBoundary = lowerbound;
-            Information.upperBoundary = upperbound;
-            scroll = new Scroll();
-            scroll.arrows = arrows;
-        }
         List<Data> data = getRandomData();
-
         generateRandomTGQuestion(data);
         loadBarGraph(data);
 
