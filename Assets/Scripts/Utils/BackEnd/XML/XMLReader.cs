@@ -6,7 +6,7 @@ using UnityEngine;
 public class XMLReader
 {
 
-    public XElement findGrade(XDocument doc, string gradeName)
+    public static XElement findGrade(XDocument doc, string gradeName)
     {
         if(doc == null)
         {
@@ -24,7 +24,7 @@ public class XMLReader
         return null;
     }
 
-    public XElement findSubject(XElement grade, string subjectName)
+    public static XElement findSubject(XElement grade, string subjectName)
     {
         if(grade == null)
         {
@@ -42,7 +42,7 @@ public class XMLReader
         return null;
     }
 
-    public XElement findLesson(XElement subject, string lessonName)
+    public static XElement findLesson(XElement subject, string lessonName)
     {
         if(subject == null)
         {
@@ -61,7 +61,7 @@ public class XMLReader
         return null;
     }
 
-    public XElement findLessonDoc(XDocument doc, string gradeName, string subjectName, string lessonName)
+    public static XElement findLessonDoc(XDocument doc, string gradeName, string subjectName, string lessonName)
     {
         var grade = findGrade(doc, gradeName);
         var subject = findSubject(grade, subjectName);
@@ -69,7 +69,14 @@ public class XMLReader
         return lesson;
     }
 
-    public XElement findInformationLessonDoc()
+    public static XElement findSubjectDoc(XDocument doc, string gradeName, string subjectName)
+    {
+        var grade = findGrade(doc, gradeName);
+        var subject = findSubject(grade, subjectName);
+        return subject;
+    }
+
+    public static XElement findInformationLessonDoc()
     {
         return findLessonDoc(Information.xmlDoc, Information.grade, Information.subject, Information.nextScene.ToString());
     }

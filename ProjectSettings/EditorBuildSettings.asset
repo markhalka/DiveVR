@@ -18,10 +18,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/ModuleMenu.unity
     guid: 216fc19c0d4ab894d8849bae6d74b8ff
   - enabled: 0
-    path: Assets/Scenes/SampleScene/SampleScene.unity
+    path: Assets/Scenes/Science/SampleScene.unity
     guid: 30766fb5e9770de4897d1e3b1609a3e6
   - enabled: 0
-    path: Assets/Scenes/temp/Cells.unity
+    path: Assets/Scenes/Science/Cells.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/Subjects/Rocket.unity
@@ -36,7 +36,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Subjects/Geography.unity
     guid: 4d4c21e0adb1ed449997a7e2851e9f54
   - enabled: 0
-    path: Assets/Scenes/Presentation/Presentation.unity
+    path: Assets/Scenes/Presentation.unity
     guid: 75059cbb185367f4caafc4d03860b33d
   - enabled: 1
     path: Assets/Scenes/Menus/Curriculum.unity

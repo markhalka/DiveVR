@@ -2302,7 +2302,7 @@
 
       </lesson> //good  //4,5,6,7,8  //test this
       <lesson name="Plate tectonics" topics="38" level="5" index="93" inq="Tectonic plates are always moving, can you describe how the world will look in 1,000,000 years? Don't be afraid to look it up!" score="0">
-        <model section="1">
+        <model section="0">
           <simple>Plate Tectonics</simple>
           <advanced>In this module you will learn about plate tectonics, their different types, and how they shape our world</advanced>
         </model>

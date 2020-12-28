@@ -6,28 +6,7 @@ using UnityEngine;
 
 public class ParseData
 {
-
-    //ok, so for now just load that shit from resources 
-
-    //ok, so here replae grade 4 with headers, that is where you get all the info, than in curriculum, make sure you get the grades defualt from data
-
-
-
-    public static string parseGames(string gameName) //get the level for the current game 
-    {
-
-        var games = Information.xmlDoc.Descendants("type");
-        foreach (var type in games)
-        {
-            if (type.Attribute("name").Value == gameName) //you found the name
-            {
-                return type.Attribute("level").Value;
-            }
-        }
-        return "-1";
-
-    }
-
+    
     public static string encodeDate()
     {
         string date = DateTime.Today.ToString("MM/dd/yyy");
@@ -35,50 +14,18 @@ public class ParseData
         return date;
     }
 
-
-    public static string encodeDate(string date)
-    {
-
-        date = date.Replace('/', '.');
-        return date;
-    }
-
-
     public static string decodeDate(string input)
     {
         input = input.Replace('.', '/');
         return input;
     }
 
-    static XElement getCurrentElement(XDocument doc)
-    {
-
-        foreach (var grade in doc.Descendants("grade"))
-        {
-            if ("Grade " + grade.Attribute("number").Value == Information.grade)
-            {
-                foreach (var subject in grade.Elements())
-                {
-                    if (subject.Attribute("name").Value == Information.subject)
-                    {
-
-                        return subject;
-                    }
-                }
-            }
-        }
-
-        Debug.LogError("could not find subject in load doce for grade defualt...");
-        return null;
-
-    }
 
     public static void copySubject()
     {
         //  checkLoad(); 
-        XElement loadDocElement = getCurrentElement(Information.loadDoc);
-        XElement xmlDocElement = getCurrentElement(Information.xmlDoc);
-
+        XElement loadDocElement = XMLReader.findSubjectDoc(Information.loadDoc, Information.grade, Information.subject);
+        XElement xmlDocElement = XMLReader.findSubjectDoc(Information.xmlDoc, Information.grade, Information.subject);
 
         foreach (var lesson in loadDocElement.Elements())
         {
@@ -88,10 +35,9 @@ public class ParseData
 
         }
         XMLWriter.saveFile();
-
     }
 
-    //this is in data
+
     public static void parseTutorial()
     {
         //checkLoad();
@@ -129,10 +75,10 @@ public class ParseData
         {
             int currSection = Information.userModels[i].section;
 
-            if (currSection >= 0)
+            if (currSection >= -1)
             {
 
-                int contained = -1;
+                int contained = -999;
                 for (int j = 0; j < section.Count; j++)
                 {
                     if (section[j].section == currSection)
@@ -142,7 +88,7 @@ public class ParseData
                     }
                 }
 
-                if (contained < 0)
+                if (contained < -1)
                 {
                     Section newSection = new Section(currSection);
                     newSection.questions.Add(Information.userModels[i]);
@@ -162,10 +108,6 @@ public class ParseData
     public static XElement headerSubject;
     public static void getCurrentHeaderSubject()
     {
-        /*  foreach(var grade in Information.loadDoc.Descendants("grade"))
-          {
-              if ("Grade " + grade.Attribute("number").Value == "Grade 4")//Information.grade)
-              {      */
         foreach (var subject in Information.loadDoc.Root.Element("headers").Elements("subject"))
         {
             if (subject.Attribute("name").Value == Information.subject)
@@ -173,15 +115,12 @@ public class ParseData
                 headerSubject = subject;
                 return;
             }
-            //  }
-            // }
         }
     }
 
 
     public static XElement getBodyFromHeader(XElement lessonName)
     {
-
         foreach (var lesson in headerSubject.Elements("lesson"))
         {
 
@@ -197,83 +136,35 @@ public class ParseData
     //ok, here you need to make this grade 4 rip
     public static bool parseModel()
     {
-
-
-        //  checkLoad();
         getCurrentHeaderSubject();
         if (headerSubject == null)
         {
             Debug.LogError("could not find the header in the load file...");
         }
 
-
         if (!checkGradeSubject())
         {
             return false;
         }
 
-        foreach (var grade in Information.xmlDoc.Descendants("grade"))
+        var subject = XMLReader.findSubjectDoc(Information.xmlDoc, Information.grade, Information.subject);
+
+        if(subject == null)
         {
-
-            if ("Grade " + grade.Attribute("number").Value == Information.grade)
-            {
-
-                foreach (var subject in grade.Elements("subject"))
-                {
-                    if (subject.Attribute("name").Value == Information.subject)
-                    {
-
-                        if (parseModelFromSubject(subject))
-                            return true;
-                    }
-                }
-            }
+            Debug.LogError("the subject was not found");
+            return false;
         }
+
+        if (parseModelFromSubject(subject))
+            return true;
+
         return false;
     }
-
-    /*  public static void parseModel(XDocument doc) 
-      {
-
-
-       //   checkLoad();
-          getCurrentHeaderSubject();
-          if (headerSubject == null)
-          {
-              Debug.LogError("could not find the header in the load file...");
-          }
-
-
-          if (!checkGradeSubject())
-          {
-              return;
-          }
-
-          foreach (var grade in doc.Descendants("grade"))
-          {
-
-              if ("Grade " + grade.Attribute("number").Value == Information.grade)
-              {
-
-                  foreach (var subject in grade.Elements("subject"))
-                  {
-                      if (subject.Attribute("name").Value == Information.subject)
-                      {
-
-                          if (parseModelFromSubject(subject))
-                              return;
-                      }
-                  }
-              }
-          }
-      }
-      */
 
     public static bool parseModelFromSubject(XElement subject)
     {
         Information.userModels = new List<Model>();
         XElement curr = null;
-
 
         foreach (var lesson in subject.Elements())
         {
@@ -290,7 +181,6 @@ public class ParseData
             Debug.LogError("could not fine: " + Information.grade + " " + Information.subject);
             return false;
         }
-
 
         curr = getBodyFromHeader(curr);
 
@@ -374,18 +264,11 @@ public class ParseData
         {
             Debug.LogError("this is the same thing, no need to reaload");
             return;
-        }/* else if(Information.topics != null && Information.lastGrade != null && Information.lastSubject != null)
-        {
-            XMLWriter.saveTopics(Information.lastGrade, Information.lastSubject); 
-
-        }*/
-
-
-        Debug.LogError("reseting the topics");
+        }
 
         Information.topics = new List<Topic>();
 
-        var classes = Information.xmlDoc.Descendants("grade");
+     
 
         if (!checkGradeSubject())
         {
@@ -393,23 +276,15 @@ public class ParseData
             return;
         }
 
-        foreach (var grade in classes)
+        var subject = XMLReader.findSubjectDoc(Information.xmlDoc, Information.grade, Information.subject);
+
+        if(subject == null)
         {
-            //found the grade
-
-            if ("Grade " + grade.Attribute("number").Value == Information.grade)
-            {
-                foreach (var subject in grade.Elements("subject"))
-                {
-                    if (subject.Attribute("name").Value.ToLower() == Information.subject)
-                    {
-                        Debug.LogError(Information.subject + " " + Information.grade);
-                        generateTopicsFromLesson(subject, Information.topics);
-
-                    }
-                }
-            }
+            Debug.LogError("the subject was not found");
+            return;
         }
+
+        generateTopicsFromLesson(subject, Information.topics);
     }
 
     public static void generateTopicsFromLesson(XElement subject, List<Topic> topicsToAdd)
@@ -422,7 +297,6 @@ public class ParseData
             string lessonName = lesson.Name.ToString();
             if (!lessonName.Contains("lesson") && !lessonName.Contains("test"))
             {
-
                 continue;
             }
             currTopic.name = lesson.Attribute("name").Value;
@@ -432,13 +306,11 @@ public class ParseData
                 currTopic.isTest = true;
             }
             currTopic.element = lesson;
-            //     Debug.LogError(lesson.Attribute("name").Value + " current lesson");
             float currLevel = 0.5f;
 
             if (float.TryParse(lesson.Attribute("level").Value, out currLevel))
             {
                 currLevel /= 10;
-                //      Debug.LogError("defualt level for: " + lesson.Attribute("name").Value);
             }
 
             currTopic.level = currLevel;

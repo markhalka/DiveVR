@@ -1,10 +1,4 @@
-﻿using IBM.Cloud.SDK;
-using IBM.Cloud.SDK.Authentication.Iam;
-using IBM.Cloud.SDK.Utilities;
-using IBM.Watson.SpeechToText.V1;
-using IBM.Watson.ToneAnalyzer.V3;
-using IBM.Watson.ToneAnalyzer.V3.Model;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +19,7 @@ using UnityEngine.UI;
 //ok, then take a look at media pipe, run it on the desktop, and see if you can keep track of the users movments
 //then try and program in some parameters for what counts as "good" hand gestures and "bad" handgestures 
 //then you can start to add better people, and make the the whole thing more interactive 
-
+/*
 
 public class Presentation : MonoBehaviour
 {
@@ -948,7 +942,7 @@ public class Presentation : MonoBehaviour
 
                      yield return new WaitForSeconds(timeRemaining);
                  }
-             }*/
+             }*/ /*
         yield break;
     }
 
@@ -1141,3 +1135,4 @@ public class Presentation : MonoBehaviour
 
     #endregion
 }
+*/

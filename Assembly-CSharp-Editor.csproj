@@ -63,13 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Awesome Charts\Core\Scripts\Editor\AxisBaseEditor.cs" />
-    <Compile Include="Assets\Awesome Charts\Core\Scripts\Editor\BarChartConfigEditor.cs" />
-    <Compile Include="Assets\Awesome Charts\Core\Scripts\Editor\BarEntryDrawer.cs" />
-    <Compile Include="Assets\Awesome Charts\Core\Scripts\Editor\ChartMenuItems.cs" />
-    <Compile Include="Assets\Awesome Charts\Core\Scripts\Editor\LineEntryDrawer.cs" />
-    <Compile Include="Assets\Awesome Charts\Core\Scripts\Editor\XAxisEditor.cs" />
-    <Compile Include="Assets\Awesome Charts\Core\Scripts\Editor\YAxisEditor.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Editor\DemoInputManagerEditor.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Editor\PermissionsDemoBuildProcessor.cs" />
     <Compile Include="Assets\GoogleVR\Editor\Controller\GvrControllerVisualEditor.cs" />
@@ -83,7 +76,13 @@
     <Compile Include="Assets\GoogleVR\Editor\GvrEditorSettings.cs" />
     <Compile Include="Assets\GoogleVR\Editor\GvrHeadsetEditor.cs" />
     <Compile Include="Assets\GoogleVR\Editor\InstantPreviewEditor.cs" />
-    <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver_v1.2.135.0.txt" />
+    <Compile Include="Assets\ThirdParty\Awesome Charts\Core\Scripts\Editor\AxisBaseEditor.cs" />
+    <Compile Include="Assets\ThirdParty\Awesome Charts\Core\Scripts\Editor\BarChartConfigEditor.cs" />
+    <Compile Include="Assets\ThirdParty\Awesome Charts\Core\Scripts\Editor\BarEntryDrawer.cs" />
+    <Compile Include="Assets\ThirdParty\Awesome Charts\Core\Scripts\Editor\ChartMenuItems.cs" />
+    <Compile Include="Assets\ThirdParty\Awesome Charts\Core\Scripts\Editor\LineEntryDrawer.cs" />
+    <Compile Include="Assets\ThirdParty\Awesome Charts\Core\Scripts\Editor\XAxisEditor.cs" />
+    <Compile Include="Assets\ThirdParty\Awesome Charts\Core\Scripts\Editor\YAxisEditor.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/pc/Desktop/VR1/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -335,27 +334,6 @@
     </Reference>
     <Reference Include="Google.ProtocolBuffers">
       <HintPath>C:/Users/pc/Desktop/VR1/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
-    </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>C:/Users/pc/Desktop/VR1/Assets/IBMSdkCore/Plugins/websocket-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>C:/Users/pc/Desktop/VR1/Assets/IBMSdkCore/ThirdParty/JsonDotNet/Standalone/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.IOSResolver_v1.2.135.0">
-      <HintPath>C:/Users/pc/Desktop/VR1/Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.135.0.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.JarResolver_v1.2.135.0">
-      <HintPath>C:/Users/pc/Desktop/VR1/Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.135.0.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.VersionHandler">
-      <HintPath>C:/Users/pc/Desktop/VR1/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.VersionHandlerImpl_v1.2.135.0">
-      <HintPath>C:/Users/pc/Desktop/VR1/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.135.0.dll</HintPath>
-    </Reference>
-    <Reference Include="NSubstitute">
-      <HintPath>C:/Users/pc/Desktop/VR1/Assets/Watson/Plugins/NSubstitute.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>C:/Users/pc/Desktop/VR1/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
@@ -735,14 +713,6 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{4E2851C3-8316-A6C9-2963-8B192AB05CDA}</Project>
       <Name>Assembly-CSharp</Name>
-    </ProjectReference>
-    <ProjectReference Include="IBM.Cloud.SDK.csproj">
-      <Project>{94EE8540-D3B0-2416-BD39-DAEA3817F046}</Project>
-      <Name>IBM.Cloud.SDK</Name>
-    </ProjectReference>
-    <ProjectReference Include="WatsonUnitySDK.csproj">
-      <Project>{99F63D77-C762-F848-8712-0A68EEFC6341}</Project>
-      <Name>WatsonUnitySDK</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

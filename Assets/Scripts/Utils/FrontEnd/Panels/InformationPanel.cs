@@ -1,14 +1,8 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
-
-//ok, so for some reason in the tutorial it closes when you click next 
-
-//ok, just do it here, just have a public function I guess, that shows the pretest before anything else
-//than you can store information.was pretest 
-
 
 
 public class InformationPanel : MonoBehaviour
@@ -27,12 +21,19 @@ public class InformationPanel : MonoBehaviour
     public AudioClip close;
     public AudioClip flip;
 
+
     public GameObject panelContainer;
     public GameObject centerContainer;
     public GameObject leftcontainer;
     public GameObject rightContainer;
 
+    public GameObject quizPanel;
+    public GameObject hintPanel;
+    public GameObject pretestPanel;
+    public GameObject postTest;
 
+
+    public Button startQuizButton;
     public Button quizButtonCenter;
     public Button quizButtonLeft;
 
@@ -40,45 +41,27 @@ public class InformationPanel : MonoBehaviour
     public Button soundButtonLeft;
     public Button soundButtonRight;
 
-    public GameObject quizPanel;
-    public Button startQuizButton;
-
-    public GameObject hintPanel;
     public Button hintButton;
 
-    public GameObject pretestPanel;
     public Button pretestNotOkButton;
     public Button pretestOkButton;
     public Button dontShowAgain;
 
-    public GameObject postTest;
     public Button postTestOk;
 
+    public enum MenuPosition { RIGHT, LEFT, CENTER };
+    MenuPosition currentPosition = MenuPosition.CENTER;
 
 
-
-
-    public bool shouldStayCenter = true;
-    public bool shouldStayRight = true;
-
-    //you also need to get rid of the center panel, in all cases
-
-
-
-    //ok, so for some reason this shit isn't working right now
-
-    //
-
+    int startOffset = 0;
+    List<int> startPanels;
     void Start()
     {
-
-        //   quizButtonCenter.onClick.AddListener(delegate { startQuiz(); });
-        //    quizButtonLeft.onClick.AddListener(delegate { startQuiz(); });
-
         closeOnEnd = true;
+        startOffset = 0;
+        startPanels = new List<int>();
 
-        shouldStayCenter = true;
-        setCenter(shouldStayCenter);
+        setPosition(currentPosition);
 
         hintButton.onClick.AddListener(delegate { takeHint(); });
         startQuizButton.onClick.AddListener(delegate { startQuiz(); });
@@ -89,12 +72,34 @@ public class InformationPanel : MonoBehaviour
 
         postTestOk.onClick.AddListener(delegate { takePostTestOk(); });
 
-
-
         if (Information.showPreTest && !isTutorialPanel && Information.isQuiz == 0)
         {
             showPreTest();
         }
+    }
+
+    void initStartPanels()
+    {
+        startPanels = new List<int>();
+        startOffset = 0;
+        for (int i = 0; i < Information.userModels.Count; i++)
+        {
+            if (Information.userModels[i].section == -1)
+            {
+                startOffset++;
+                startPanels.Add(i);
+            }
+        }
+        if (startOffset > 0)
+        {
+            changeStart();
+        }
+    }
+
+    //this method should not close it, but it should just show the next text 
+    //you need to redefine what the buttons do...
+    void changeStart()
+    {
 
     }
 
@@ -105,69 +110,9 @@ public class InformationPanel : MonoBehaviour
         panelContainer.SetActive(true); //??
     }
 
-    //also, for the pretest, you shouldn't get hints 
-    #region pretest stuff
-    public bool isTutorialPanel = false;
-    void showPreTest()
-    {
-        pretestPanel.transform.SetParent(panelContainer.transform);
-        pretestPanel.SetActive(true);
-        justTitle.transform.parent.gameObject.SetActive(false);
-        shouldStayCenter = true;
-        //   panelContainer.SetActive(false);
-
-    }
-
-    void pretestOk()
-    {
-        Debug.LogError("called again");
-        Information.isQuiz = 1;
-        Information.wasPreTest = true;
-        //  StartCoroutine(enterAniamtion());
-        panelContainer.SetActive(false);
-        quizPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = "Not sure";
-        StartCoroutine(exitAnimation()); //double check
-    }
-
-    void pretestNotOk()
-    {
-        //StartCoroutine(exitAnimation());
-        pretestPanel.transform.SetParent(pretestPanel.transform.parent.parent); //get rid of that
-        shouldStayCenter = true;
-        setCenter(shouldStayCenter); //that should set it up for init staret panels 
-        pretestPanel.SetActive(false); //that should allow the other things to show up
-
-        //put everything back to normal
-    }
-
-    void takeDontShowAgain()
-    {
-        Information.showPreTest = false;
-        XMLWriter.savePreTestConfig();
-        pretestNotOk();
-    }
-
-    #endregion
-
-
-    public void showHintPanel()
-    {
-        hintPanel.SetActive(true);
-    }
-
-    public void closeHintPanel()
-    {
-        hintPanel.SetActive(false);
-    }
-
-
-
 
     public void takeHint()
     {
-        //  source.clip = button;
-        //    source.Play();
-
         GameObject curr = null;
         switch (Information.subject)
         {
@@ -198,10 +143,7 @@ public class InformationPanel : MonoBehaviour
             default:
                 Debug.LogError("could not find the current subject");
                 break;
-
         }
-
-
     }
 
 
@@ -213,16 +155,11 @@ public class InformationPanel : MonoBehaviour
             buttonPause++;
         }
 
-
-
         if (Information.wasPreTest && Information.isQuiz == 0 && pretestPanel.activeSelf && !isTutorialPanel && !postTest.activeSelf)
         {
-            Debug.LogError("hereee");
             quizPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = "Start Quiz";
             pretestNotOk();
-            //  Information.wasPreTest = false;
             panelContainer.SetActive(false);
-
             postTest.SetActive(true);
         }
 
@@ -230,7 +167,6 @@ public class InformationPanel : MonoBehaviour
         {
             if (!Information.panelClosed && !newModelLoaded && !pretestPanel.activeSelf)
             {
-                Debug.LogError("this was good");
                 loadNewModel();
             }
         }
@@ -241,11 +177,6 @@ public class InformationPanel : MonoBehaviour
                 loadNewModel();
             }
         }
-
-
-
-
-
     }
 
     void startQuiz()
@@ -263,15 +194,17 @@ public class InformationPanel : MonoBehaviour
             quizPanel.SetActive(false);
         }
 
-        StartCoroutine(exitAnimation());
+        StartCoroutine(moveAnimation(false));
     }
 
-    public void setCenter(bool center)
+    public void setPosition(MenuPosition position)
     {
-        panelContainer.transform.localPosition = new Vector3(0, 0, 0);
-        shouldStayCenter = center;
 
-        if (center)
+        currentPosition = position;
+
+        panelContainer.transform.localPosition = new Vector3(0, 0, 0);
+
+        if (position == MenuPosition.CENTER)
         {
             centerContainer.transform.SetParent(panelContainer.transform);
 
@@ -282,10 +215,8 @@ public class InformationPanel : MonoBehaviour
 
             leftcontainer.SetActive(false);
             rightContainer.SetActive(false);
-
-
         }
-        else
+        else if (position == MenuPosition.LEFT)
         {
             leftcontainer.transform.SetParent(panelContainer.transform);
 
@@ -296,33 +227,7 @@ public class InformationPanel : MonoBehaviour
 
             centerContainer.SetActive(false);
             rightContainer.SetActive(false);
-
-            shouldStayRight = false;
-
-        }
-
-        simple = panelContainer.transform.GetChild(0).GetChild(3).GetComponent<TMPro.TMP_Text>();
-        advanced = panelContainer.transform.GetChild(0).GetChild(2).GetComponent<TMPro.TMP_Text>();
-
-        if (centerContainer.activeSelf)
-        {
-            //  panelContainer.transform.localPosition = centerExit;
-        }
-        else if (leftcontainer.activeSelf)
-        {
-            panelContainer.transform.localPosition = leftExit;
-        }
-
-        initPanelButtons();
-
-    }
-
-
-    public void setLeftorRight(bool right)
-    {
-        panelContainer.transform.localPosition = new Vector3(0, 0, 0);
-        shouldStayCenter = false;
-        if (right)
+        } else
         {
             rightContainer.transform.SetParent(panelContainer.transform);
 
@@ -333,35 +238,21 @@ public class InformationPanel : MonoBehaviour
 
             leftcontainer.SetActive(false);
             centerContainer.SetActive(false);
-
-            shouldStayRight = true;
-
-        }
-        else
-        {
-            leftcontainer.transform.SetParent(panelContainer.transform);
-
-            rightContainer.transform.SetParent(transform);
-            centerContainer.transform.SetParent(transform);
-
-            leftcontainer.SetActive(true);
-
-            rightContainer.SetActive(false);
-            centerContainer.SetActive(false);
-
-            shouldStayRight = false;
-
         }
 
         simple = panelContainer.transform.GetChild(0).GetChild(3).GetComponent<TMPro.TMP_Text>();
         advanced = panelContainer.transform.GetChild(0).GetChild(2).GetComponent<TMPro.TMP_Text>();
-        if (rightContainer.activeSelf)
+
+        if (centerContainer.activeSelf)
         {
-            panelContainer.transform.localPosition = rightExit;
+            panelContainer.transform.localPosition = centerExit;
         }
         else if (leftcontainer.activeSelf)
         {
             panelContainer.transform.localPosition = leftExit;
+        } else if (rightContainer.activeSelf)
+        {
+            panelContainer.transform.localPosition = rightExit;
         }
         initPanelButtons();
     }
@@ -371,21 +262,16 @@ public class InformationPanel : MonoBehaviour
 
     public void loadNewModel()
     {
-        Debug.LogError("neow model loaded");
-
         wasShowingTitle = justTitle.gameObject.activeSelf;
-        Debug.LogError(wasShowingTitle + " was showing title");
         justTitle.transform.parent.gameObject.SetActive(false);
         simple.text = justTitle.text; //maybe?
-        Debug.LogError("noew model loaded");
         source.clip = open;
         source.Play();
 
         if (closeOnEnd && !simpleClose)
         {
-            StartCoroutine(enterAniamtion());
+            StartCoroutine(moveAnimation(true));
         }
-
 
         newModelLoaded = true;
         if (Information.userModels == null && Information.tutorialModel == null)
@@ -416,118 +302,69 @@ public class InformationPanel : MonoBehaviour
     public Vector3 leftStart;
     public Vector3 leftExit;
 
-
     public Vector3 centerStart;
     public Vector3 centerExit;
 
     bool wasShowingTitle = false;
 
-    IEnumerator enterAniamtion()
+    IEnumerator moveAnimation(bool enter)
     {
         float count = 0;
         Vector3 start, end;
+        start = end = new Vector3(0, 0, 0);
 
-        if (shouldStayCenter)
+        switch (currentPosition)
         {
-            //it comes from the bottom
-
-            end = centerStart;
-            start = centerExit;
-        }
-        else
-        {
-            if (shouldStayRight)
-            {
-                end = rightStart;
-                start = rightExit;
-
-            }
-            else
-            {
+            case MenuPosition.CENTER:
+                end = centerStart;
+                start = centerExit;
+                break;
+            case MenuPosition.LEFT:
                 end = leftStart;
                 start = leftExit;
-            }
-            //it comes from the side 
-
+                break;
+            case MenuPosition.RIGHT:
+                end = rightStart;
+                start = rightExit;
+                break;
         }
+
+        if (!enter)
+        {
+            var temp = start;
+            start = end;
+            end = temp;
+        }
+
 
         while (count <= 1)
         {
             count += 0.1f;
             panelContainer.transform.localPosition = Vector3.Lerp(start, end, count);
-            //   panelContainer.transform
-
             yield return new WaitForSeconds(0.02f);
         }
 
-    }
-
-    //i think that should work
-
-    IEnumerator exitAnimation()
-    {
-        float count = 0;
-        Vector3 start, end;
-
-        if (shouldStayCenter)
+        if (!enter)
         {
-            //it comes from the bottom
-            start = centerStart;
-            end = centerExit;
-        }
-        else
-        {
-
-            //it comes from the side 
-            if (shouldStayRight)
+            panelContainer.gameObject.SetActive(false);
+            if (Information.isQuiz == 1)
             {
-                start = rightStart;
-                end = rightExit;
-
+                Debug.LogError("ok now its true");
+                wasShowingTitle = true;
             }
-            else
+            if (wasShowingTitle)
             {
-                start = leftStart;
-                end = leftExit;
+
+                justTitle.transform.parent.gameObject.SetActive(true);
             }
+            newModelLoaded = false;
         }
-
-        while (count <= 1)
-        {
-            count += 0.1f;
-            panelContainer.transform.localPosition = Vector3.Lerp(start, end, count);
-
-            yield return new WaitForSeconds(0.02f);
-        }
-        // gameObject.SetActive(false);
-        panelContainer.gameObject.SetActive(false);
-        if (Information.isQuiz == 1)
-        {
-            Debug.LogError("ok now its true");
-            wasShowingTitle = true;
-        }
-
-        if (wasShowingTitle)
-        {
-
-            justTitle.transform.parent.gameObject.SetActive(true);
-        }
-
-
-
-
-        newModelLoaded = false;
     }
-
-
 
 
     void OnDisable()
     {
-
         Information.tutorialModel = null;
-
-
     }
 
     Model getModel()
@@ -546,12 +383,8 @@ public class InformationPanel : MonoBehaviour
 
     void initPanelButtons()
     {
-
-
         Button next = panelContainer.transform.GetChild(0).GetChild(1).GetComponent<Button>();
         Button back = panelContainer.transform.GetChild(0).GetChild(0).GetComponent<Button>();
-
-
 
         next.onClick.AddListener(delegate { takeInformationClick(true); });
         back.onClick.AddListener(delegate { takeInformationClick(false); });
@@ -559,7 +392,6 @@ public class InformationPanel : MonoBehaviour
         soundButtonCenter.onClick.AddListener(delegate { takeSound(); });
         soundButtonLeft.onClick.AddListener(delegate { takeSound(); });
         soundButtonRight.onClick.AddListener(delegate { takeSound(); });
-
     }
 
     //here you would use the microsoft azure shit
@@ -570,6 +402,8 @@ public class InformationPanel : MonoBehaviour
 
     public int buttonPause = 0;
     public int buttonThres = 15;
+
+    //you need to double check this method 
     public int takeInformationClick(bool next)
     {
         if (buttonPause < buttonThres)
@@ -598,7 +432,7 @@ public class InformationPanel : MonoBehaviour
             Debug.LogError("it is null for some reason");
             return -1;
         }
-        Debug.LogError(currentModel.advancedInfo.Count + " " + Information.lableIndex);
+
         if (Information.lableIndex >= currentModel.advancedInfo.Count)
         {
             Information.lableIndex = 0;
@@ -611,8 +445,6 @@ public class InformationPanel : MonoBehaviour
 
         if (output == 1)
         {
-
-            Debug.LogError("reached the end " + closeOnEnd);
             if (closeOnEnd)
             {
                 source.clip = close;
@@ -626,13 +458,9 @@ public class InformationPanel : MonoBehaviour
                     }
                     else
                     {
-                        StartCoroutine(exitAnimation());
+                        StartCoroutine(moveAnimation(false));
                     }
-
                 }
-                //     StartCoroutine(exitAnimation()); //?
-
-
             }
             else
             {
@@ -649,4 +477,5 @@ public class InformationPanel : MonoBehaviour
 
         return output;
     }
+
 }

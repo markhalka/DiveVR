@@ -9,13 +9,11 @@ public class Inquiry : MonoBehaviour
     public Button skip;
     public TMPro.TMP_Text text;
     public TMPro.TMP_InputField inputField;
-    XMLReader reader;
 
     void Start()
     {
         initButtons();
         showText();
-        reader = new XMLReader();
     }
 
     void showText()
@@ -31,7 +29,7 @@ public class Inquiry : MonoBehaviour
     }
     void takeSubmit()
     {
-        var lesson = reader.findInformationLessonDoc();
+        var lesson = XMLReader.findInformationLessonDoc();
         lesson.Add(new XElement("inquiry", new XAttribute("date", DateTime.Today.ToString("MM/dd/yyyy")), inputField.text));
         takeSkip();
     }

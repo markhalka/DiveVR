@@ -329,15 +329,6 @@
     <Reference Include="Google.ProtocolBuffers">
       <HintPath>C:/Users/pc/Desktop/VR1/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
     </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>C:/Users/pc/Desktop/VR1/Assets/IBMSdkCore/Plugins/websocket-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>C:/Users/pc/Desktop/VR1/Assets/IBMSdkCore/ThirdParty/JsonDotNet/Standalone/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="NSubstitute">
-      <HintPath>C:/Users/pc/Desktop/VR1/Assets/Watson/Plugins/NSubstitute.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>C:/Users/pc/Desktop/VR1/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
@@ -701,16 +692,6 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/2019.1.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="IBM.Cloud.SDK.csproj">
-      <Project>{94EE8540-D3B0-2416-BD39-DAEA3817F046}</Project>
-      <Name>IBM.Cloud.SDK</Name>
-    </ProjectReference>
-    <ProjectReference Include="WatsonUnitySDK.csproj">
-      <Project>{99F63D77-C762-F848-8712-0A68EEFC6341}</Project>
-      <Name>WatsonUnitySDK</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

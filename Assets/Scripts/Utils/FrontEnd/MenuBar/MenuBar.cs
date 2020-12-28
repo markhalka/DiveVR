@@ -1,7 +1,4 @@
-﻿using IBM.Cloud.SDK;
-using IBM.Cloud.SDK.Authentication.Iam;
-using IBM.Cloud.SDK.Utilities;
-using IBM.Watson.TextToSpeech.V1;
+﻿
 using PlayFab.Internal;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,56 +11,56 @@ using UnityEngine.UI;
 public class MenuBar : MonoBehaviour
 {
 
-
-    public GameObject mainMenu;
-    public GameObject showQuiz;
-    public GameObject showTutorial;
-
-
-    public Button backButton;
-    public Button quitButton;
-    public Button settingsButton;
-    public Button quizButton;
-    public Button helpQuestion;
-    public Button tutorialButton;
-    public Button openMenu;
-    public Button previousSceneButton;
-
-    public Button backToHomeButton;
-
-    public Button showQuizOk;
-    public Button showQuizNo;
-
-    public Button showTutorialOk;
-    public Button showTutorialNo;
+    /*
+      public GameObject mainMenu;
+      public GameObject showQuiz;
+      public GameObject showTutorial;
 
 
+      public Button backButton;
+      public Button quitButton;
+      public Button settingsButton;
+      public Button quizButton;
+      public Button helpQuestion;
+      public Button tutorialButton;
+      public Button openMenu;
+      public Button previousSceneButton;
 
-    public AudioClip buttonSound;
-    public AudioClip menuOpen;
-    public AudioClip menuClose;
-    public AudioSource source;
+      public Button backToHomeButton;
 
-    public Vector3 start;
-    public Vector3 end;
+      public Button showQuizOk;
+      public Button showQuizNo;
+
+      public Button showTutorialOk;
+      public Button showTutorialNo;
 
 
 
+      public AudioClip buttonSound;
+      public AudioClip menuOpen;
+      public AudioClip menuClose;
+      public AudioSource source;
+
+      public Vector3 start;
+      public Vector3 end;
 
 
-    private void Start()
-    {
-        backButton.onClick.AddListener(delegate { back(); });
-        quitButton.onClick.AddListener(delegate { takeQuitSave(); });
-        settingsButton.onClick.AddListener(delegate { settings(); });
-        //    quizButton.onClick.AddListener(delegate { startQuiz(); });
-        previousSceneButton.onClick.AddListener(delegate { quitModule(); });
-        // lessonButton.onClick.AddListener(delegate { takeLesson(); });
-        helpQuestion.onClick.AddListener(delegate { takeHelpQuestion(); });
-        tutorialButton.onClick.AddListener(delegate { takeTutorial(); });
-        /*    tutorialPanelButton.onClick.AddListener(delegate { takeTutorialPanel(); });
-            tutorialPanelButton.onClick.AddListener(delegate { takeTutorialBack(); });*/
-        backToHomeButton.onClick.AddListener(delegate { takeBackToHome(); });
+
+
+
+      private void Start()
+      {
+          backButton.onClick.AddListener(delegate { back(); });
+          quitButton.onClick.AddListener(delegate { takeQuitSave(); });
+          settingsButton.onClick.AddListener(delegate { settings(); });
+          //    quizButton.onClick.AddListener(delegate { startQuiz(); });
+          previousSceneButton.onClick.AddListener(delegate { quitModule(); });
+          // lessonButton.onClick.AddListener(delegate { takeLesson(); });
+          helpQuestion.onClick.AddListener(delegate { takeHelpQuestion(); });
+          tutorialButton.onClick.AddListener(delegate { takeTutorial(); });
+          /*    tutorialPanelButton.onClick.AddListener(delegate { takeTutorialPanel(); });
+              tutorialPanelButton.onClick.AddListener(delegate { takeTutorialBack(); });*/ /*
+    backToHomeButton.onClick.AddListener(delegate { takeBackToHome(); });
 
         showQuizOk.onClick.AddListener(delegate { takeQuizOk(); });
         showQuizNo.onClick.AddListener(delegate { showQuiz.SetActive(false); });
@@ -99,17 +96,8 @@ public class MenuBar : MonoBehaviour
 
     public void takeQuitSave()
     {
-        Debug.LogError("it is now saving...");
-        /*   if(Information.username == "test@email.com")
-           {
-               Information.xmlDoc.Save("C:/users/hithe/Desktop/tempxml.xml");
-               return;
-           }*/
 
         Debug.LogError("here");
-        /*  if (Information.topics != null)
-              XMLWriter.saveTopics(Information.grade, Information.subject);
-              */
         StartCoroutine(saveToWebsite());
     }
 
@@ -131,42 +119,10 @@ public class MenuBar : MonoBehaviour
         uwr.chunkedTransfer = false;
         uwr.certificateHandler = certHandler;
 
-        /*   using (UnityWebRequest www = UnityWebRequest.Put(Information.saveFileUrl + Information.username, dataToPut))
-               {
-                   yield return www.Send();
-
-                   if (www.isNetworkError || www.isHttpError)
-                   {
-                       Debug.Log(www.error);
-                   }
-                   else
-                   {
-                       Debug.Log("Upload complete!");
-                   }
-               }
-           */
-
-
         yield return uwr.SendWebRequest();
 
         Debug.LogError("done saving file...");
-        /*
-                if (uwr.isNetworkError)
-                {
-                    Debug.Log("Error While Sending: " + uwr.error);
-                }
-                else
-                {
-                    Debug.Log("Received: " + uwr.downloadHandler.text);
-                }
-
-                //that should save the points as well
-
-                uwr = UnityWebRequest.Get(Information.saveEarnedPointsUrl + Information.username + "/" + Information.pastPointsDate + "&" + Information.totalEarnedPoints + "&" + Information.maxDivePoints); //date, amount of points, max points 
-                yield return uwr.SendWebRequest();
-
-                Debug.LogError("don sending"); */
-
+     
         // Application.Quit();
 
     }
@@ -250,69 +206,7 @@ public class MenuBar : MonoBehaviour
         back();
     }
 
-    /*
-        bool wasChecked = false;
-        public void checkTutorial()
-        {
-            wasChecked = true;
-            foreach (var scene in Information.loadDoc.Descendants("scene"))
-            {
-                if (scene.Attribute("name").Value.Contains(Information.currentScene))
-                {
-                    if (scene.Attribute("date") == null)
-                    {
-                        scene.Add(new XAttribute("date", DateTime.Today.ToString("MM/dd/yyyy")));
-                        tutorialPanel.transform.GetChild(1).GetComponent<Text>().text = "It looks like it's your first time, would you like a tutorial?";
-                        XMLWriter.saveLoadFile();
-                        tutorialPanel.SetActive(true);
-                        return;
-                    }
-                    else
-                    {
-                        DateTime lastDate = DateTime.Parse(scene.Attribute("date").Value);
-                        var diff = DateTime.Today - lastDate;
-                        if (diff.Days > 14) //its been two weeks since their last tutorial
-                        {
-                            tutorialPanel.transform.GetChild(1).GetComponent<Text>().text = "It looks like it's been a while, would you like a tutorial?";
-                            scene.Attribute("date").Value = DateTime.Today.ToString("MM/dd/yyyy");
-                            tutorialPanel.SetActive(true);
-                            XMLWriter.saveLoadFile();
-                            return;
-                        }
-                    }
-                }
-            }
-        }
-
-        void takeTutorialPanel()
-        {
-            tutorialPanel.SetActive(false);
-            takeTutorial();
-        }
-
-        void takeTutorialBack()
-        {
-            source.clip = buttonSound;
-            source.Play();
-
-            tutorialPanel.SetActive(false);
-            //update the day here so they don't get the message everytime 
-
-            foreach (var scene in Information.loadDoc.Descendants("scene"))
-            {
-                if (scene.Attribute("date") == null)
-                {
-                    scene.Add(new XAttribute("date", DateTime.Today.ToString("MM/dd/yyyy")));
-                    XMLWriter.saveLoadFile();
-                }
-                else
-                {
-                    scene.Attribute("date").Value = DateTime.Today.ToString("MM/dd/yyyy");
-                    XMLWriter.saveLoadFile();
-                }
-            }
-        }
-        */
+   
 
     void takeOpenMenu()
     {
@@ -509,7 +403,7 @@ public class MenuBar : MonoBehaviour
 
         }
     }
-
+  
     #region textToSpeech
 
 
@@ -686,6 +580,6 @@ public class MenuBar : MonoBehaviour
     }
     #endregion
 
-
+    */
 
 }

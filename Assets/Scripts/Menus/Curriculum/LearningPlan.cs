@@ -6,14 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class LearningPlan
 {
-    public XMLReader reader;
     List<Topic> currGradeDefualt;
     GameObject learningPlanUpdated;
     public LearningPlan(List<Topic> topics, GameObject learningPlanUpdated)
     {
         this.learningPlanUpdated = learningPlanUpdated;
         currGradeDefualt = topics;
-        reader = new XMLReader();
     }
 
     public void createNewLearningPlan()
@@ -27,8 +25,8 @@ public class LearningPlan
         bool isIncluded = true;
 
         XElement currLesson = null;
-        XElement grade = reader.findGrade(Information.xmlDoc, Information.grade);
-        XElement subject = reader.findSubject(grade, Information.subject);
+        XElement grade = XMLReader.findGrade(Information.xmlDoc, Information.grade);
+        XElement subject = XMLReader.findSubject(grade, Information.subject);
         currLesson = subject;
 
         if (currLesson == null)

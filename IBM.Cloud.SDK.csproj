@@ -377,9 +377,6 @@
     <Reference Include="Google.VersionHandlerImpl_v1.2.135.0">
       <HintPath>C:/Users/pc/Desktop/VR1/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.135.0.dll</HintPath>
     </Reference>
-    <Reference Include="NSubstitute">
-      <HintPath>C:/Users/pc/Desktop/VR1/Assets/Watson/Plugins/NSubstitute.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>C:/Users/pc/Desktop/VR1/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>

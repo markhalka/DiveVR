@@ -17,7 +17,6 @@ public class Curriculum : MonoBehaviour
     public AudioSource source;
     public AudioClip buttonSound;
     public AudioClip sort;
-    public XMLReader reader;
 
     //two problems with this:
     //after the placment test, have some sort of panel that shays good job or something
@@ -36,8 +35,6 @@ public class Curriculum : MonoBehaviour
 
     void Start()
     {
-
-        reader = new XMLReader();
         utility = new utilities();
       
         addListeners();
@@ -127,8 +124,8 @@ public class Curriculum : MonoBehaviour
     XElement currentElement;
     void getCurrentGradeDefualt()
     {
-        var grade = reader.findGrade(Information.loadDoc, Information.grade);
-        var subject = reader.findSubject(grade, Information.subject);
+        var grade = XMLReader.findGrade(Information.loadDoc, Information.grade);
+        var subject = XMLReader.findSubject(grade, Information.subject);
 
         currentElement = subject;
 
@@ -244,8 +241,8 @@ public class Curriculum : MonoBehaviour
 
     void saveOrderToFile()
     {
-        var grade = reader.findGrade(Information.xmlDoc, Information.grade);
-        var currLesson = reader.findSubject(grade, Information.subject);
+        var grade = XMLReader.findGrade(Information.xmlDoc, Information.grade);
+        var currLesson = XMLReader.findSubject(grade, Information.subject);
 
         currLesson.Add(new XAttribute("name", Information.subject));
 

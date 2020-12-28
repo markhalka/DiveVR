@@ -11,14 +11,22 @@ public class Database : MonoBehaviour
     public GameObject startPanel;
     public GameObject verticalScroll;
 
-    public Sprite[] scientificNamesSprite;
-    public Sprite[] ecosystemNames;
-    public Sprite[] tectonicNames;
+    public Sprite[] classificationSprites;
+    public Sprite[] ecosystemSprites;
+    public Sprite[] tectonicSprites;
+    public Sprite[] animalSprites;
+    public Sprite[] scientificNameSprites;
+
 
     public AudioSource source;
     public AudioClip swipe;
     public AudioClip click;
 
+    public GameObject lessonGb;
+
+    //ok, now get the start panel working well
+    //than get the tectonic shit working 
+    
 
     void Start()
     {
@@ -58,23 +66,24 @@ public class Database : MonoBehaviour
     
     void initDatabase()
     {
+        currLesson = lessonGb.GetComponent<LessonDb>();
         switch (Information.nextScene)
         {
             case 8: //classifcation
-                currLesson = new ClassificationDb(startOffset);
+                currLesson = new ClassificationDb(startOffset, classificationSprites);
                 break;
             case 9: //scientific names      
-                currLesson = new ScientificNamesDb(startOffset);
+                currLesson = new ScientificNamesDb(startOffset, scientificNameSprites);
                 break;
             case 10:
-                currLesson = new animalLifeCycleDb(startOffset);
+                currLesson = new animalLifeCycleDb(startOffset, animalSprites);
                 break;
             case 38:
-                currLesson = new tectonicDb(startOffset);
+                currLesson = new tectonicDb(startOffset, tectonicSprites);
                 break;
 
             case 41:
-                currLesson = new identifyEcosystemDb(startOffset);
+                currLesson = new identifyEcosystemDb(startOffset, ecosystemSprites);
                 break;
 
         }
@@ -83,330 +92,12 @@ public class Database : MonoBehaviour
     }
 
 
-    public abstract class LessonDb
-    {
-        public GameObject vsChild;
-        public GameObject verticalScroll;
-        public GameObject panelGb;
-
-        public Panel panel;
-
-        public Sprite[] currentSprites;
-        public string[] currentNames;
-
-        public int startOffset;
 
 
-        public LessonDb(int startOffset)
-        {
-            this.startOffset = startOffset;
-        }
-
-        public virtual void initLadder()
-        {
-
-        }
-
-        public virtual void update()
-        {
-
-        }
-    }
-
-    public class ClassificationDb : LessonDb
-    {
-        public Sprite[] classificationNames;
-        int[] classificationIndecies = new int[] { 0, 2, 5, 8, 11, 12, 14, 14 };
-        public ClassificationDb(int startOffset) : base(startOffset)
-        {
-            currentNames = new string[7];
-            for (int i = startOffset; i < 9; i++)
-            {
-                currentNames[i - startOffset] = Information.userModels[i].simpleInfo[0];
-            }
-
-            initLadder();
-        }
-
-       public override void initLadder()
-        {
-            for (int i = 0; i < currentNames.Length; i++)
-            {
-
-                GameObject currChild = Instantiate(vsChild, vsChild.transform, false);
-                currChild.transform.SetParent(verticalScroll.transform.GetChild(0));
-
-                currChild.gameObject.SetActive(true);
-                GameObject page = currChild.transform.GetChild(0).GetChild(0).gameObject;
-                currChild.transform.GetChild(1).GetComponent<Text>().text = currentNames[i];
-                currChild.transform.GetChild(0).GetComponent<Image>().color = Information.colors[i % Information.colors.Length];
-
-                GameObject image = page.transform.GetChild(0).GetChild(0).gameObject;
-
-                for (int j = classificationIndecies[i]; j < classificationNames.Length; j++)
-                {
-                    GameObject currAnimal = Instantiate(image, image.transform, true);
-                    currAnimal.transform.SetParent(image.transform.parent.parent.GetChild(0));
-                    currAnimal.GetComponent<Image>().sprite = classificationNames[j];    //ok, that should work 
-                    currAnimal.gameObject.SetActive(true);
-                }
-            }
-        }
-
-        public override void update()
-        {
-            if (Information.currentBox != null)
-            {
-                for (int i = 0; i < verticalScroll.transform.GetChild(0).childCount; i++)
-                {
-                    Transform image = verticalScroll.transform.GetChild(0).GetChild(i).GetChild(0);
-                    if (image.gameObject == Information.currentBox)
-                    {
-                        image.GetChild(0).gameObject.SetActive(true);
-                        Information.panelIndex = startOffset + i - 1;
-                        panel.showPanel();
-                    }
-                    else
-                    {
-                        image.GetChild(0).gameObject.SetActive(false);
-                    }
-                }
-                Information.currentBox = null;
-            }
-        }
-    }
-
-    public class animalLifeCycleDb : LessonDb
-    {
-       public Sprite[] lifecycleNames;
-        int[] lifecycleIndecies = new int[] { 0, 3, 7, 10, 14 };
-
-        public animalLifeCycleDb(int startOffset) : base(startOffset)
-        {
-
-        }
-        public void animalLifecycle()
-        {
-            currentSprites = new Sprite[lifecycleIndecies.Length - 1];
-            for (int i = 0; i < lifecycleIndecies.Length - 1; i++)
-            {
-                currentSprites[i] = lifecycleNames[lifecycleIndecies[i]];
-            }
-        }
 
 
-        public override void initLadder()
-        {
-
-            animalLifecycle();
-            for (int i = 0; i < currentSprites.Length; i++)
-            {
-                GameObject currChild = Instantiate(vsChild, vsChild.transform, false);
-                currChild.transform.SetParent(verticalScroll.transform.GetChild(0)); //i think that should work
-                currChild.gameObject.SetActive(true);
-                GameObject page = currChild.transform.GetChild(0).GetChild(0).gameObject;
-                currChild.transform.GetChild(0).GetComponent<Image>().sprite = currentSprites[i];
-
-                GameObject image = page.transform.GetChild(0).GetChild(0).gameObject;
-                for (int j = lifecycleIndecies[i] + 1; j < lifecycleIndecies[i + 1]; j++)
-                {
-
-                    GameObject currAnimal = Instantiate(image, image.transform, true);
-                    currAnimal.transform.SetParent(image.transform.parent.parent.GetChild(0));
-                    currAnimal.GetComponent<Image>().sprite = lifecycleNames[j];   //ok, that should work               
-                    currAnimal.gameObject.SetActive(true);
-
-                }
-            }
-            redoAnimalSprites();
-        }
-
-
-        public override void update()
-        {
-            if (Information.currentBox != null)
-            {
-                for (int i = 0; i < verticalScroll.transform.GetChild(0).childCount; i++)
-                {
-                    GameObject curr = verticalScroll.transform.GetChild(0).GetChild(i).GetChild(0).GetChild(0).gameObject;
-                    if (curr.gameObject.activeSelf)
-                    {
-                        for (int j = 0; j < curr.transform.GetChild(0).childCount; j++)
-                        {
-                            if (Information.currentBox == curr.transform.GetChild(0).GetChild(j).gameObject)
-                            {
-                                animalPartClick(i - 1, j);
-                                Information.currentBox = null;
-                                return;
-                            }
-                        }
-                    }
-                    Transform image = verticalScroll.transform.GetChild(0).GetChild(i).GetChild(0);
-                    if (image.gameObject == Information.currentBox)
-                    {
-                        image.GetChild(0).gameObject.SetActive(true);
-                        Information.panelIndex = lifecycleIndecies[i - 1] + startOffset;
-                        panel.showPanel();
-                    }
-                    else
-                    {
-                        image.GetChild(0).gameObject.SetActive(false);
-                    }
-                }
-
-                Information.currentBox = null;
-            }
-        }
-
-        public void redoAnimalSprites()
-        {
-            currentSprites = lifecycleNames;
-        }
-
-        public void getAllAnimalSprites()
-        {
-            currentSprites = lifecycleNames;
-        }
-
-        void animalPartClick(int mainAnimal, int animalPart)
-        {
-            Information.panelIndex = lifecycleIndecies[mainAnimal] + animalPart + startOffset;
-            panel.showPanel();
-            return;
-
-        }
-
-    }
-
-    public class tectonicDb : LessonDb
-    {
-        Sprite[] tectonicNames; //YOU NEED TO INIT THIS (just make it a general class)
-        public tectonicDb(int startOffset) : base(startOffset)
-        {
-         //   showFromClick = true;
-            currentSprites = tectonicNames;
-        }
-
-
-    }
-
-    public class identifyEcosystemDb : LessonDb
-    {
-        Sprite[] ecosystemNames;
-        public identifyEcosystemDb(int startOffset) : base(startOffset)
-        {
-            currentSprites = ecosystemNames;
-        }
-    }
-
-    public class ScientificNamesDb : LessonDb
-    {
-        Sprite[] scientificNamesSprites;
-        public ScientificNamesDb(int startOffset) : base(startOffset)
-        {
-            currentSprites = scientificNamesSprites;
-        }
-
-    }
 
     // this is the horizontal snap gameobject 
-    public class HorizontalSnap : MonoBehaviour
-    {
-
-        public AudioSource source;
-        public AudioClip swipe;
-        public AudioClip click;
-        public GameObject instructionsGb;
-        public TMP_Text test;
-        Sprite[] currentSprites; // MAKE SURE YOU INIT THIS 
-        public GameObject page1;
-        bool didSwipe = false;
-        int startOffset;
-
-        public GameObject panelGb;
-        public Panel panel;
-
-
-        public void Start()
-        {
-            // find a way to init Startoffset
-            panel = panelGb.GetComponent<Panel>();
-        }
-        void createHS()
-        {
-            GetComponent<UnityEngine.UI.Extensions.HorizontalScrollSnap>().OnSelectionChangeEndEvent.AddListener(delegate { pageChanged(); });
-            for (int i = 0; i < currentSprites.Length; i++)
-            {
-                GameObject newPage = Instantiate(page1, page1.transform, false);
-                newPage.transform.SetParent(transform.GetChild(0));
-                newPage.transform.GetChild(0).GetComponent<Image>().sprite = currentSprites[i];
-                newPage.gameObject.SetActive(true);
-            }
-
-            pageChanged();
-        }
-
-        void pageChanged()
-        {
-            source.clip = swipe;
-            source.Play();
-
-            int currentPage = GetComponent<UnityEngine.UI.Extensions.HorizontalScrollSnap>().CurrentPage;
-
-            if (currentPage > 0)
-            {
-                Debug.LogError("did swipe...");
-                didSwipe = true;
-            }
-
-            test.text = Information.userModels[currentPage + startOffset].simpleInfo[0];
-        }
-
-        void onHorizontalClick()
-        {
-            if (Information.currentBox != null)
-            {
-                source.clip = click;
-                source.Play();
-                showHSPanel();
-                Information.currentBox = null;
-            }
-        }
-
-        void showHSPanel()
-        {
-            int currentIndex = -1;
-            for (int i = 0; i < transform.GetChild(0).childCount; i++)
-            {
-                if (transform.GetChild(0).GetChild(i).GetChild(0).gameObject == Information.currentBox)
-                {
-                    currentIndex = i;
-                    break;
-                }
-            }
-            if (currentIndex == -1)
-            {
-                Debug.LogError("could not find the index for: " + Information.currentBox.name);
-                return;
-            }
-
-           // fancyAnimation();
-
-            Information.panelIndex = currentIndex + startOffset;
-            panel.showPanel();
-        }
-
-        bool setPanel = false;
-        public void Update()
-        {
-            if (!setPanel)
-            {
-             //   panel.transform.parent.GetComponent<InformationPanel>().setLeftorRight(true); //maybe?? //that should work 
-                pageChanged();
-            }
-            onHorizontalClick();
-        }
-    }
 
     List<GameObject> userButtons;
 
@@ -420,7 +111,7 @@ public class Database : MonoBehaviour
     int startOffset = -1;
     int currentButtonIndex = -1;
 
-  /*  void showPanel()
+    void showPanel()
     {
 
         Debug.LogError("showing informationp  panel");
@@ -511,5 +202,5 @@ public class Database : MonoBehaviour
         }
 
         currLesson.update();
-    } */
+    } 
 }
