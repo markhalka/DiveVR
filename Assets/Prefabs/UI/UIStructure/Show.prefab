@@ -2978,6 +2978,7 @@ GameObject:
   - component: {fileID: 4280447884583928750}
   - component: {fileID: 744516238880319320}
   - component: {fileID: 6696300129346577134}
+  - component: {fileID: 6391488656887306885}
   m_Layer: 5
   m_Name: Show
   m_TagString: Untagged
@@ -3034,35 +3035,21 @@ MonoBehaviour:
   close: {fileID: 8300000, guid: a6b5873cd1274c543a9c287509f1c4e2, type: 3}
   flip: {fileID: 8300000, guid: 290e820c15eb6fe4caa1fdc215ae7b4d, type: 3}
   panelContainer: {fileID: 2288078180352565600}
-  centerContainer: {fileID: 6009217173642018047}
-  leftcontainer: {fileID: 6766774377668847694}
-  rightContainer: {fileID: 4280447885105380872}
+  quizPanel: {fileID: 1823971270056036308}
+  hintPanel: {fileID: 4389854038660082804}
+  pretestPanel: {fileID: 8523204772528826116}
+  postTest: {fileID: 2462165664474035053}
+  startQuizButton: {fileID: 1445228011305570877}
   quizButtonCenter: {fileID: 8292672166376005922}
   quizButtonLeft: {fileID: 990567655527232413}
   soundButtonCenter: {fileID: 8228337495147718352}
   soundButtonLeft: {fileID: 3705430757200473545}
   soundButtonRight: {fileID: 2984165497477615622}
-  quizPanel: {fileID: 1823971270056036308}
-  startQuizButton: {fileID: 1445228011305570877}
-  hintPanel: {fileID: 4389854038660082804}
   hintButton: {fileID: 5645048600686305234}
-  pretestPanel: {fileID: 8523204772528826116}
-  pretestNotOkButton: {fileID: 9079502450605974869}
-  pretestOkButton: {fileID: 8680527288525329970}
-  dontShowAgain: {fileID: 7588237244303668257}
-  postTest: {fileID: 2462165664474035053}
   postTestOk: {fileID: 5341459243944903437}
-  shouldStayCenter: 0
-  shouldStayRight: 1
-  isTutorialPanel: 0
-  rightStart: {x: 153.6, y: 8, z: 0}
-  rightExit: {x: 536, y: 8, z: 0}
-  leftStart: {x: -153.6, y: 8, z: 0}
-  leftExit: {x: -536, y: 8, z: 0}
-  centerStart: {x: 0, y: 0, z: 0}
-  centerExit: {x: 0, y: -345, z: 0}
-  buttonPause: 0
-  buttonThres: 30
+  startOffset: 0
+  locationPanel: {fileID: 6391488656887306885}
+  pretest: {fileID: 5636764046313522898}
 --- !u!82 &6696300129346577134
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3159,6 +3146,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6391488656887306885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4280447884583928745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b791dd05c3b26c249a45b925e6adbf38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  justTitle: {fileID: 0}
+  simple: {fileID: 0}
+  advanced: {fileID: 0}
+  panelContainer: {fileID: 2288078180352565600}
+  centerContainer: {fileID: 6009217173642018047}
+  leftcontainer: {fileID: 6766774377668847694}
+  rightContainer: {fileID: 4280447885105380872}
+  rightStart: {x: 0, y: 0, z: 0}
+  rightExit: {x: 0, y: 0, z: 0}
+  leftStart: {x: 0, y: 0, z: 0}
+  leftExit: {x: 0, y: 0, z: 0}
+  centerStart: {x: 0, y: 0, z: 0}
+  centerExit: {x: 0, y: 0, z: 0}
 --- !u!1 &4280447884931028085
 GameObject:
   m_ObjectHideFlags: 0
@@ -7898,6 +7910,7 @@ GameObject:
   - component: {fileID: 7157566986631105547}
   - component: {fileID: 5531456568087705194}
   - component: {fileID: 5910309342938163415}
+  - component: {fileID: 5636764046313522898}
   m_Layer: 5
   m_Name: PreTest
   m_TagString: Untagged
@@ -7967,6 +7980,25 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &5636764046313522898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8523204772528826116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6abdbf57013114c8ce247eb05c9c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelContainer: {fileID: 2288078180352565600}
+  quizPanel: {fileID: 1823971270056036308}
+  pretestNotOkButton: {fileID: 9079502450605974869}
+  pretestOkButton: {fileID: 8680527288525329970}
+  dontShowAgain: {fileID: 7588237244303668257}
+  isTutorialPanel: 0
+  justTitle: {fileID: 2326977488364552784}
 --- !u!1 &8661030198051453106
 GameObject:
   m_ObjectHideFlags: 0

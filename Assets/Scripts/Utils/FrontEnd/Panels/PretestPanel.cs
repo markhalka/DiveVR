@@ -2,12 +2,39 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PrestestPanel : MonoBehaviour
+public class PretestPanel : MonoBehaviour
 {
+
+    public GameObject panelContainer;
+    public GameObject quizPanel;
+
+    public Button pretestNotOkButton;
+    public Button pretestOkButton;
+    public Button dontShowAgain;
+
+
     public bool isTutorialPanel = false;
+    public TMP_Text justTitle;
+
+    LocationPanel panel;
 
     void Start()
+    {
+        panel = transform.GetComponent<LocationPanel>();
+
+        pretestNotOkButton.onClick.AddListener(delegate { pretestNotOk(); });
+        pretestOkButton.onClick.AddListener(delegate { pretestOk(); });
+        dontShowAgain.onClick.AddListener(delegate { takeDontShowAgain(); });
+
+        if (Information.showPreTest && !isTutorialPanel && Information.isQuiz == 0)
+        {
+            showPreTest();
+        }
+    }
+
+    void showPreTest()
     {
         justTitle.transform.parent.gameObject.SetActive(false);
     }
@@ -18,17 +45,17 @@ public class PrestestPanel : MonoBehaviour
         Information.wasPreTest = true;
         panelContainer.SetActive(false);
         quizPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = "Not sure";
-        StartCoroutine(moveAnimation(false));
+        StartCoroutine(panel.moveAnimation(false));
     }
 
 
 
     
-    void pretestNotOk()
+    public void pretestNotOk()
     {
-        transform.SetParent(pretestPanel.transform.parent.parent);
-        setPosition(currentPosition);
-        pretestPanel.SetActive(false);
+        transform.SetParent(transform.parent.parent);
+        //setPosition(currentPosition);
+        gameObject.SetActive(false);
     }
 
     void takeDontShowAgain()

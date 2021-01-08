@@ -29,7 +29,7 @@ public class Science : MonoBehaviour
         Information.currentScene = "OtherScience";
 
 
-        XMLWriter.savePastSubjectAndGrae();
+        XMLWriter.savePastSubjectAndGrade();
 
     }
 

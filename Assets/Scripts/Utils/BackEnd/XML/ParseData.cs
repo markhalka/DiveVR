@@ -168,7 +168,6 @@ public class ParseData
 
         foreach (var lesson in subject.Elements())
         {
-            Debug.LogError(lesson.Attribute("name").Value + " lesson");
             if (lesson.Attribute("topics").Value == Information.nextScene.ToString())
             {
                 curr = lesson;

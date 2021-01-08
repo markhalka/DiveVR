@@ -103,7 +103,7 @@ public class InstructionAnimation : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
-        animationImage.gameObject.SetActive(false);
+        gameObject.SetActive(false);
         yield break;
     }
 

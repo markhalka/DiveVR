@@ -55,7 +55,7 @@ public class MathScript : MonoBehaviour
 
         //   ParseData.checkLoad();
         ParseData.startXML();
-        XMLWriter.savePastSubjectAndGrae();
+        XMLWriter.savePastSubjectAndGrade();
 
         Information.isVrMode = false;
         reportQuestion.onClick.AddListener(delegate { takeReport(); });

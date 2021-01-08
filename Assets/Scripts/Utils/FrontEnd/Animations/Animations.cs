@@ -87,8 +87,6 @@ public class Animations
     }
 
 
-
-
     public void resetSize(int index, bool selected)
     {
         float changeAmount = 1 / Information.animationGrowth;

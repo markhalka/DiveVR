@@ -325,7 +325,7 @@ public class InBetween : MonoBehaviour
                 submitedDAta = true;
                 XMLWriter.savePoints();
                 XMLWriter.saveCurrentSubjectAndGrade();
-                GameObject.Find("Menu").GetComponent<MenuBar>().takeQuitSave();
+             //   GameObject.Find("Menu").GetComponent<MenuBar>().takeQuitSave();
             }
             if (currentValue < 100)
             {

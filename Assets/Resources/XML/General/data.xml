@@ -2307,6 +2307,18 @@
           <advanced>In this module you will learn about plate tectonics, their different types, and how they shape our world</advanced>
         </model>
 
+        <model section="-1">
+          <simple>This is a test</simple>
+          <advanced>This is advanced 1</advanced>
+          <advanced>This is advanced 2</advanced>
+        </model>
+
+        <model section="-1">
+          <simple>This is a test2</simple>
+          <advanced>This is advanced 1</advanced>
+          <advanced>This is advanced 2</advanced>
+        </model>
+
         <model section="1">
           <simple>Earths crust</simple>
           <advanced>The crust is the thinnest layer of our planet. Its average thickness is about 30 km under the continents, but it is only about 5–10 km thick under the oceans. Under big mountain ranges such as the Rocky Mountains, the crust can be up to 90 km thick. </advanced>

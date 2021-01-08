@@ -63,19 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GoogleVR\Demos\Editor\DemoInputManagerEditor.cs" />
-    <Compile Include="Assets\GoogleVR\Demos\Editor\PermissionsDemoBuildProcessor.cs" />
-    <Compile Include="Assets\GoogleVR\Editor\Controller\GvrControllerVisualEditor.cs" />
-    <Compile Include="Assets\GoogleVR\Editor\Controller\GvrLaserPointerEditor.cs" />
-    <Compile Include="Assets\GoogleVR\Editor\Controller\GvrLaserVisualEditor.cs" />
-    <Compile Include="Assets\GoogleVR\Editor\Controller\GvrTooltipEditor.cs" />
-    <Compile Include="Assets\GoogleVR\Editor\EventSystem\GvrPointerScrollInputEditor.cs" />
-    <Compile Include="Assets\GoogleVR\Editor\GvrBuildProcessor.cs" />
-    <Compile Include="Assets\GoogleVR\Editor\GvrEditorEmulatorEditor.cs" />
-    <Compile Include="Assets\GoogleVR\Editor\GvrEditorMenu.cs" />
-    <Compile Include="Assets\GoogleVR\Editor\GvrEditorSettings.cs" />
-    <Compile Include="Assets\GoogleVR\Editor\GvrHeadsetEditor.cs" />
-    <Compile Include="Assets\GoogleVR\Editor\InstantPreviewEditor.cs" />
     <Compile Include="Assets\ThirdParty\Awesome Charts\Core\Scripts\Editor\AxisBaseEditor.cs" />
     <Compile Include="Assets\ThirdParty\Awesome Charts\Core\Scripts\Editor\BarChartConfigEditor.cs" />
     <Compile Include="Assets\ThirdParty\Awesome Charts\Core\Scripts\Editor\BarEntryDrawer.cs" />
@@ -331,9 +318,6 @@
     </Reference>
     <Reference Include="HtmlAgilityPack">
       <HintPath>C:/Users/pc/Desktop/VR1/Assets/HtmlAgilityPack.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.ProtocolBuffers">
-      <HintPath>C:/Users/pc/Desktop/VR1/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>C:/Users/pc/Desktop/VR1/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>

@@ -60,7 +60,7 @@ public class animalLifeCycleDb : LessonDb
                 {
                     image.GetChild(0).gameObject.SetActive(true);
                     Information.panelIndex = lifecycleIndecies[i - 1] + startOffset;
-                    panel.showPanel();
+                //    panel.showPanel();
                 }
                 else
                 {
@@ -76,7 +76,7 @@ public class animalLifeCycleDb : LessonDb
     void animalPartClick(int mainAnimal, int animalPart)
     {
         Information.panelIndex = lifecycleIndecies[mainAnimal] + animalPart + startOffset;
-        panel.showPanel();
+      //  panel.showPanel();
         return;
 
     }

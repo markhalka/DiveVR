@@ -6,7 +6,7 @@ public class tectonicDb : LessonDb
 {
     public tectonicDb(int startOffset, Sprite[] currentSprites) : base(startOffset, currentSprites)
     {
-
+        hs.GetComponent<HorizontalSnap>().createHS(currentSprites);
     }
 
 }

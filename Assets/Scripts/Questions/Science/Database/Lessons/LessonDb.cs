@@ -8,6 +8,8 @@ public abstract class LessonDb : MonoBehaviour
     public GameObject verticalScroll;
     public GameObject panelGb;
 
+    public GameObject hs;
+
     public Panel panel;
 
     public Sprite[] currentSprites;

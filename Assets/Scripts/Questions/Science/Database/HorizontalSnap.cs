@@ -10,24 +10,19 @@ public class HorizontalSnap : MonoBehaviour
     public AudioSource source;
     public AudioClip swipe;
     public AudioClip click;
-    public GameObject instructionsGb;
-    public TMP_Text test;
+
+    public TMP_Text title;
     Sprite[] currentSprites; // MAKE SURE YOU INIT THIS 
     public GameObject page1;
-    bool didSwipe = false;
     int startOffset;
-
-    public GameObject panelGb;
-    public Panel panel;
-
 
     public void Start()
     {
-        // find a way to init Startoffset
-        panel = panelGb.GetComponent<Panel>();
+
     }
-    void createHS()
+    public void createHS(Sprite[] sprites)
     {
+        currentSprites = sprites;
         GetComponent<UnityEngine.UI.Extensions.HorizontalScrollSnap>().OnSelectionChangeEndEvent.AddListener(delegate { pageChanged(); });
         for (int i = 0; i < currentSprites.Length; i++)
         {
@@ -47,13 +42,7 @@ public class HorizontalSnap : MonoBehaviour
 
         int currentPage = GetComponent<UnityEngine.UI.Extensions.HorizontalScrollSnap>().CurrentPage;
 
-        if (currentPage > 0)
-        {
-            Debug.LogError("did swipe...");
-            didSwipe = true;
-        }
-
-        test.text = Information.userModels[currentPage + startOffset].simpleInfo[0];
+        title.text = Information.userModels[currentPage + startOffset].simpleInfo[0];
     }
 
     void onHorizontalClick()
@@ -87,7 +76,7 @@ public class HorizontalSnap : MonoBehaviour
         // fancyAnimation();
 
         Information.panelIndex = currentIndex + startOffset;
-        panel.showPanel();
+     //   panel.showPanel();  
     }
 
     bool setPanel = false;

@@ -326,9 +326,6 @@
     <Reference Include="HtmlAgilityPack">
       <HintPath>C:/Users/pc/Desktop/VR1/Assets/HtmlAgilityPack.dll</HintPath>
     </Reference>
-    <Reference Include="Google.ProtocolBuffers">
-      <HintPath>C:/Users/pc/Desktop/VR1/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>C:/Users/pc/Desktop/VR1/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>

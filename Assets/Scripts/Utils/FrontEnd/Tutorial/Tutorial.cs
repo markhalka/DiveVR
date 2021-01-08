@@ -201,12 +201,13 @@ public class Tutorial : MonoBehaviour
         if (currentButton.transform.localPosition.x < 0)
         {
             //pick the right panel
-            informationPanel.transform.parent.GetComponent<InformationPanel>().setLeftorRight(true);
+          //  informationPanel.transform.parent.GetComponent<InformationPanel>().setLeftorRight(true);
         }
         else
         {
-            informationPanel.transform.parent.GetComponent<InformationPanel>().setLeftorRight(false);
             //pick the left panel
+            //   informationPanel.transform.parent.GetComponent<InformationPanel>().setLeftorRight(false);
+
         }
         informationPanel.SetActive(true);
 

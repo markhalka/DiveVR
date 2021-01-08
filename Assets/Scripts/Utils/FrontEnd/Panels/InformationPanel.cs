@@ -7,9 +7,23 @@ using UnityEngine.UI;
 
 public class InformationPanel : MonoBehaviour
 {
+    //the only thing that should be here, is the code that gets and decides what the text on the panel should be
+    //ok you can manipulate closeonend to not close for the start panels
 
-    TMP_Text simple;
-    TMP_Text advanced;
+    // ok so right now, comment out everything that doesn't have to do with pretest stuff 
+
+    //ok, so now let's make sure the right model is loaded
+
+    // ok, everythings going well, you got the start panels, now its time to mofuckin display it in the panel
+
+    // so to do that, first get the panel to show up, and then go away
+    //then make sure the buttons work (you should have code so that if its start panels, you don't close on end, you just go to the next one)
+
+    // ok, so now the start panels work
+    // so now get the tectonic shit working 
+
+
+
     public TMP_Text justTitle;
 
     public bool closeOnEnd = true;
@@ -23,13 +37,10 @@ public class InformationPanel : MonoBehaviour
 
 
     public GameObject panelContainer;
-    public GameObject centerContainer;
-    public GameObject leftcontainer;
-    public GameObject rightContainer;
 
     public GameObject quizPanel;
     public GameObject hintPanel;
-    public GameObject pretestPanel;
+    public GameObject pretestPanel; // this has the pretest panel script 
     public GameObject postTest;
 
 
@@ -43,45 +54,43 @@ public class InformationPanel : MonoBehaviour
 
     public Button hintButton;
 
-    public Button pretestNotOkButton;
-    public Button pretestOkButton;
-    public Button dontShowAgain;
-
     public Button postTestOk;
 
-    public enum MenuPosition { RIGHT, LEFT, CENTER };
-    MenuPosition currentPosition = MenuPosition.CENTER;
-
-
-    int startOffset = 0;
+    public int startOffset = 0;
     List<int> startPanels;
+    int startPanelIndex = 0;
+
+    public LocationPanel locationPanel; //this should be attached to it
+    public PretestPanel pretest;
+
+   
     void Start()
     {
+        
         closeOnEnd = true;
         startOffset = 0;
         startPanels = new List<int>();
+        initStartPanels();
+        initPanelButtons();
 
-        setPosition(currentPosition);
-
-        hintButton.onClick.AddListener(delegate { takeHint(); });
+    /*    hintButton.onClick.AddListener(delegate { takeHint(); });
         startQuizButton.onClick.AddListener(delegate { startQuiz(); });
 
-        pretestNotOkButton.onClick.AddListener(delegate { pretestNotOk(); });
-        pretestOkButton.onClick.AddListener(delegate { pretestOk(); });
-        dontShowAgain.onClick.AddListener(delegate { takeDontShowAgain(); });
+     
 
-        postTestOk.onClick.AddListener(delegate { takePostTestOk(); });
+        postTestOk.onClick.AddListener(delegate { takePostTestOk(); });*/
 
-        if (Information.showPreTest && !isTutorialPanel && Information.isQuiz == 0)
-        {
-            showPreTest();
-        }
+
     }
 
+    #region startPanels
     void initStartPanels()
     {
         startPanels = new List<int>();
         startOffset = 0;
+        startPanelIndex = 0;
+        
+        ParseData.parseModel();
         for (int i = 0; i < Information.userModels.Count; i++)
         {
             if (Information.userModels[i].section == -1)
@@ -100,10 +109,33 @@ public class InformationPanel : MonoBehaviour
     //you need to redefine what the buttons do...
     void changeStart()
     {
-
+        closeOnEnd = false;
+        Debug.LogError("got the start panels: " + startPanels.Count);
+        panelContainer.SetActive(true);
+        nextStart();
     }
 
-    void takePostTestOk()
+    void nextStart()
+    {
+        if(startPanelIndex >= startPanels.Count)
+        {
+            return;
+        }
+
+        if(startPanelIndex > startPanels.Count - 2)
+        {
+            closeOnEnd = true;
+        }
+        currentModel = Information.userModels[startPanels[startPanelIndex]];
+        locationPanel.simple.text = currentModel.simpleInfo[0];
+        locationPanel.advanced.text = currentModel.advancedInfo[0]; //?
+        startPanelIndex++;
+    
+    }
+
+    #endregion
+
+  /*  void takePostTestOk()
     {
         postTest.SetActive(false);
         Information.wasPreTest = false;
@@ -145,7 +177,7 @@ public class InformationPanel : MonoBehaviour
                 break;
         }
     }
-
+  */
 
     void Update()
     {
@@ -155,15 +187,15 @@ public class InformationPanel : MonoBehaviour
             buttonPause++;
         }
 
-        if (Information.wasPreTest && Information.isQuiz == 0 && pretestPanel.activeSelf && !isTutorialPanel && !postTest.activeSelf)
+   /*     if (Information.wasPreTest && Information.isQuiz == 0 && pretestPanel.activeSelf && !isTutorialPanel && !postTest.activeSelf)
         {
             quizPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = "Start Quiz";
-            pretestNotOk();
+            pretest.pretestNotOk();
             panelContainer.SetActive(false);
             postTest.SetActive(true);
         }
-
-        if (!closeOnEnd)
+   */
+   /*     if (!closeOnEnd)
         {
             if (!Information.panelClosed && !newModelLoaded && !pretestPanel.activeSelf)
             {
@@ -176,9 +208,9 @@ public class InformationPanel : MonoBehaviour
             {
                 loadNewModel();
             }
-        }
+        } */
     }
-
+/*
     void startQuiz()
     {
         Information.isQuiz = 1;
@@ -194,69 +226,10 @@ public class InformationPanel : MonoBehaviour
             quizPanel.SetActive(false);
         }
 
-        StartCoroutine(moveAnimation(false));
+        StartCoroutine(locationPanel.moveAnimation(false));
     }
 
-    public void setPosition(MenuPosition position)
-    {
-
-        currentPosition = position;
-
-        panelContainer.transform.localPosition = new Vector3(0, 0, 0);
-
-        if (position == MenuPosition.CENTER)
-        {
-            centerContainer.transform.SetParent(panelContainer.transform);
-
-            leftcontainer.transform.SetParent(transform);
-            rightContainer.transform.SetParent(transform);
-
-            centerContainer.SetActive(true);
-
-            leftcontainer.SetActive(false);
-            rightContainer.SetActive(false);
-        }
-        else if (position == MenuPosition.LEFT)
-        {
-            leftcontainer.transform.SetParent(panelContainer.transform);
-
-            centerContainer.transform.SetParent(transform);
-            rightContainer.transform.SetParent(transform);
-
-            leftcontainer.SetActive(true);
-
-            centerContainer.SetActive(false);
-            rightContainer.SetActive(false);
-        } else
-        {
-            rightContainer.transform.SetParent(panelContainer.transform);
-
-            leftcontainer.transform.SetParent(transform);
-            centerContainer.transform.SetParent(transform);
-
-            rightContainer.SetActive(true);
-
-            leftcontainer.SetActive(false);
-            centerContainer.SetActive(false);
-        }
-
-        simple = panelContainer.transform.GetChild(0).GetChild(3).GetComponent<TMPro.TMP_Text>();
-        advanced = panelContainer.transform.GetChild(0).GetChild(2).GetComponent<TMPro.TMP_Text>();
-
-        if (centerContainer.activeSelf)
-        {
-            panelContainer.transform.localPosition = centerExit;
-        }
-        else if (leftcontainer.activeSelf)
-        {
-            panelContainer.transform.localPosition = leftExit;
-        } else if (rightContainer.activeSelf)
-        {
-            panelContainer.transform.localPosition = rightExit;
-        }
-        initPanelButtons();
-    }
-
+    */
 
     Model currentModel;
 
@@ -264,13 +237,13 @@ public class InformationPanel : MonoBehaviour
     {
         wasShowingTitle = justTitle.gameObject.activeSelf;
         justTitle.transform.parent.gameObject.SetActive(false);
-        simple.text = justTitle.text; //maybe?
+        locationPanel.simple.text = justTitle.text; //maybe?
         source.clip = open;
         source.Play();
 
         if (closeOnEnd && !simpleClose)
         {
-            StartCoroutine(moveAnimation(true));
+            StartCoroutine(locationPanel.moveAnimation(true));
         }
 
         newModelLoaded = true;
@@ -284,82 +257,21 @@ public class InformationPanel : MonoBehaviour
         }
         currentModel = getModel();
 
-        simple.text = currentModel.simpleInfo[0];
+       locationPanel. simple.text = currentModel.simpleInfo[0];
 
         if (currentModel.advancedInfo.Count > 0)
         {
-            advanced.text = currentModel.advancedInfo[0].Trim();
+            locationPanel.advanced.text = currentModel.advancedInfo[0].Trim();
         }
         else
         {
-            advanced.text = "";
+            locationPanel.advanced.text = "";
         }
     }
 
-    public Vector3 rightStart;
-    public Vector3 rightExit;
-
-    public Vector3 leftStart;
-    public Vector3 leftExit;
-
-    public Vector3 centerStart;
-    public Vector3 centerExit;
 
     bool wasShowingTitle = false;
 
-    IEnumerator moveAnimation(bool enter)
-    {
-        float count = 0;
-        Vector3 start, end;
-        start = end = new Vector3(0, 0, 0);
-
-        switch (currentPosition)
-        {
-            case MenuPosition.CENTER:
-                end = centerStart;
-                start = centerExit;
-                break;
-            case MenuPosition.LEFT:
-                end = leftStart;
-                start = leftExit;
-                break;
-            case MenuPosition.RIGHT:
-                end = rightStart;
-                start = rightExit;
-                break;
-        }
-
-        if (!enter)
-        {
-            var temp = start;
-            start = end;
-            end = temp;
-        }
-
-
-        while (count <= 1)
-        {
-            count += 0.1f;
-            panelContainer.transform.localPosition = Vector3.Lerp(start, end, count);
-            yield return new WaitForSeconds(0.02f);
-        }
-
-        if (!enter)
-        {
-            panelContainer.gameObject.SetActive(false);
-            if (Information.isQuiz == 1)
-            {
-                Debug.LogError("ok now its true");
-                wasShowingTitle = true;
-            }
-            if (wasShowingTitle)
-            {
-
-                justTitle.transform.parent.gameObject.SetActive(true);
-            }
-            newModelLoaded = false;
-        }
-    }
 
 
     void OnDisable()
@@ -397,18 +309,17 @@ public class InformationPanel : MonoBehaviour
     //here you would use the microsoft azure shit
     void takeSound()
     {
-        GameObject.Find("Menu").GetComponent<MenuBar>().setText(advanced.text);
+      //  GameObject.Find("Menu").GetComponent<MenuBar>().setText(advanced.text);
     }
 
-    public int buttonPause = 0;
-    public int buttonThres = 15;
+    int buttonPause = 0;
+    int buttonThres = 15;
 
     //you need to double check this method 
     public int takeInformationClick(bool next)
     {
         if (buttonPause < buttonThres)
         {
-            Debug.LogError("button problem");
             return 0;
         }
 
@@ -427,6 +338,7 @@ public class InformationPanel : MonoBehaviour
             Information.lableIndex = currentModel.advancedInfo.Count - 1;
             output = -1;
         }
+
         if (currentModel == null)
         {
             Debug.LogError("it is null for some reason");
@@ -441,7 +353,7 @@ public class InformationPanel : MonoBehaviour
         }
 
         if (Information.lableIndex < currentModel.advancedInfo.Count)
-            advanced.text = currentModel.advancedInfo[Information.lableIndex];
+            locationPanel.advanced.text = currentModel.advancedInfo[Information.lableIndex];
 
         if (output == 1)
         {
@@ -449,21 +361,21 @@ public class InformationPanel : MonoBehaviour
             {
                 source.clip = close;
                 source.Play();
-                if (closeOnEnd)
+                Debug.LogError("closing...");
+                if (simpleClose)
                 {
-                    if (simpleClose)
-                    {
-                        newModelLoaded = false;
-                        panelContainer.SetActive(false);
-                    }
-                    else
-                    {
-                        StartCoroutine(moveAnimation(false));
-                    }
+                    newModelLoaded = false;
+                    panelContainer.SetActive(false);
                 }
+                else
+                {
+                    StartCoroutine(locationPanel.moveAnimation(false));
+                }
+
             }
             else
             {
+                nextStart();
                 newModelLoaded = false;
                 Information.panelClosed = true;
             }

@@ -53,7 +53,7 @@ public class ClassificationDb : LessonDb
                 {
                     image.GetChild(0).gameObject.SetActive(true);
                     Information.panelIndex = startOffset + i - 1;
-                    panel.showPanel();
+                  //  panel.showPanel();
                 }
                 else
                 {

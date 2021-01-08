@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Panel 
 {
-
+    //this will handle showing/hiding panels, move all information methdos here
     public Vector3 start;
     public Vector3 end;
+
+
 
     public Panel(Vector3 start, Vector3 end)
     {
@@ -52,8 +54,5 @@ public class Panel
         }
     }
 
-    public void showPanel()
-    {
 
-    }
 }

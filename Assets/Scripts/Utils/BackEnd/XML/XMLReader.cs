@@ -14,13 +14,15 @@ public class XMLReader
             return null;
         }
 
-        foreach (var grade in doc.Descendants("Grade"))
+
+        foreach (var grade in doc.Descendants("grade"))
         {
             if ("Grade " + grade.Attribute("number").Value == gradeName)
             {
                 return grade;
             }
         }
+
         return null;
     }
 

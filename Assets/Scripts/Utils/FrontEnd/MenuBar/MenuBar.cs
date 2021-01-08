@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class MenuBar : MonoBehaviour
 {
 
-    /*
+    
       public GameObject mainMenu;
       public GameObject showQuiz;
       public GameObject showTutorial;
@@ -46,10 +46,11 @@ public class MenuBar : MonoBehaviour
 
 
 
-
+     public  Panel panel; // this should be the current game object
 
       private void Start()
       {
+
           backButton.onClick.AddListener(delegate { back(); });
           quitButton.onClick.AddListener(delegate { takeQuitSave(); });
           settingsButton.onClick.AddListener(delegate { settings(); });
@@ -59,7 +60,7 @@ public class MenuBar : MonoBehaviour
           helpQuestion.onClick.AddListener(delegate { takeHelpQuestion(); });
           tutorialButton.onClick.AddListener(delegate { takeTutorial(); });
           /*    tutorialPanelButton.onClick.AddListener(delegate { takeTutorialPanel(); });
-              tutorialPanelButton.onClick.AddListener(delegate { takeTutorialBack(); });*/ /*
+              tutorialPanelButton.onClick.AddListener(delegate { takeTutorialBack(); });*/ 
     backToHomeButton.onClick.AddListener(delegate { takeBackToHome(); });
 
         showQuizOk.onClick.AddListener(delegate { takeQuizOk(); });
@@ -80,7 +81,7 @@ public class MenuBar : MonoBehaviour
         if (!Information.menuLoaded)
         {
             DontDestroyOnLoad(this.gameObject);
-            initTextToSpeech();
+          //  initTextToSpeech();
             Information.menuLoaded = true;
         }
 
@@ -249,7 +250,7 @@ public class MenuBar : MonoBehaviour
                 if (!mainMenu.activeSelf)
                 {
 
-                    StartCoroutine(openAnimation());
+                    StartCoroutine(panel.panelAniamtion(true, transform));
                 }
                 else
                 {
@@ -259,51 +260,9 @@ public class MenuBar : MonoBehaviour
             }
         }
 
-        updateTextToSpeech();
+     //   updateTextToSpeech();
     }
 
-
-
-    IEnumerator openAnimation()
-    {
-        float count = 0;
-        mainMenu.SetActive(true);
-        // mainMenu
-        source.clip = menuOpen;
-        source.Play();
-        while (count <= 1)
-        {
-            count += 0.1f;
-            mainMenu.transform.position = Vector3.Lerp(start, end, count);
-
-            yield return new WaitForSeconds(0.02f);
-        }
-
-
-
-        Information.isInMenu = true;
-    }
-
-    IEnumerator closeAnimation()
-    {
-        float count = 0;
-
-        // mainMenu
-        while (count <= 1)
-        {
-            count += 0.1f;
-            mainMenu.transform.position = Vector3.Lerp(end, start, count);
-
-            yield return new WaitForSeconds(0.02f);
-        }
-
-        source.clip = menuClose;
-        source.Play();
-
-        Information.isInMenu = false;
-        mainMenu.SetActive(false);
-
-    }
 
 
 
@@ -319,9 +278,7 @@ public class MenuBar : MonoBehaviour
 
     void back()
     {
-
-        StartCoroutine(closeAnimation());
-
+        StartCoroutine(panel.panelAniamtion(false, transform));
     }
 
 
@@ -403,183 +360,6 @@ public class MenuBar : MonoBehaviour
 
         }
     }
-  
-    #region textToSpeech
 
-
-    private string iamApikey = "sjmQdyZUZerntfn5GV5n1c8VT0dW9nN2tIdv3rP5ZN60";
-
-    private string serviceUrl = "https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/4d3a7b39-1101-4d8e-83fc-952f00fc57a4";
-    private TextToSpeechService service;
-    private string allisionVoice = "en-US_AllisonV3Voice";
-    private string synthesizeText = "Hello, welcome to the Watson Unity SDK!";
-    private string placeholderText = "Please type text here and press enter.";
-    private string waitingText = "Watson Text to Speech service is synthesizing the audio!";
-    private string synthesizeMimeType = "audio/wav";
-
-    public string textToRead;
-
-    private bool _textEntered = false;
-    private AudioClip _recording = null;
-    private byte[] audioStream = null;
-    #endregion
-
-    private void initTextToSpeech()
-    {
-        LogSystem.InstallDefaultReactors();
-        Runnable.Run(CreateService());
-    }
-
-    public void setText(string text)
-    {
-        service.SynthesizeUsingWebsockets(text);
-        //     textInput.text = waitingText;
-    }
-
-    void updateTextToSpeech()
-    {
-
-
-        while (service != null && !service.IsListening)
-        {
-            if (audioStream != null && audioStream.Length > 0)
-            {
-                Log.Debug("ExampleTextToSpeech", "Audio stream of {0} bytes received!", audioStream.Length.ToString()); // Use audioStream and play audio
-                _recording = WaveFile.ParseWAV("myClip", audioStream);
-                PlayClip(_recording);
-            }
-            //  textInput.text = placeholderText;
-
-            audioStream = null;
-            StartListening(); // need to connect because service disconnect websocket after transcribing https://cloud.ibm.com/docs/services/text-to-speech?topic=text-to-speech-usingWebSocket#WSsend
-        }
-    }
-
-    private IEnumerator CreateService()
-    {
-        if (string.IsNullOrEmpty(iamApikey))
-        {
-            throw new IBMException("Please add IAM ApiKey to the Iam Apikey field in the inspector.");
-        }
-
-        IamAuthenticator authenticator = new IamAuthenticator(apikey: iamApikey);
-
-        while (!authenticator.CanAuthenticate())
-        {
-            yield return null;
-        }
-
-        service = new TextToSpeechService(authenticator);
-        if (!string.IsNullOrEmpty(serviceUrl))
-        {
-            service.SetServiceUrl(serviceUrl);
-        }
-
-        Active = true;
-    }
-
-    private void OnError(string error)
-    {
-        Active = false;
-
-        Log.Debug("ExampleTextToSpeech.OnError()", "Error! {0}", error);
-    }
-
-    private void StartListening()
-    {
-        Log.Debug("ExampleTextToSpeech", "start-listening");
-        service.Voice = allisionVoice;
-        service.OnError = OnError;
-        service.StartListening(OnSynthesize);
-    }
-
-    public bool Active
-    {
-        get { return service.IsListening; }
-        set
-        {
-            if (value && !service.IsListening)
-            {
-                StartListening();
-            }
-            else if (!value && service.IsListening)
-            {
-                Log.Debug("ExampleTextToSpeech", "stop-listening");
-                service.StopListening();
-            }
-        }
-    }
-
-    private void OnSynthesize(byte[] result)
-    {
-        Log.Debug("ExampleTextToSpeechV1", "Binary data received!");
-        audioStream = ConcatenateByteArrays(audioStream, result);
-    }
-
-    #region Synthesize Without Websocket Connection
-    private IEnumerator ExampleSynthesize()
-    {
-        byte[] synthesizeResponse = null;
-        AudioClip clip = null;
-        service.Synthesize(
-            callback: (DetailedResponse<byte[]> response, IBMError error) =>
-            {
-                synthesizeResponse = response.Result;
-                Log.Debug("ExampleTextToSpeechV1", "Synthesize done!");
-                clip = WaveFile.ParseWAV("myClip", synthesizeResponse);
-                PlayClip(clip);
-            },
-            text: synthesizeText,
-            voice: allisionVoice,
-            accept: synthesizeMimeType
-        );
-
-        while (synthesizeResponse == null)
-            yield return null;
-
-        yield return new WaitForSeconds(clip.length);
-    }
-    #endregion
-
-    #region PlayClip
-    private void PlayClip(AudioClip clip)
-    {
-        if (Application.isPlaying && clip != null)
-        {
-            GameObject audioObject = new GameObject("AudioObject");
-            AudioSource source = audioObject.AddComponent<AudioSource>();
-            source.spatialBlend = 0.0f;
-            source.loop = false;
-            source.clip = clip;
-            source.Play();
-
-            GameObject.Destroy(audioObject, clip.length);
-        }
-    }
-    #endregion
-
-    #region Concatenate Byte Arrays
-    private byte[] ConcatenateByteArrays(byte[] a, byte[] b)
-    {
-        if (a == null || a.Length == 0)
-        {
-            return b;
-        }
-        else if (b == null || b.Length == 0)
-        {
-            return a;
-        }
-        else
-        {
-            List<byte> list1 = new List<byte>(a);
-            List<byte> list2 = new List<byte>(b);
-            list1.AddRange(list2);
-            byte[] result = list1.ToArray();
-            return result;
-        }
-    }
-    #endregion
-
-    */
 
 }

@@ -6,11 +6,8 @@ using UnityEngine.UI;
 
 public class HomeMenu : MonoBehaviour
 {
-    public GameObject[] arrows;
-    public GameObject vrWarning;
-    public GameObject subjects;
+
     public GameObject grades;
-    public GameObject newSubjectPanel;
 
     public Button defualt;
     public Button placementTest;
@@ -24,10 +21,6 @@ public class HomeMenu : MonoBehaviour
 
     void Start()
     {
-        vrWarning.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { takeWithVR(); });
-        vrWarning.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(delegate { takeBack(); });
-        vrWarning.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(delegate { takeWithoutVR(); });
-        vrWarning.transform.GetChild(4).GetComponent<Button>().onClick.AddListener(delegate { moreInfo(); });
 
         defualt.onClick.AddListener(delegate { takeDefault(); });
         placementTest.onClick.AddListener(delegate { takeLearningPlan(); });
@@ -36,22 +29,17 @@ public class HomeMenu : MonoBehaviour
         Information.currentScene = "HomeMenu";
 
     }
-    
+
     void OnEnable()
     {
         Information.isSelect = false;
-        closeMenu = false;
-
     }
 
     void initButtons()
     {
-        back.onClick.AddListener(delegate { takeSubjectBack(); });
+        back.onClick.AddListener(delegate { takeGradeBack(); });
         List<GameObject> newEntities = new List<GameObject>();
-        for (int i = 0; i < subjects.transform.childCount; i++)
-        {
-            newEntities.Add(subjects.transform.GetChild(i).gameObject);
-        }
+
         for (int i = 0; i < grades.transform.childCount; i++)
         {
             newEntities.Add(grades.transform.GetChild(i).gameObject);
@@ -60,55 +48,6 @@ public class HomeMenu : MonoBehaviour
         Information.updateEntities = newEntities.ToArray();
     }
 
-
-    #region subjects
-    void subjectUpdate()
-    {
-
-        if (Information.currentBox != null)
-        {
-            source.clip = buttonSound;
-            source.Play();
-
-            Information.subject = Information.currentBox.transform.GetChild(0).GetComponent<TMPro.TMP_Text>().text.ToLower();
-
-            if (Information.subject == "public speaking")
-            {
-                Information.grade = "Grade Deep";
-                if (!closeMenu)
-                {
-                    vrWarning.gameObject.SetActive(true);
-                }
-                else
-                {
-                    vrWarning.gameObject.SetActive(false);
-                    Information.subject = "";
-                    closeMenu = false;
-                    Information.currentBox = null;
-                }
-
-                return;
-            }
-
-            grades.gameObject.SetActive(true);
-            subjects.gameObject.SetActive(false);
-            title.text = "Choose a grade!";
-            back.onClick.RemoveAllListeners();
-            back.onClick.AddListener(delegate { takeGradeBack(); });
-
-            Information.currentBox = null;
-        }
-    }
-
-    void takeSubjectBack()
-    {
-        source.clip = buttonSound;
-        source.Play();
-
-        SceneManager.LoadScene("StudentMenu");
-    }
-
-    #endregion
 
     #region grades
     void gradeUpdate()
@@ -126,48 +65,19 @@ public class HomeMenu : MonoBehaviour
             }
             else
             {
-
-                if (Information.subject == "math" || Information.subject == "science")
-                {
-                    ParseData.startXML();
-                    if (Information.topics == null || Information.topics.Count < 2)
-                    {
-                        newSubjectPanel.gameObject.SetActive(true);
-                        back.onClick.RemoveAllListeners();
-                        back.onClick.AddListener(delegate { takeNewBack(); });
-                        title.text = "Looks like this is your first time!";
-                        grades.gameObject.SetActive(false);
-
-                    }
-
-                }
-                if (!newSubjectPanel.activeSelf)
-                {
-                    SceneManager.LoadScene("ModuleMenu");
-                }
+                SceneManager.LoadScene("ModuleMenu");
             }
-            Information.currentBox = null;
         }
+        Information.currentBox = null;
     }
 
-    void takeNewBack()
-    {
-        title.text = "Choose a grade!";
-        grades.SetActive(true);
-        newSubjectPanel.SetActive(false);
-        back.onClick.AddListener(delegate { takeGradeBack(); });
-    }
 
     void takeGradeBack()
     {
         source.clip = buttonSound;
         source.Play();
 
-        grades.gameObject.SetActive(false);
-        subjects.gameObject.SetActive(true);
-        title.text = "Choose a subject!";
-        back.onClick.RemoveAllListeners();
-        back.onClick.AddListener(delegate { takeSubjectBack(); });
+        SceneManager.LoadScene("StudentMenu");
     }
 
     int getGradeNumber()
@@ -185,15 +95,6 @@ public class HomeMenu : MonoBehaviour
     #endregion
 
 
-    bool closeMenu = false;
-    void takeBack()
-    {
-        source.clip = buttonSound;
-        source.Play();
-
-        closeMenu = true;
-
-    }
 
     public void takeLearningPlan()
     {
@@ -210,30 +111,6 @@ public class HomeMenu : MonoBehaviour
         SceneManager.LoadScene("ModuleMenu");
     }
 
-    void takeWithVR()
-    {
-        source.clip = buttonSound;
-        source.Play();
-
-        Information.isVrMode = true;
-        SceneManager.LoadScene("ModuleMenu");
-    }
-
-    void moreInfo()
-    {
-        Application.OpenURL("https://www.divevr.org/post/using-dive-to-master-public-speaking");
-    }
-
-    void takeWithoutVR()
-    {
-        source.clip = buttonSound;
-        source.Play();
-
-        Information.isVrMode = false;
-        SceneManager.LoadScene("ModuleMenu");
-
-    }
-
 
     void Update()
     {
@@ -242,14 +119,7 @@ public class HomeMenu : MonoBehaviour
             return;
         }
 
-        if (subjects.activeSelf)
-        {
-            subjectUpdate();
-        }
-        else
-        {
-            gradeUpdate();
-        }
+        gradeUpdate();
     }
 
 }
