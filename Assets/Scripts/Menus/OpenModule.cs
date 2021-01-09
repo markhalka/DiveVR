@@ -9,8 +9,6 @@ public class OpenModule : MonoBehaviour
 
     public GameObject MainButton;
     public GameObject dropdown;
-    public GameObject lowerbound;
-    public GameObject upperbound;
     public GameObject startPanel;
     public GameObject[] arrows;
     List<GameObject> buttons;
@@ -40,9 +38,6 @@ public class OpenModule : MonoBehaviour
         isPC = true;
 #endif
 
-
-        Information.upperBoundary = upperbound;
-        Information.lowerBoundary = lowerbound;
 
         Information.isQuiz = 0;
         Information.panelClosed = true;

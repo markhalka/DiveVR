@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+// so here you just gotta import table, and use that to create it and do everything
+
 public class ScienceTest : MonoBehaviour
 {
 
@@ -21,6 +24,7 @@ public class ScienceTest : MonoBehaviour
     public AudioClip wrongAnswer;
 
     int currentIndex = -1;
+    Table tableClass;
     void Start()
     {
 
@@ -29,181 +33,15 @@ public class ScienceTest : MonoBehaviour
         currentIndex = -1;
         nextQuestion();
         Information.currentScene = "ScienceTest";
-
+        tableClass = new Table();
     }
 
 
-    #region table shit
-    class TableLayout
-    {
-        public List<int> rows;
-        public TableLayout()
-        {
-            rows = new List<int>();
-        }
-    }
-
-
-    TableLayout initTableRows(int n)
-    {
-        TableLayout output = new TableLayout();
-        if (n <= 5)
-        {
-            for (int i = 0; i < n; i++)
-            {
-                output.rows.Add(1);
-            }
-        }
-        if (n == 6 || n == 8)
-        {
-            int rows = n / 2;
-            for (int i = 0; i < rows; i++)
-            {
-                output.rows.Add(2);
-            }
-        }
-        if (n == 9 || n == 12)
-        {
-            int rows = n / 3;
-            for (int i = 0; i < rows; i++)
-            {
-                output.rows.Add(3);
-            }
-        }
-        if (n == 16)
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                output.rows.Add(4);
-            }
-        }
-        if (n == 10 || n == 14)
-        {
-            int largetRow = (n + 2) / 4;
-            int smallerRow = largetRow - 1;
-            for (int i = 0; i < 4; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    output.rows.Add(largetRow);
-                }
-                else
-                {
-                    output.rows.Add(smallerRow);
-                }
-            }
-        }
-        if (n == 7)
-        {
-            int largetRow = 3;
-            int smallerRow = 2;
-            for (int i = 0; i < 3; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    output.rows.Add(largetRow);
-                }
-                else
-                {
-                    output.rows.Add(smallerRow);
-                }
-            }
-        }
-        if (n == 11)
-        {
-            int largetRow = 3;
-            int smallerRow = 2;
-            for (int i = 0; i < 4; i++)
-            {
-                if (i >= 2)
-                {
-                    output.rows.Add(largetRow);
-                }
-                else
-                {
-                    output.rows.Add(smallerRow);
-                }
-            }
-        }
-        if (n == 13)
-        {
-            int largetRow = 4;
-            int smallerRow = 3;
-            for (int i = 0; i < 4; i++)
-            {
-                if (i == 0 || i == 2)
-                {
-                    output.rows.Add(largetRow);
-                }
-                else if (i == 1)
-                {
-                    output.rows.Add(smallerRow);
-                }
-                else
-                {
-                    output.rows.Add(smallerRow - 1);
-                }
-            }
-        }
-        if (n == 15)
-        {
-            int largetRow = 4;
-            int smallerRow = 3;
-            for (int i = 0; i < 4; i++)
-            {
-                if (i >= 1)
-                {
-                    output.rows.Add(largetRow);
-                }
-                else
-                {
-                    output.rows.Add(smallerRow);
-                }
-
-            }
-        }
-        return output;
-    }
-
-
-    Vector2 boxOffset = new Vector2(200, 50);
-
-    Vector2 startOffset = new Vector2(0, -20);
-
-
-    //here just replace text with tmp_text, and than replace the table in the science test scene s
     void createTable()
     {
-
-        TableLayout layout = initTableRows(Information.userModels.Count);
-
-        int rows = layout.rows.Count;
-        //depending on the amont center it in the screen, to center it
-
-
-        float yOffset = startOffset.y - (float)(rows - 1) / 2 * boxOffset.y;
-        List<GameObject> newButtons = new List<GameObject>();
-        int index = 0;
-        for (int i = 0; i < rows; i++)
-        {
-            float xOffset = startOffset.x - (float)(layout.rows[i] - 1) / 2 * boxOffset.x;
-            for (int j = 0; j < layout.rows[i]; j++)
-            {
-                GameObject curr = Instantiate(table, table.transform, true); //make a new button
-                curr.transform.SetParent(curr.transform.parent.parent);
-                curr.transform.localPosition = new Vector2(xOffset + boxOffset.x * j, yOffset + boxOffset.y * i);
-                if (index > Information.userModels.Count - 1)
-                {
-                    Debug.LogError("out of boudns for: " + index + " " + Information.placmentTest[currentIndex].name);
-                }
-                curr.GetComponentInChildren<TMPro.TMP_Text>().text = Information.userModels[index++].simpleInfo[0];
-                curr.GetComponent<Button>().onClick.AddListener(delegate { takeTableClick(curr); });
-                curr.gameObject.SetActive(true);
-                newButtons.Add(curr);
-            }
-        }
-        Information.updateEntities = newButtons.ToArray();
+        tableClass.createTable(takeTableClick);
     }
+  
 
     void takeTableClick(GameObject curr)
     {
@@ -232,14 +70,8 @@ public class ScienceTest : MonoBehaviour
         {
             table.transform.parent.GetChild(i).gameObject.SetActive(false);
         }
-
-
         nextQuestion();
-
     }
-    #endregion
-
-
 
     void nextQuestion()
     {

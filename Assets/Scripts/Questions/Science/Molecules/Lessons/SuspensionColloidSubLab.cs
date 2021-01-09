@@ -1,18 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class SuspensionColloidSubLab : Lab
+public class SuspensionColloidSubLab : MonoBehaviour
 {
-    public SuspensionColloidSubLab() : base()
-    {
 
+    public Button mix; //INIT THIS
+    public ParticleSystem ps;
+    public ParticleSystem ps2;
+    public Material defualtMaterial;
+    public Text outputText;
+
+    public void Start()
+    {
+        
     }
 
 
     void SuspensionSubLab()
     {
-
         mix.gameObject.SetActive(true);
         initSuspensionParticles(true);
         var main = ps.main;
@@ -100,6 +107,23 @@ public class SuspensionColloidSubLab : Lab
         StartCoroutine(particleAnimation());
     }
 
+    IEnumerator particleAnimation()
+    {
+        int shakeCount = 2;
+        while (shakeCount > 0)
+        {
+
+            shakeCount--;
+
+            yield return new WaitForSeconds(1);
+        }
+        //just increase the noise of the particles 
+        var noise1 = ps.noise;
+        var noise2 = ps2.noise;
+        noise1.positionAmount = 1;
+        noise2.positionAmount = 1;
+
+    }
 
 
 

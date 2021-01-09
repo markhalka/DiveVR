@@ -1732,7 +1732,7 @@ public class LTG : MonoBehaviour
     bool isLine;
     int clickableCooldown = 40;
     void Update()
-    {
+    {/*
         if (clickableCooldown > 0)
         {
             clickableCooldown--;
@@ -1767,7 +1767,7 @@ public class LTG : MonoBehaviour
                 Information.currPosition = Vector3.zero;
             }
         }
-
+        */
     }
 
     float maxDiff = 10; //the maximum error for each point 

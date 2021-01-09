@@ -7,23 +7,31 @@ using UnityEngine.UI;
 public class HorizontalSnap : MonoBehaviour
 {
 
+    //figure out why everything is in the same location
+    //pass the information panel, then on-click just show it
+    //in the start method make sure you can see the title (just set it to true)
+
+
     public AudioSource source;
     public AudioClip swipe;
     public AudioClip click;
 
-    public TMP_Text title;
+    public InformationPanel informationPanel;
+    
+
+//    public TMP_Text title;
     Sprite[] currentSprites; // MAKE SURE YOU INIT THIS 
     public GameObject page1;
-    int startOffset;
+   // int startOffset;
 
     public void Start()
     {
-
+        informationPanel.showTitle(0); //?
     }
     public void createHS(Sprite[] sprites)
     {
         currentSprites = sprites;
-        GetComponent<UnityEngine.UI.Extensions.HorizontalScrollSnap>().OnSelectionChangeEndEvent.AddListener(delegate { pageChanged(); });
+
         for (int i = 0; i < currentSprites.Length; i++)
         {
             GameObject newPage = Instantiate(page1, page1.transform, false);
@@ -32,21 +40,26 @@ public class HorizontalSnap : MonoBehaviour
             newPage.gameObject.SetActive(true);
         }
 
+        var scrollSnap = GetComponent<UnityEngine.UI.Extensions.HorizontalScrollSnap>();
+        scrollSnap.enabled = true;
+        scrollSnap.OnSelectionChangeEndEvent.AddListener(delegate { pageChanged(); });
         pageChanged();
     }
 
     void pageChanged()
     {
+        Debug.LogError("page changed");
         source.clip = swipe;
         source.Play();
 
         int currentPage = GetComponent<UnityEngine.UI.Extensions.HorizontalScrollSnap>().CurrentPage;
 
-        title.text = Information.userModels[currentPage + startOffset].simpleInfo[0];
+        informationPanel.showTitle(currentPage);
     }
 
     void onHorizontalClick()
     {
+
         if (Information.currentBox != null)
         {
             source.clip = click;
@@ -56,6 +69,7 @@ public class HorizontalSnap : MonoBehaviour
         }
     }
 
+    // here you should make the current panel true, and that should work
     void showHSPanel()
     {
         int currentIndex = -1;
@@ -75,8 +89,9 @@ public class HorizontalSnap : MonoBehaviour
 
         // fancyAnimation();
 
-        Information.panelIndex = currentIndex + startOffset;
-     //   panel.showPanel();  
+      //  Information.panelIndex = currentIndex + startOffset;
+        //   panel.showPanel();  
+        informationPanel.showPanel(currentIndex);
     }
 
     bool setPanel = false;
@@ -84,8 +99,9 @@ public class HorizontalSnap : MonoBehaviour
     {
         if (!setPanel)
         {
-            //   panel.transform.parent.GetComponent<InformationPanel>().setLeftorRight(true); //maybe?? //that should work 
+            informationPanel.locationPanel.setPosition(LocationPanel.MenuPosition.CENTER); //maybe?? //that should work 
             pageChanged();
+            setPanel = true;
         }
         onHorizontalClick();
     }

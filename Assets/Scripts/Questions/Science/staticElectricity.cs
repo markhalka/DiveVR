@@ -165,7 +165,7 @@ public class staticElectricity : MonoBehaviour, IPointerDownHandler
     // Update is called once per frame
     int collectingIndex = 0;
     bool collecting = false;
-    void Update()
+ /*   void Update()
     {
         handleStartPanels();
 
@@ -209,7 +209,7 @@ public class staticElectricity : MonoBehaviour, IPointerDownHandler
 
         }
 
-    }
+    }*/
 
 
     //this will check if it should discharge (if it is near the thing)

@@ -165,12 +165,10 @@ public class LogIn : MonoBehaviour
                     break;
                 case 2:
                     outputText = "Dive plan found, opening portal";
-                    Information.isDeepSea = false;
                     open = true;
                     break;
                 case 3:
                     outputText = "Deep Sea plan found, opening portal";
-                    Information.isDeepSea = true;
                     open = true;
                     break;
                 case 4:

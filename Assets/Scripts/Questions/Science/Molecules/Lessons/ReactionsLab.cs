@@ -1,14 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
-
-public class ReactionsLab : Lab
+public class ReactionsLab : MonoBehaviour
 {
     public Dropdown reactionDropdown;
     public Button reactionStart;
+
+    public Sprite[] reactionSprites;
+    public Material[] reactionMaterials;
+    string[] reaction = new string[] { "Choose a reaction", "Synthesis", "Decomposition", "Displacment", "Double displacment" };
+
 
     List<Reaction> reactions;
     List<Reaction> currentReactions;
@@ -331,7 +336,7 @@ public class ReactionsLab : Lab
 
     }
 
-    public override void update()
+    public void Update()
     {
 
         if (reactionIndex != -1)

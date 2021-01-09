@@ -16,6 +16,31 @@ public class SocialMedia : MonoBehaviour
         transform.GetChild(7).GetComponent<Button>().onClick.AddListener(delegate { takeBack(); }); //continue;
     }
 
+    void takeContinue()
+    {
+
+    }
+/*
+    bool getSocialMedia(string name)
+    {
+        var medias = Information.xmlDoc.Descendants("media");
+        foreach (var curr in medias)
+        {
+            if (curr.Attribute("name").Value == name)
+            {
+                //then you found it, check if a username and password exsit 
+                string us = curr.Attribute("username").Value;
+                string pass = curr.Attribute("password").Value;
+                if (us.Length > 1 && pass.Length > 1)
+                {
+                    Information.socialUsername = us;
+                    Information.socialPassword = pass;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     void takeContinue()
     {
@@ -37,7 +62,7 @@ public class SocialMedia : MonoBehaviour
             }
         }
         takeBack();
-    }
+    }*/
 
     void takeBack()
     {
@@ -46,7 +71,7 @@ public class SocialMedia : MonoBehaviour
 
     void OnEnable()
     {
-        transform.GetChild(1).GetComponent<Text>().text = Information.socialMediaName + " Log In";
+       // transform.GetChild(1).GetComponent<Text>().text = Information.socialMediaName + " Log In";
     }
     void Update()
     {

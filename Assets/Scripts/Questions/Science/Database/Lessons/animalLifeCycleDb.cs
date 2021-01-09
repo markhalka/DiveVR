@@ -3,24 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class animalLifeCycleDb : LessonDb
+public class animalLifeCycleDb : MonoBehaviour
 {
+
+    public GameObject vsChild;
+    public GameObject verticalScroll;
+    public Sprite[] animalSprites;
+    public InformationPanel informationPanel;
+    int startOffset;
+
     int[] lifecycleIndecies = new int[] { 0, 3, 7, 10, 14 };
 
-    public animalLifeCycleDb(int startOffset, Sprite[] currentSprites) : base(startOffset, currentSprites)
+    public  void Start()
     {
+        startOffset = informationPanel.startOffset;
 
-    }
-
-    public override void initLadder()
-    {
-        for (int i = 0; i < currentSprites.Length; i++)
+        for (int i = 0; i < animalSprites.Length; i++)
         {
             GameObject currChild = Instantiate(vsChild, vsChild.transform, false);
             currChild.transform.SetParent(verticalScroll.transform.GetChild(0)); //i think that should work
             currChild.gameObject.SetActive(true);
             GameObject page = currChild.transform.GetChild(0).GetChild(0).gameObject;
-            currChild.transform.GetChild(0).GetComponent<Image>().sprite = currentSprites[i];
+            currChild.transform.GetChild(0).GetComponent<Image>().sprite = animalSprites[i];
 
             GameObject image = page.transform.GetChild(0).GetChild(0).gameObject;
             for (int j = lifecycleIndecies[i] + 1; j < lifecycleIndecies[i + 1]; j++)
@@ -28,15 +32,16 @@ public class animalLifeCycleDb : LessonDb
 
                 GameObject currAnimal = Instantiate(image, image.transform, true);
                 currAnimal.transform.SetParent(image.transform.parent.parent.GetChild(0));
-                currAnimal.GetComponent<Image>().sprite = currentSprites[j];   //ok, that should work               
+                currAnimal.GetComponent<Image>().sprite = animalSprites[j];   //ok, that should work               
                 currAnimal.gameObject.SetActive(true);
 
             }
         }
+        Database.currentSprites = animalSprites;
     }
 
 
-    public override void update()
+    public void Update()
     {
         if (Information.currentBox != null)
         {

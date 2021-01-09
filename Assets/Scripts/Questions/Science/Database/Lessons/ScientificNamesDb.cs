@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScientificNamesDb : LessonDb
+public class ScientificNamesDb : MonoBehaviour
 {
+    public HorizontalSnap hs;
+    public Sprite[] scientificNameSprites;
 
-    public ScientificNamesDb(int startOffset, Sprite[] currentSprites) : base(startOffset, currentSprites)
+    public void Start()
     {
-
+        hs.createHS(scientificNameSprites);
+        Database.currentSprites = scientificNameSprites;
     }
-
 }
 

@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlloySubLab : Lab
+public class AlloySubLab : MonoBehaviour
 {
+    public ParticleSystem ps;
+    public ParticleSystem ps2;
+    public Material[] alloyMaterials;
+
     public AlloySubLab(int index)
     {
         showPanel(alloyPanel, index);
@@ -41,5 +45,5 @@ new ParticleSystem.Burst[] {
     }
     public Material defualtMaterial;
 
-
+    
 }

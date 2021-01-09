@@ -3165,12 +3165,12 @@ MonoBehaviour:
   centerContainer: {fileID: 6009217173642018047}
   leftcontainer: {fileID: 6766774377668847694}
   rightContainer: {fileID: 4280447885105380872}
-  rightStart: {x: 0, y: 0, z: 0}
-  rightExit: {x: 0, y: 0, z: 0}
-  leftStart: {x: 0, y: 0, z: 0}
-  leftExit: {x: 0, y: 0, z: 0}
+  rightStart: {x: 200, y: 0, z: 0}
+  rightExit: {x: 580, y: 0, z: 0}
+  leftStart: {x: -200, y: 0, z: 0}
+  leftExit: {x: -580, y: 0, z: 0}
   centerStart: {x: 0, y: 0, z: 0}
-  centerExit: {x: 0, y: 0, z: 0}
+  centerExit: {x: 0, y: -360, z: 0}
 --- !u!1 &4280447884931028085
 GameObject:
   m_ObjectHideFlags: 0
@@ -3290,7 +3290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 200, y: 0}
   m_SizeDelta: {x: 341.2, y: 322.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4280447885105380879
@@ -6145,7 +6145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -200, y: 0}
   m_SizeDelta: {x: 341.2, y: 322.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7525762577597291688

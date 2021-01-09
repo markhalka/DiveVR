@@ -2,8 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MixturesLab : Lab
+public class MixturesLab : MonoBehaviour
 {
+    public ParticleSystem ps;
+    public ParticleSystem ps2;
+    public GameObject choosePanel;
+    public Sprite[] mixtureSprites;
+    public TMPro.TMP_Text outputText;
+
+    public GameObject mixtureContainer;
+
+
+
+    List<GameObject> newEntities;
+
     string[] mixturesDropdown = new string[] { "Solutions", "Suspensions", "Alloys", "Colloids" };
     int[] dropDownIndecies = new int[] { 3, 4, 8, 9 };
     int[] startIndecies = new int[] { 0, 1, 2 };
@@ -11,7 +23,7 @@ public class MixturesLab : Lab
     string[] alloys = new string[] { "Bronze", "Steel", "Solder" };
     int[] alloyIndecies = new int[] { 5, 6, 7 };
 
-    int[] mixturePanels = new int[] { 3, 8, 4, 9 };
+
 
 
 
@@ -31,7 +43,7 @@ public class MixturesLab : Lab
 
     }
 
-    public override void initPS()
+    public void initPS()
     {
         var main1 = ps.main;
         main1.startColor = Color.red;
@@ -79,9 +91,9 @@ public class MixturesLab : Lab
         chooseCanvas.SetActive(true);
         choosePanel.SetActive(true);
         newEntities = new List<GameObject>();
-        for (int i = 0; i < mixtuerSprites.Length; i++)
+        for (int i = 0; i < mixtureSprites.Length; i++)
         {
-            choosePanel.transform.GetChild(i).GetComponent<Image>().sprite = mixtuerSprites[i];
+            choosePanel.transform.GetChild(i).GetComponent<Image>().sprite = mixtureSprites[i];
             choosePanel.transform.GetChild(i).GetChild(0).GetComponent<TMPro.TMP_Text>().text = mixturesDropdown[i];
 
             newEntities.Add(choosePanel.transform.GetChild(i).gameObject);
@@ -93,89 +105,6 @@ public class MixturesLab : Lab
 
         outputText.gameObject.SetActive(true);
         List<string> mixturesList = new List<string>(mixturesDropdown);
-    }
-
-
-    void showMixturePanel(int index)
-    {
-        Information.panelIndex = mixturePanels[index];
-        InformationPanel.SetActive(true);
-    }
-
-    public GameObject mixtureContainer;
-
-    string[] mixtures = new string[] { "0.1", "1", "1.5", "2.5" };
-
-    int offset = 20;
-
-    void updateAmountOfParticles(ParticleSystem p, int amount)
-    {
-
-        if (p.particleCount < amount)
-        {
-            var em = p.emission;
-            em.SetBursts(
-       new ParticleSystem.Burst[]{
-                new ParticleSystem.Burst(0, (amount - p.particleCount))
-
-       });
-        }
-        else
-        {
-            ParticleSystem.Particle[] particles = new ParticleSystem.Particle[p.particleCount];
-            p.GetParticles(particles);
-            List<ParticleSystem.Particle> newParticles = new List<ParticleSystem.Particle>(particles);
-            for (int i = particles.Length - 1; i > amount; i--)
-            {
-                newParticles.RemoveAt(i);
-            }
-            p.SetParticles(newParticles.ToArray());
-        }
-
-    }
-
-
-
-
-    void resetAll()
-    {
-        ps.Stop();
-        ps2.Stop();
-        ps3.Stop();
-        ps4.Stop();
-
-        ps.Clear();
-        ps2.Clear();
-        ps3.Clear();
-        ps4.Clear();
-
-        var v = ps2.forceOverLifetime;
-        v.enabled = false;
-
-        slider.gameObject.SetActive(false);
-        plainSlider.gameObject.SetActive(false);
-        mix.gameObject.SetActive(false);
-
-    }
-
-
-
-    IEnumerator particleAnimation()
-    {
-        int shakeCount = 2;
-        while (shakeCount > 0)
-        {
-
-            shakeCount--;
-
-            yield return new WaitForSeconds(1);
-        }
-        //just increase the noise of the particles 
-        var noise1 = ps.noise;
-        var noise2 = ps2.noise;
-        noise1.positionAmount = 1;
-        noise2.positionAmount = 1;
-
     }
 
 }

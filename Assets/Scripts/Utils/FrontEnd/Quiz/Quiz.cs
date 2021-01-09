@@ -1,18 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+// this actually looks pretty good, but you can still clean it up a bit
 
 public class Quiz
 {
-
+    public List<string> pastQuestions;
+    public List<string[]> wrongLabels;
     public List<string[]> lables;
+
     public int nextId = 0;
     private int score = 0;
     private int questions = 0;
     private int totalQuestions = 0;
-    public bool isQuiz = false;
-    public List<string[]> wrongLabels;
-    public bool wrongAnswerMode;
-    public List<string> pastQuestions;
 
+    public bool isQuiz = false;
+    public bool wrongAnswerMode;
 
     public bool startWrong()
     {
@@ -105,8 +110,6 @@ public class Quiz
         return false;
     }
 
-
-
     public bool checkName(string name)
     {
 
@@ -169,6 +172,4 @@ public class Quiz
          nextId = 0; */
         isQuiz = false;
     }
-
-
 }

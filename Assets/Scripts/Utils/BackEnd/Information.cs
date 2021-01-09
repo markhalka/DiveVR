@@ -8,9 +8,9 @@ public class Information
     //this class ony holds the information to be shared between scenes
 
     public static bool initialized = false;
-    public static bool isDeepSea = false; //this value will be setup in initialize
     public static bool isInMenu = false;
     public static bool isGame = false;
+   
     public static bool isVrMode = false;
     public static bool isSelect;
     public static bool interactiveLesson = true;
@@ -36,24 +36,15 @@ public class Information
     public static int totalEarnedPoints = 0;
 
 
-    // public static bool isTutorial = false;
     public static Model tutorialModel = null;
     public static List<TutorialScene> tutorialScenes;
 
-    public static string address = "";
-
     public static string name = "";
     public static string acheivment = "";
-    public static string socialMediaName = "Facebook";
-    public static string[] socialMediaNames = { "facebook", "twitter", "instagram" }; //keep this in the same order becaause this is the order that it is in for social share 
-
     public static float score = 0;
 
     public static string socialMediaMessage = "";
 
-    public static string socialUsername;
-    public static string socialPassword;
-    public static bool socialLogIn;
 
 
     public static string grade = "5";
@@ -63,18 +54,6 @@ public class Information
 
     public static string currentScene = "";
 
-    public static string computerIP = "192.168.0.22";
-    public static int computerPort = 9009;
-
-    public static string controllerIP = "192.168.0.22"; //im going to keep the same ip, but use a different port for the buttons?? might not need to 
-    public static int controllerPort = 8080;
-
-
-    public static Vector3 currPosition;
-    public static Vector3 udpOffset;
-
-    public static GameObject lowerBoundary;
-    public static GameObject upperBoundary;
 
     public static string openDir = "XML/General/Data";
 
@@ -124,9 +103,7 @@ public class Information
     public static string setPointsMaxUrl = "https://www.divevr.org/_functions-dev/setPoints/"; //this is used for 
 
     public static string levelUrl = "https://www.divevr.org/_functions-dev/level/";
-    // public static string prizeUrl = "https://www.divevr.org/_functions-dev/checkLogin/"; 
     public static string shopUrl = "https://www.divevr.org/_functions-dev/shop/";
-    //  public static string resetUrl = "https://www.divevr.org/_functions-dev/checkLogin/"; 
     public static string buyUrl = "https://www.divevr.org/_functions-dev/buyPoints/";
     // public static string getSettingsUrl = "https://www.divevr.org/_functions-dev/getSettings/";
     // public static string putSettingsUrl = "https://www.divevr.org/_functions-dev/putSettings/";

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class identifyEcosystemDb : LessonDb
+public class identifyEcosystemDb : MonoBehaviour
 {
-
-    public identifyEcosystemDb(int startOffset, Sprite[] currentSprites) : base(startOffset, currentSprites)
+    public HorizontalSnap hs;
+    public Sprite[] ecosystemSprites;
+    public void Start()
     {
-
+        hs.createHS(ecosystemSprites);
+        Database.currentSprites = ecosystemSprites;
     }
 }
 

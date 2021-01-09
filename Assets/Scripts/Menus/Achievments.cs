@@ -227,28 +227,6 @@ public class Achievments : MonoBehaviour
         return output;
     }
 
-
-    bool getSocialMedia(string name)
-    {
-        var medias = Information.xmlDoc.Descendants("media");
-        foreach (var curr in medias)
-        {
-            if (curr.Attribute("name").Value == name)
-            {
-                //then you found it, check if a username and password exsit 
-                string us = curr.Attribute("username").Value;
-                string pass = curr.Attribute("password").Value;
-                if (us.Length > 1 && pass.Length > 1)
-                {
-                    Information.socialUsername = us;
-                    Information.socialPassword = pass;
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     public GameObject points;
     public GameObject enterInfo;
 

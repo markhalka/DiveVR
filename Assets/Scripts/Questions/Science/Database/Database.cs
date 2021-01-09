@@ -8,14 +8,18 @@ using UnityEngine.UI;
 public class Database : MonoBehaviour
 {
     
-    // than, you should call tectonicDb, which creates the images in the right way, and calls the start panels
-    // ok, so when tectonic is called, it should instantitate new children in horizontal scroll, and then gucci
+    //todo:
+    //1. change all intros to -1
+    //2. test all hs classes
+    //3. test the quiz
+    //4. get the vs classes working
+    //5. test from home menu 
+    //6. test pretest
+    //7. fix any small bugs
 
-    // todo next:
-    // 1. create a struct (maybe static) that will have all the gameobjects needed, then that struct should be in lessondb, then initiate that struct here
-    // 2. then, you can just create hs or vs in the individual lessons
-    
-    
+    // you need to change all the start panels in data to be -1, do that at night when you're too tired to think
+    //then you should get the 2 vertical scroll classes working 
+
 
     public GameObject quiz;
     public GameObject verticalScroll;
@@ -23,23 +27,24 @@ public class Database : MonoBehaviour
     public GameObject informationPanelGb;
     public GameObject currentPanel;
 
-    public Sprite[] classificationSprites;
-    public Sprite[] ecosystemSprites;
-    public Sprite[] tectonicSprites;
-    public Sprite[] animalSprites;
-    public Sprite[] scientificNameSprites;
-
+    public GameObject currLesson;
+    public GameObject tectonic;
+    public GameObject animalLifeCycle;
+    public GameObject ecosystem;
+    public GameObject classification;
+    public GameObject scientificNames;
 
     public AudioSource source;
     public AudioClip swipe;
     public AudioClip click;
+
+    public static Sprite[] currentSprites;
 
 
     //ok, now get the start panel working well
     //than get the tectonic shit working 
 
     bool instructionsShown = false;
-    LessonDb currLesson;
 
     InformationPanel informationPanel;
 
@@ -54,6 +59,7 @@ public class Database : MonoBehaviour
         informationPanel = informationPanelGb.GetComponent<InformationPanel>();
 
         currLesson = null;
+       
     }
 
     void tempLoad()
@@ -100,32 +106,27 @@ public class Database : MonoBehaviour
    
     void initDatabase()
     {
-        if(currLesson != null)
-        {
-            return;
-        }
-        Debug.LogError("creating a new lesson...");
-        
+
         switch (Information.nextScene)
         {
             case 8: //classifcation
-                currLesson = new ClassificationDb(informationPanel.startOffset, classificationSprites);
+                currLesson = classification;
                 break;
             case 9: //scientific names      
-                currLesson = new ScientificNamesDb(informationPanel.startOffset, scientificNameSprites);
+                currLesson = scientificNames;
                 break;
             case 10:
-                currLesson = new animalLifeCycleDb(informationPanel.startOffset, animalSprites);
+                currLesson = animalLifeCycle;
                 break;
             case 38:
-                currLesson = new tectonicDb(informationPanel.startOffset, tectonicSprites);
+                currLesson = tectonic;
                 break;
-
             case 41:
-                currLesson = new identifyEcosystemDb(informationPanel.startOffset, ecosystemSprites);
+                currLesson = ecosystem;
                 break;
-
         }
+        currLesson.SetActive(true);
+        initQuiz(); // that should work
     }
 
 
@@ -140,71 +141,29 @@ public class Database : MonoBehaviour
     public GameObject horizontalSnap;
 
 
- /*
-    #region replace with in quiz
-    void startQuiz()
-    {
-        panel.transform.parent.GetComponent<InformationPanel>().quizPanel.SetActive(false);
-        isQuiz = true;
-        quiz.gameObject.SetActive(true);
-    }
-
-    void endQuiz()
-    {
-        isQuiz = false;
-        Debug.LogError("ended quiz");
-        if (Information.wasPreTest)
-        {
-            Information.panelIndex = -1;
-            Information.lableIndex = 0;
-            panel.transform.parent.GetComponent<InformationPanel>().quizPanel.SetActive(true);
-            return;
-        }
-
-
-        quiz.GetComponent<QuizMenu>().endQuiz();
-        Debug.LogError("quiz ended");
-
-    }
  
-    void initQuiz(Sprite[] currentSprites)
+    #region replace with in quiz
+
+    void initQuiz()
     {
+        var quizMenu = quiz.GetComponent<QuizMenu>();
         if (currentSprites != null)
         {
             Debug.LogError("added the current sprites ");
-            quiz.GetComponent<QuizMenu>().images = currentSprites;
-            quiz.GetComponent<QuizMenu>().useImage = true;
+            quizMenu.images = currentSprites;
+            quizMenu.useImage = true;
         }
         else
         {
-            quiz.GetComponent<QuizMenu>().useImage = false;
+            quizMenu.useImage = false;
         }
-        quiz.GetComponent<QuizMenu>().startOffset = startOffset;
+        quizMenu.startOffset = informationPanel.startOffset;
 
     }
 
-    bool isQuiz = false;
-    void checkQuiz()
-    {
-        if (!isQuiz)
-        {
-            if (Information.isQuiz == 1)
-            {
-                startQuiz();
-            }
-
-        }
-        else
-        {
-            if (Information.isQuiz == 0)
-            {
-                endQuiz();
-            }
-        }
-    }
 
     #endregion
- */
+ 
 
 
     public GameObject vsChild;
@@ -214,9 +173,11 @@ public class Database : MonoBehaviour
     {
         if (!instructionsShown)
         {
-            InstructionAnimationGb.SetActive(true);
+       //     InstructionAnimationGb.SetActive(true);  # UNCOMMENT
             instructionsShown = true;
             Debug.LogError("showing instructions");
+
+            initDatabase();
         }
     }
 
@@ -233,7 +194,6 @@ public class Database : MonoBehaviour
         if (!currentPanel.activeSelf)
         {
             showInstructions();
-            initDatabase();
         }
 
         if (Information.doneLoading)

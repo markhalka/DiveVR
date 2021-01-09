@@ -43,6 +43,7 @@ public class LocationPanel : MonoBehaviour
         currentPosition = position;
 
         panelContainer.transform.localPosition = new Vector3(0, 0, 0);
+        panelContainer.SetActive(true);
 
         if (position == MenuPosition.CENTER)
         {
@@ -103,7 +104,7 @@ public class LocationPanel : MonoBehaviour
         float count = 0;
         Vector3 start, end;
         start = end = new Vector3(0, 0, 0);
-
+        panelContainer.SetActive(true);
         switch (currentPosition)
         {
             case MenuPosition.CENTER:

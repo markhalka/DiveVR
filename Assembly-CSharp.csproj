@@ -120,7 +120,6 @@
     <Compile Include="Assets\Scripts\Questions\Science\Database\Lessons\animalLifeCycleDb.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Database\Lessons\ClassificationDb.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Database\Lessons\identifyEcosystemDb.cs" />
-    <Compile Include="Assets\Scripts\Questions\Science\Database\Lessons\LessonDb.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Database\Lessons\ScientificNamesDb.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Database\Lessons\tectonicDb.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\GoldRuberg\BallScript.cs" />
@@ -137,7 +136,11 @@
     <Compile Include="Assets\Scripts\Questions\Science\Molecules\Reaction.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\PhysicsMain.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Science.cs" />
+    <Compile Include="Assets\Scripts\Questions\Science\ScienceModels\Hints.cs" />
+    <Compile Include="Assets\Scripts\Questions\Science\ScienceModels\HorizontalModel.cs" />
+    <Compile Include="Assets\Scripts\Questions\Science\ScienceModels\ModelAnimations.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\ScienceModels\ScienceModels.cs" />
+    <Compile Include="Assets\Scripts\Questions\Science\ScienceModels\Table.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\ScienceTest.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\staticElectricity.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Water\PhysicsHelper.cs" />
@@ -145,13 +148,6 @@
     <Compile Include="Assets\Scripts\Questions\Science\Water\WaterFloat.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Water\Waves.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Water\WavesSimple.cs" />
-    <Compile Include="Assets\Scripts\Rocket\AudioHelper.cs" />
-    <Compile Include="Assets\Scripts\Rocket\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\Rocket\CameraController.cs" />
-    <Compile Include="Assets\Scripts\Rocket\DarkenMaterial.cs" />
-    <Compile Include="Assets\Scripts\Rocket\RocketController.cs" />
-    <Compile Include="Assets\Scripts\Rocket\RocketTypes.cs" />
-    <Compile Include="Assets\Scripts\Rocket\Utils.cs" />
     <Compile Include="Assets\Scripts\TestStarter.cs" />
     <Compile Include="Assets\Scripts\Utils\BackEnd\CameraMove.cs" />
     <Compile Include="Assets\Scripts\Utils\BackEnd\Information.cs" />
@@ -180,6 +176,7 @@
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Panels\StartPanel.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Quiz\Quiz.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Quiz\QuizMenu.cs" />
+    <Compile Include="Assets\Scripts\Utils\FrontEnd\Quiz\WrongAnswer.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Rewards\Certificate.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Rewards\Points.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Rewards\SocialMedia.cs" />

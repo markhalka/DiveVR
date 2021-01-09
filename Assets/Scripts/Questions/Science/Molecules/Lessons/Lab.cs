@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Lab
 {
-        public static Text outputText;
+     
+    public static Text outputText;
         public static Dropdown dropdown;
         public static Slider slider;
         public static Slider plainSlider;
@@ -15,48 +16,6 @@ public class Lab
     
 
     public static GameObject panel; //this is the information apnel
-
-
-        public static void setSlider()
-        {
-            plainSlider.gameObject.SetActive(true);
-        }
-
-        public static void setText(string text)
-        {
-            outputText.text = "Set the dropdown to select you material, then move the slider to change the temprature!";
-            outputText.gameObject.SetActive(true);
-        }
-
-        public static void showPanel(Dictionary<int, int> dict)
-        {
-            float sliderValue = plainSlider.value;
-            if (dict != null && !panel.activeSelf)
-            {
-                int lowestIndex = 100;
-                foreach (var value in dict)
-                {
-
-
-                    if (value.Key <= sliderValue && !Information.userModels[value.Value].wasShown)
-                    {
-                        if (value.Value < lowestIndex)
-                            lowestIndex = value.Value;
-                    }
-                }
-
-                if (lowestIndex >= 0 && lowestIndex < Information.userModels.Count)
-                {
-                    Information.panelIndex = lowestIndex;
-                    panel.SetActive(true);
-                    Information.userModels[lowestIndex].wasShown = true;
-                }
-            }
-        }
-
-
-
-    
 
 
     Dictionary<int, int> sliderPanelValues;
@@ -90,5 +49,5 @@ public class Lab
         {
             showPanel(sliderPanelValues, slider.value);
         }
-    }
+    } 
 }

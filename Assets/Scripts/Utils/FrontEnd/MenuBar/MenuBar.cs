@@ -192,7 +192,7 @@ public class MenuBar : MonoBehaviour
                 else
                 {
                     curr = GameObject.Find("Quiz");
-                    curr.GetComponent<QuizMenu>().takeHelp();
+                   // curr.GetComponent<QuizMenu>().takeHelp();
                 }
                 break;
             case "public speaking":

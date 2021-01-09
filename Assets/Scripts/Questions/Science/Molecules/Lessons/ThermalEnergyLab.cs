@@ -1,10 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ThermalEnergyLab : Lab
+public class ThermalEnergyLab : MonoBehaviour
 {
 
+    public Slider slider;
+    public ParticleSystem ps;
+    public ParticleSystem ps2;
+    public Dropdown dropdown;
+    public TMPro.TMP_Text outputText;
+    public Material[] changeMaterials;
+
+    public GameObject top;
+    public GameObject bottom;
+    public GameObject left;
+    public GameObject right;
+    public GameObject forward;
+    public GameObject backward;
+
+    //    public 
 
     string[] changeCompounds = new string[] { "nitrogen", "alcohol", "water", "iron" };
     string[,] changeValue = new string[,] { { "-210", "-195" }, { "-115", "79" }, { "0", "100" }, { "1538", "2862" } }; //melting, boiling point
@@ -20,7 +36,7 @@ public class ThermalEnergyLab : Lab
 
     }
 
-    public override void initDropdown()
+    public void initDropdown()
     {
         LabGameObjects.dropdown.gameObject.SetActive(true);
         dropdown.AddOptions(new List<string>(changeCompounds));
@@ -28,7 +44,7 @@ public class ThermalEnergyLab : Lab
         changeDropdown();
     }
 
-    public override void initPS()
+    public void initPS()
     {
         var psr = ps.GetComponent<ParticleSystemRenderer>();
         psr.material = changeMaterials[0];
@@ -48,5 +64,90 @@ public class ThermalEnergyLab : Lab
         ps.Play();
 
     }
+
+    void thermalSlider()
+    {
+        var noise = ps.noise;
+        float inversePercentage = (1 - slider.value / (slider.maxValue)) + 0.2f; ;
+
+        float percentage = slider.value / slider.maxValue * 10;
+        changeDensity(slider.value / 30);
+
+        noise.frequency = inversePercentage * 2;
+        noise.positionAmount = percentage * 1.3f;
+
+        if (slider.value < 20)
+        {
+            outputText.text = "The molecules now form a solid";
+            previousState = 0;
+            //solid
+        }
+        else if (slider.value < 30)
+        {
+            if (previousState == 0)
+            {
+                //it is melting
+                outputText.text = "The molecules are now melting";
+            }
+            else
+            {
+                outputText.text = "The molecules are now freezing";
+                //it is freezing
+            }
+            //transition
+        }
+        else if (slider.value < 40)
+        {
+            previousState = 1;
+            outputText.text = "The molecules now form a liquid";
+
+            //liquid
+        }
+        else if (slider.value < 50)
+        {
+            if (previousState == 1)
+            {
+                //it is evaporating
+                outputText.text = "The molecules are now boiling";
+            }
+            else
+            {
+                //it is condensating
+                outputText.text = "The molecules are now condensating";
+            }
+
+        }
+        else
+        {
+            previousState = 2;
+            outputText.text = "The molecules now form a gas";
+            //gas
+        }
+    }
+
+    int offset = 20;
+    float prevValue = 0;
+    void changeDensity(float amount)
+    {
+        if (prevValue == 0)
+        {
+            prevValue = slider.value / 30;
+            return;
+        }
+        top.transform.Translate(new Vector3(0, 0, (prevValue - amount) * offset));
+        bottom.transform.Translate(new Vector3(0, 0, -(prevValue - amount) * offset));
+
+        left.transform.Translate(new Vector3(0, 0, -(prevValue - amount) * offset));
+        right.transform.Translate(new Vector3(0, 0, -(prevValue - amount) * offset));
+
+
+        forward.transform.Translate(new Vector3(0, 0, (prevValue - amount) * offset));
+        backward.transform.Translate(new Vector3(0, 0, -(prevValue - amount) * offset));
+        prevValue = amount;
+
+    }
+
+
+    int previousState = 0;
 
 }

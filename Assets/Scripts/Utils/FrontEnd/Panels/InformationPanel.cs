@@ -83,6 +83,19 @@ public class InformationPanel : MonoBehaviour
 
     }
 
+    public void showPanel(int index)
+    {
+
+        Information.panelIndex = index + startOffset;
+        loadNewModel();
+    }
+
+    public void showTitle(int index)
+    {
+        justTitle.gameObject.SetActive(true);
+        justTitle.text = Information.userModels[index + startOffset].simpleInfo[0];
+    }
+
     #region startPanels
     void initStartPanels()
     {
@@ -111,7 +124,7 @@ public class InformationPanel : MonoBehaviour
     {
         closeOnEnd = false;
         Debug.LogError("got the start panels: " + startPanels.Count);
-        panelContainer.SetActive(true);
+        StartCoroutine(locationPanel.moveAnimation(true));
         nextStart();
     }
 
@@ -241,8 +254,10 @@ public class InformationPanel : MonoBehaviour
         source.clip = open;
         source.Play();
 
-        if (closeOnEnd && !simpleClose)
+       // Debug.Log(closeOnEnd )
+        if (closeOnEnd)
         {
+            Debug.LogError("showing panel...");
             StartCoroutine(locationPanel.moveAnimation(true));
         }
 

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MoleculeMenu : MonoBehaviour
 {
@@ -9,6 +11,32 @@ public class MoleculeMenu : MonoBehaviour
     public GameObject choosePanel;
     public GameObject chooseSecondPanel;
     public Button back;
+    List<GameObject> newEntities;
+    public TMPro.TMP_Text outputText;
+    public Sprite[] reactionInnerSprites;
+    public Sprite[] alloySprites;
+
+    public ParticleSystem ps;
+    public ParticleSystem ps2;
+    public ParticleSystem ps3;
+    public ParticleSystem ps4;
+
+    public GameObject slider;
+    public GameObject plainSlider;
+    public GameObject mix;
+
+    public GameObject thermalEnergy;
+    public GameObject alloySub;
+    public GameObject mixtures;
+    public GameObject solutionSub;
+    public GameObject suspensionColloid;
+
+    public GameObject currentLab;
+
+
+    int[] mixturePanels = new int[] { 3, 8, 4, 9 };
+
+
 
     private void Start()
     {
@@ -77,18 +105,16 @@ public class MoleculeMenu : MonoBehaviour
                 switch (index)
                 {
                     case 0: //mixtures
-                        SolutionSubLab();
-                        Debug.Log("solutions sub lab");
+                        currentLab = solutionSub;
                         break;
                     case 1: //suspension
-                        Debug.Log("suspension sub lab");
-                        SuspensionSubLab();
+                        currentLab = suspensionColloid;
                         break;
                     case 2: //alloy
                         createSecondChoosePanel(index);
                         break;
                     case 3: //colloid
-                        ColloidsSubLab();
+                        currentLab = suspensionColloid;
                         break;
                 }
                 break;
@@ -97,7 +123,13 @@ public class MoleculeMenu : MonoBehaviour
                 break;
         }
     }
-    List<GameObject> newEntities;
+
+    void showMixturePanel(int index)
+    {
+        Information.panelIndex = mixturePanels[index];
+        InformationPanel.SetActive(true);
+    }
+
     void createSecondChoosePanel(int index)
     {
         resetAll();
@@ -188,6 +220,28 @@ public class MoleculeMenu : MonoBehaviour
             }
             Information.currentBox = null;
         }
+    }
+
+
+    void resetAll()
+    {
+        ps.Stop();
+        ps2.Stop();
+        ps3.Stop();
+        ps4.Stop();
+
+        ps.Clear();
+        ps2.Clear();
+        ps3.Clear();
+        ps4.Clear();
+
+        var v = ps2.forceOverLifetime;
+        v.enabled = false;
+
+        slider.gameObject.SetActive(false);
+        plainSlider.gameObject.SetActive(false);
+        mix.gameObject.SetActive(false);
+
     }
 }
 

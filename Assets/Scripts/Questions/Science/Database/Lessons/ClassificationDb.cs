@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ClassificationDb : LessonDb
+public class ClassificationDb : MonoBehaviour
 {
     int[] classificationIndecies = new int[] { 0, 2, 5, 8, 11, 12, 14, 14 };
-    public ClassificationDb(int startOffset, Sprite[] currentSprites) : base(startOffset, currentSprites)
+    string[] currentNames;
+
+    public GameObject vsChild;
+    public GameObject verticalScroll;
+    public Sprite[] classificationSprites;
+
+    public int startOffset;
+
+    public void Start()
     {
         currentNames = new string[7];
         for (int i = startOffset; i < 9; i++)
@@ -15,9 +23,10 @@ public class ClassificationDb : LessonDb
         }
 
         initLadder();
+        Database.currentSprites = classificationSprites;
     }
 
-    public override void initLadder()
+    public void initLadder()
     {
         for (int i = 0; i < currentNames.Length; i++)
         {
@@ -32,17 +41,17 @@ public class ClassificationDb : LessonDb
 
             GameObject image = page.transform.GetChild(0).GetChild(0).gameObject;
 
-            for (int j = classificationIndecies[i]; j < currentSprites.Length; j++)
+            for (int j = classificationIndecies[i]; j < classificationSprites.Length; j++)
             {
                 GameObject currAnimal = Instantiate(image, image.transform, true);
                 currAnimal.transform.SetParent(image.transform.parent.parent.GetChild(0));
-                currAnimal.GetComponent<Image>().sprite = currentSprites[j];    //ok, that should work 
+                currAnimal.GetComponent<Image>().sprite = classificationSprites[j];    //ok, that should work 
                 currAnimal.gameObject.SetActive(true);
             }
         }
     }
 
-    public override void update()
+    public void Update()
     {
         if (Information.currentBox != null)
         {

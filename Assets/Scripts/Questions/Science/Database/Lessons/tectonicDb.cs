@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class tectonicDb : LessonDb
+public class tectonicDb : MonoBehaviour
 {
-    public tectonicDb(int startOffset, Sprite[] currentSprites) : base(startOffset, currentSprites)
+    public HorizontalSnap hs;
+    public Sprite[] tectonicSprites;
+
+    public void Start()
     {
-        hs.GetComponent<HorizontalSnap>().createHS(currentSprites);
+        Debug.LogError("creating hs...");
+        hs.createHS(tectonicSprites);
+        Database.currentSprites = tectonicSprites; 
     }
 
 }

@@ -7,57 +7,62 @@ using UnityEngine.UI;
 public class QuizMenu : MonoBehaviour
 {
 
-    //here, if it is a pretest, than make sure you just write to the variable
-    //have a button at the top for the not sure, make sure that is handled properly
-    //in each individual scene you need to handle the end test differently
+    // ok, so this is the quiz that is used in database (and only database I think...?)
 
-    /*
-     *         <quiz>This is a theory that continents drift and move slowly over time</quiz>
-    <quiz>This theory states that the outer layer of Earths crust is broken into plates</quiz>
-    <quiz>This theory explains why earthquakes and volcanoes happen</quiz>
-    */
+    // have this gameobject always active, it should be checking if it should start the quiz or not
+    // it can get the images, and the current params from currLesson in database
 
+    // this class is ugly as fuck tho fr, fix it up
 
-    GameObject[] button;
-    string currAnswer;
-    List<string> choices;
-    public int currentRightCount;
-    public int currentWrongCount;
-    List<Section> section;
-    utilities utility;
-    public TMP_Text simple;
+    // ok, so get rid of information.right answer and all that shit 
+
+    // ok, now handle how to start a quiz from database, and here
+
     public GameObject inBetween;
-    public Sprite[] images;
+    public GameObject panel;
+    public GameObject rightPanel;
+    public Database database;
+
+    public Button quizButton;
+    public Button notSure;
+
     public Sprite defualtImage;
-    public bool useImage = false;
-    public int imageCount = 3;
-    public int startOffset = 0;
-    List<WrongAnswer> wrongAnswers;
-    public bool wrongAnswerMode = false;
-    public int wrongAnswerIndex = 0;
+    public Sprite[] images;
+
+    public TMP_Text simple;
 
     public AudioSource source;
     public AudioClip rightAnswer;
     public AudioClip wrongAnswer;
-    public Button quizButton;
 
-    public Button notSure;
+    public int currentRightCount;
+    public int currentWrongCount;
+    public int imageCount = 3;
+    public int wrongAnswerIndex = 0;
+    public int startOffset;
 
+    public bool wrongAnswerMode = false;
+    public bool useImage = false;
+    bool isQuiz = false;
 
+ 
     List<string> pastQuestions;
+    List<WrongAnswer> wrongAnswers;
+    List<Section> section;
 
+    public GameObject[] button;
+    string currAnswer;
 
-    void OnEnable()
+    utilities utility;
+
+    private void Start()
     {
         utility = new utilities();
-        button = new GameObject[transform.GetChild(1).childCount];
-        for (int i = 0; i < button.Length; i++)
-        {
-            button[i] = transform.GetChild(1).GetChild(i).gameObject;
-        }
         notSure.onClick.AddListener(delegate { takeNotSure(); });
-        startQuiz();
+
+        // YOU NEED TO DELEGATE THE BUTTONS SOMEHOW TO CHECK THE ANSWER
     }
+
 
     void startPretest()
     {
@@ -70,12 +75,10 @@ public class QuizMenu : MonoBehaviour
         {
             endQuiz();
         }
-        nextQuestion(); //?
+        StartCoroutine(nextQuestionTimeout());
     }
 
-
-
-    public GameObject panel;
+    /*
     public void takeHelp()
     {
         int currentIndex = findElement();
@@ -105,24 +108,7 @@ public class QuizMenu : MonoBehaviour
             }
         }
         return -1;
-    }
-
-
-    public class WrongAnswer
-    {
-        public int currSection;
-        public int currQuestion;
-        public int currQuestionIndex;
-        public bool useImage;
-
-        public WrongAnswer(int cs, int cq, int cqi, bool ui)
-        {
-            currSection = cs;
-            currQuestion = cq;
-            currQuestionIndex = cqi;
-            useImage = ui;
-        }
-    }
+    }*/
 
     public bool redoWrongAnswers()
     {
@@ -153,27 +139,38 @@ public class QuizMenu : MonoBehaviour
         currentRightCount = 0;
         currentWrongCount = 0;
 
+        startOffset = panel.GetComponent<InformationPanel>().startOffset; //double check that, probably not good
+
         section = ParseData.createSections();
-        createButtons();
-        nextQuestion();
+        StartCoroutine(nextQuestionTimeout());
+
+        panel.transform.parent.GetComponent<InformationPanel>().quizPanel.SetActive(false); //again probably the wrong panel
+        isQuiz = true;
         Debug.LogError("quiz started");
     }
 
-    public GameObject rightPanel;
+ 
     void Update()
     {
-        if (rightPanel == null)
-            return;
+        checkQuiz();   
+    }
 
-        if (Information.isCorrect)
+    void checkQuiz()
+    {
+        if (!isQuiz)
         {
-            StartCoroutine(changeColor(true));
-            Information.isCorrect = false;
+            if (Information.isQuiz == 1)
+            {
+                startQuiz();
+            }
+
         }
-        else if (Information.isIncorrect)
+        else
         {
-            StartCoroutine(changeColor(false));
-            Information.isIncorrect = false;
+            if (Information.isQuiz == 0)
+            {
+                endQuiz();
+            }
         }
     }
 
@@ -233,91 +230,74 @@ public class QuizMenu : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < userButtons.Count; i++)
-        {
-            userButtons[i].gameObject.SetActive(false);
-        }
-        Debug.LogError("at closing");
+
         if (Information.wasPreTest)
         {
-            Debug.LogError("at the right closing");
-            //  panel.SetActive(false);
-            gameObject.SetActive(false);
+          //  gameObject.SetActive(false);
 
             if (quizButton != null)
                 quizButton.gameObject.SetActive(true);
 
+            Information.panelIndex = -1;
+            Information.lableIndex = 0;
+            panel.transform.parent.GetComponent<InformationPanel>().quizPanel.SetActive(true); //probably the wrong panel
+
             Information.isQuiz = 0;
         }
-        else if (!Information.isCurriculum)
         {
-            Debug.LogError("heree4re??");
             inBetween.SetActive(true);
             panel.SetActive(false);
         }
-
+        isQuiz = false;
 
     }
 
-    List<Button> userButtons;
-    void createButtons()
-    {
-        userButtons = new List<Button>();
-        for (int i = 0; i < button.Length; i++)
-        {
-            button[i].SetActive(true);
-            Button curr = button[i].GetComponent<Button>();
-            curr.onClick.AddListener(delegate { checkAnswer(curr); });
-            userButtons.Add(curr);
-        }
-    }
 
-    // int delay = 10;
-    //here add the hilight
     void checkAnswer(Button curr)
     {
-        if (isNextQuestiontimeout)
-        {
-            Debug.LogError("next question timeout");
-            return;
-        }
+
         for (int i = 0; i < 3; i++)
         {
             button[i].transform.GetChild(1).gameObject.SetActive(false);
         }
 
         curr.transform.GetChild(1).gameObject.SetActive(true);
-        Debug.LogError("checking button...");
-        if (Information.isCorrect || Information.isIncorrect) //because it hasnt updated yet 
-        {
-            Debug.LogError("not updated yet " + Information.isCorrect + " " + Information.isIncorrect);
-            return;
-        }
+
+        bool correct = false;
         if (useImage)
         {
-            checkAnswerImage(curr);
-            return;
+            correct = checkAnswerImage(curr);
+        } else
+        {
+            correct = checkTextAnswer(curr);
         }
-        if (curr.GetComponentInChildren<TMPro.TMP_Text>().text == currAnswer)
+
+        if (correct)
         {
             currentRightCount++;
-            Information.isCorrect = true;
-            Information.isIncorrect = false;
+            StartCoroutine(changeColor(true));
+
             if (currentRightCount + currentWrongCount > Information.rightCount && Information.currentScene != "ScienceTest")
             {
                 endQuiz();
+            } else
+            {
+                StartCoroutine(nextQuestionTimeout());
             }
-            nextQuestion();
         }
         else
         {
-            Information.isCorrect = false;
-            Information.isIncorrect = true;
             currentWrongCount++;
+            StartCoroutine(changeColor(false));
         }
     }
+
+    bool checkTextAnswer(Button button)
+    {
+        return button.GetComponentInChildren<TMPro.TMP_Text>().text == currAnswer;
+    }
     int rightIndex;
-    void checkAnswerImage(Button curr)
+    bool checkAnswerImage(Button curr)
     {
         int i = 0;
         for (i = 0; i < button.Length; i++)
@@ -327,37 +307,45 @@ public class QuizMenu : MonoBehaviour
                 break;
             }
         }
-        //ok, so now you have the index
-        if (i == rightIndex)
-        {
-            Information.isCorrect = true;
-            Information.isIncorrect = false;
-            currentRightCount++;
-            if (currentRightCount + currentWrongCount > Information.rightCount)
-            {
-                endQuiz();
-            }
-            nextQuestion();
-        }
-        else
-        {
-            Information.isCorrect = false;
-            Information.isIncorrect = true;
-            currentWrongCount++;
-        }
+
+        return i == rightIndex;
     }
 
-    void getNextQuestion()
+
+    // waayyyyy too much next question shit
+
+    // change this so it returns a string, or null, at which point you can deal with the error
+
+    void generateQuestion()
     {
         currSection = utility.getRandom(0, section.Count - 1);
-        //in ecosystems there is an error here 
-        if (section[currSection].questions == null)
-        {
-            nextQuestion();
-            return;
-        }
         currQuestion = utility.getRandom(0, section[currSection].questions.Count - 1);
         currQuestionIndex = utility.getRandom(0, section[currSection].questions[currQuestion].questions.Count - 1);
+
+    }
+    string getTextQuestion()
+    {
+        generateQuestion();
+        while (section[currSection].questions[currQuestion].questions.Count <= 0)
+        {
+            generateQuestion();
+            errorCount++;
+            if (errorCount > 100)
+            {
+                Debug.LogError("could not find any questions...");
+                return null;
+            }
+        }
+
+        string currentQuestion = section[currSection].questions[currQuestion].questions[currQuestionIndex];
+
+        if (pastQuestions.Contains(currentQuestion))
+        {
+            getTextQuestion();
+            return null;
+        }
+
+        return currentQuestion;
     }
 
 
@@ -367,14 +355,9 @@ public class QuizMenu : MonoBehaviour
     int currQuestion = 0;
     int currQuestionIndex = 0;
 
-    public void nextQuestion()
-    {
-        StartCoroutine(nextQuestionTimeout());
-    }
-    bool isNextQuestiontimeout = false;
+
     IEnumerator nextQuestionTimeout()
     {
-        isNextQuestiontimeout = true;
         if (currentRightCount > 0)
         {
             yield return new WaitForSeconds(1.3f);
@@ -384,81 +367,32 @@ public class QuizMenu : MonoBehaviour
         {
             button[i].transform.GetChild(1).gameObject.SetActive(false);
         }
-        isNextQuestiontimeout = false;
-        handleNextQuestion();
-        yield break;
-        //than hide all the hilgihts 
 
-    }
-    public void handleNextQuestion()
-    {
-        errorCount = 0;
-        choices = new List<string>();
-        if (wrongAnswerMode)
-        {
-            if (wrongAnswerIndex > wrongAnswers.Count - 1)
+        /*    errorCount = 0;
+            choices = new List<string>();
+            if (wrongAnswerMode)
             {
-                endQuiz();
-                return;
-            }
-            var curr = wrongAnswers[wrongAnswerIndex++];
-            currSection = curr.currSection;
-            currQuestion = curr.currQuestion;
-            currQuestionIndex = curr.currQuestionIndex;
-        }
-        else
-        {
-            getNextQuestion();
-
-
-
-            while (section[currSection].questions[currQuestion].questions.Count <= 0)
-            {
-                getNextQuestion();
-                errorCount++;
-                if (errorCount > 100)
+                if (wrongAnswerIndex > wrongAnswers.Count - 1)
                 {
+                    endQuiz();
                     return;
                 }
+                var curr = wrongAnswers[wrongAnswerIndex++];
+                currSection = curr.currSection;
+                currQuestion = curr.currQuestion;
+                currQuestionIndex = curr.currQuestionIndex;
             }
-
-        }
-
-
-
-        string currentQuestion = section[currSection].questions[currQuestion].questions[currQuestionIndex];
-        if (pastQuestions.Contains(currentQuestion))
-        {
-            nextQuestion();
-            return;
-        }
-        nextIndex = getImageIndex(currSection, currQuestion);
-        simple.text = currentQuestion;
-        pastQuestions.Add(currentQuestion);
-
-
-        if (useImage && currentRightCount < imageCount)
-        {
-            Debug.LogError("next image question");
-            //so at this point use images 
-            nextTextQuestion(currSection, currQuestion, true);
-        }
-        else
-        {
-            Debug.LogError("next text question");
-            //just do what youve been doing 
-            useImage = false;
-            nextTextQuestion(currSection, currQuestion, false);
-        }
-
+            else
+            { */
+        string question = getTextQuestion();
+        simple.text = question;
+        pastQuestions.Add(question);
+        nextTextQuestion(currSection, currQuestion, useImage);
+        //        nextIndex = getImageIndex(currSection, currQuestion); put this somewhere
     }
 
-    public void nextTextQuestion(int currSection, int currQuestion, bool image)
+    List<int> generateOptions()
     {
-        currAnswer = section[currSection].questions[currQuestion].simpleInfo[0];
-        List<Sprite> imageChoices = new List<Sprite>();
-
-
         List<int> included = new List<int>();
         included.Add(currQuestion);
         int questionCount = section[currSection].questions.Count;
@@ -473,82 +407,86 @@ public class QuizMenu : MonoBehaviour
             }
 
             included.Add(index);
-
         }
+        return included;
+    }
+
+    void generateTextOptions(List<int> included)
+    {
+        List<string> choices = new List<string>();
 
         for (int i = 0; i < included.Count; i++)
         {
-            if (image)
-            {
-
-                int index = getImageIndex(currSection, included[i]);
-                if (index > images.Length - 1)
-                {
-                    Debug.LogError(images.Length + " " + index + " error at images");
-                    return;
-                }
-                imageChoices.Add(images[index]);
-
-            }
-            else
-            {
-                choices.Add(section[currSection].questions[included[i]].simpleInfo[0]);
-
-            }
-
-
-
+            choices.Add(section[currSection].questions[included[i]].simpleInfo[0]);
         }
 
+        choices.Shuffle();
+        for (int i = 0; i < button.Length; i++)
+        {
+            if (i >= choices.Count)
+            {
+                break;
+            }
+
+            button[i].transform.GetChild(0).GetComponent<TMPro.TMP_Text>().text = choices[i];
+            button[i].transform.GetComponent<Image>().sprite = defualtImage;
+        }
+    }
+
+
+    void generateImageOptions(List<int> included)
+    {
+
+        for (int i = 0; i < included.Count; i++)
+        {
+
+            int index = getImageIndex(currSection, included[i]);
+            if (index > images.Length - 1)
+            {
+                Debug.LogError(images.Length + " " + index + " error at images");
+                return;
+            }
+            if (included[i] == currQuestion)
+            {
+                rightIndex = i;
+            }
+
+            button[i].transform.GetComponent<Image>().sprite = images[index];
+        }
+    }
+
+    // so here you just generate other random choices, and thats pretty much it 
+    // than just get rid of all these uselss comments, and then this class will be ok 
+    //oh ya, than add the logic to start the quiz, and get rid of the information shit (iscorrect, incorrect, isquiz etc.)
+    // is quiz can stay, but that should be here in the update method 
+
+    public void nextTextQuestion(int currSection, int currQuestion, bool image)
+    {
+        currAnswer = section[currSection].questions[currQuestion].simpleInfo[0];
+  
+        var included = generateOptions();
 
         if (image)
         {
-            Debug.LogError(imageChoices.Count + " total images " + images.Length);
-            for (int i = 0; i < button.Length; i++)
-            {
-                if (i >= imageChoices.Count)
-                {
-                    break;
-                }
-                if (included[i] == currQuestion) //so basically you just find which index button has the right answer, then you can check if its right or not 
-                {
-                    rightIndex = i;
-                }
-                button[i].transform.GetComponent<Image>().sprite = imageChoices[i];
-            }
-        }
-        else
+            generateImageOptions(included);
+        } else
         {
-            choices.Shuffle();
-            for (int i = 0; i < button.Length; i++)
-            {
-                if (i >= choices.Count)
-                {
-                    break;
-                }
-
-                button[i].transform.GetChild(0).GetComponent<TMPro.TMP_Text>().text = choices[i];
-                button[i].transform.GetComponent<Image>().sprite = defualtImage;
-            }
+            generateTextOptions(included);
         }
     }
 
     int getImageIndex(int currSection, int currQuestion)
     {
-        Debug.LogError(currSection + " " + currQuestion);
         int index = 0;
         for (int i = 0; i < currSection; i++)
         {
             for (int j = 0; j < section[i].questions.Count; j++)
             {
-                Debug.LogError(i + " " + j + " " + section[i].questions[j].questions.Count);
                 if (section[i].questions[j].questions.Count > 0)
                 {
                     index++;
                 }
-                //  index += section[i].questions[j].questions.Count;
             }
-            //   index += section[i].questions.Count;
         }
         for (int i = 0; i <= currQuestion; i++)
         {
@@ -556,11 +494,7 @@ public class QuizMenu : MonoBehaviour
             {
                 index++;
             }
-            //  index += section[currSection].questions[i].questions.Count;
         }
-        //     index += currQuestion;
         return index - startOffset;
     }
-
-
 }
