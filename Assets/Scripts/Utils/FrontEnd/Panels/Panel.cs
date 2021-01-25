@@ -22,7 +22,7 @@ public class Panel
         end = new Vector3(0, 0, 0);
     }
 
-    public IEnumerator panelAniamtion(bool open, Transform currPanel)
+    public IEnumerator panelAnimation(bool open, Transform currPanel)
     {
         float count = 0;
 

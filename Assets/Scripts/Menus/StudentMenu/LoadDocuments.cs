@@ -12,6 +12,7 @@ public class LoadDocuments : MonoBehaviour
     {
         network = new Website();
         //  loadDocuments();
+        if(!Information.doneLoadingDocuments)
         tempLoad();
     }
 
@@ -24,9 +25,11 @@ public class LoadDocuments : MonoBehaviour
         mytxtData = (TextAsset)Resources.Load("XML/General/Data");
         txt = mytxtData.text;
         Information.loadDoc = XDocument.Parse(txt);
-
-        Debug.LogError(Information.xmlDoc.ToString());
-        Debug.LogError(Information.loadDoc.ToString());
+        Information.name = "none";
+        Information.doneLoadingDocuments = true;
+        Information.firstTime = true;
+    //    Debug.LogError(Information.xmlDoc.ToString());
+     //   Debug.LogError(Information.loadDoc.ToString());
     }
 
     void loadDocuments()

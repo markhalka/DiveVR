@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/ModuleMenu.unity
     guid: 216fc19c0d4ab894d8849bae6d74b8ff
   - enabled: 0
-    path: Assets/Scenes/Science/SampleScene.unity
+    path: Assets/Scenes/Science/Waves.unity
     guid: 30766fb5e9770de4897d1e3b1609a3e6
   - enabled: 0
     path: Assets/Scenes/Science/Cells.unity

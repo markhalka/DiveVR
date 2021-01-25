@@ -16,28 +16,21 @@ public class Achievments : MonoBehaviour
 
     int shareCounter;
 
-    public Button back;
     public GameObject shareError;
     public Button shareContinue;
+    public TMP_Text defaultText;
 
 
     void Start()
     {
 
         ParseData.startXML();
-        getImages();
         parseAchievments();
-        back.onClick.AddListener(delegate { takeBack(); });
         shareContinue.onClick.AddListener(delegate { takeShareBack(); });
 
 
         Information.updateEntities = userAcheivments.ToArray();
         Information.currentScene = "Achievement";
-    }
-
-    void takeBack()
-    {
-        SceneManager.LoadScene("StudentMenu");
     }
 
     void takeShareBack()
@@ -78,6 +71,11 @@ public class Achievments : MonoBehaviour
             certificates.Add(item);
 
         }
+
+        if(certificates.Count == 0)
+        {
+            defaultText.gameObject.SetActive(true);
+        }
     }
 
     public GameObject certificate;
@@ -89,19 +87,6 @@ public class Achievments : MonoBehaviour
     Vector3 currentOffset = new Vector3(0, 0);
     int maxX = 600;
 
-    List<string> fileNames;
-    void getImages()
-    {
-        fileNames = new List<string>();
-        try
-        {
-            fileNames = new List<string>(Directory.GetFiles(Application.persistentDataPath + "/Certificates"));
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("error reading the files");
-        }
-    }
 
     int imageIndex = 0;
     void createNewAchievment(XElement curr)
@@ -119,8 +104,6 @@ public class Achievments : MonoBehaviour
         newAch.gameObject.SetActive(true);
 
         userAcheivments.Add(newAch);
-
-
     }
 
 
@@ -161,12 +144,12 @@ public class Achievments : MonoBehaviour
 
     }
 
-    public GameObject socialMedia;
-    public Text fadeText;
+   // public GameObject socialMedia;
+   // public Text fadeText;
 
     void openSocialMedia2(int index)
     {
-
+        /*
         if (index < 0)
         {
             Debug.LogError("could not find index");
@@ -186,9 +169,7 @@ public class Achievments : MonoBehaviour
             currentCertificate.Attribute("date").Value = DateTime.Today.ToString("MM/dd/yyyy");
             XMLWriter.saveFile();
             shareCounter++;
-
-
-        }
+        } */
     }
 
     private IEnumerator shareTextAndScreenShot(string screenshotPath, string text)
@@ -199,7 +180,7 @@ public class Achievments : MonoBehaviour
             sanityCheck++;
             if (sanityCheck > 10)
             {
-                Debug.LogError("could not find screenshot to share");
+                Debug.LogError("could not find screen-shot to share");
                 yield break;
             }
             yield return new WaitForSecondsRealtime(0.05f);
@@ -207,11 +188,11 @@ public class Achievments : MonoBehaviour
     }
 
 
-    void errorShare()
+ /*   void errorShare()
     {
-        fadeText.text = "Error: you can only share 3 times a day. Please come back tommorow and share again!";
+        fadeText.text = "Error: you can only share 3 times a day. Please come back tomorrow and share again!";
         fadeText.gameObject.SetActive(true);
-    }
+    }*/
 
     public GameObject container;
     int getIndex()
@@ -227,8 +208,7 @@ public class Achievments : MonoBehaviour
         return output;
     }
 
-    public GameObject points;
-    public GameObject enterInfo;
+
 
     // Update is called once per frame
     XElement currentCertificate;

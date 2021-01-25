@@ -28,16 +28,9 @@ public class OpenModule : MonoBehaviour
 
     public Sprite[] images;
 
-    bool isPC = false;
+    bool isPC = true;
     void Start()
     {
-
-#if UNITY_ANDROID || UNITY_IOS
-        isPC = false;
-#else
-        isPC = true;
-#endif
-
 
         Information.isQuiz = 0;
         Information.panelClosed = true;
@@ -216,6 +209,7 @@ public class OpenModule : MonoBehaviour
 
     void startXML()
     {
+        ParseData.startXML();
         foreach (var topic in Information.topics)
         {
             float max = 0;

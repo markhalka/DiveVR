@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SuspensionColloidSubLab : MonoBehaviour
 {
@@ -10,22 +11,45 @@ public class SuspensionColloidSubLab : MonoBehaviour
     public ParticleSystem ps;
     public ParticleSystem ps2;
     public Material defualtMaterial;
-    public Text outputText;
+    public TMP_Text outputText;
+
+    public InformationPanel infoPanel;
+    
 
     public void Start()
     {
-        
+        mix.onClick.AddListener(delegate { shakeParticles(); });
+        initPS();
+    }
+
+    public void initPS()
+    {
+        var main1 = ps.main;
+        main1.startColor = Color.red;
+        var main2 = ps2.main;
+        main2.startColor = Color.blue;
+
+        var col = ps.colorBySpeed;
+        col.enabled = false;
+
+        col = ps2.colorBySpeed;
+        col.enabled = false;
+
+        var em = ps2.emission;
+        em.enabled = true;
+        ps.Stop();
+        ps2.Stop();
     }
 
 
-    void SuspensionSubLab()
+    public void startSuspsension()
     {
         mix.gameObject.SetActive(true);
         initSuspensionParticles(true);
         var main = ps.main;
     }
 
-    void ColloidsSubLab()
+    public void startColloid()
     {
         mix.gameObject.SetActive(true);
         initSuspensionParticles(false);

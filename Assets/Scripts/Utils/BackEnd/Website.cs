@@ -23,12 +23,12 @@ public class Website : MonoBehaviour
 {
     public void Start()
     {
-        
+
     }
 
     public void Update()
     {
-        
+
     }
     //ok, so here just make a second method that uses unityweberequest instead of http webrequest 
 
@@ -64,21 +64,18 @@ public class Website : MonoBehaviour
         }
     }
 
-    public IEnumerator PutRequest(string url)
+    public IEnumerator PutRequest(string url, string inputData, Action<string> operation)
     {
-        byte[] dataToPut = System.Text.Encoding.UTF8.GetBytes("Hello, This is a test");
+        byte[] dataToPut = System.Text.Encoding.UTF8.GetBytes(inputData);
         UnityWebRequest uwr = UnityWebRequest.Put(url, dataToPut);
         yield return uwr.SendWebRequest();
 
         if (uwr.isNetworkError)
         {
             Debug.Log("Error While Sending: " + uwr.error);
+
         }
-        else
-        {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
-        }
+
+        operation(uwr.downloadHandler.text);
     }
-
-
 }

@@ -10,7 +10,6 @@ public class Information
     public static bool initialized = false;
     public static bool isInMenu = false;
     public static bool isGame = false;
-   
     public static bool isVrMode = false;
     public static bool isSelect;
     public static bool interactiveLesson = true;
@@ -26,6 +25,12 @@ public class Information
     public static bool wasPreTest = false;
     public static bool shouldShowSurvey = true;
     public static bool notSure = false;
+    public static bool isCurriculum;
+
+    public enum LearningType {VIDEO, MODEL };
+    public static LearningType learningType;
+
+
 
     public static float pretestScore = -1;
     public static float minutesInScene = 0;
@@ -46,13 +51,25 @@ public class Information
     public static string socialMediaMessage = "";
 
 
-
+    #region lessons
     public static string grade = "5";
     public static string subject = "math";
+    public static string currentScene = "";
+
+    public static string lastGrade; 
+    public static string lastSubject;
+    public static int previousScene; 
 
     public static int topicIndex = 0;
+    public static int nextScene = 1;
 
-    public static string currentScene = "";
+    public static List<Topic> topics;
+    public static Topic currentTopic;
+    public static List<Model> userModels;
+
+    #endregion
+
+
 
 
     public static string openDir = "XML/General/Data";
@@ -69,9 +86,6 @@ public class Information
 
     public static GameObject currentBox;
 
-    public static int numberSinceGame = 0;
-
-    public static int nextScene = 1;
 
     public static bool isCorrect = false;
     public static bool isIncorrect = false;
@@ -81,11 +95,8 @@ public class Information
     public static Color defualtColor = new Color(1, 1, 1, 1);//new Color(0.722f, 1, 1);
 
 
-    public static List<Topic> topics;
-    public static Topic currentTopic;
-    public static List<Model> userModels;
-    //   public static List<Help> helpMath;
-    //   public static List<Help> helpScience;
+
+
 
     public static bool doneLoadingDocuments = false;
     public static bool doneLoading = false;
@@ -96,71 +107,41 @@ public class Information
 
     //--------- url stuff
 
+    #region urls
     public static string loginUrl = "https://www.divevr.org/_functions-dev/checkLogin/";
     public static string parentLoginUrl = "https://www.divevr.org/_functions-dev/checkParentLogin/";
-
-
     public static string setPointsMaxUrl = "https://www.divevr.org/_functions-dev/setPoints/"; //this is used for 
-
     public static string levelUrl = "https://www.divevr.org/_functions-dev/level/";
     public static string shopUrl = "https://www.divevr.org/_functions-dev/shop/";
     public static string buyUrl = "https://www.divevr.org/_functions-dev/buyPoints/";
-    // public static string getSettingsUrl = "https://www.divevr.org/_functions-dev/getSettings/";
-    // public static string putSettingsUrl = "https://www.divevr.org/_functions-dev/putSettings/";
     public static string levelsUrl = "https://www.divevr.org/_functions-dev/levels/";
-    // public static string fileUrl = "https://www.divevr.org/_functions-dev/userTopics/";
-
     public static string pointsUrl = "https://www.divevr.org/_functions-dev/points/"; //this is used for 
-                                                                                      //  public static string setPointsUrl = "https://www.divevr.org/_functions-dev/buyPoints/";
     public static string saveEarnedPointsUrl = "https://www.divevr.org/_functions-dev/setPoints/";
-
-
     public static string sessionsUrl = "https://www.divevr.org/_functions-dev/sessions/";
-    public static string reportUrl = "https://www.divevr.org/_functions-dev/report/";
-    //  public static string shopImageUrl = "https://www.divevr.org/_functions-dev/shopImage/";
-    public static string addressUrl = "https://www.divevr.org/_functions-dev/address/";
-    public static string putAddressUrl = "https://www.divevr.org/_functions-dev/setAddress/";
     public static string getNameUrl = "https://www.divevr.org/_functions-dev/name/";
     public static string setNameUrl = "https://www.divevr.org/_functions-dev/setName/";
-    public static string getSpeakingTimeUrl = "https://www.divevr.org/_functions-dev/getTime/";
-    public static string setSpeakingTimeUrl = "https://www.divevr.org/_functions-dev/setTime/";
-    //  public static string examplesUrl = "https://www.divevr.org/_functions-dev/examples/";
     public static string saveNameUrl = "https://www.divevr.org/_functions-dev/saveName/";
-
 
     public static string loadDocUrl = "https://www.divevr.org/_functions-dev/masterLoadDoc/";
     public static string masterXmlDoc = "https://www.divevr.org/_functions-dev/masterXmlDoc/";
-
     public static string xmlDocUrl = "https://www.divevr.org/_functions-dev/userXmlDoc/";
     public static string saveFileUrl = "https://www.divevr.org/_functions-dev/saveUserXmlDoc/";
-
     public static string sendProblemUrl = "https://www.divevr.org/_functions-dev/problem/";
 
 
-
-    public static int maxSpeakinTime = 30;
+    // add these ones:
+    public static string youtubeVideosUrl = "https://www.divevr.org/_functions-dev/youtubeVideo/";
+    #endregion
 
     public static int maxDivePoints = 0;
 
     public static float animationGrowth = 1.007f;
     public static int animationLength = 100;
 
-
-    //  public static int currentPoints;
-    public static int gamePoints;
-
     public static string username;
 
-    //--------
-
-    public static string lastGrade; //these variables will keep track of what the user did last 
-    public static string lastSubject;
-    public static int previousScene; //user this for when someone opens the settings menu
-
-    //--------- setting stuff
 
     public static bool isStudentInfo;
-    public static float sensitivity;
 
 
     //get better colors 
@@ -174,15 +155,10 @@ public class Information
 
     public Vector2 cursorPosition;
 
-    public static bool flying;
-    public static bool hasFuel;
 
     public static List<Topic> placmentTest;
     public static List<float> placmentScore;
-    //  public static bool isCurriculum;
 
-
-    public static string lesson; //<- get rid of this after the test 
 
     public static int lableIndex = 0;
     public static int panelIndex = 0;
@@ -193,6 +169,5 @@ public class Information
 
     public static string inquire;
 
-    public static bool isCurriculum;
 
 }

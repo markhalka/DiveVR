@@ -9,7 +9,6 @@ public class tectonicDb : MonoBehaviour
 
     public void Start()
     {
-        Debug.LogError("creating hs...");
         hs.createHS(tectonicSprites);
         Database.currentSprites = tectonicSprites; 
     }

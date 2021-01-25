@@ -23,7 +23,6 @@ public class XMLWriter
 
         }
 
-        Debug.LogError(score + " saved");
         Information.topics[ParseData.getScienceScene()].tests.Add(currTest); //that should save it */
 
         var lesson = XMLReader.findInformationLessonDoc();

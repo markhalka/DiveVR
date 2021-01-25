@@ -26,7 +26,7 @@ public class HorizontalSnap : MonoBehaviour
 
     public void Start()
     {
-        informationPanel.showTitle(0); //?
+        
     }
     public void createHS(Sprite[] sprites)
     {
@@ -48,7 +48,6 @@ public class HorizontalSnap : MonoBehaviour
 
     void pageChanged()
     {
-        Debug.LogError("page changed");
         source.clip = swipe;
         source.Play();
 
@@ -94,15 +93,15 @@ public class HorizontalSnap : MonoBehaviour
         informationPanel.showPanel(currentIndex);
     }
 
-    bool setPanel = false;
+
     public void Update()
     {
-        if (!setPanel)
+       /* if (setPanel)
         {
             informationPanel.locationPanel.setPosition(LocationPanel.MenuPosition.CENTER); //maybe?? //that should work 
             pageChanged();
             setPanel = true;
-        }
+        }*/
         onHorizontalClick();
     }
 }

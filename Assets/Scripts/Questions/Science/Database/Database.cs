@@ -9,7 +9,17 @@ public class Database : MonoBehaviour
 {
     
     //todo:
-    //1. change all intros to -1
+
+    //scientific names: 9
+    //ecosystem: 41
+    //classification: 8
+    //animal life cycle: 10
+
+
+   //ok, so make the pretest have an animatino as well
+   //remove the animation from the start panel
+
+
     //2. test all hs classes
     //3. test the quiz
     //4. get the vs classes working
@@ -173,16 +183,13 @@ public class Database : MonoBehaviour
     {
         if (!instructionsShown)
         {
-       //     InstructionAnimationGb.SetActive(true);  # UNCOMMENT
+            InstructionAnimationGb.SetActive(true);
             instructionsShown = true;
-            Debug.LogError("showing instructions");
-
-            initDatabase();
         }
     }
 
-    
 
+    public GameObject pretestPanel;
     void Update()
     {
         /*  if (!panel.activeSelf)
@@ -194,6 +201,12 @@ public class Database : MonoBehaviour
         if (!currentPanel.activeSelf)
         {
             showInstructions();
+        }
+
+        if(instructionsShown && !InstructionAnimationGb.activeSelf && currLesson == null)
+        {
+            Debug.LogError("creating new lesson");
+            initDatabase();
         }
 
         if (Information.doneLoading)

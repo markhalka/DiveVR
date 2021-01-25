@@ -51,6 +51,8 @@ public class MenuBar : MonoBehaviour
       private void Start()
       {
 
+        panel = new Panel();
+
           backButton.onClick.AddListener(delegate { back(); });
           quitButton.onClick.AddListener(delegate { takeQuitSave(); });
           settingsButton.onClick.AddListener(delegate { settings(); });
@@ -131,6 +133,7 @@ public class MenuBar : MonoBehaviour
     void takeBackToHome()
     {
         SceneManager.LoadScene("StudentMenu");
+        back();
     }
 
 
@@ -174,20 +177,13 @@ public class MenuBar : MonoBehaviour
 
         GameObject curr = null;
         switch (Information.subject)
-        {
-            case "math":
-                curr = GameObject.Find("HelpContainer");
-                if (curr != null)
-                {
-                    curr.GetComponent<HelpPanel>().callHelp();
-                }
-                break;
+        {      
             case "science":
 
                 if (Information.currentScene == "Models")
                 {
                     curr = GameObject.Find("Main");
-                    curr.GetComponent<ScienceModels>().takeHelp();
+                   // curr.GetComponent<ScienceModels>().takeHelp();
                 }
                 else
                 {
@@ -239,33 +235,24 @@ public class MenuBar : MonoBehaviour
         {
             handleButtonsCalled = true;
             //   handleButtons();
-
         }
 
-        if (!Information.isVrMode)
+
+        if (shouldOpen)
         {
-            if (shouldOpen)
+            shouldOpen = false;
+            Debug.LogError(mainMenu.activeSelf);
+            if (!mainMenu.activeSelf)
             {
-                shouldOpen = false;
-                if (!mainMenu.activeSelf)
-                {
 
-                    StartCoroutine(panel.panelAniamtion(true, transform));
-                }
-                else
-                {
-                    back();
-                }
-
+                StartCoroutine(panel.panelAnimation(true, mainMenu.transform));
+            }
+            else
+            {
+                back();
             }
         }
-
-     //   updateTextToSpeech();
     }
-
-
-
-
 
     void takeHide()
     {
@@ -273,12 +260,9 @@ public class MenuBar : MonoBehaviour
     }
 
 
-    Vector3 prevAxisLock;
-    Vector3 prevPosition;
-
     void back()
     {
-        StartCoroutine(panel.panelAniamtion(false, transform));
+        StartCoroutine(panel.panelAnimation(false, mainMenu.transform));
     }
 
 

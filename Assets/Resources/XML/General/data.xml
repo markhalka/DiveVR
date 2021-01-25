@@ -96,6 +96,12 @@
       <lesson topics="44" level="0.5" name="environment"></lesson>
       <lesson topics="45" level="0.5" name="weathering"></lesson>
 
+      <lesson topics="46" level="0.5" name="electric circuits"></lesson>
+      <lesson topics="47" level="0.5" name="parallel circuits"></lesson>
+      <lesson topics="48" level="0.5" name="scientific method"></lesson>
+
+
+
     </science>
   </curr>
 
@@ -103,7 +109,7 @@
     <subject name="science">
       <lesson name="Matter and mass" topics="1" level="5" index="62" inq="Can you think of some compounds and elements we use everyday? Write your answers below!" score="0">
 
-        <model section="1">
+        <model section="-1">
           <simple>Matter</simple>
           <advanced>In this module you will learn about matter, atoms, bonds, compounds and subatomic particles</advanced>
           <advanced>Matter is the substance of which all material is made. Matter is anything that has mass and takes up space.</advanced>
@@ -115,7 +121,7 @@
         </model>
 
         //new stuff =----------------
-        <model section="1">
+        <model section="-1">
           <simple>Volume</simple>
           <advanced>The amount of space that something takes up is described in a measurement called volume</advanced>
           <advanced>Measuring the volume of something depends on its shape. For example, to measure the volume of a box-shaped object, we would measure its length, width, and height. Then, we multiply these three measurements together.</advanced>
@@ -123,7 +129,7 @@
           <quiz>This is the amount of space that something takes up</quiz>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Properties of matter</simple>
           <advanced>Matter can be experience with our senses, and they have different properties, let's take a look at a few of the common ones!</advanced>
           <advanced>Mass is the amount of matter in an object </advanced>
@@ -142,7 +148,7 @@
           <advanced>Only the very outside electrons can form bonds, these are called "valance electrons"</advanced>
           <advanced>There are two general types of bonds that atoms can form: Ionic and covalent</advanced>
           <advanced>Ionic bonding occurs when one element donates an electron (or electrons) to another so that both atoms will have a full outer shell. </advanced>
-          <advanced>In covalent bonding electrons aren't donated, but shared between electrons. So for ionic bonding, electrons move completly from one atom to another, and in covalnet bonding, the same electrons are used by both atoms to have a full outer shell</advanced>
+          <advanced>In covalent bonding electrons aren't donated, but shared between electrons. So for ionic bonding, electrons move completely from one atom to another, and in covalent bonding, the same electrons are used by both atoms to have a full outer shell</advanced>
           <advanced>After bonding, the atoms become more stable than before, and their energy levels become lower</advanced>
           <quiz>This happens between the valence (outer) shell of electrons of two or more atoms</quiz>
           <quiz>This is the process of sharing electrons</quiz>
@@ -167,7 +173,7 @@
           <simple>Compounds</simple>
           <advanced>A compound is a type of molecule with more than one element.</advanced>
           <advanced>Chemical compounds are formed when elements are joined by chemical bonds. These bonds are so strong that the compound behaves like a single substance. Compounds have their own properties that are unique from the elements they are made of. </advanced>
-          <advanced>For example, oxygen and hydrogen are both colorless, odorless gasses, but when they combine to form one compound, water, the new compound is completly different.</advanced>
+          <advanced>For example, oxygen and hydrogen are both colorless, odorless gasses, but when they combine to form one compound, water, the new compound is completely different.</advanced>
           <quiz>This is a type of molecule with one or more element.</quiz>
           <quiz>This is formed when elements are joined together by chemical bonds</quiz>
         </model>
@@ -212,13 +218,13 @@
       </lesson> //this is good matter 2 new things section 1   //4,5,6,7,8
       <lesson name="Heat and thermal energy" topics="2" level="5" index="63" inq="Can you explain why water at 20 degrees feels hotter than air at 20 degrees?" score="0">
         //also have physical and chemical change
-        <model section="1">
+        <model section="-1">
           <simple>Heat and thermal energy</simple>
           <advanced>In this module you will learn about the relationship between heat and thermal energy, as well as how they relate to particles and particle motion</advanced>
         </model>
 
         //new shit ---------
-        <model section="1">
+        <model section="-1">
           <simple>Temperature</simple>
           <advanced>Heat and temperature are two words that we use interchangeably every day, but they mean very different things in science!</advanced>
           <advanced>Before we take a look at what temperature means, we need to know what matter is</advanced>
@@ -228,10 +234,10 @@
           <advanced>temperature is a measure of the average kinetic energy of the particles in a substance. The unit for temperature is the degree Celsius.</advanced>
           <advanced>We say “average” kinetic energy because using the average kinetic energy gives a better indication of the energy of the particles. Some particles have more energy, and other have less.</advanced>
           <quiz>This is a measure of the average kinetic energy of particles in a substance</quiz>
-          <quiz>The unit of  measuremnt for this is Celsius</quiz>
+          <quiz>The unit of  measurement for this is Celsius</quiz>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Heat</simple>
           <advanced>The amount of heat in an object depends on its temperature, mass, and composition. </advanced>
           <advanced>Heat is a form of energy. Therefore, heat is related to other forms of energy, such as sound energy, electrical energy, nuclear energy etc.</advanced>
@@ -241,10 +247,11 @@
           <advanced>Thermometers demonstrate the ability of heat to change matter. Adding heat energy to matter generally causes matter to expand—the volume increases. Removing heat energy from matter generally causes matter to contract—the volume decreases.</advanced>
           <advanced>Now that we understand heat, lets take a look at the particle theory of matter</advanced>
           <quiz>This is a form of energy, which is related to the transfer of temperature</quiz>
-          <quiz>The unit of measurment for this is joule </quiz>
+
+          <quiz>The unit of measurement for this is joule </quiz>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Particle theory of matter</simple>
           <advanced>The following are the main ideas of the particle theory of matter:</advanced>
           <advanced>All matter is made up of extremely tiny particles, which are attracted or bonded to each other.</advanced>
@@ -254,42 +261,7 @@
           <advanced>The particles also have space between them. This is empty space not filled with air. Different states of matter have different amounts of space between the particles.</advanced>
         </model>
 
-        <model section="1">
-          <simple>Insulators and conductors</simple>
-          <advanced>Different materials respond to heat in different ways. There are two general types of materials, conductors and insulators. Let's take a look at each one.</advanced>
-          <advanced>A substance that lets heat energy move through it easily is a conductor. Conductors can also carry electricity (electrical energy).</advanced>
-          <advanced>A material that is not a good conductor—that is, it does not allow heat energy to move through it easily—is called an insulator.</advanced>
-          <advanced>For example, plastic, glass, and wood are good insulators, or poor conductors.</advanced>
-        </model>
-
-        <model section="1">
-          <simple>Transferring heat</simple>
-          <advanced>Heat can move and be transferred between particles in three different ways: radiation, conduction and convection. Let's take a look at each one!</advanced>
-        </model>
-
-        <model section="1">
-          <simple>Radiation</simple>
-          <advanced>Radiation is the transfer of heat energy (as well as other kinds of energy) in the form of radiant energy waves.</advanced>
-          <advanced>For example, The Sun sends out (radiates) tremendous amounts of energy in the form of waves. These energy waves include infrared waves, which are waves of heat energy.</advanced>
-          <quiz>This is the transfer of heat in the form of waves</quiz>
-        </model>
-
-        <model section="1">
-          <simple>Conduction</simple>
-          <advanced>conduction, which is the transfer of heat energy between substances that are in contact. </advanced>
-          <advanced>For example, if you put your spoon in a hot bowl of soup, then you will notice the end of the spoon gets hot too, even thought it never touched the soup. This is conduction</advanced>
-          <quiz>This is the transfer of heat throught contact</quiz>
-        </model>
-
-        <model section="1">
-          <simple>Convection</simple>
-          <advanced>Convection is the transfer of heat energy that happens when heated gas or liquid particles move from one location to another.</advanced>
-          <advanced>When heat energy is transferred by convection, it often moves in a circular pattern called a convection current.</advanced>
-          <advanced>Convection currents can form when heat energy is added to gases and liquids </advanced>
-          <quiz>This is the transfer of heat energy in a liquid or gas</quiz>
-        </model>
-
-        <model section="1">
+        <model section="-1">
           <simple>Types of change</simple>
           <advanced>Finally, let's look at the different types of change</advanced>
           <advanced>Above, the kinetic particle theory talked about matter changing states, this type of change is known as a reversible change.</advanced>
@@ -350,39 +322,29 @@
         </model>
         <model section="2">
           <simple>Thermal expansion</simple>
-          <advanced>All three states of matter (solid, liquid and gas) expand when heated. The atoms themselves do not expand, but the space between them, and therfore the volume does</advanced>
+          <advanced>All three states of matter (solid, liquid and gas) expand when heated. The atoms themselves do not expand, but the space between them, and therefore the volume does</advanced>
           <advanced>When a solid is heated, its atoms vibrate faster about their fixed points. The relative increase in the size of solids when heated is therefore small. </advanced>
           <advanced>Liquids expand for the same reason, but because the bonds between separate molecules are usually less tight they expand more than solids. </advanced>
           <advanced>Molecules within gases are further apart and weakly attracted to each other. Heat causes the molecules to move faster, which means that the volume of a gas increases more than the volume of a solid or liquid.</advanced>
           <quiz>This states that all states of matter expand when heated</quiz>
           <quiz>Liquid thermometers work thanks to this theory</quiz>
         </model>
-        //move advanced shit
-        <model type="2" section="2">
-          <simple>Specific latent heat</simple>
-          <advanced>The specific latent heat of a substance is a measure of how much heat energy is needed to melt or boil it. It is the energy needed to melt or boil 1 kg of the substance.</advanced>
-          <advanced>Different substances have different specific latent heats. The specific latent heat of a given substance is different for boiling than it is for melting.</advanced>
-          <advanced>For example the specific latent heat of water is 334 kJ/kg for melting, while for boiling it is 2260 kJ/kg. (kJ means kilo joules, which is the same as 1000 Joules. Joules is a unit of energy) </advanced>
-          <advanced>Here is the equation that relates energy to specific latent heat: energy (J) = mass (kg) × specific latent heat (J/kg)</advanced>
-          <advanced>The latent heat of melting is sometimes called the latent heat of fusion, while the latent heat of boiling is sometimes called the latent heat of vaporization. </advanced>
-          <quiz>This measures the amount of energy needed to melt or boil a substance</quiz>
-        </model>
 
       </lesson> //should be good now, //just test it?? //4,5,6,7,8
       <lesson name="Mixtures" topics="4" level="5" index="65" inq="Sometimes concentrations can make a big difference, can you think of two everyday mixtures that have the same substances but different concentrations? How are they different/similar?" score="0">
 
-        <model section="1">
+        <model section="-1">
           <simple>Forming mixtures</simple>
           <advanced>One of the main aspects of chemistry is combining different substances. Sometimes combining substances can cause a chemical reaction and bonding which creates an entirely new substance called a compound.</advanced>
           <advanced>However, sometimes there is no chemical reaction or bonding. In this case, a mixture is formed from the combined substances.</advanced>
         </model>
-        <model section="1">
+        <model section="-1">
           <simple>Mixtures</simple>
           <advanced>A mixture is made when two or more substances are combined, but they are not combined chemically.</advanced>
           <advanced>A pure substance, such as table salt, is made up of just one type of particle. A mixture, such as soil, is made up of more than one type of particle. </advanced>
           <advanced> General properties of a mixture: The components of a mixture can be easily separated, the components each keep their original properties, the proportion of the components is variable</advanced>
         </model>
-        <model section="1">
+        <model section="-1">
           <simple>Types of mixtures</simple>
           <advanced>There are two main categories of mixtures: homogeneous mixtures and heterogeneous mixtures. </advanced>
           <advanced>In a homogeneous mixture all the substances are evenly distributed throughout the mixture (salt water, air, blood).</advanced>
@@ -394,11 +356,11 @@
           //these ones show up when you change the dropdown
           <simple>Solutions</simple>
           <advanced>A solution is a mixture where one of the substances dissolves in the other. The substance that dissolves is called the solute. The substance that does not dissolve is called the solvent.</advanced>
-          <advanced>The amount of a solvent that we can dissovle is determined by the solubility. If you started to add sugar to water, you would notice that after a certain amount, it would stop dissolving, this amount is called the solubility</advanced>
+          <advanced>The amount of a solvent that we can dissolve is determined by the solubility. If you started to add sugar to water, you would notice that after a certain amount, it would stop dissolving, this amount is called the solubility</advanced>
           <advanced>Not all solutes and solvents form solutions. For example, if you added sand to water, it would not dissolve</advanced>
           <advanced>Some solutes “fit” with the solvent and dissolve. For example, sugar dissolves in water because the sugar particles bind (combine) with the water particles. Some solute particles do not bind with the solvent particles. Solutes that do not bind well are called insoluble solutes.</advanced>
-          <advanced>Sometimes, it's possible to dissolve more of a solvant than normal, these solutions are called "super-saturated"</advanced>
-          <advanced>Once a solution is formed, there are ways to seperate solutions. these include filtration, distallation and decanting let's take a look at these below</advanced>
+          <advanced>Sometimes, it's possible to dissolve more of a solvent than normal, these solutions are called "super-saturated"</advanced>
+          <advanced>Once a solution is formed, there are ways to separate solutions. these include filtration, distillation and decanting let's take a look at these below</advanced>
           <advanced>Filtration is a common technique used to separate solids from liquids. A common example used in many household kitchens is making coffee. The coffee grounds are in a coffee filter. Water drips onto the coffee grounds, absorbs the soluble coffee, and drips through the filter. The insoluble grounds are left behind because they cannot pass through the filter.</advanced>
           <advanced>Some solutions are made up of more than one solvent. In these solutions, a process called distillation can be used to separate a solid from a liquid or one liquid in a mixture from another. </advanced>
           <advanced>Decanting is a technique used to separate a liquid from a denser solid or liquid that is insoluble in water.</advanced>
@@ -465,7 +427,7 @@
 
       </lesson> //bunch of shit to add  //6,7,8,9,10  //fuck me bra
       <lesson name="Plants" topics="5" level="5" index="89" score="" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!">
-        <model section="1">
+        <model section="-1">
           <simple>Plants</simple>
           <advanced>In this module you will learn about the different parts of plants and flowers</advanced>
           <advanced>Plants are one of the few living things that can make their own food. This makes them an important source of food for other living things. </advanced>
@@ -537,14 +499,14 @@
 
       </lesson> //this is good   //5,6,7,8,9
       <lesson name="Classification" topics="8" level="5" index="68" inq="Can you think of another name to remember the levels in Linnaeus's system? Write them below!" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Classification</simple>
           <advanced>In this module you will learn about the history of taxonomy, and how we classify all living things</advanced>
           <advanced>Back in the 18th century, a Swedish man named Carolus Linnaeus thought it was important to organize living things, and he developed a system to do just that. </advanced>
           <advanced>His system first only contained plants, however, he quickly expanded it to include all living organisms. We still use the essence of his system today. Scientists are constantly refining the system based on new knowledge. </advanced>
           <advanced>Putting animals in order like this is called taxonomy. The taxonomists — people who name animals — use a book called the International Code of Zoological Nomenclature, or ICZN, to tell them the rules for classifying animals.</advanced>
         </model>
-        <model section="1">
+        <model section="-1">
           <simple>Linnaeus’s system</simple>
           <advanced> His system has seven levels: Kingdom, Phylum, Class, Order, Family, Genus, and Species</advanced>
           <advanced>Every animal on the planet, down to the most microscopic creature you can imagine, can be classified according to this system.</advanced>
@@ -609,9 +571,9 @@
         </model>
       </lesson> //good    //5,6,7,8,9
       <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Energy Sources</simple>
-          <advanced>In this module, you will learn about the differnet ways we generate electricity today</advanced>
+          <advanced>In this module, you will learn about the different ways we generate electricity today</advanced>
           <advanced>There are two types of energy sources, renewable and non-renewable. As we begin to need and depend more on energy, it is more important than ever to understand each of the different sources. As well as their pros and cons. </advanced>
           <advanced> A renewable energy resource can be used over and over. It is never used up. </advanced>
           <advanced> energy resource can only be used once. This is because most non-renewable energy resources are fossil fuels made from the organic remains of plants and animals. Fossil fuels take millions of years to form and therefore cannot be quickly replaced. </advanced>
@@ -621,7 +583,7 @@
         <model>
           <simple>Nuclear power</simple>
           <advanced>Nuclear power is the controlled use of nuclear energy. Nuclear energy is energy in uranium that can be released by nuclear reactions in a machine called a nuclear reactor. This energy is made into electricity, which then can be used to power machines and heat homes.</advanced>
-          <advanced>14% of the world's electricity came from nuclear power. Nuclear power plants also make radioactive waste that could be harmful if it is not stored properly. Nuclеar power plants produce less radioactive material than a coal-fired power station</advanced>
+          <advanced>14% of the world's electricity came from nuclear power. Nuclear power plants also make radioactive waste that could be harmful if it is not stored properly. Nuclear power plants produce less radioactive material than a coal-fired power station</advanced>
           <advanced>Nuclear power plants operate on a process known as fission, which takes a larger molecule and breaks it into smaller pieces, releasing energy in the process</advanced>
           <advanced>The sun uses a process known as nuclear fusion, which joins two smaller molecules together to form a larger one, releasing a huge amount of heat. Researchers hope to use this form of energy in the future, as it is safer, more efficient, and greener than any current technology</advanced>
 
@@ -696,20 +658,20 @@
         <model>
           <simple>Biomass</simple>
           <advanced>Biomass is any plant or animal material that can be safely burned and makes a good fuel. Most organic material, trees and shrubs, and most agricultural material, for example, grains or crops, can be used as biomass. Even animal manure is used. </advanced>
-          <advanced> Biomass energy generation reuses organic material to produce energy. Biomass is burned to create steam in electricity generators similar to those fuelled by wind and geothermal energy. </advanced>
+          <advanced> Biomass energy generation reuses organic material to produce energy. Biomass is burned to create steam in electricity generators similar to those fueled by wind and geothermal energy. </advanced>
           <advanced> Reusing these wastes has great potential not only as an efficient energy source, but also as a positive impact on the environment. Landfills and waste centers could be used less, and the supply of waste never runs out! </advanced>
           <advanced> The supply of biomass would be cheap, but the cost of building a new generation unit is very expensive. Also, people need to be careful about what is used as biomass. Some waste products, like plastic, should not be burned.</advanced>
           <advanced>Because biomass use is relatively new, there are not many rules on how much, or what, should be burned. Many people are concerned that if burning biomass is not properly regulated, companies might start burning materials that are not considered “waste.” </advanced>
 
           <quiz>This is the use of animal or plant remains for energy</quiz>
-          <quiz>This is a relatively new form of energy, and there are not many rules, which could lead to enviornmental problems</quiz>
+          <quiz>This is a relatively new form of energy, and there are not many rules, which could lead to environmental problems</quiz>
           <quiz>This power source not only creates energy, but also decreases waste</quiz>
         </model>
 
 
       </lesson> //bunch of shit to add here   //5,6,7,8,9  //add the stupid fire pit, than test
       <lesson name="Fossils" topics="19" level="5" index="78" inq="Can you explain how fossils become buried so deep in the ground?" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Fossils</simple>
           <advanced>In this module you will learn about fossils, how they are formed, how they are found, and why they are important</advanced>
           <advanced>Fossils can be the shells, bones, or teeth of animals. They can be the leaves, pollen, or woody stems of plants. Fossils can even be the bones or teeth of ancient people. </advanced>
@@ -718,7 +680,7 @@
           <advanced>there are many types of fossils, let's explore them!</advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Why are fossils important?</simple>
           <advanced>Their observations can sometimes tell scientists what might have happened on Earth during the time that the fossilized plant or animal lived. </advanced>
           <advanced>fossils help scientists understand the events of the past, how organisms looked, and how they lived.</advanced>
@@ -727,32 +689,32 @@
           <advanced>This information may help us to prevent events like this from happening again, or at the very least present us with warning signs.</advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Types of fossils</simple>
           <advanced>There are many types of fossils, lets explore them!</advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>trace fossil</simple>
           <advanced>An impression of a footprint or burrow found in a rock. These impressions are not actual remains of an animal or a plant, but they still teach us a lot about ancient life.</advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>mold fossil</simple>
           <advanced>An empty space in a rock, where a whole plant or animal has Decayed</advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>cast fossil</simple>
           <advanced>Minerals and sediment that have seeped through a rock and hardened to form the shape of the fossil mold</advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>petrified fossil</simple>
           <advanced>Bone or shell material is replaced by minerals </advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Paleontologists</simple>
           <advanced>Scientists who study fossils are called paleontologists. Often, paleontologists find fossils that are only pieces of plants and animals.</advanced>
           <advanced>They may not find all the pieces. Their job is like putting together a jigsaw puzzle with missing pieces, and there is no picture of how the completed puzzle should look!</advanced>
@@ -795,7 +757,7 @@
         <model>
           <simple>Spinosaurus</simple>
           <advanced>Spinosaurus (which means 'spiny lizard') was a huge semi-aquatic dinosaur from the Cretaceous, 112 to 97 million years ago. It had paddle-like feet and nostrils on top of its crocodile-like head.</advanced>
-          <advanced>Estimates suggest that it was 12.6 to 18 metres in length and 7 to 20.9 tonnes in weight. </advanced>
+          <advanced>Estimates suggest that it was 12.6 to 18 meters in length and 7 to 20.9 tonnes in weight. </advanced>
           <advanced>It lived in what is now Sahara Desert, but which then was mangrove forests alongside shoreline conditions, tidal flats and channels.</advanced>
           <advanced>Spinosaurus is known to have eaten fish. Evidence suggests that it lived both on land and in water like a modern crocodilian.</advanced>
           <quiz>This dinosaur is related to todays crocodile</quiz>
@@ -812,13 +774,13 @@
       </lesson> //new shit but its all section 1   //5,6,7,8,9
       <lesson name="Flight" topics="32" level="5" index="110" score="" inq="go online to www.DiveVR.org/expirments/airplane, and make your own paper airplane, tell us how far yours flew!">
 
-        <model section="1">
+        <model section="-1">
           <simple>Flight</simple>
           <advanced>In this module you will learn about how flying works, and the different ways we fly today</advanced>
           <advanced>Before we learn about flight, lets review a little about forces</advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Forces</simple>
           <advanced>For scientists, a force causes an object’s motion to change. It can be a push or a pull. </advanced>
         </model>
@@ -875,7 +837,7 @@
         </model>
       </lesson> //good   //5,6,7,8,9
       <lesson name="Photosynthesis" topics="35" level="5" index="90" inq="Do all plants use photosynthesis? Do some animals use photosynthesis? Write your answers below!" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Photosynthesis</simple>
           <advanced>In this module, you will learn about the chemical process called photosynthesis, which allows plants to produce energy from the sun, carbon dioxide, and water.</advanced>
         </model>
@@ -892,7 +854,7 @@
           <advanced>Sunlight is absorbed by a green chemical in the leaves, called chlorophyll</advanced>
           <advanced>The energy from the sun is used to split the water molecules into hydrogen and oxygen</advanced>
           <quiz>This source of energy is required for photosynthesis</quiz>
-          <quiz>This is what splits water molecules into hydorgen and oxygen</quiz>
+          <quiz>This is what splits water molecules into hydrogen and oxygen</quiz>
         </model>
         <model>
           <simple>Oxygen</simple>
@@ -912,7 +874,8 @@
           <simple>Newtons laws and gravity</simple>
           <advanced>In this module you will learn about Newtons laws, and gravity. By the end of this module you will understand the basics of Newtons laws, and how they apply to the real world example of launching a rocket!</advanced>
           <advanced>First, choose the material and the fuel you would like to use in your rocket. Then click the launch button to launch your rocket! The higher your rocket goes, the more you will learn.</advanced>
-          <advanced>To turn off the popups, simple deselect Active Learning the setting's menu</advanced>
+
+          <advanced>To turn off the pop-ups, simple deselect Active Learning the setting's menu</advanced>
         </model>
         <model>
           <simple>Steel</simple>
@@ -956,7 +919,7 @@
         <model>
           <simple>Liquid fuel</simple>
           <advanced>Liquid propellants separate fuel and oxidizers and the two are combined in a combustion chamber where they burn and are ﬁred out from the base of the rocket.</advanced>
-          <advanced>Liquid fuels are further subcategorized into either petroleum, cryogens or hypergols.</advanced>
+          <advanced>Liquid fuels are further sub-categorized into either petroleum, cryogens or hypergols.</advanced>
           <advanced>Petroleum is fuel derived from crude oil and hydrocarbons, it consists of a highly refined kerosene mixed with liquid oxygen.</advanced>
           <advanced>Cryogens are those stored at very low temperatures (such as liquid hydrogen)</advanced>
           <advanced>Hypergols are able to self-ignite on contact between the fuel and the oxidizer.  These fuels simply needs nitric acid in order to ignite and are frequently used for propulsion when out in space.</advanced>
@@ -1005,11 +968,11 @@
         </model>
         <model section="1">
           <simple>Same speed</simple>
-          <quiz>If a rocket runs out of fuel in space, but it is moving forward, in 1000 years, will it be travelling faster, slower or at the same speed?</quiz>
+          <quiz>If a rocket runs out of fuel in space, but it is moving forward, in 1000 years, will it be traveling faster, slower or at the same speed?</quiz>
         </model>
       </lesson> //this is good     //6,7,8,9,10
       <lesson name="Scientific Names" topics="9" level="5" index="69" inq="Can you find some latin words that look very similar to the one we use in English? Can you explain why they are so similar?" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Scientific Names</simple>
           <advanced>In this module you will learn about common scientific names </advanced>
         </model>
@@ -1090,7 +1053,7 @@
         </model>
       </lesson> //good    6,7,8,9,10
       <lesson name="Animals" topics="10" level="5" index="70" inq="Can you think of some other animals that change over the course of their lives? Write them below!" score="10">
-        <model section="1">
+        <model section="-1">
           <simple>Animal Life Cycles</simple>
           <advanced>In this module you will learn about some common animal life cycles, and how many animals change over the course of their lives</advanced>
           <advanced>To use this module click on the animals to reveal their life cycles, then click on each of the parts of their life cycles to learn more about them!</advanced>
@@ -1199,7 +1162,7 @@
       </lesson> //this is good   //4,5,6,7,8
       <lesson name="Simple machines" topics="11" level="5" index="112" score="" inq="List 3 simple machines that you use every day!">
 
-        <model section="1">
+        <model section="-1">
           <simple>Simple machines</simple>
           <advanced>In this module you will learn about simple machines, and forces. As well as some everyday examples where they are used!</advanced>
           <advanced>Simple machines help us apply force. Lifting a load, which is a weight to be carried or moved, is an example of applying force.</advanced>
@@ -1209,7 +1172,7 @@
           <quiz>These help use apply a force, or create a mechanical advantage</quiz>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Forces</simple>
           <advanced>In science, a force is a push or a pull that causes an object to start or stop moving, or changes the direction an object is moving.</advanced>
           <advanced> Sir Isaac Newton was a scientist who lived over 300 years ago. He discovered that forces occur in pairs, and they can be either balanced or unbalanced. </advanced>
@@ -1274,14 +1237,14 @@
         </model>
       </lesson>   //6,7,8,9,10
       <lesson name="Microscope" topics="12" level="5" index="111" score="" inq="Go online to www.diveVR.org/expirments/microscope, and try to build your own microscope at home, tell us what you saw!">
-        <model section="1">
+        <model section="-1">
           <simple>Microscopes</simple>
           <advanced> In this module you will learn about the different types, and different parts in a microscope </advanced>
           <advanced>First, what is a microscope? Microscopes allow us to see extremely small "microscopic" things</advanced>
           <advanced>First, lets take a look at the different types of microscopes</advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Types of microscopes</simple>
           <advanced>Any microscope that has two or more lenses is called a compound microscope. </advanced>
           <advanced>When you view an object with a microscope, you need light to see the structures. Because light must travel through the object for you to see it properly, you will see a lamp or other light source under the microscope’s stage. </advanced>
@@ -1296,8 +1259,8 @@
 
         <model>
           <simple>Body tube</simple>
-          <advanced> connects the eyepiece and the revolving nosepiece</advanced>
-          <quiz>This part of the microscope contains the eyepiece and revolving nosepiece</quiz>
+          <advanced> connects the eyepiece and the revolving nose-piece</advanced>
+          <quiz>This part of the microscope contains the eyepiece and revolving nose piece</quiz>
         </model>
 
         <model>
@@ -1307,7 +1270,7 @@
         </model>
 
         <model>
-          <simple>Evolving Nosepiece </simple>
+          <simple>Evolving Nose-piece </simple>
           <advanced>holds the three objective lenses</advanced>
           <quiz>This part of the microscope holds three objective lenses</quiz>
         </model>
@@ -1355,13 +1318,13 @@
         </model>
       </lesson> //good  //6,7,8,9,10
       <lesson name="Animal Cell" topics="14" level="5" index="71" inq="How does smoking affect the cells in the lungs? Do some research and summarize it below!" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Animal Cells</simple>
           <advanced>In this module you will learn about the structure and parts of an animal cell, as well as some information about cell theory and organisms</advanced>
         </model>
 
         //new -------------
-        <model section="1">
+        <model section="-1">
           <simple>Cell Theory</simple>
           <advanced>The Cell Theory states the following </advanced>
           <advanced>All living things are composed of cells</advanced>
@@ -1369,13 +1332,13 @@
           <advanced>All cells are produced from other cells.</advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Organisms</simple>
           <advanced>Some organisms are multicellular. This means that they are made up of two or more cells. Plants and animals are examples of multicellular organisms.</advanced>
           <advanced>Other organisms are unicellular. They are made up of only a single cell. Most microscopic organisms are examples of unicellular organisms.</advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Organelles</simple>
           <advanced>The inside of the cell contains a liquid-like substance called the cytoplasm.</advanced>
           <advanced>In those cells that have a nucleus, the cytoplasm contains a variety of structures, which carry out particular functions or jobs. </advanced>
@@ -1464,7 +1427,7 @@
 
       </lesson> //new shit here but its all section 1  //6,7,8,9,10
       <lesson name="Plant Cell" topics="15" level="5" index="72" inq="Can you explain the difference and similarities between animal and plant cells?" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Plant Cell</simple>
           <advanced>In this module you will learn about the structure and parts of a plant cell</advanced>
         </model>
@@ -1559,7 +1522,7 @@
       </lesson> //good    //6,7,8,9,10
       <lesson name="Ecosystems" topics="41" level="5" index="73" inq="What type of ecosystem do you live in, which would be your favorite ecosystem to live in and why?" score="0">
 
-        <model section="1">
+        <model section="-1">
           <simple>Ecosystems</simple>
           <advanced>In this module you will learn to identify and classify the major ecosystems on our planet</advanced>
         </model>
@@ -1633,14 +1596,14 @@
 
       </lesson> //good   //4,5,6,7,8
       <lesson name="Rocks and minerals" topics="18" level="5" index="77" inq="Can you identify all the rocks in your local park? What are the most common types of rocks you found?" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Rocks and minerals</simple>
           <advanced>Rocks and minerals are all around us, and they can be found from building materials to medicine and pharmaceuticals</advanced>
           <advanced>This module will introduce you to the three types of rocks, as well as some common rocks and minerals</advanced>
         </model>
 
         //new shit-----------------
-        <model section="1">
+        <model section="-1">
           <simple>Rocks and Minerals</simple>
           <advanced>Geologists are scientists who study rocks. </advanced>
           <advanced>To a geologist, a rock and a mineral are two different things that occur in nature.</advanced>
@@ -1648,7 +1611,7 @@
           <advanced>The chocolate bar that contains nuts and caramel is like a rock. A rock is a solid that is made of two or more minerals. </advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Minerals</simple>
           <advanced>All rocks are made of minerals. A mineral is a pure substance that forms naturally as a solid in Earth. </advanced>
           <advanced> Some rocks, such as limestone, are formed of only one mineral. Other rocks, such as granite, are made up of several minerals.</advanced>
@@ -1706,7 +1669,7 @@
       </lesson> //good
       <lesson name="weathering" topics="45" level="5" index="124" inq="What are some of the ways we can reduce the effects of errosion?" score="0">
 
-        <model section="1">
+        <model section="-1">
           <simple>Weathering</simple>
           <advanced>Weathering is one of the reasons that rocks change. Weathering is the process that wears down rocks and other objects. </advanced>
           <advanced>Think back to the types of rock you studied earlier: igneous, sedimentary, and metamorphic. Even though most of Earth’s crust is made of igneous rocks, many of the rocks we see on the surface are sedimentary rocks.</advanced>
@@ -1725,7 +1688,7 @@
           <advanced>Chemical weathering happens when water in the air combines with chemical substances in the air. Sometimes these substances are in the air naturally. Sometimes they are there because of cars, fires, and smoke from industry. </advanced>
           <advanced>combined with the rain or snow, the substances form solutions called acids. Rocks exposed to these acids gradually wear away.</advanced>
           <quiz>This type of weathering happens when water is combined with chemical substances in the air</quiz>
-          <quiz>This type of weathering can be casued by asids, cars, or smoke from fires</quiz>
+          <quiz>This type of weathering can be caused by acids, cars, or smoke from fires</quiz>
         </model>
 
         <model>
@@ -1738,7 +1701,7 @@
         <model>
           <simple>Erosion</simple>
           <advanced>Erosion is the movement of rock materials and soil by water, wind, or ice. These rock materials can be as big as boulders or as small as the grains in soil.</advanced>
-          <quiz>This is the movment of rock materials and soil by water, wind or ice</quiz>
+          <quiz>This is the movement of rock materials and soil by water, wind or ice</quiz>
         </model>
 
         <model>
@@ -1752,16 +1715,16 @@
 
       </lesson> //bunch of shit to add here  //4,5,6,7,8
       <lesson name="Greenhouse gasses" topics="20" level="5" index="79" inq="What can people do to reduce the amount of greenhouse gasses?" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Greenhouse gases</simple>
           <advanced>In this module you will learn about the common greenhouse gasses, and the effect they have on our atmosphere and climate</advanced>
         </model>
-        <model section="1">
+        <model section="-1">
           <simple>The Greenhouse effect</simple>
           <advanced>Greenhouse gases reflect radiation that the Earth emits, and stop it from being lost into space. This causes the Earth's temperature to be higher than it would be without greenhouse gases. The name for this is the "greenhouse effect."</advanced>
           <quiz>This is the effect that causes radiation to be reflected back to Earth</quiz>
         </model>
-        <model section="1">
+        <model section="-1">
           <simple>Greenhouse gasses</simple>
           <advanced>Most greenhouse gases are natural - water vapor is the most common, and causes most of the greenhouse effect on Earth. Other greenhouse gases are carbon dioxide, methane, nitrous oxide, chlorofluorocarbon and ozone.</advanced>
           <advanced>Without greenhouse gases, the earth would be on average 33 degrees Celsius colder.</advanced>
@@ -1798,7 +1761,7 @@
         </model>
       </lesson> //not one   //4,5,6,7,8
       <lesson name="Water cycle" topics="21" level="5" index="80" inq="Can you explain how global warming can cause more rain in some areas?" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Water cycle</simple>
           <advanced>Water is one of our most precious resources. This module will introduce you to the water cycle, one of the most important cycles for life on Earth</advanced>
         </model>
@@ -1835,12 +1798,12 @@
         </model>
       </lesson> //good   //4,5,6,7,8
       <lesson name="Astronomy" topics="22" level="5" index="81" inq="What would be the best planet for humans to colonize? The second best?" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Our Solar System</simple>
           <advanced>In this module you will learn about all of our planets in the solar system.</advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Sun</simple>
           <advanced> The Sun is on average 149 600 000 km, or one astronomical unit (1AU), away from Earth. It takes about 9 min for light to travel from the Sun to Earth.</advanced>
           <advanced>The Sun creates its energy mainly by combining hydrogen nuclei to produce helium nuclei, in a process called nuclear fusion. In this process, the Sun releases energy in the form of light, heat, and radioactive material.</advanced>
@@ -1952,7 +1915,7 @@
 
       </lesson> //good  //4,5,6,7,8
       <lesson name="Chemical reactions" topics="26" level="5" index="84" inq="Can you think of some chemical reactions we use every day?" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Chemical reactions</simple>
           <advanced>Chemical reactions happen around us every day, from the reactions happening inside your cells that help keep you alive, to the reactions in cars and factories that allow our world to move.</advanced>
           <advanced>Understanding some basic chemical reactions are important to understand our world better! </advanced>
@@ -2051,13 +2014,13 @@
         </model>
       </lesson> //good   //6,7,8,9,10
       <lesson name="Waves" topics="29" level="5" index="95" inq="Sound waves are measured in Decibels (Db), do some research and find out how loud the loudest sound you heard was, write the answer below!" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Waves</simple>
           <advanced>In this module you will learn about basic wave terminology</advanced>
           <advanced>There are lots of waves all around us in everyday life. Sound is a type of wave that moves through matter and then vibrates our eardrums, so we can hear. Light is a special kind of wave that is made up of photons. You can drop a rock into a pond and see waves form in the water. We even use waves (microwaves) to cook our food </advanced>
           <advanced>Waves can be divided into various categories depending on their characteristics. All waves can be categorized as either mechanical or electromagnetic.</advanced>
         </model>
-        <model section="1">
+        <model section="-1">
           <simple>Mechanical waves</simple>
           <advanced>Mechanical waves are waves that require a medium. This means that they have to have some sort of matter to travel through. These waves travel when molecules in the medium collide with each other passing on energy.</advanced>
           <advanced>One example of a mechanical wave is sound. Sound can travel through air, water, or solids, but it can't travel through a vacuum. It needs the medium to help it travel. Other examples include water waves, seismic waves, and waves travelling through a spring.</advanced>
@@ -2066,7 +2029,7 @@
           <quiz>This type of wave cannot travel through a vacuum</quiz>
           <quiz>Water waves are this type of wave</quiz>
         </model>
-        <model section="1">
+        <model section="-1">
           <simple>Electromagnetic waves</simple>
           <advanced>Electromagnetic waves are waves that can travel through a vacuum (empty space). They don't need a medium or matter.</advanced>
           <advanced>They travel through electrical and magnetic fields that are generated by charged particles. Examples of electromagnetic waves include light, microwaves, radio waves, and X-rays.</advanced>
@@ -2075,18 +2038,18 @@
           <quiz>Radio waves are this type of wave</quiz>
           <quiz>Light is this kind of wave</quiz>
         </model>
-        <model section="1">
+        <model section="-1">
           <simple>travelling waves</simple>
           <advanced>Another way to describe a wave is by the direction that its disturbance is travelling. We can categorize waves into two categories, transverse and longitudinal waves</advanced>
         </model>
-        <model section="1">
+        <model section="-1">
           <simple>Transverse waves</simple>
           <advanced>Transverse waves are waves where the disturbance moves perpendicular to the direction of the wave.</advanced>
           <advanced>You can think of the wave moving left to right, while the disturbance moves up and down. One example of a transverse wave is a water wave where the water moves up and down as the wave passes through the ocean.</advanced>
           <quiz>This type of wave causes disturbances perpendicular to the direction of the wave</quiz>
           <quiz>Water waves move in this type of way</quiz>
         </model>
-        <model section="1">
+        <model section="-1">
           <simple>Longitudinal waves</simple>
           <advanced>Longitudinal waves are waves where the disturbance moves in the same direction as the wave.</advanced>
           <advanced>One example of this is a wave moving through a stretched out slinky or spring. If you compress one portion of the slinky and let go, the wave will move left to right. At the same time, the disturbance (which is the coils of the springs moving), will also move left to right.</advanced>
@@ -2120,7 +2083,7 @@
       </lesson> //good   //6,7,8,9,10
       <lesson name="Biochemistry" topics="30" level="5" index="87" inq="What is DNA? Summarize your answer below, remember, try to keep it simple!" score="0">
         //ok, so for this one, put it in models, just get the cell model, and have the images of the proteins and all that as particle systems that they can click on
-        <model section="1">
+        <model section="-1">
           <simple>Biochemistry</simple>
           <advanced>Biochemistry is the application of chemistry in biology. Biochemistry helps us understand the reactions and chemicals that are found in living things</advanced>
           <advanced>In this module you will learn about the basics of carbohydrates, lipids, proteins, and nucleic acid, as well as cellular respiration</advanced>
@@ -2183,7 +2146,7 @@
         </model>
       </lesson> //bunch of shit to add here   //6,7,8,9,10  //good now
       <lesson name="Anatomy and physiology" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Human Organs</simple>
           <advanced>In this module, you will learn about the most important organs in the human body</advanced>
         </model>
@@ -2222,23 +2185,23 @@
         </model>
       </lesson> //good    //6,7,8,9,10
       <lesson name="Ecological interactions" topics="36" level="5" index="91" inq="How have humans effected some ecologys? Write some examples below!" score="0">
-        <model section="1">
+        <model section="-1">
           <simple>Ecological interaction</simple>
           <advanced>In this module you will learn about the different interactions in a food web and food chain</advanced>
         </model>
-        <model section="1">
+        <model section="-1">
           <simple>Food chain</simple>
           <advanced>Every living plant and animal must have energy to survive. Plants rely on the soil, water, and the sun for energy. Animals rely on plants as well as other animals for energy.</advanced>
           <advanced>In an ecosystem, plants and animals all rely on each other to live. Scientists sometimes describe this dependence using a food chain or a food web.</advanced>
           <advanced>A food chain describes how different organisms eat each other, starting out with a plant and ending with an animal. </advanced>
         </model>
-        <model section="1">
+        <model section="-1">
           <simple>Food Web</simple>
           <advanced>In any ecosystem there are many food chains and, generally, most plants and animals are part of several chains. When you draw all the chains together you end up with a food web.</advanced>
           <quiz>This describes an ecosystem with many food chains</quiz>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Food pyramid</simple>
           <advanced>The food pyramid describes how energy moves through a food web. It also explains why there are fewer animals in the higher levels</advanced>
           <advanced> ecological pyramid. In an ecological pyramid there are always: more producers than herbivores, more herbivores than omnivores, more omnivores than carnivores</advanced>
@@ -2247,7 +2210,7 @@
         </model>
 
 
-        <model section="1">
+        <model section="-1">
           <simple>Trophic Levels</simple>
           <advanced>Sometimes scientists describe each level in a food web with a trophic level. Here are the five trophic levels:</advanced>
           <advanced>Level 1: Plants (producers)</advanced>
@@ -2280,7 +2243,7 @@
 
         <model section="2">
           <simple>Decomposers</simple> //plankton
-          <advanced>Decomposers are consumers that break down (decompose) dead plants and animals. They also break down animal waste materials. Fungi, such as mushrooms and the mould you see growing on bread and fruits, are decomposers. </advanced>
+          <advanced>Decomposers are consumers that break down (decompose) dead plants and animals. They also break down animal waste materials. Fungi, such as mushrooms and the mold you see growing on bread and fruits, are decomposers. </advanced>
           <advanced>So are many kinds of bacteria. Some moulds and all types of bacteria are too small to be seen without a microscope. They are called micro-organisms. Some micro-organisms can be helpful to humans; others can be harmful.</advanced>
           <advanced>Some examples of decomposers include worms, bacteria and fungi</advanced>
           <quiz>These animals eat decaying matter</quiz>
@@ -2302,31 +2265,19 @@
 
       </lesson> //good  //4,5,6,7,8  //test this
       <lesson name="Plate tectonics" topics="38" level="5" index="93" inq="Tectonic plates are always moving, can you describe how the world will look in 1,000,000 years? Don't be afraid to look it up!" score="0">
-        <model section="0">
+        <model section="-1">
           <simple>Plate Tectonics</simple>
           <advanced>In this module you will learn about plate tectonics, their different types, and how they shape our world</advanced>
         </model>
 
         <model section="-1">
-          <simple>This is a test</simple>
-          <advanced>This is advanced 1</advanced>
-          <advanced>This is advanced 2</advanced>
-        </model>
-
-        <model section="-1">
-          <simple>This is a test2</simple>
-          <advanced>This is advanced 1</advanced>
-          <advanced>This is advanced 2</advanced>
-        </model>
-
-        <model section="1">
           <simple>Earths crust</simple>
           <advanced>The crust is the thinnest layer of our planet. Its average thickness is about 30 km under the continents, but it is only about 5–10 km thick under the oceans. Under big mountain ranges such as the Rocky Mountains, the crust can be up to 90 km thick. </advanced>
           <advanced>The total distance from the surface of the crust to Earth’s centre is about 6400 km. </advanced>
           <advanced> The soil, plants, and even the oceans that we see on the surface form only a thin covering on the crust. The crust is made of solid rock. </advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Continental drift</simple>
           <advanced>Observations led Alfred Wegener to propose the theory of continental drift in about 1912. His theory was that the continents drifted to their current location. </advanced>
           <advanced>He suggested that they started as a single supercontinent called Pangaea. Alfred, like earlier scientists, had noted that the coasts of South America and Africa could fit together. </advanced>
@@ -2334,7 +2285,7 @@
 
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Theory of plate tectonics</simple>
           <advanced>this information to develop the theory of plate tectonics. This theory says Earth’s lithosphere (the upper mantle and crust) is broken into large plates. Earthquakes and volcanoes tend to occur where these plates meet. </advanced>
 
@@ -2348,16 +2299,7 @@
           <quiz>These places create rifts or valleys</quiz>
           <quiz>Sometimes, large lakes form because of these boundaries</quiz>
         </model>
-        <model>
-          <simple>Convergent boundaries</simple>
-          <advanced> At converging boundaries, plates come together. Although plates move just centimetres each year, they are so huge that we experience the effects of their collision.</advanced>
-          <advanced> We can feel the earthquakes and see the mountains, including volcanoes, that grow at or near these boundaries. </advanced>
-          <advanced>There are two kinds of converging boundaries.</advanced>
-          <advanced>One kind of converging boundary happens where a trench forms. One plate carries oceanic crust, and the other one carries continental crust. As they push together, the heavier, thinner oceanic crust is forced down below the lighter, thicker continental crust. </advanced>
-          <advanced> As one grinds down past the other, earthquakes rumble, and the continental crust wrinkles to form mountains. The oceanic crust moves lower into Earth and gets hotter and melts. This molten rock rises in some places to form volcanoes. </advanced>
-          <quiz>These boundaries create mountains</quiz>
-          <quiz>Earthquakes, montains and volcanoes all happen near these boundaries</quiz>
-        </model>
+
         <model>
           <simple>Transform boundaries</simple>
           <advanced>A transform boundary happens when plates slide past each other but neither collide nor rip apart.</advanced>
@@ -2368,9 +2310,21 @@
           <quiz>The San Andreas fault is an example of this boundary</quiz>
           <quiz>You can find this boundary along the west coast of Canada</quiz>
         </model>
+        
+        <model>
+          <simple>Convergent boundaries</simple>
+          <advanced> At converging boundaries, plates come together. Although plates move just centimetres each year, they are so huge that we experience the effects of their collision.</advanced>
+          <advanced> We can feel the earthquakes and see the mountains, including volcanoes, that grow at or near these boundaries. </advanced>
+          <advanced>There are two kinds of converging boundaries.</advanced>
+          <advanced>One kind of converging boundary happens where a trench forms. One plate carries oceanic crust, and the other one carries continental crust. As they push together, the heavier, thinner oceanic crust is forced down below the lighter, thicker continental crust. </advanced>
+          <advanced> As one grinds down past the other, earthquakes rumble, and the continental crust wrinkles to form mountains. The oceanic crust moves lower into Earth and gets hotter and melts. This molten rock rises in some places to form volcanoes. </advanced>
+          <quiz>These boundaries create mountains</quiz>
+          <quiz>Earthquakes, montains and volcanoes all happen near these boundaries</quiz>
+        </model>
+
       </lesson> //good   //4,5,6,7,8
       <lesson name="Weather and Atmosphere" topics="39" index="115" level="5" score="0" inq="Can gasses behave differently in different layers? Do some research on Ozone, and explain how it can be good or bad depending on where it is!">
-        <model section="1">
+        <model section="-1">
           <simple>Weather</simple>
           <advanced>Weather is the day-to-day or hour-to-hour change in the atmosphere. Weather includes wind, lightning, storms, hurricanes, tornadoes, rain, hail, snow, and lots more.</advanced>
           <advanced>Weather happens because different parts of the Earth get different amounts of heat from the Sun. This makes different climates. The tropics get the most heat because the Sun shines straight down on them, while the poles get the least heat because the Sun shines on them from a low angle. </advanced>
@@ -2399,7 +2353,7 @@
           <simple>Air</simple>
           <advanced>according to scientists, air is made up of different kinds of tiny particles. These particles are always moving. They bump into each other, and they bump into everything around them.</advanced>
           <advanced>Air pushes on trees, buildings, bicycles, furniture, and even you! Air pushes in all directions— up, down, and sideways.</advanced>
-          <quiz>This pushes you in all directions, althought you don't notice it</quiz>
+          <quiz>This pushes you in all directions, although you don't notice it</quiz>
         </model>
 
         <model>
@@ -2443,7 +2397,7 @@
       </lesson> //good  //4,5,6,7,8
       <lesson name="Environment" topics="44" level="5" index="73" inq="Can you name 3 biotic and 3 abiotic things in your backyard or local park?">
         //abiotic and biotic shit like that
-        <model section="1">
+        <model section="-1">
           <simple>Living things</simple>
           <advanced>Are made up of one or more cells. Cells are the smallest units of life. Sometimes cells are separated by cell walls. </advanced>
           <advanced> Respire (breathe). Animals take in oxygen and breathe out carbon dioxide. Plants take in carbon dioxide, sunlight, and water to make sugars and oxygen. Plants give off water vapour and oxygen. </advanced>
@@ -2496,7 +2450,7 @@
 
       </lesson> //good  //4,5,6,7,8
       <lesson name="climate" topics="34" index="79" level="5" inq="What climate do you live in? How does this influence the weather?">
-        <model section="1">
+        <model section="-1">
           <simple>Weather and climate</simple>
           <advanced>In this module, you will learn about the different types of climates on planet Earth</advanced>
           <advanced>First, lets understand the difference between weather and climate</advanced>
@@ -2505,7 +2459,7 @@
           <advanced>In the next lesson you'll learn more about weather, now lets take a look at the different climates</advanced>
         </model>
 
-        <model section="1">
+        <model section="-1">
           <simple>Climate</simple>
           <advanced>Climate means the usual condition of the temperature, humidity, atmospheric pressure, wind, rainfall, and other meteorological elements in an area of the Earth's surface for a long time. </advanced>
           <advanced>This is the difference between weather and climate. Weather is the condition right now, for example if it is cold, that is the weather. But some places are colder for longer than others, this depends on the climate</advanced>
@@ -2640,20 +2594,20 @@
           <simple>Friction</simple>
           <advanced>When two objects slide over each other, they rub and resist, or try to stop, moving against each other. Scientists call this resistance to movement the force of friction</advanced>
           <advanced>Friction is a contact force that happens when two objects rub together, try rubbing your two hands together and see for yourself!</advanced>
-          <quiz>This is the force that happnes when two objects slide over each other</quiz>
+          <quiz>This is the force that happens when two objects slide over each other</quiz>
           <quiz>This force resists motion</quiz>
         </model>
 
         <model>
           <simple>Particles</simple>
           <advanced>Scientists understand that everything in the universe is made up of tiny particles. They are too small to see with your eyes or even a microscope. </advanced>
-          <quiz>Everything in the univerise is made of these</quiz>
+          <quiz>Everything in the universe is made of these</quiz>
         </model>
 
         <model>
           <simple>Static Electricity</simple>
-          <advanced> So, rubbing the ballon on the carpet will cause the balloon to pick up some particles from the carpet. The balloon will now have extra particles. It is now charged with static electricity. Static electricity is the build-up of extra particles. </advanced>
-          <quiz>This is the build up of exceess particles </quiz>
+          <advanced> So, rubbing the balloon on the carpet will cause the balloon to pick up some particles from the carpet. The balloon will now have extra particles. It is now charged with static electricity. Static electricity is the build-up of extra particles. </advanced>
+          <quiz>This is the build up of excess particles </quiz>
           
         </model>
       </lesson> //good?  //6,7,8,9,10  //5:00
@@ -2703,13 +2657,13 @@
         </model>
 
         <model>
-          <simple>Respritory System</simple>
+          <simple>Respiratory System</simple>
           <advanced>Breathing helps bring oxygen into your body and take carbon dioxide out of your body. Scientists call this process respiration.</advanced>
           <advanced>Your respiratory system is  made up of all the cells, tissues, and organs that work together to make respiration happen. </advanced>
           <advanced> You use this system every time you breathe, but also when you cough, sneeze, speak, or move. The main organs in your respiratory system are your two lungs </advanced>
           <quiz>This system helps bring oxygen into your body, and take carbon dioxide out</quiz>
           <quiz>This system is responsible for respiration</quiz>
-          <quiz>This system is used whenever you breathem cought, sneeze, speak or move</quiz>
+          <quiz>This system is used whenever you breathe, cough, sneeze, speak or move</quiz>
           <quiz>The main organs in this system are your two lungs</quiz>
         </model>
 
@@ -2732,7 +2686,7 @@
 
         <model>
           <simple>Digestive system</simple>
-          <advanced>Your body needs fuel to grow and to function properly, the same way a car needs fuel to run. Oxygen, nutrients, andwater are the fuel for your body.</advanced>
+          <advanced>Your body needs fuel to grow and to function properly, the same way a car needs fuel to run. Oxygen, nutrients, and water are the fuel for your body.</advanced>
           <advanced> Oxygen comes from the air, and nutrients come from food. Your digestive system breaks down the food so that your body can absorb the nutrients.</advanced>
           <advanced> The main part of your digestive system is a tube about nine metres long. It goes from your mouth to your anus, which is part of your small intestine. Many organs are part of this tube or attached to it. They include your stomach, liver, and intestines. </advanced>
           <advanced> Your digestive system is like a giant food processor: it chops, mashes, and mixes food into a soupy paste. </advanced>
@@ -2747,7 +2701,7 @@
           <advanced> Your body creates other waste products that it must get rid of. You already know about carbon dioxide, which exits your body through your respiratory system. Other waste products are removed by your excretory system.</advanced>
           <advanced> You have two kidneys that clean your blood and then return it to your circulatory system. The waste liquid left behind is called urine. The urine leaves each kidney though a tube called a ureter.</advanced>
           <advanced> The ureters are connected to your bladder. When your bladder is full, it sends a signal to your brain that you need to urinate. </advanced>
-          <quiz>This system is responsibe for removing waste from your body</quiz>
+          <quiz>This system is responsible for removing waste from your body</quiz>
           <quiz>The main organs in this system are your two kidneys</quiz>
           <quiz>Urinating is handled by this system</quiz>
         </model>
@@ -2757,7 +2711,7 @@
           <advanced> As you have learned, the brain controls many processes in your body. The brain is your body’s main control centre. This organ sends and receives messages through your spinal cord and nerves. The brain, spinal cord, and nerves make up your nervous system. </advanced>
           <advanced> Your brain processes information from your nerves so that you know what you see, smell, hear, feel, and taste. Your brain lets you know whether you are hot, or hungry, or in pain. </advanced>
           <advanced>Your brain also sends signals to all the other systems in your body to control your body’s activities, from walking to sweating.</advanced>
-          <advanced> Your brain also uses hormons to communicate. Hormones are chemicals that act as messengers between body systems.</advanced>
+          <advanced> Your brain also uses hormones to communicate. Hormones are chemicals that act as messengers between body systems.</advanced>
           <advanced>You might remember your mouth watering after having smelled something good to eat. This is your digestive juices preparing for the intake of food. Your digestive system then takes over to digest the cookie. </advanced>
           <qiuz>The main organ in this system is your brain</qiuz>
           <quiz>This system is what allows you to see, smell, hear, feel and taste</quiz>
@@ -2773,7 +2727,7 @@
           <advanced> A joint is formed where two bones connect,  elbows, knees, and knuckles are all joints. </advanced>
           <advanced>There are 206 bones in the human skeleton. </advanced>
           <advanced>Most skeletal muscles are attached to bones on both sides of a joint. Muscles pull on the bones at a joint to cause movement. Muscles can pull but not push, so muscles often work in pairs to move different parts of your body. </advanced>
-          <quiz>This sytem helps protect the organs and tissues inside your body</quiz>
+          <quiz>This system helps protect the organs and tissues inside your body</quiz>
           <quiz>This system is what allows you to move</quiz>
           <quiz>Tendons help this system work</quiz>
         </model>
@@ -2784,15 +2738,15 @@
           <simple>Diseases</simple>
           <advanced>Diseases occur when organs or systems are not working properly. If an organ has a disease, has failed (is not functioning at all), or is missing, the body systems it belongs to may not work properly. </advanced>
           <advanced>For example, when someone is having a heart attack, the artery that carries blood to the  heart is blocked. Blood cannot reach the heart and the heart muscle may start to die. If blood cannot reach your heart, your heart cannot pump it out to the rest of your body. </advanced>
-          <quiz>This occores when organs or systems don't work properly</quiz>
+          <quiz>This occurs when organs or systems don't work properly</quiz>
         </model>
 
         <model>
           <simple>Germs</simple>
           <advanced>Germs are tiny living things that can cause sickness or disease. Germs include bacteria  and viruses. </advanced>
-          <advanced>Germs can get into your body through a break in the skin, such as a scratch or cut. Germs can also get in through your mouth, nose, ears, or eyes. If this happens, your body’s defences prepare to fight! </advanced>
+          <advanced>Germs can get into your body through a break in the skin, such as a scratch or cut. Germs can also get in through your mouth, nose, ears, or eyes. If this happens, your body’s deferences prepare to fight! </advanced>
           <quiz>These include bacteria and viruses</quiz>
-          <quiz>These can get into your body through a break in the skin, or through your mouthm nose, ears and eyes</quiz>
+          <quiz>These can get into your body through a break in the skin, or through your mouth nose, ears and eyes</quiz>
         </model>
 
         <model>
@@ -2821,13 +2775,13 @@
         </model>
 
         <model section="1">
-          <simple>Electrical curcuits</simple>
+          <simple>Electrical circuits</simple>
           <advanced>In the circuit, there are materials needed to create working current electricity. You need a source of electrical energy, a path that the energy can move through, and a load that converts the electrical energy into something that you can use.</advanced>
           <advanced>Let's look at the different types of circuits</advanced>
         </model>
         
         <model section="1">
-          <simple>Series and parallel curcuits</simple>
+          <simple>Series and parallel circuits</simple>
           <advanced>There are two general types of circuits, Series and parallel</advanced>
           <advanced>If you can place your finger on any part of the circuit and trace a single path back to the start, you have a series circuit. </advanced>
           <advanced>A parallel circuit is different because it can be recognized by having more than one loop</advanced>
@@ -2848,9 +2802,9 @@
           <simple>Conductors or insulators</simple>
           <advanced>Materials that allow electricity to move through them are called conductors. Conductors are used to make wires for circuits. Electricity could even be defined as a form of energy that can flow through conductors.</advanced>
           <advanced>The materials that stop electricity from moving through are called insulators. Insulators are useful too. They wrap around conductor wires to keep people safe from electric shock.</advanced>
-          <quiz>These are materials that allow electricity to move thorught them</quiz>
-          <quiz>These are materials that don't allow electricity to move throught them</quiz>
-          <quiz>These materials are often wraped around conductors to keep people safe from electric shock</quiz>
+          <quiz>These are materials that allow electricity to move through them</quiz>
+          <quiz>These are materials that don't allow electricity to move through them</quiz>
+          <quiz>These materials are often wrapped around conductors to keep people safe from electric shock</quiz>
         </model>
 
         <model>
@@ -3018,15 +2972,15 @@
       <lesson name="Materials and structures" topics="-1" level="5" index="117" inq="Why is it important to understand the rights of Native Americans?" score="0">
         <module section="1">
           <simple>structures</simple>
-          <advanced>In this module you will learn about materials and strucutrtes, their termonlogy and why they are important</advanced>
+          <advanced>In this module you will learn about materials and structures, their terminology and why they are important</advanced>
           <advanced>A structure is something that holds weight. The weight that a structure supports is called a load.</advanced>
           <advanced>You have learned that the strongest shape is a triangle. A triangle is also the most stable shape. A stand that holds a camera steady is shaped like a triangle. It has three points of contact with the ground. </advanced>
-          <advanced>There are many different types of sturctures, let's learn about them!</advanced>
+          <advanced>There are many different types of structures, let's learn about them!</advanced>
         </module>
 
         <model section="1">
           <simple>Solid structures</simple>
-          <advanced>Solid structures are not hollow. They are the samethroughout and are usually made of one material. </advanced>
+          <advanced>Solid structures are not hollow. They are the same throughout and are usually made of one material. </advanced>
         </model>
 
         <model section="1">
@@ -3042,7 +2996,7 @@
         <model>
           <simple>Fasteners</simple>
           <advanced> Materials can be joined together with fasteners. Fasteners are objects that fix or hold materials together.</advanced>
-          <advanced>Some exmaples of fasteners include Nails,screws, zippers, and Velcro™.</advanced>
+          <advanced>Some examples of fasteners include Nails,screws, zippers, and Velcro™.</advanced>
         </model>
 
       </lesson> //6-10
@@ -3059,7 +3013,7 @@
         </model>
 
         <model>
-          <simple>Forces in and onstructures</simple>
+          <simple>Forces in and on structures</simple>
           <advanced>All structures experience forces at all times. Sometimes the effects of those forces are not known until time has passed. That is why it is important to design a structure carefully, build it skilfully, and monitor it diligently throughout its useful life. </advanced>
           <advanced>
             Four properties describe how a force acts on a structure:
@@ -3131,7 +3085,7 @@
           <simple>Light</simple>
           <advanced>In this module you will learn about light, what it is, and how it is made</advanced>
           <advanced>Light is a form of energy. It travels faster than anything else</advanced>
-          <advanced>Below you can expirement with light, mirrors and lenses</advanced>
+          <advanced>Below you can experiment with light, mirrors and lenses</advanced>
           <advanced>Light travels in rays. A ray is a straight line of light. Most light sources send light in so many directions that it is hard to see just one ray.</advanced>
           <advanced> A directed straight line that represents the path followed by the light is called a ray. A ray diagram illustrates the direction of the path of light. Straight lines and an arrowhead indicate the direction the light travels. </advanced>
         </model>
@@ -3156,13 +3110,13 @@
 
         <model>
           <simple>Chemiluminescence</simple>
-          <advanced>Items that glow in the dark (produce light) due to a chemicalreaction are described as chemiluminescent. When a glow stick is bent, the two liquids inside the stick mix, resulting in a chemical reaction.</advanced>
+          <advanced>Items that glow in the dark (produce light) due to a chemical reaction are described as chemiluminescent. When a glow stick is bent, the two liquids inside the stick mix, resulting in a chemical reaction.</advanced>
           <advanced>This chemical reaction causes the stick to glow for several hours until the chemical energy is depleted. In crime scene investigations, blood is detected from a luminol test. Luminol glows blue when it chemically reacts with iron in the blood. </advanced>
         </model>
 
         <model>
           <simple>Phosphorescent</simple>
-          <advanced>These items when exposed to light absorbit and then glow. Phosphorescent materials absorb light energy, store it for long periods of time, and then release it as a form of light. </advanced>
+          <advanced>These items when exposed to light absorb it and then glow. Phosphorescent materials absorb light energy, store it for long periods of time, and then release it as a form of light. </advanced>
           <advanced>Other items that use phosphorescence are photographic-darkroom timers and wristwatch dials.</advanced>
         </model>
 
@@ -3178,7 +3132,7 @@
         <model>
           <simple>Luminance</simple>
           <advanced>Luminance intensity, also known as brightness, refers to the light that is emitted from the surface of an object such as a light or candle.</advanced>
-          <advanced>The amount of light arriving at one place per unit area is referred to as illuminance. </advanced>
+          <advanced>The amount of light arriving at one place per unit area is referred to as luminescence. </advanced>
         </model>
 
         //this should be at the top-ish
@@ -3324,7 +3278,7 @@
 
           <model>
             <simple>Your Character</simple>
-            <advanced>This is your customisable Dive character. You can change him/her however you like! If you want to add a little extra you can buy your character gear from the Dive shop!</advanced>
+            <advanced>This is your customizable Dive character. You can change him/her however you like! If you want to add a little extra you can buy your character gear from the Dive shop!</advanced>
           </model>
 
 
@@ -3642,7 +3596,7 @@
             <advanced>It gives you a little break, and lets you decide what you want to do next!</advanced>
             <advanced>If you want to continue, click on the white button in the middle, or just wait for the timer to finish</advanced>
             <advanced>If you want to skip the game, there will be a skip button you can press</advanced>
-            <advanced>If you want to retry the section, and keep practising before a quiz, you can click the retry button</advanced>
+            <advanced>If you want to retry the section, and keep practicing before a quiz, you can click the retry button</advanced>
           </model>
         </panel>
 
@@ -3692,7 +3646,7 @@
         <panel index="0">
           //have a model of planets, showing earth
           <model>
-            <simple>Swipeable Models</simple>
+            <simple>Swipe-able Models</simple>
             <advanced>At Dive, we believe in learning science by discovery</advanced>
             <advanced>For some topics, you can see different models by swiping left or right</advanced>
             <advanced>If you want to learn more information about a model, then simply click on it</advanced>
@@ -3703,7 +3657,7 @@
         <panel index="1">
           //show cells
           <model>
-            <simple>Clickable Models</simple>
+            <simple>Click-able Models</simple>
             <advanced>Here, the material is taught using visual 3d models. Each model is interactive, simply click on it to select it!</advanced>
             <advanced>When a model is selected, its name is shown at the top, and an animation is shown to see the model in more detail</advanced>
             <advanced>To learn more about the model, click it again. This will pull up the information panel for the model</advanced>
@@ -3713,7 +3667,7 @@
         <panel index="2">
           //show greenhouse
           <model>
-            <simple>Clickable Labels</simple>
+            <simple>Click-able Labels</simple>
             <advanced>Sometimes, you will need to click on the labels in the scene to get more information</advanced>
             <advanced>When you have learned more about the models, and want to test your knowledge, click the space bar, this will bring up the menu, then simply click "start quiz"</advanced>
           </model>
@@ -3924,6 +3878,43 @@
 
   </tutorial>
 
+  <LearningType>
+    <model>
+      <simple>What kind of book would you like to read for fun?</simple>
+      <advanced>with lots of pictures</advanced>
+      <advanced>with lots of words</advanced>
+      <advanced>with crossword puzzles</advanced>
+    </model>
+
+    <model>
+      <simple>When you are not sure how to spell a word, what are you most likely to do?</simple>
+      <advanced>write it down to see if it looks right</advanced>
+      <advanced>say it out loud to see if it sounds right</advanced>
+      <advanced>trace the letters in the air</advanced>
+    </model>
+
+    <model>
+      <simple>What's the best way for you to study for a test?</simple>
+      <advanced>read book and review notes with pictures</advanced>
+      <advanced>have someone ask you questions</advanced>
+      <advanced>make index cards that you can review</advanced>
+    </model>
+
+    <model>
+      <simple>What's the best way for you to learn about how something works?</simple>
+      <advanced>get someone to show you</advanced>
+      <advanced>read about it, or listen to someone explain it</advanced>
+      <advanced>figure it out on your own</advanced>
+    </model>
+
+    <model>
+      <simple>What do you find most distracting when you are trying to study?	</simple>
+      <advanced>people walking past you</advanced>
+      <advanced>loud noises</advanced>
+      <advanced>an uncomfortable chair</advanced>
+    </model>
+    
+  </LearningType>
   //so, these will be all of the defualt values (and all of the possible values) for that subject
 
   //so here, just get rid of any scores, the rest can stay
@@ -3959,8 +3950,6 @@
     </subject>
 
   </grade>
-
-
   <grade number="5">
     <subject name="math">
       <goals>
@@ -4023,7 +4012,6 @@
 
     </subject>
   </grade>
-
   <grade number="6">
     <subject name="math">
       <lesson name="whole numbers" topics="103,104,105,10,9,107,108,106" level="5" index="25" score="0"></lesson>
@@ -4103,7 +4091,6 @@
 
 
   </grade>
-
   <grade number="7">
     <subject name="math">
       <lesson name="number theory" topics="114,115,15,16,17,18" level="5" index="4" score="0"></lesson>
@@ -4186,7 +4173,6 @@
     </subject>
 
   </grade>
-
   <grade number="8">
     <subject name="math">
       <lesson name="number theory" topics="114,115,15,16,17,18" level="5" index="4" score="0"></lesson>
@@ -4270,7 +4256,6 @@
     </subject>
 
   </grade>
-
   <grade number="9">
     <subject name="math">
       <lesson name="numbers" topics="15,16,17,18,98,99" level="5" index="35" score="0"></lesson>
@@ -4336,7 +4321,6 @@
 
 
   </grade>
-
   <grade number="10">
     <subject name="math">
       <lesson name="numbers" topics="15,16,17,18" level="5" index="35" score="0"></lesson>

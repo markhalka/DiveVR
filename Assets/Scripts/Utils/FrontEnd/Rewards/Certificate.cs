@@ -36,6 +36,7 @@ public class Certificate : MonoBehaviour
 
     void Start()
     {
+        panel = new Panel();
         initButtons();
     }
 
@@ -123,7 +124,7 @@ public class Certificate : MonoBehaviour
 
     void takeCollect()
     {
-        StartCoroutine(panel.panelAniamtion(false, transform));
+        StartCoroutine(panel.panelAnimation(false, transform));
     }
 
     void takeShare()

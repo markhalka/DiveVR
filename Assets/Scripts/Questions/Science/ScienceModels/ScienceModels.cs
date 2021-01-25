@@ -1,9 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+
+// ok, bet so that works
+// now just try with a horizontal model
+
+// today todo:
+//1. work on this, test a few other things
+//2. get the quiz working
+//3 go through data, and make sure there is not too much cliking to do
+//4. finally add and test the video stuff
+//5. add azure stuff
+
+// try and finish this by tommorow, or the day after THE LATEST, honestly, you should be done by now...
+
+
+// ok, lit now you can work on getting the quiz shit to work again
+// work on that for like 20 mins, then just do a few of the assignments, and call it a day
+
+
 
 public class ScienceModels : MonoBehaviour
 {
@@ -14,12 +34,13 @@ public class ScienceModels : MonoBehaviour
     //   public GameObject panel;
     public GameObject models;
     public GameObject currInformationPanel;
-    GameObject currentObject;
+    public static GameObject currentObject;
+    public HorizontalModel horizontalModel;
+    public static GameObject currentModel;
     public GameObject inBetweenPanel;
 
     public Button showUnfoundbutton;
 
-    public GameObject lowerbound;
     public GameObject background;
 
 
@@ -49,108 +70,23 @@ public class ScienceModels : MonoBehaviour
 
     public Button hideUnhide;
 
-    GameObject pastCurr = null;
-
     bool wasSelected = false;
-    int menuCount = 0;
-    int menuThresh = 30;
-    int finishStart = 0;
-    bool shouldScroll = true;
     bool isCircular = false;
-    bool didUpdateShowPanel = false;
-
-
-    //after pretest for horizontal scroll snap, the animation image doesn't change, and you can't click on anythign 
-
-
-    //remove all uneccesary shit to make it faster (decimate more)
-
-
-
-    //what to do now:
-    //2. you need to fix up the content
-    //3. fix up maht a bit (just make sure everything works and there are no erros)
-    //4. get public speakign working well ish (just make sure it doesnt crash, and improve the results a little bit)
-    //5. test the fuck of eveything, make sure the file is saved, than build for andriod and ios (this will be the test app)
-
-
-
-    //you need to add the construction thing
-
-    //user comments:
-    //get rid of the dots, make it pop more, add hilights around the things you should click
-    //improve the images (backgorund images, everything in general)
-    //you need to redo the material for each grade (for example, for the younger grades, you don't need to include the more advanced topics for younger grades) <-- thats a big one 
-
-
-
-    //test construction new module
-
-
-
-
-    //fix up the recycling scene 
-    //this one is such a piece of shit 
-    //when they click on something, thye should get immediate feedback, maybe hat it show up on the side of the screen, where it tels you that it should be recicled or not
-    //it should be more clear if clicking it recycles them, or not 
-    //the end panel could use a little bit of work
-    //it doesn't speed up as you continue
-
-    //for some reason waves didn't build 
-
-
-    //redo fossils
-    //couldnt fix dam or turbine
-
-
-    //flight looks weird for the glider 
-
-
-
-    //nuclear to the left
-    //windmill down
-    //dam down
-
-
-
-    //try and get the animation working for the oil rig
-
-    //add questions for section 1, or don't include them in the table
-
-
-
-
-    //todo:
-
-    //for water cycle, move it up a bit, and add clouds 
-
-    //make the molecules dropdown look better 
-
-
-
-    //67CC92
-
-
-    // make current object static, and then you can reference that in model animations
-    //go througth update and move all horizontal stuff there
-    // start going througth and fixing some problems 
-
-    //for this and science test, you should use quiz menu instead, init it, and then access the quiz methods, and the change color shit there
-
-
+ 
 
     public GameObject speechBubble;
 
-    ModelAnimations modelAnimations;
-    utilities utility;
+    public ModelAnimations modelAnimations;
+    
     void Start()
     {
 
-        utility = new utilities();
-        modelAnimations = new ModelAnimations();
-
-        finishStart = 0;
-
+        tempLoad();
+        // here you do all the temp stuff
+        Information.subject = "science";
+        Information.grade = "Grade 7";
+        Information.nextScene = 18;
+        //
 
         Information.click2d = false;
         Information.isSelect = false;
@@ -160,6 +96,7 @@ public class ScienceModels : MonoBehaviour
         quiz = new Quiz();
 
         initModel();
+        infoPanel.initStartPanels(); 
 
         Information.panelIndex = -1;
         Information.lableIndex = 0;
@@ -171,6 +108,19 @@ public class ScienceModels : MonoBehaviour
         speechBubble.GetComponent<Button>().onClick.AddListener(delegate { takeSpeechBubble(); });
     }
 
+    void tempLoad()
+    {
+        TextAsset mytxtData = (TextAsset)Resources.Load("XML/General/UserData");
+        string txt = mytxtData.text;
+        Information.xmlDoc = XDocument.Parse(txt);
+
+        mytxtData = (TextAsset)Resources.Load("XML/General/Data");
+        txt = mytxtData.text;
+        Information.loadDoc = XDocument.Parse(txt);
+        Information.name = "none";
+        Information.doneLoadingDocuments = true;
+        Information.firstTime = true;
+    }
 
 
 
@@ -196,6 +146,8 @@ public class ScienceModels : MonoBehaviour
         }
     }
 
+    public GameObject outlinePanel;
+
     //just import 
     public void fancyAnimation()
     {
@@ -203,9 +155,93 @@ public class ScienceModels : MonoBehaviour
         StartCoroutine(modelAnimations.moveObject(false));
     }
 
+    public GameObject page1;
+    List<GameObject> cursorInit;
+    void initModel()
+    {
+        cursorInit = new List<GameObject>();
+        background.GetComponent<Image>().sprite = backgroundDefualt;//backgrounds[currentModelIndex];
+        animations = new Animations();
+
+        ParseData.parseModel();
+
+        setModelIndex();
+
+        currentModel = models.transform.GetChild(currentModelIndex).gameObject;
+        currentModel.SetActive(true);
+
+
+        if (isHorizontalSnap)
+        {
+            bool[] showIndecies = new bool[ScienceModels.currentModel.transform.GetChild(0).childCount];
+            List<GameObject> toAdd = new List<GameObject>();
+            for (int i = 0; i < showIndecies.Length; i++)
+            {
+                toAdd.Add(ScienceModels.currentModel.transform.GetChild(0).GetChild(i).gameObject);
+                showIndecies[i] = true;
+            }
+            if (Information.pretestScore == -1)
+            {
+                foreach (var child in toAdd)
+                {
+                    GameObject newPage = Instantiate(page1, page1.transform, false);
+                    newPage.transform.SetParent(newPage.transform.parent.parent);
+                    child.transform.SetParent(newPage.transform, true);
+
+                    horizontalModel.GetComponent<UnityEngine.UI.Extensions.HorizontalScrollSnap>().AddChild(newPage, true);
+                    cursorInit.Add(child);
+
+                }
+            }
+            else
+            {
+                Transform curr = horizontalModel.transform.GetChild(0);
+                for (int i = 0; i < curr.childCount; i++)
+                {
+                    cursorInit.Add(curr.GetChild(i).GetChild(0).gameObject);
+                }
+            }
+
+            ScienceModels.currentObject = horizontalModel.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
+
+            Information.updateEntities = cursorInit.ToArray();
+            infoPanel.showTitle(0);
+
+            if (shouldRotate)
+            {
+                addRotationAnimation();
+            }
+
+            horizontalModel.shouldRotate = shouldRotate;
+
+        } else
+        {
+            showIndecies = new bool[currentModel.transform.GetChild(0).childCount];
+            for (int i = 0; i < currentModel.transform.GetChild(0).childCount; i++)
+            {
+                GameObject currentObject = currentModel.transform.GetChild(0).GetChild(i).gameObject;
+                cursorInit.Add(currentObject);
+                showIndecies[i] = true;
+            }
+
+            initDots(currentModel.transform.GetChild(0).gameObject);
+            cursorInit.Add(speechBubble);
+
+            Information.updateEntities = cursorInit.ToArray();
+        }
+
+        entities = cursorInit.ToArray();
+        animations.init(entities);
+
+        labels = new GameObject[0];
+        hideAllLables();
+    }
+
+
+
     void addRotationAnimation()
     {
-       StartCoroutine(modelAnimations.rotate(currentObject));
+        StartCoroutine(modelAnimations.rotate()); //? not sure about that
     }
 
     Table table;
@@ -213,7 +249,7 @@ public class ScienceModels : MonoBehaviour
     {
         if (isHorizontalSnap) //then you need to hide the horizontal scroll snap shit 
         {
-            horizontalSnap.SetActive(false);
+            horizontalModel.gameObject.SetActive(false);
         }
         else
         {
@@ -235,11 +271,29 @@ public class ScienceModels : MonoBehaviour
             //      simple.text = quiz.next();
             if (quiz.getQuestions() > Information.rightCount)
             {
-                endQuiz();
+            //    endQuiz();
             }
         }
         //   updateQuiz();
 
+    }
+
+    Hints hints;
+    void takeHint()
+    {
+        hints.checkShowAnswer(isHorizontalSnap && !table);
+        if (table)
+        {
+        //    hints.tableHint();
+        }
+        else
+        {
+         //   hints.takeShowAnswer
+
+
+        int curr = int.Parse(quiz.getIndex());
+            int currentIndex = curr - modelOffset;
+        }
     }
 
     //that should work
@@ -275,11 +329,6 @@ public class ScienceModels : MonoBehaviour
     //check the size, and make sure it fits 
 
 
-    //ye that should work 
-    public void takeHelp()
-    {
-        takeHint();
-    }
 
 
 
@@ -296,7 +345,6 @@ public class ScienceModels : MonoBehaviour
         {
             case 1: //matter and atoms 
                 shouldRotate = false;
-                shouldScroll = false;
                 currentModelIndex = 9;
                 break;
 
@@ -304,10 +352,8 @@ public class ScienceModels : MonoBehaviour
                 Debug.LogError("here at 5");
                 shouldRotate = false;
                 currentModelIndex = 5;
-                shouldScroll = false;
                 break;
             case 11: //simple machines  not done
-                shouldScroll = false;
                 shouldGrow = false;
                 isCircular = true;
                 shouldRotate = false;
@@ -316,34 +362,28 @@ public class ScienceModels : MonoBehaviour
                 break;
             case 12: //microscope  not done
                 shouldRotate = false;
-                shouldScroll = false;
                 currentModelIndex = 16;
                 break;
             case 14: //animal cell
                 shouldRotate = false;
-                shouldScroll = false;
                 currentModelIndex = 2;
                 break;
             case 15: //plant cell
                 shouldRotate = false;
-                shouldScroll = false;
                 currentModelIndex = 3;
                 break;
             case 18: //rocks and minerals
-                shouldScroll = false;
                 shouldGrow = false;
                 isCircular = true;
                 shouldRotate = true;
                 isHorizontalSnap = true;
                 currentModelIndex = 0;
-                didSwipe = false;
                 break;
             case 19: //fossils
                 shouldRotate = false;
                 isHorizontalSnap = true;
                 currentModelIndex = 10;
                 modelOffset = 2; //because you have one after that 
-                didSwipe = false;
                 break;
             case 20: //greenhouse
                 shouldRotate = false;
@@ -353,159 +393,107 @@ public class ScienceModels : MonoBehaviour
 
             case 21: //water cycle
                 shouldRotate = false;
-                shouldScroll = false;
                 currentModelIndex = 7;
                 break;
             case 22: //astronomy
                 shouldRotate = true;
                 isHorizontalSnap = true;
                 currentModelIndex = 1;
-                didSwipe = false;
                 break;
             case 23:     //science tools not done
                 isHorizontalSnap = true;
                 shouldRotate = false;
                 currentModelIndex = 14;
-                didSwipe = false;
                 break;
             case 30: //biochem
                 currentModelIndex = 12;
                 isHorizontalSnap = true;
                 shouldRotate = false;
-                didSwipe = false;
                 break;
             case 31: //anatomy
-                shouldScroll = false;
                 shouldGrow = false;
                 isCircular = true;
                 shouldRotate = true;
                 isHorizontalSnap = true;
                 currentModelIndex = 4;
-                didSwipe = false;
                 break;
             case 32: //flight not done
                 shouldRotate = false;
                 isHorizontalSnap = true;
                 currentModelIndex = 18;
-                didSwipe = false;
                 break;
             case 34: //climate
-                shouldScroll = false;
                 shouldRotate = false;
                 currentModelIndex = 19;
                 break;
             case 35: //photosynthesis
-                shouldScroll = false;
                 shouldRotate = false;
                 currentModelIndex = 6;
                 break;
             case 36: //food web
                 shouldRotate = false;
-                shouldScroll = false;
                 currentModelIndex = 11;
                 break;
             case 39: //weather and atmosphere 
-                shouldScroll = false;
                 shouldRotate = false;
                 currentModelIndex = 21;
                 break;
             case 42: //energy sources 
-                shouldScroll = false;
                 shouldGrow = false;
                 isCircular = true;
                 shouldRotate = false;
                 isHorizontalSnap = true;
                 currentModelIndex = 8;
-                didSwipe = false;
                 break;
 
             case 44: //enviornemnt, for now just make it the same as food web
-                shouldScroll = false;
                 shouldRotate = false;
                 currentModelIndex = 20;
                 break;
 
             case 45: //weathering
-                shouldScroll = false;
                 shouldRotate = false;
                 currentModelIndex = 22;
                 break;
 
             case 46: //organ systems 
-                shouldScroll = false;
                 shouldRotate = false;
                 currentModelIndex = 23;
                 break;
 
         }
-        StartCoroutine(swipeAnimation());
-        /*   didSwipe = true;
-           clickCount = 1;
-           neededClicks = 0;*/
-        //this is all temp
     }
 
 
-    void handleMenu()
+
+    GameObject pastCurr;
+    
+    void Update()
     {
-        if (!currInformationPanel.activeSelf && !inBetweenPanel.activeSelf) //that should work now
+        if (!currInformationPanel.activeSelf && !inBetweenPanel.activeSelf) 
         {
             checkQuiz();
         }
-        else
-        {
-            if (menuCount < menuThresh)
-            {
-                menuCount = menuThresh;
-            }
-
-        }
-        if (menuCount > 0)
-        {
-            Information.currentBox = null;
-            menuCount--;
-            return;
-        }
-
-        if (currInformationPanel.activeSelf && Information.isInMenu)
-        {
-            currInformationPanel.SetActive(false);
-        }
-    }
-
-
-
-    void Update()
-    {
-    
-
-        if (outlinePanel.activeSelf && !currInformationPanel.activeSelf)
-        {
-            outlinePanel.SetActive(false);
-            StartCoroutine(moveObject(true));
-        }
-
-        handleMenu();
-
 
         if (speechOffset < 41)
         {
             speechOffset++;
         }
 
-
         if (Information.currentBox != null) //&& !currInformationPanel.activeSelf)
         {
 
             int i = getIndex(Information.currentBox);
+            Debug.LogError("current box index: " + i);
             if (i < 0)
             {
 
                 return;
             }
 
-            if(!horizontalSnap)
+            if(!isHorizontalSnap)
             {
+                Debug.LogError("handeling click..");
                 handleClickUpdate(i);
             }
 
@@ -560,7 +548,7 @@ public class ScienceModels : MonoBehaviour
             animations.updateAnimations(getCurrentIndex());
     }
 
-
+    
     GameObject currentDot;
     public Canvas canvas;
     //ok, instead put it on the dot,
@@ -586,7 +574,7 @@ public class ScienceModels : MonoBehaviour
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), Input.mousePosition, Camera.main, out tempOut);
         speechBubble.transform.localPosition = new Vector3(tempOut.x, tempOut.y, 0);
-        */
+        */  
         speechBubble.transform.position = pos;
         speechOffset = 0;
         Information.currentBox = null;
@@ -612,45 +600,26 @@ public class ScienceModels : MonoBehaviour
         }
     }
 
-
-    void updateQuiz()
+    void rightSpecific()
     {
-
-        if (Information.isCorrect)
+     /*   if (tookHint)
         {
-            Debug.LogError("calling because it is true");
-            StartCoroutine(changeColor(true));
-            Information.isCorrect = false;
-
-            if (tookHint)
-            {
-                Debug.LogError("took hint is now false");
-                tookHint = false;
-                closeHint();
-            }
-        }
-        else if (Information.isIncorrect)
-        {
-            Debug.LogError("calling because it is false");
-            StartCoroutine(changeColor(false));
-            Information.isIncorrect = false;
+            Debug.LogError("took hint is now false");
+            tookHint = false;
+            closeHint();
         }
 
         if (quiz.getQuestions() > 2 && Information.autoHide && !inTable) ///for the skip shit
         {
 
             createTable();
-        }
-        else if (quiz.getQuestions() > Information.rightCount)
-        {
-            endQuiz();
-        }
+        }*/
     }
 
 
     void handleClickUpdate(int i)
     {
-
+        Debug.LogError("handling click update...");
         currentObject = Information.currentBox;
 
 
@@ -727,95 +696,36 @@ public class ScienceModels : MonoBehaviour
     }
 
 
-
+    public InformationPanel infoPanel;
     void showPanel()
     {
+        infoPanel.showPanel(getIndex(Information.currentBox));
+    }
 
-        if (isHorizontalSnap)
-        {
-            fancyAnimation();
-        }
 
-        if (Information.currentBox != null)
+    void checkQuiz()
+    {
+        if (!quiz.isQuiz)
         {
-            Information.panelIndex = getIndex(Information.currentBox) + modelOffset;
-            if (finishStart > 1)
+            if (Information.isQuiz == 1)
             {
-                clickCount++;
+                startQuiz();
             }
 
         }
-
-        currInformationPanel.SetActive(true);
-
-    }
-
-
-
-
-    void hidePanel()
-    {
-        currInformationPanel.SetActive(false);
-    }
-
-    public Sprite backgroundDefualt;
-    public void startQuiz()
-    {
-        if (!Information.wasPreTest)
+        else
         {
-            currInformationPanel.transform.parent.GetComponent<InformationPanel>().hintPanel.SetActive(true);
-            currInformationPanel.transform.parent.GetComponent<InformationPanel>().quizPanel.SetActive(false);
-        }
-
-
-        background.GetComponent<Image>().sprite = backgroundDefualt;
-        background.GetComponent<Image>().color = new Color(1, 1, 1, 1);
-
-        animationImage.gameObject.SetActive(false);
-        //  rightPanel.gameObject.SetActive(true);
-        currentModel.SetActive(true);
-
-        //        hideUnfound(); //that should work
-
-        if (wasSelected && pastCurr != null)
-        {
-
-            animations.resetSize(getIndex(pastCurr), wasSelected);
-            wasSelected = false;
-        }
-        List<string[]> currLables = new List<string[]>();
-        for (int i = modelOffset; i < Information.userModels.Count; i++)
-        {
-            foreach (var question in Information.userModels[i].questions)
+            if (Information.isQuiz == 0)
             {
-                currLables.Add(new string[] { question, i.ToString() });
+                endQuiz();
             }
         }
-
-
-        isQuiz = true;
-        quiz.initQuiz(currLables);
-        simple.text = "Quiz started";
-        simple.text = quiz.next();
     }
-
-    public void startWrongQuiz()
-    {
-        Information.updateEntities = cursorInit.ToArray();
-
-        if (quiz.startWrong())
-        {
-            startQuiz();
-        }
-
-    }
-
-
-
 
     void endQuiz()
     {
-        Debug.LogError("quiz ended");
+
+       /* Debug.LogError("quiz ended");
 
         currInformationPanel.transform.parent.GetComponent<InformationPanel>().hintPanel.SetActive(false);
         currInformationPanel.transform.parent.GetComponent<InformationPanel>().quizPanel.SetActive(true);
@@ -863,12 +773,67 @@ public class ScienceModels : MonoBehaviour
             currInformationPanel.transform.parent.gameObject.SetActive(false);
             hideUnhide.gameObject.SetActive(false); //?
             inBetweenPanel.SetActive(true);
-        }
+        } */
         quiz.end();
 
     }
 
 
+
+
+    
+
+    public Sprite backgroundDefualt;
+
+    void startQuiz()
+    {
+        if (!Information.wasPreTest)
+        {
+            currInformationPanel.transform.parent.GetComponent<InformationPanel>().hintPanel.SetActive(true);
+            currInformationPanel.transform.parent.GetComponent<InformationPanel>().quizPanel.SetActive(false);
+        }
+
+        if (wasSelected && pastCurr != null)
+        {
+
+            animations.resetSize(getIndex(pastCurr), wasSelected);
+            wasSelected = false;
+        }
+        List<string[]> currLables = new List<string[]>();
+        for (int i = modelOffset; i < Information.userModels.Count; i++)
+        {
+            foreach (var question in Information.userModels[i].questions)
+            {
+                currLables.Add(new string[] { question, i.ToString() });
+            }
+        }
+
+
+        isQuiz = true;
+        quiz.initQuiz(currLables);
+
+    }
+
+    public bool inTable = false;
+    void specificEndQuiz()
+    {
+        currInformationPanel.transform.parent.GetComponent<InformationPanel>().hintPanel.SetActive(false);
+        currInformationPanel.transform.parent.GetComponent<InformationPanel>().quizPanel.SetActive(true);
+
+        if (isHorizontalSnap)
+        {
+            horizontalModel.gameObject.SetActive(true);
+        }
+        currentModel.SetActive(true);
+
+        for (int i = 0; i < table.transform.parent.childCount; i++)
+        {
+            table.transform.parent.GetChild(i).gameObject.SetActive(false);
+        }
+        inTable = false;
+
+
+    }
 
 
     public int getCurrentIndex()
@@ -912,7 +877,5 @@ public class ScienceModels : MonoBehaviour
         {
             labels[i].SetActive(false);
         }
-    }
-
-
+    } 
 }

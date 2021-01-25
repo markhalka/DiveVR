@@ -29,10 +29,14 @@ public class InBetween : MonoBehaviour
 
 
     bool showedSurvey = false;
-
+    Panel surveyPanelAnimation;
 
     void Start()
     {
+        surveyPanelAnimation = new Panel();
+        surveyPanelAnimation.start = new Vector3(0, 450, 0);
+        surveyPanelAnimation.end = new Vector3(0, 0, 0);
+
         Time.timeScale = 1;
         Information.panelClosed = true; //?
         Information.pretestScore = -1;
@@ -122,18 +126,11 @@ public class InBetween : MonoBehaviour
         source.Play();
 
         GameObject curr = null;
-        if (Information.subject == "math")
-        {
-
-            curr = GameObject.Find("Main");
-            curr.GetComponent<MathScript>().redoWrongAnswers();
-        }
-        else if (Information.subject == "science")
-        {
+      
             if (Information.currentScene == "Models")
             {
                 curr = GameObject.Find("Main");
-                curr.GetComponent<ScienceModels>().startWrongQuiz();
+             //   curr.GetComponent<ScienceModels>().startWrongQuiz();
                 gameObject.SetActive(false);
             }
             else
@@ -148,7 +145,6 @@ public class InBetween : MonoBehaviour
                 gameObject.SetActive(false);
 
             }
-        }
         redoPanel.SetActive(false);
         gameObject.SetActive(false);
         Information.wasWrongAnswer = true;
@@ -302,6 +298,7 @@ public class InBetween : MonoBehaviour
     }
 
     bool submitedDAta = false;
+ 
     void Update()
     {
         if (wasCertificat && !certificate.activeSelf)
@@ -316,8 +313,9 @@ public class InBetween : MonoBehaviour
             if (!survey.activeSelf && !showedSurvey && Information.shouldShowSurvey)
             {
                 showedSurvey = true;
-                survey.SetActive(true);
-
+                survey.SetActive(true); 
+                StartCoroutine(surveyPanelAnimation.panelAnimation(true, survey.transform));
+                Debug.LogError("started survey animation");
                 return;
             }
             if (!submitedDAta)

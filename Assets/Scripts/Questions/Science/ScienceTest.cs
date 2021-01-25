@@ -229,7 +229,7 @@ public class ScienceTest : MonoBehaviour
             {
                 Debug.LogError("calling next question");
                 currWrong = script.currentWrongCount;
-                script.nextQuestion();
+              //  script.nextQuestion();
 
             }
             else if (currRight != script.currentRightCount)

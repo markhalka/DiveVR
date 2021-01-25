@@ -2,33 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SolutionSubLab : MonoBehaviour
 {
+
+    //  ok, so there is no dropdown here, its just the slider and you change the concentration
+
     public Slider plainSlider;
     public ParticleSystem ps;
     public ParticleSystem ps2;
-    public Text outputText;
+    public TMP_Text outputText;
+    Lab util;
 
-    Dictionary<int, int> solutionPanel;
+    public InformationPanel infoPanel;
 
     string[] mixtures = new string[] { "0.1", "1", "1.5", "2.5" };
-    int[] solutionIndecies = new int[] { 10 };
+
+    List<int> sliderValues;
+
+    public GameObject currentShowPanel;
+
+    public int startIndex = 0;
+
     public void Start()
     {
+        util = new Lab();
 
-        solutionPanel = new Dictionary<int, int>();
-        for (int i = 0; i < solutionIndecies.Length; i++)
-        {
-            solutionPanel.Add(10 * (i + 1), solutionIndecies[i]);
-        }
+        initPS();
+        initSliderValues();
 
-        outputText.text = "Set the dropdown to select you material, then move the slider to change the temprature!";
+        outputText.text = "Move the slider to change the concentration!";
         outputText.gameObject.SetActive(true);
         plainSlider.gameObject.SetActive(true);
+        plainSlider.onValueChanged.AddListener(delegate { solutionSlider(); });        
+    }
 
-        plainSlider.onValueChanged.AddListener(delegate { solutionSlider(); });
-
+    void initPS()
+    {
         ps.Play();
         var color = ps.main.startColor;
         color = Color.red;
@@ -36,9 +47,27 @@ public class SolutionSubLab : MonoBehaviour
         color = Color.blue;
     }
 
+    void initSliderValues() // solution indicies is 10, check data and see wtf is up with this lesson
+    {
+        sliderValues = new List<int>();
+        var triggerValues = new int[] { 5, 15, 25, 35, 45, 55 };
+        for (int i = 0; i < triggerValues.Length; i++)
+        {
+            sliderValues.Add(triggerValues[i]);
+        }
+    }
+
     void solutionSlider()
     {
-        showPanel(solutionPanel);
+        if (currentShowPanel.activeSelf)
+        {
+            plainSlider.interactable = false;
+            return;
+        }
+        else
+        {
+            showPanel((int)plainSlider.value);
+        }
 
         int amount = (int)plainSlider.maxValue / mixtures.Length;
 
@@ -49,7 +78,7 @@ public class SolutionSubLab : MonoBehaviour
             {
                 outputText.text = "This mixtures has a concentration of: " + mixtures[i] + " mol/L";
 
-                updateAmountOfParticles(ps2, amount * (i)); //was i+1
+                util.updateAmountOfParticles(ps2, amount * (i)); //was i+1
                 ps2.Play();
                 break;
             }
@@ -57,60 +86,37 @@ public class SolutionSubLab : MonoBehaviour
         var col = ps2.collision;
         col.enabled = true;
     }
+    int lastShown = 0;
 
-    public static void showPanel(Dictionary<int, int> dict)
+    void showPanel(int value)
     {
-        float sliderValue = plainSlider.value;
-        if (dict != null && !panel.activeSelf)
+        Debug.LogError("showing panel...");
+        int index = 0;
+        for (index = 0; index < sliderValues.Count; index++)
         {
-            int lowestIndex = 100;
-            foreach (var value in dict)
+            if (sliderValues[index] > value)
             {
-
-
-                if (value.Key <= sliderValue && !Information.userModels[value.Value].wasShown)
-                {
-                    if (value.Value < lowestIndex)
-                        lowestIndex = value.Value;
-                }
-            }
-
-            if (lowestIndex >= 0 && lowestIndex < Information.userModels.Count)
-            {
-                Information.panelIndex = lowestIndex;
-                panel.SetActive(true);
-                Information.userModels[lowestIndex].wasShown = true;
+                break;
             }
         }
-    }
-
-    void updateAmountOfParticles(ParticleSystem p, int amount)
-    {
-
-        if (p.particleCount < amount)
+        if (index < lastShown)
         {
-            var em = p.emission;
-            em.SetBursts(
-       new ParticleSystem.Burst[]{
-                new ParticleSystem.Burst(0, (amount - p.particleCount))
-
-       });
-        }
-        else
-        {
-            ParticleSystem.Particle[] particles = new ParticleSystem.Particle[p.particleCount];
-            p.GetParticles(particles);
-            List<ParticleSystem.Particle> newParticles = new List<ParticleSystem.Particle>(particles);
-            for (int i = particles.Length - 1; i > amount; i--)
-            {
-                newParticles.RemoveAt(i);
-            }
-            p.SetParticles(newParticles.ToArray());
+            return;
         }
 
+        Information.panelIndex = index + infoPanel.startOffset + startIndex; // from molecule menu you should set a thing here, and just add it as well?
+        infoPanel.loadNewModel();
+        lastShown = index;
     }
 
 
+    private void Update()
+    {
+        if (!currentShowPanel.activeSelf)
+        {
+            plainSlider.interactable = true;
+        }
+    }
 
 
 }

@@ -381,14 +381,9 @@ MonoBehaviour:
   certificateOpenSound: {fileID: 8300000, guid: b9a7708e074563642bf95dfa451da229,
     type: 3}
   buttonSound: {fileID: 8300000, guid: 3934498fae5801148b0f996d98574bc8, type: 3}
-  canvas: {fileID: 4738409596353853291}
   showStart: {x: 0, y: -400, z: 0}
   showEnd: {x: 0, y: 0, z: 0}
   sharePopUp: {fileID: 7755547641031727086}
-  pointsStart: {x: 0, y: 0, z: 0}
-  pointsEnd: {x: -330, y: -300, z: 0}
-  journeyTime: 1.5
-  speed: 1
 --- !u!1 &467372731049467112
 GameObject:
   m_ObjectHideFlags: 0
@@ -5704,7 +5699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3325043125132018010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5861,14 +5856,9 @@ MonoBehaviour:
   source: {fileID: 0}
   certificateOpenSound: {fileID: 0}
   buttonSound: {fileID: 0}
-  canvas: {fileID: 0}
   showStart: {x: 0, y: 0, z: 0}
   showEnd: {x: 0, y: 0, z: 0}
   sharePopUp: {fileID: 0}
-  pointsStart: {x: 0, y: 0, z: 0}
-  pointsEnd: {x: -2, y: -2, z: 0}
-  journeyTime: 1.5
-  speed: 0.1
 --- !u!1 &1472616893778709918
 GameObject:
   m_ObjectHideFlags: 0
@@ -12881,7 +12871,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -13723,7 +13713,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -14758,9 +14748,6 @@ MonoBehaviour:
   source: {fileID: 9134988400362237690}
   buttonSound: {fileID: 8300000, guid: 3934498fae5801148b0f996d98574bc8, type: 3}
   survey: {fileID: 1032481930810080172}
-  submitSurvey: {fileID: 5342541991298021421}
-  cancelSurvey: {fileID: 6015761422484879871}
-  dontShowSurvey: {fileID: 7132682473299600542}
   certificate: {fileID: 7842347563467209842}
 --- !u!82 &9134988400362237690
 AudioSource:
@@ -17684,7 +17671,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -17758,7 +17745,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

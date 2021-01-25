@@ -20,13 +20,13 @@ public class namePopUp : MonoBehaviour
     void closeName()
     {
         Information.name = nameField.text;
-        StartCoroutine(panel.panelAniamtion(false, transform));
+        StartCoroutine(panel.panelAnimation(false, transform));
         // StartCoroutine(network.GetRequest(Information.saveNameUrl + Information.username + "/" + Information.name, saveName));
     }
 
     void saveName(string str)
     {
         Debug.LogError("name saved...");
-        StartCoroutine(panel.panelAniamtion(false, transform));
+        StartCoroutine(panel.panelAnimation(false, transform));
     }
 }

@@ -12,27 +12,28 @@ public class ModelAnimations : MonoBehaviour
     public GameObject outlinePanel;
     public GameObject currentMoveObjet; //you already have this stored in a different object, but im too lazy to check the name 
     GameObject currentMoveObject;
+    GameObject pastCurr = null;
 
 
     Vector3 rotationVector = new Vector3(0, 3, 0);
     Vector3 pastRotationVector = new Vector3(-1, -1, -1);
     bool firstRotate = true;
-    public IEnumerator rotate(GameObject currentObject)
+    public IEnumerator rotate()
     {
         if (!firstRotate)
         {
             yield break;
-        }
-        while (currentObject != null)
+        } 
+        while (ScienceModels.currentObject != null)
         {
 
             if (firstRotate)
             {
-                pastRotationVector = currentObject.transform.rotation.eulerAngles; //local
+                pastRotationVector = ScienceModels.currentObject.transform.rotation.eulerAngles; //local
                 firstRotate = false;
             }
 
-            currentObject.transform.Rotate(rotationVector, Space.Self); //self
+            ScienceModels.currentObject.transform.Rotate(rotationVector, Space.Self); //self
             yield return new WaitForSeconds(0.01f);
         }
 
@@ -56,6 +57,14 @@ public class ModelAnimations : MonoBehaviour
 
     public IEnumerator moveObject(bool moveBack)
     {
+        if (!outlinePanel.activeSelf)
+        {
+            Debug.LogError("outline panel not active...");
+            yield break;
+        }
+
+        outlinePanel.SetActive(false);
+
         if (!moveBack)
         {
             currentMoveObject = Information.currentBox;

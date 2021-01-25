@@ -331,6 +331,9 @@
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>C:/Users/pc/Desktop/VR1/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:/Users/pc/Desktop/VR1/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>C:/Users/pc/Desktop/VR1/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
@@ -697,6 +700,10 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{4E2851C3-8316-A6C9-2963-8B192AB05CDA}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="YoutubePlayer.csproj">
+      <Project>{10FDB2E9-6A30-5FD9-E3B2-02D35D13C7BE}</Project>
+      <Name>YoutubePlayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

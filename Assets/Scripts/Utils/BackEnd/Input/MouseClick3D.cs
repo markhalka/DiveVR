@@ -53,12 +53,11 @@ public class MouseClick3D : MonoBehaviour
 
             if (UnityEngine.Physics.Raycast(ray, out hit))
             {
-
                 for (int i = 0; i < entities.Length; i++)
                 {
                     if (entities[i].name == hit.transform.gameObject.name)
                     {
-
+                        Debug.LogError("set current box: " + entities[i]);
                         Information.currentBox = entities[i];
                         break;
                     }

@@ -8,9 +8,16 @@ public class AlloySubLab : MonoBehaviour
     public ParticleSystem ps2;
     public Material[] alloyMaterials;
 
-    public AlloySubLab(int index)
+    public InformationPanel infoPanel;
+
+    public void Start()
     {
-        showPanel(alloyPanel, index);
+        
+    }
+
+    public void startLab(int index)
+    {
+        // showPanel(alloyPanel, index); FIGURE OUT HOW TO SHOW THE RIGHT PANEL
         var psr = ps.GetComponent<ParticleSystemRenderer>();
         psr.material = alloyMaterials[index * 2];
 
@@ -41,9 +48,7 @@ new ParticleSystem.Burst[] {
 
         ps.Play();
         ps2.Play();
+    } 
 
-    }
-    public Material defualtMaterial;
 
-    
 }

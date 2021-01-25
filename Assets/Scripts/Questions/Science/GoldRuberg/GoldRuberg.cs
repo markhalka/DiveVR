@@ -122,9 +122,12 @@ public class GoldRuberg : MonoBehaviour
         }
     }
 
-
+    MouseClickPos mousePos;
+    public GameObject mousePosGb;
     void Start()
     {
+        mousePos = mousePosGb.GetComponent<MouseClickPos>();
+
         Information.nextScene = 28;
         Information.grade = "Grade 5";
         Information.subject = "science";
@@ -321,7 +324,7 @@ public class GoldRuberg : MonoBehaviour
             {
                 toMove = ball.gameObject;
             }
-            toMove.transform.localPosition = new Vector3(Information.currPosition.x, Information.currPosition.y, 0);
+            toMove.transform.localPosition = new Vector3(mousePos.position.x, mousePos.position.y, 0);
             if (Input.GetMouseButtonDown(0))
             {
                 if (toMove.transform.localPosition.x > minX)

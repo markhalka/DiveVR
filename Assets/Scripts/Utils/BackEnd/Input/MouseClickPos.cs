@@ -4,18 +4,13 @@ public class MouseClickPos : MonoBehaviour
 {
 
     public GameObject canvas;
-
+    public Vector2 position = new Vector2(0, 0);
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0) || Information.isSelect)
         {
-            Vector3 pos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1);
-            Vector2 tempOut = new Vector2(0, 0);
-
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), Input.mousePosition, Camera.main, out tempOut);
-            Information.currPosition = tempOut;
-
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), Input.mousePosition, Camera.main, out position);
         }
     }
 }

@@ -259,7 +259,6 @@ public class staticElectricity : MonoBehaviour, IPointerDownHandler
 
     //here just cycle between the two sprites for a bit, than return to the original
 
-    utilities utility;
     IEnumerator sparkAnimation()
     {
         //  spark.gameObject.SetActive(true);
@@ -268,7 +267,7 @@ public class staticElectricity : MonoBehaviour, IPointerDownHandler
         {
             person.GetComponent<Image>().sprite = sparkSprits[count % 2];
             count++;
-            yield return new WaitForSeconds((float)utility.getRandom(5, 20) / 100.0f);
+            yield return new WaitForSeconds((float)Random.Range(5, 20) / 100.0f);
         }
         person.GetComponent<Image>().sprite = sparkSprits[1];
     }

@@ -89,8 +89,6 @@
     <Compile Include="Assets\Scripts\ElectricCurcuits\TestDevice.cs" />
     <Compile Include="Assets\Scripts\ElectricCurcuits\TestSimulation.cs" />
     <Compile Include="Assets\Scripts\ElectricCurcuits\UIManager.cs" />
-    <Compile Include="Assets\Scripts\Games\DiveGame.cs" />
-    <Compile Include="Assets\Scripts\Games\QuickGame.cs" />
     <Compile Include="Assets\Scripts\Games\Recycling.cs" />
     <Compile Include="Assets\Scripts\Menus\Achievments.cs" />
     <Compile Include="Assets\Scripts\Menus\Curriculum\Curriculum.cs" />
@@ -104,17 +102,11 @@
     <Compile Include="Assets\Scripts\Menus\Shop\Purchase.cs" />
     <Compile Include="Assets\Scripts\Menus\Shop\Shop.cs" />
     <Compile Include="Assets\Scripts\Menus\StudentInfo.cs" />
+    <Compile Include="Assets\Scripts\Menus\StudentMenu\LearningType.cs" />
     <Compile Include="Assets\Scripts\Menus\StudentMenu\LoadDocuments.cs" />
     <Compile Include="Assets\Scripts\Menus\StudentMenu\namePopUp.cs" />
     <Compile Include="Assets\Scripts\Menus\StudentMenu\Streak.cs" />
     <Compile Include="Assets\Scripts\Menus\StudentMenu\StudentMenu.cs" />
-    <Compile Include="Assets\Scripts\Questions\Geography.cs" />
-    <Compile Include="Assets\Scripts\Questions\Math\differentiator.cs" />
-    <Compile Include="Assets\Scripts\Questions\Math\LTG.cs" />
-    <Compile Include="Assets\Scripts\Questions\Math\MathLayout.cs" />
-    <Compile Include="Assets\Scripts\Questions\Math\MathScript.cs" />
-    <Compile Include="Assets\Scripts\Questions\Math\questionBank.cs" />
-    <Compile Include="Assets\Scripts\Questions\Math\utilities.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Database\Database.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Database\HorizontalSnap.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Database\Lessons\animalLifeCycleDb.cs" />
@@ -131,9 +123,8 @@
     <Compile Include="Assets\Scripts\Questions\Science\Molecules\Lessons\SolutionSubLab.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Molecules\Lessons\SuspensionColloidSubLab.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Molecules\Lessons\ThermalEnergyLab.cs" />
-    <Compile Include="Assets\Scripts\Questions\Science\Molecules\Molecule.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Molecules\MoleculeMenu.cs" />
-    <Compile Include="Assets\Scripts\Questions\Science\Molecules\Reaction.cs" />
+    <Compile Include="Assets\Scripts\Questions\Science\Molecules\Reactions.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\PhysicsMain.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Science.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\ScienceModels\Hints.cs" />
@@ -149,6 +140,7 @@
     <Compile Include="Assets\Scripts\Questions\Science\Water\Waves.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Water\WavesSimple.cs" />
     <Compile Include="Assets\Scripts\TestStarter.cs" />
+    <Compile Include="Assets\Scripts\Utils\BackEnd\Azure.cs" />
     <Compile Include="Assets\Scripts\Utils\BackEnd\CameraMove.cs" />
     <Compile Include="Assets\Scripts\Utils\BackEnd\Information.cs" />
     <Compile Include="Assets\Scripts\Utils\BackEnd\Input\buttonClick.cs" />
@@ -165,7 +157,6 @@
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Animations\FadeText.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Animations\InstructionAnimation.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Help\Help.cs" />
-    <Compile Include="Assets\Scripts\Utils\FrontEnd\Help\HelpPanel.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\MenuBar\MenuBar.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\MenuBar\Settings.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\MenuBar\ShutdownSave.cs" />
@@ -174,6 +165,7 @@
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Panels\Panel.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Panels\PretestPanel.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Panels\StartPanel.cs" />
+    <Compile Include="Assets\Scripts\Utils\FrontEnd\Panels\YtVideoPlayer.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Quiz\Quiz.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Quiz\QuizMenu.cs" />
     <Compile Include="Assets\Scripts\Utils\FrontEnd\Quiz\WrongAnswer.cs" />
@@ -390,6 +382,14 @@
     <Compile Include="Assets\ThirdParty\unity-ui-extensions\Scripts\Utilities\UISelectableExtension.cs" />
     <Compile Include="Assets\ThirdParty\unity-ui-extensions\Scripts\VR Extensions\VRCursor.cs" />
     <Compile Include="Assets\ThirdParty\unity-ui-extensions\Scripts\VR Extensions\VRInputModule.cs" />
+    <Compile Include="Assets\YoutubePlayer\Scripts\DownloadYoutubeVideo.cs" />
+    <Compile Include="Assets\YoutubePlayer\Scripts\PanoramicSkyboxVideo.cs" />
+    <Compile Include="Assets\YoutubePlayer\Scripts\PlayVideo.cs" />
+    <Compile Include="Assets\YoutubePlayer\Scripts\PrepareYoutubeVideo.cs" />
+    <Compile Include="Assets\YoutubePlayer\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\YoutubePlayer\Scripts\SimpleYoutubeVideo.cs" />
+    <Compile Include="Assets\YoutubePlayer\Scripts\VideoMetadata.cs" />
+    <Compile Include="Assets\YoutubePlayer\Scripts\VideoPlayerProgress.cs" />
     <None Include="Assets\ThirdParty\unity-ui-extensions\Shaders\UIAdditive.shader" />
     <None Include="Assets\StreamingAssetsdata.xml" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
@@ -419,6 +419,7 @@
     <None Include="Assets\ThirdParty\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\ThirdParty\unity-ui-extensions\Shaders\UILinearDodge.shader" />
+    <None Include="Assets\Resources\XML\General\data - Copy.xml" />
     <None Include="Assets\ThirdParty\unity-ui-extensions\Shaders\UI Particle VertexLit Blended.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
     <None Include="Assets\ThirdParty\unity-ui-extensions\Shaders\UI Particle AddMultiply.shader" />
@@ -678,6 +679,9 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>C:/Users/pc/Desktop/VR1/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:/Users/pc/Desktop/VR1/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/2019.1.6f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -1038,6 +1042,10 @@
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{0992D7A1-E60C-41BF-4A9F-02CC01878B3F}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+    <ProjectReference Include="YoutubePlayer.csproj">
+      <Project>{10FDB2E9-6A30-5FD9-E3B2-02D35D13C7BE}</Project>
+      <Name>YoutubePlayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

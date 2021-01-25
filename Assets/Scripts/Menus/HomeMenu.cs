@@ -27,7 +27,7 @@ public class HomeMenu : MonoBehaviour
 
         initButtons();
         Information.currentScene = "HomeMenu";
-
+        Information.subject = "science";
     }
 
     void OnEnable()

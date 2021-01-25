@@ -27,16 +27,22 @@ public class StudentMenu : MonoBehaviour
     public GameObject leftImage;
     public GameObject rightImage;
     public GameObject tutorialPanel;
+    public GameObject learningTypePanel;
+    public GameObject firstTutorialPanel;
+
 
     public AudioSource source;
     public AudioClip buttonSound;
 
     Website network;
     Panel panel;
-      void Start()
+
+    int step = 0;
+    void Start()
       {
           initButtons();
           panel = new Panel();
+          network = new Website();
 
           Information.currentScene = "StudentMenu";
 
@@ -52,6 +58,16 @@ public class StudentMenu : MonoBehaviour
           }
       }
 
+    void loadLearningType()
+    {
+
+    }
+
+    void loadLearningPlan()
+    {
+
+    }
+
     void displayPoints()
     {
         divePoints.text = Information.totalEarnedPoints.ToString();
@@ -59,7 +75,7 @@ public class StudentMenu : MonoBehaviour
 
     void closeTutorial()
     {
-        StartCoroutine(panel.panelAniamtion(false, tutorialPanel.transform));
+        StartCoroutine(panel.panelAnimation(false, tutorialPanel.transform));
     }
 
     void openTutorial()
@@ -104,12 +120,12 @@ public class StudentMenu : MonoBehaviour
         Debug.LogError(Information.totalEarnedPoints + " total earned points student menu");
         coinsPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = Information.totalEarnedPoints.ToString();
         coinsPanel.transform.GetChild(4).GetComponent<TMP_Text>().text = Information.maxDivePoints.ToString();
-        StartCoroutine(panel.panelAniamtion(true, coinsPanel.transform));
+        StartCoroutine(panel.panelAnimation(true, coinsPanel.transform));
     }
 
     void takeCoinsBack()
     {
-        StartCoroutine(panel.panelAniamtion(false, coinsPanel.transform));
+        StartCoroutine(panel.panelAnimation(false, coinsPanel.transform));
     }
 
     void openShop()
@@ -234,27 +250,44 @@ public class StudentMenu : MonoBehaviour
         secondPanel.transform.GetChild(1).GetChild(1).GetComponent<Image>().sprite = aboutMeSprites[1];
 
         secondPanel.transform.GetChild(0).GetChild(0).GetComponent<TMPro.TMP_Text>().text = "See my results";
-        secondPanel.transform.GetChild(1).GetChild(0).GetComponent<TMPro.TMP_Text>().text = "See my acheivments";
+        secondPanel.transform.GetChild(1).GetChild(0).GetComponent<TMPro.TMP_Text>().text = "See my achievements";
         secondPanel.gameObject.SetActive(true);
     }
     public GameObject namePanel;
     public GameObject streakPanel;
-    int step = 0;
+    
     void Update()
     {
-        if (Information.doneLoadingDocuments && step==0)
+
+        if (Information.firstTime && Information.doneLoadingDocuments && step == 0 && Information.name == "none")
         {
-            if (Information.name == "none")
-            {
-                StartCoroutine(panel.panelAniamtion(true, namePanel.transform));
-                Information.firstTime = true;
-            }
+            
             step++;
+            StartCoroutine(panel.panelAnimation(true, namePanel.transform));
+            Information.firstTime = false;
+                 
         }
+
         if(!namePanel.gameObject.activeSelf && step == 1)
         {
-            streakPanel.SetActive(true);
+            step++;
+            //  streakPanel.SetActive(true);
         }
+
+        if (!streakPanel.activeSelf && step == 2)
+        {
+            step++;
+            StartCoroutine(panel.panelAnimation(true, learningTypePanel.transform));
+        }
+
+        if(!learningTypePanel.activeSelf && step == 3)
+        {
+            step++;
+            firstTutorialPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = "Hi " + Information.name + "!";
+            StartCoroutine(panel.panelAnimation(true, firstTutorialPanel.transform));
+        }
+
+
 
        /* if (openLearning)
         {

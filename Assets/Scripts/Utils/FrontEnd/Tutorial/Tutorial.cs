@@ -66,12 +66,12 @@ public class Tutorial : MonoBehaviour
     //here add a small growing and shrinking animation to the tutorial
 
 
-    bool growing = false;
+
     int growCount = 20;
     float growthAmount = 1.005f;
     int count = 0;
 
-    void Update()
+    void updateHighlight()
     {
         if (currHighlight != null)
         {
@@ -86,10 +86,16 @@ public class Tutorial : MonoBehaviour
             else
             {
                 count = 0;
+                return;
             }
             count++;
         }
+    }
 
+    void Update()
+    {
+
+        updateHighlight();
         if (clicked && !informationPanel.activeSelf)
         {
             getNext();
@@ -149,14 +155,13 @@ public class Tutorial : MonoBehaviour
         var thing = currentScene.panels[currentScene.panelIndex];
         Information.tutorialModel = thing.information[buttonIndex];
 
+
         if (!informationPanel.activeSelf)
         {
             choosePanel(userButtons[buttonIndex].gameObject);
-            /*  informationPanel.gameObject.SetActive(true);
-              informationPanel.transform.GetChild(0).gameObject.SetActive(true);
-              informationPanel.GetComponent<InformationPanel>().closeOnEnd = true;*/
         }
 
+        informationPanel.transform.parent.GetComponent<InformationPanel>().loadNewModel();
 
 
     }
@@ -201,12 +206,12 @@ public class Tutorial : MonoBehaviour
         if (currentButton.transform.localPosition.x < 0)
         {
             //pick the right panel
-          //  informationPanel.transform.parent.GetComponent<InformationPanel>().setLeftorRight(true);
+            informationPanel.transform.parent.GetComponent<InformationPanel>().locationPanel.setPosition(LocationPanel.MenuPosition.RIGHT);
         }
         else
         {
             //pick the left panel
-            //   informationPanel.transform.parent.GetComponent<InformationPanel>().setLeftorRight(false);
+             informationPanel.transform.parent.GetComponent<InformationPanel>().locationPanel.setPosition(LocationPanel.MenuPosition.LEFT);
 
         }
         informationPanel.SetActive(true);

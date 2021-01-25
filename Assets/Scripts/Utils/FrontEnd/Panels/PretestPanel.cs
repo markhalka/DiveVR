@@ -18,11 +18,11 @@ public class PretestPanel : MonoBehaviour
     public bool isTutorialPanel = false;
     public TMP_Text justTitle;
 
-    LocationPanel panel;
+    Panel panel;
 
     void Start()
     {
-        panel = transform.GetComponent<LocationPanel>();
+        panel = new Panel();
 
         pretestNotOkButton.onClick.AddListener(delegate { pretestNotOk(); });
         pretestOkButton.onClick.AddListener(delegate { pretestOk(); });
@@ -43,9 +43,8 @@ public class PretestPanel : MonoBehaviour
     {
         Information.isQuiz = 1;
         Information.wasPreTest = true;
-        panelContainer.SetActive(false);
         quizPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = "Not sure";
-        StartCoroutine(panel.moveAnimation(false));
+        StartCoroutine(panel.panelAnimation(false, transform));
     }
 
 
@@ -53,9 +52,8 @@ public class PretestPanel : MonoBehaviour
     
     public void pretestNotOk()
     {
-        transform.SetParent(transform.parent.parent);
         //setPosition(currentPosition);
-        gameObject.SetActive(false);
+        StartCoroutine(panel.panelAnimation(false, transform));
     }
 
     void takeDontShowAgain()

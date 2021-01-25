@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class StudentInfo : MonoBehaviour
 {
 
-    public GameObject results;
+ 
 
     public Button back;
     public Button curriculum;
@@ -22,7 +22,7 @@ public class StudentInfo : MonoBehaviour
 
     public GameObject goalContainer;
 
-    public GameObject examResults;
+
     GameObject currGameObject;
 
     public GameObject[] arrows;
@@ -41,6 +41,8 @@ public class StudentInfo : MonoBehaviour
     public AudioClip addGoal;
     public AudioClip completeGoal;
 
+    public TMP_Text defaultText;
+
 
     //test all the warning panels, and make sure they work 
     //test the line graph, than you are pretty much done here 
@@ -51,14 +53,7 @@ public class StudentInfo : MonoBehaviour
 
     void Start()
     {
-        Debug.LogError("started1...");
         title.text = Information.grade + " " + Information.subject + " results";
-        if (Information.grade == "Grade Deep")
-        {
-            Debug.LogError("presentation results not yet supported");
-            SceneManager.LoadScene("StudentMenu");
-        }
-        Debug.LogError("initializing: " + Information.grade + " " + Information.subject);
 
         ParseData.startXML();
         back.onClick.AddListener(delegate { onBack(); });
@@ -66,13 +61,7 @@ public class StudentInfo : MonoBehaviour
         //   ConfigChart();
         loadBarGraph();
 
-        goalContainer.GetComponent<UnityEngine.UI.Extensions.ReorderableList>().OnElementAdded.AddListener(delegate { takeNewGoal(); });
-        goalContainer.GetComponent<UnityEngine.UI.Extensions.ReorderableList>().OnElementRemoved.AddListener(delegate { removeGoal(); });
-        clearButton.onClick.AddListener(delegate { clearGoals(); });
-        saveGoalsButton.onClick.AddListener(delegate { saveGoals(); });
-        unreasonableGoal.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { closeUnreasonableGoal(); });
-        learingPlanWarning.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { takeCurriculumOk(); });
-        learingPlanWarning.transform.GetChild(4).GetComponent<Button>().onClick.AddListener(delegate { takeCurriciulumBack(); });
+        initButtons();
 
         breakdownWarningOk.onClick.AddListener(delegate { takeBreakdownBack(); });
 
@@ -81,6 +70,17 @@ public class StudentInfo : MonoBehaviour
 
         Information.currentScene = "StudentInfo";
 
+    }
+
+    void initButtons()
+    {
+        goalContainer.GetComponent<UnityEngine.UI.Extensions.ReorderableList>().OnElementAdded.AddListener(delegate { takeNewGoal(); });
+        goalContainer.GetComponent<UnityEngine.UI.Extensions.ReorderableList>().OnElementRemoved.AddListener(delegate { removeGoal(); });
+        clearButton.onClick.AddListener(delegate { clearGoals(); });
+        saveGoalsButton.onClick.AddListener(delegate { saveGoals(); });
+        unreasonableGoal.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { closeUnreasonableGoal(); });
+        learingPlanWarning.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { takeCurriculumOk(); });
+        learingPlanWarning.transform.GetChild(4).GetComponent<Button>().onClick.AddListener(delegate { takeCurriciulumBack(); });
     }
 
     void takeBreakdownBack()
@@ -104,7 +104,6 @@ public class StudentInfo : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             goalContainer.transform.GetChild(1 + i).GetChild(0).GetComponent<UnityEngine.UI.Extensions.RadialSlider>().onValueChanged.AddListener(delegate { radialSliderText(); });
-
         }
 
     }
@@ -568,7 +567,6 @@ public class StudentInfo : MonoBehaviour
     void loadBarGraph()
     {
         userTopics = new Dictionary<GameObject, Topic>();
-        results.transform.GetChild(0).GetComponent<Text>().text = "Past tests";
 
         List<Topic> tests = new List<Topic>();
         for (int i = 0; i < Information.topics.Count; i++)
@@ -581,36 +579,10 @@ public class StudentInfo : MonoBehaviour
 
         }
 
-        for (int i = 0; i < 3; i++)
+        if(Information.topics.Count == 0)
         {
-            if (i >= tests.Count)
-            {
-                examResults.transform.GetChild(i).GetChild(0).GetComponent<TMP_Text>().text = "NA";
-                examResults.transform.GetChild(i).GetChild(0).GetComponent<TMP_Text>().color = Color.grey;
-            }
-            else
-            {
-                int last = tests[i].tests.Count - 1;
-                string score = tests[i].tests[last].score;
-                examResults.transform.GetChild(i).GetChild(0).GetComponent<TMP_Text>().text = score + "%";
-                if (i > 0)
-                {
-                    if (float.Parse(tests[i - 1].tests[tests[i - 1].tests.Count - 1].score) < float.Parse(score))
-                    {
-                        //show the improvment arrow
-                        examResults.transform.GetChild(i).GetChild(1).GetChild(0).gameObject.SetActive(true);
-                        examResults.transform.GetChild(i).GetChild(0).GetComponent<TMP_Text>().color = Color.green;
-                    }
-                    else
-                    {
-                        //show the bad arrow
-                        examResults.transform.GetChild(i).GetChild(1).GetChild(1).gameObject.SetActive(true);
-                        examResults.transform.GetChild(i).GetChild(0).GetComponent<TMP_Text>().color = Color.red;
-                    }
-                }
-            }
+            defaultText.gameObject.SetActive(true);
         }
-
     }
 
     //ok, here show another line graph, in a lighter color, which will be the pretests 
@@ -623,7 +595,6 @@ public class StudentInfo : MonoBehaviour
     {
         if (topic == null)
         {
-            Debug.LogError("i dont think this is proper error handling lmao");
             return;
         }
 
@@ -722,10 +693,6 @@ public class StudentInfo : MonoBehaviour
                 userScores[j].Add(other[j]);
             }
         }
-        for (int i = 0; i < userScores.Count; i++)
-        {
-            presentationBreakdown(userScores[i], thing, i);
-        }
 
         script.XAxis.LinesCount = lables.Count;
 
@@ -734,25 +701,6 @@ public class StudentInfo : MonoBehaviour
         script.SetDirty();
         lineChart.gameObject.SetActive(true);
     }
-
-
-    void presentationBreakdown(List<string> scores, AwesomeCharts.LineData thing, int index)
-    {
-        LineDataSet set1 = new LineDataSet();
-
-        set1.LineColor = Information.colors[index % Information.colors.Length];
-        //  set1.FillColor = new Color(0.4f, 1, 0.6313726f, 1);
-
-
-
-        for (int i = 0; i < scores.Count; i++)
-        {
-            set1.AddEntry(new LineEntry(i, float.Parse(scores[i])));
-        }
-
-        thing.DataSets.Add(set1);
-    }
-
 
 
     private void ConfigChart()
@@ -770,7 +718,6 @@ public class StudentInfo : MonoBehaviour
         chart.YAxis.LabelColor = Color.white;
         chart.YAxis.LabelSize = 16;
     }
-
 
 
     void createEntity(Topic topic, int i, string outerText) //the inner text is always the score 

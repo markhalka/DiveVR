@@ -29,6 +29,7 @@ public class InformationPanel : MonoBehaviour
     public bool closeOnEnd = true;
     bool newModelLoaded = false;
     public bool simpleClose = false;
+    public bool isTutorial = false;
 
     public AudioSource source;
     public AudioClip open;
@@ -62,23 +63,30 @@ public class InformationPanel : MonoBehaviour
 
     public LocationPanel locationPanel; //this should be attached to it
     public PretestPanel pretest;
+    public Panel panel;
 
    
-    void Start()
+    void OnEnable()
     {
-        
+        panel = new Panel();   
         closeOnEnd = true;
         startOffset = 0;
         startPanels = new List<int>();
-        initStartPanels();
+
+
         initPanelButtons();
 
-    /*    hintButton.onClick.AddListener(delegate { takeHint(); });
-        startQuizButton.onClick.AddListener(delegate { startQuiz(); });
+        if (isTutorial)
+        {
+            justTitle.gameObject.SetActive(false);
+        }
 
-     
 
-        postTestOk.onClick.AddListener(delegate { takePostTestOk(); });*/
+
+
+            hintButton.onClick.AddListener(delegate { takeHint(); });
+            startQuizButton.onClick.AddListener(delegate { startQuiz(); });
+            postTestOk.onClick.AddListener(delegate { takePostTestOk(); });
 
 
     }
@@ -92,12 +100,13 @@ public class InformationPanel : MonoBehaviour
 
     public void showTitle(int index)
     {
-        justTitle.gameObject.SetActive(true);
+        justTitle.transform.parent.gameObject.SetActive(true);
         justTitle.text = Information.userModels[index + startOffset].simpleInfo[0];
     }
 
     #region startPanels
-    void initStartPanels()
+    // call this in every lesson
+    public void initStartPanels()
     {
         startPanels = new List<int>();
         startOffset = 0;
@@ -116,6 +125,8 @@ public class InformationPanel : MonoBehaviour
         {
             changeStart();
         }
+
+        StartCoroutine(panel.panelAnimation(true, pretestPanel.transform));
     }
 
     //this method should not close it, but it should just show the next text 
@@ -123,8 +134,10 @@ public class InformationPanel : MonoBehaviour
     void changeStart()
     {
         closeOnEnd = false;
-        Debug.LogError("got the start panels: " + startPanels.Count);
-        StartCoroutine(locationPanel.moveAnimation(true));
+        panelContainer.transform.localPosition = locationPanel.centerStart;
+        panelContainer.SetActive(true);
+        
+        //       StartCoroutine(locationPanel.moveAnimation(true));
         nextStart();
     }
 
@@ -148,7 +161,7 @@ public class InformationPanel : MonoBehaviour
 
     #endregion
 
-  /*  void takePostTestOk()
+    void takePostTestOk()
     {
         postTest.SetActive(false);
         Information.wasPreTest = false;
@@ -159,38 +172,20 @@ public class InformationPanel : MonoBehaviour
     public void takeHint()
     {
         GameObject curr = null;
-        switch (Information.subject)
-        {
-            case "math":
-                curr = GameObject.Find("HelpContainer");
-                if (curr != null)
-                {
-                    curr.GetComponent<HelpPanel>().callHelp();
-                }
-                break;
-            case "science":
 
-                if (Information.currentScene == "Models")
-                {
-                    curr = GameObject.Find("Main");
-                    curr.GetComponent<ScienceModels>().takeHelp();
-                }
-                else
-                {
-                    curr = GameObject.Find("Quiz");
-                    curr.GetComponent<QuizMenu>().takeHelp();
-                }
-                break;
-            case "public speaking":
-                break;
-            case "other":
-                break;
-            default:
-                Debug.LogError("could not find the current subject");
-                break;
+        if (Information.currentScene == "Models")
+        {
+            curr = GameObject.Find("Main");
+          //  curr.GetComponent<ScienceModels>().takeHelp();
         }
+        else
+        {
+            curr = GameObject.Find("Quiz");
+         //   curr.GetComponent<QuizMenu>().takeHelp();
+        }
+
     }
-  */
+  
 
     void Update()
     {
@@ -223,7 +218,7 @@ public class InformationPanel : MonoBehaviour
             }
         } */
     }
-/*
+
     void startQuiz()
     {
         Information.isQuiz = 1;
@@ -242,7 +237,7 @@ public class InformationPanel : MonoBehaviour
         StartCoroutine(locationPanel.moveAnimation(false));
     }
 
-    */
+    
 
     Model currentModel;
 
@@ -257,7 +252,6 @@ public class InformationPanel : MonoBehaviour
        // Debug.Log(closeOnEnd )
         if (closeOnEnd)
         {
-            Debug.LogError("showing panel...");
             StartCoroutine(locationPanel.moveAnimation(true));
         }
 
@@ -296,13 +290,12 @@ public class InformationPanel : MonoBehaviour
 
     Model getModel()
     {
-        if (Information.tutorialModel != null)
+        if (isTutorial)
         {
             return Information.tutorialModel;
         }
         else
         {
-            Debug.LogError(Information.panelIndex + " panelindex");
             return Information.userModels[Information.panelIndex];
         }
     }
@@ -310,11 +303,16 @@ public class InformationPanel : MonoBehaviour
 
     void initPanelButtons()
     {
-        Button next = panelContainer.transform.GetChild(0).GetChild(1).GetComponent<Button>();
-        Button back = panelContainer.transform.GetChild(0).GetChild(0).GetComponent<Button>();
+        GameObject[] panles = new GameObject[] { locationPanel.centerContainer, locationPanel.leftcontainer, locationPanel.rightContainer };
+        foreach(var panel in panles)
+        {
+            Button next = panel.transform.GetChild(1).GetComponent<Button>();
+            Button back = panel.transform.GetChild(0).GetComponent<Button>();
 
-        next.onClick.AddListener(delegate { takeInformationClick(true); });
-        back.onClick.AddListener(delegate { takeInformationClick(false); });
+            next.onClick.AddListener(delegate { takeInformationClick(true); });
+            back.onClick.AddListener(delegate { takeInformationClick(false); });
+        }
+
 
         soundButtonCenter.onClick.AddListener(delegate { takeSound(); });
         soundButtonLeft.onClick.AddListener(delegate { takeSound(); });
@@ -376,7 +374,13 @@ public class InformationPanel : MonoBehaviour
             {
                 source.clip = close;
                 source.Play();
-                Debug.LogError("closing...");
+
+                if (wasShowingTitle)
+                {
+                    justTitle.transform.parent.gameObject.SetActive(true);
+                }
+                
+
                 if (simpleClose)
                 {
                     newModelLoaded = false;

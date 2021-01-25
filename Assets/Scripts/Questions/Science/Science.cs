@@ -2,18 +2,34 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using YoutubePlayer;
 
 public class Science : MonoBehaviour
 {
-
+    
 
     public Text scoreCount;
     public GameObject loadingContainer;
     public GameObject inBetwenScene;
 
+    public SimpleYoutubeVideo YtVideoPlayer;
+
+    Website website;
+
+    Panel panel;
+
+    // so first, in student menu get the learning type
+    // then here you can access it from information
+    // check which one it is, show the choosing panel, let them choose
+    // (maybe you can show the estimated time as well)
+    // then whicheve is their main option make it big, and make the other one small
+    //and done
 
     void Start()
     {
+        panel = new Panel();
+        website = new Website();
+
         startAnimation();
 
         if (Information.subject == "science")
@@ -30,8 +46,11 @@ public class Science : MonoBehaviour
 
 
         XMLWriter.savePastSubjectAndGrade();
+       
 
     }
+
+    
 
     void startAnimation()
     {
@@ -63,6 +82,105 @@ public class Science : MonoBehaviour
     }
 
     public GameObject database;
+    public GameObject ytEndPanel;
+    public GameObject ytStartPanel;
+    public Button startRecc;
+    public Button startNotRecc;
+
+    public void createStartPanel(string sceneToLoad)
+    {
+        // first check if there is an optoin 
+        string text = "";
+        string reccText = "";
+        string notReccText = "";
+        if(Information.learningType == Information.LearningType.MODEL)
+        {
+            text = "We think you'd learn best with our interactive models! Choose the way you'd like to learn:";
+            reccText = "Model";
+            notReccText = "Video";
+            startRecc.onClick.AddListener(delegate { takeModel(sceneToLoad); });
+            startNotRecc.onClick.AddListener(delegate { StartCoroutine(website.GetRequest(Information.youtubeVideosUrl + "/" + Information.topicIndex, takeVideo)); });
+
+        }
+        else
+        {
+            text = "We think you'd learn best with the help of videos! Choose the way you'd like to learn:";
+            reccText = "Video";
+            notReccText = "Model";
+            startRecc.onClick.AddListener(delegate { StartCoroutine(website.GetRequest(Information.youtubeVideosUrl + "/" + Information.topicIndex, takeVideo));  });
+            startNotRecc.onClick.AddListener(delegate { takeModel(sceneToLoad); });
+        }
+        ytStartPanel.transform.GetChild(0).GetChild(1).GetComponent<TMPro.TMP_Text>().text = text;
+
+        startRecc.GetComponentInChildren<TMPro.TMP_Text>().text = reccText;
+        startNotRecc.GetComponentInChildren<TMPro.TMP_Text>().text = notReccText;
+
+        StartCoroutine(panel.panelAnimation(true, ytStartPanel.transform));
+    }
+
+    #region video stuff
+
+    // this will handle showing the video and all that
+    public GameObject VideoPanel; // this is where you can keep the videos
+    public Button nextVideo;
+    public Button exitVideo;
+    string[] videos;
+    int videoIndex = 0;
+
+    public void takeVideo(string videoUrls)
+    {
+        videos = videoUrls.Split(' ');
+        videoIndex = 0;
+
+        exitVideo.gameObject.SetActive(true);
+        exitVideo.onClick.AddListener(delegate { takeExitVideo(); });
+        nextVideo.gameObject.SetActive(true);
+        nextVideo.onClick.AddListener(delegate { takeNextVideo(); });
+
+        VideoPanel.SetActive(true);
+        YtVideoPlayer.gameObject.SetActive(true);
+        YtVideoPlayer.videoUrl = videos[0];
+    }
+
+    void takeNextVideo()
+    {
+        videoIndex++;
+        if(videoIndex >= videos.Length)
+        {
+            takeExitVideo();
+            return;
+        }
+        YtVideoPlayer.videoUrl = videos[videoIndex];
+    }
+
+    void takeExitVideo()
+    {
+        panel.panelAnimation(false, VideoPanel.transform);
+        panel.panelAnimation(true, ytEndPanel.transform);
+    }
+
+    #endregion
+
+    void takeModel(string sceneToLoad)
+    {
+        if (sceneToLoad == "Database")
+        {
+            loadingContainer.gameObject.SetActive(false);
+            database.gameObject.SetActive(true);
+            return;
+        }
+
+        if (sceneToLoad != "")
+        {
+            StartCoroutine(LoadScene(sceneToLoad));
+        }
+        else
+        {
+            Debug.LogError("the scene: " + Information.nextScene + " was not found");
+
+        }
+    }
+
     public void openScene()
     {
         if (Information.topicIndex > Information.topics.Count - 1)
@@ -84,15 +202,28 @@ public class Science : MonoBehaviour
             Information.nextScene = 0;
         }
 
-        string sceneToLoad = "";
+        
         Information.doneLoading = false;
         database.SetActive(false);
         //    Information.isQuiz = 0;
         Information.panelIndex = 0;
         Information.lableIndex = 0;
         Information.isSelect = false;
+        string sceneToLoad = getScene();
 
+        if(sceneToLoad != "")
+        {
+            createStartPanel(sceneToLoad);
+        } else
+        {
+            takeModel(sceneToLoad);
+        }
+    }
 
+    public string getScene()
+    {
+
+        string sceneToLoad = "";
         switch (Information.nextScene)
         {
 
@@ -219,7 +350,6 @@ public class Science : MonoBehaviour
                 //db food web 
                 break;
             case 37:
-                Information.nextScene = 38;
                 sceneToLoad = "Database";
                 break;
             case 38: //Plate tectonics
@@ -259,27 +389,8 @@ public class Science : MonoBehaviour
 
 
         }
-
-
-        if (sceneToLoad == "Database")
-        {
-            loadingContainer.gameObject.SetActive(false);
-            database.gameObject.SetActive(true);
-            return;
-        }
-
-        if (sceneToLoad != "")
-        {
-            StartCoroutine(LoadScene(sceneToLoad));
-        }
-        else
-        {
-            Debug.LogError("the scene: " + Information.nextScene + " was not found");
-
-        }
-
+        return sceneToLoad;
     }
-    private float _loadingProgress;
 
     private IEnumerator LoadScene(string sceneName)
     {
@@ -290,7 +401,7 @@ public class Science : MonoBehaviour
         while (!asyncScene.isDone)
         {
 
-            _loadingProgress = Mathf.Clamp01(asyncScene.progress / 0.9f) * 100;
+           // _loadingProgress = Mathf.Clamp01(asyncScene.progress / 0.9f) * 100;
 
             if (asyncScene.progress >= 0.9f)
             {

@@ -45,9 +45,11 @@ public class CircuitManager : MonoBehaviour
 
     List<CircuitPanel> panels;
 
-
+    MouseClickPos mousePos;
+    public GameObject mousePosGb;
     void Start()
     {
+
         initObjectButtons();
         Information.isSelect = true;
 
@@ -56,6 +58,8 @@ public class CircuitManager : MonoBehaviour
         Information.panelIndex = -1;
         initPanels();
         initStartPanels();
+
+        mousePos = mousePosGb.GetComponent<MouseClickPos>();
 
 
     }
@@ -124,6 +128,8 @@ public class CircuitManager : MonoBehaviour
     bool wasMouseUp = false;
     bool shouldRotate = false;
     int minX = 0;
+
+
     // Update is called once per frame
     void Update()
     {
@@ -136,7 +142,7 @@ public class CircuitManager : MonoBehaviour
         {
 
             Debug.LogError("not null");
-            currentObject.transform.localPosition = new Vector3(Information.currPosition.x, Information.currPosition.y, 0);
+            currentObject.transform.localPosition = new Vector3(mousePos.position.x, mousePos.position.y, 0);
             if (Input.GetMouseButtonDown(0))
             {
                 if (currentObject.transform.localPosition.x > minX)

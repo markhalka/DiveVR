@@ -8,9 +8,6 @@ using UnityEngine.UI;
 public class Settings : MonoBehaviour
 {
 
-
-
-    public Slider slider;
     public Button lessonSettings;
     public Button reportProblem;
     public Button back;
@@ -25,12 +22,9 @@ public class Settings : MonoBehaviour
     public Toggle showSurvey;
 
 
-    bool onSlider = false;
-
 
     void Start()
     {
-        slider.onValueChanged.AddListener(delegate { takeSlider(); });
         showPretest.onValueChanged.AddListener(delegate { takePreTest(); });
         showSurvey.onValueChanged.AddListener(delegate { takeSurvey(); });
 
@@ -40,14 +34,10 @@ public class Settings : MonoBehaviour
         submitProblem.onClick.AddListener(delegate { takeSubmitProblem(); });
         backProblem.onClick.AddListener(delegate { takeBackProblem(); });
 
-
-        slider.value = Information.sensitivity;
+   //     slider.value = Information.sensitivity;
 
         showPretest.isOn = Information.showPreTest;
         showSurvey.isOn = Information.shouldShowSurvey;
-
-
-
     }
 
 
@@ -125,25 +115,8 @@ public class Settings : MonoBehaviour
     }
 
 
-
-
-
-
-    void takeSlider()
-    {
-        Information.sensitivity = slider.value;
-    }
-
-    void takePicture()
-    {
-
-    }
-
     void takeBack()
     {
         gameObject.SetActive(false);
     }
-
-
-
 }

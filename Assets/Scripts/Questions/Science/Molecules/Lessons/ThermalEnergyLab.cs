@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class ThermalEnergyLab : MonoBehaviour
 {
 
+    //ok, plan for adding the videos and new text:
+    //1. for the new text, you can probably just copy paste it as usual into the data docs
+
+
+
     public Slider slider;
     public ParticleSystem ps;
     public ParticleSystem ps2;
@@ -20,31 +25,58 @@ public class ThermalEnergyLab : MonoBehaviour
     public GameObject forward;
     public GameObject backward;
 
+    public InformationPanel infoPanel;
+
+    public GameObject currentShowPanel;
+
+    List<int> sliderValues;
+
     //    public 
 
     string[] changeCompounds = new string[] { "nitrogen", "alcohol", "water", "iron" };
     string[,] changeValue = new string[,] { { "-210", "-195" }, { "-115", "79" }, { "0", "100" }, { "1538", "2862" } }; //melting, boiling point
 
 
-    public ThermalEnergyLab()
-    {
+    public void Start()
+    {      
         
-        slider.gameObject.SetActive(true);
+        initSlider();
         initDropdown();
         initPS();
-        loadPanelValues(new List<int>(new int[] { 5, 15, 25, 35, 45, 55, 65 }), new int[] { 0, 1, 2, 3, 4, 5, 6 }); //this is the thing you need to change <---
+        initSliderValues();
+        infoPanel.gameObject.SetActive(true);
+        infoPanel.initStartPanels();
+
+        outputText.text = "Set the drop-down to select you material, then move the slider to change the temperature!"; //FIX THIS SOMEHOW
 
     }
 
-    public void initDropdown()
+    void initSliderValues()
     {
-        LabGameObjects.dropdown.gameObject.SetActive(true);
+        sliderValues = new List<int>();
+        var triggerValues = new int[] { 5, 15, 25, 35, 45, 55};
+        for (int i = 0; i < triggerValues.Length; i++)
+        {
+            sliderValues.Add(triggerValues[i]);
+        }
+    }
+
+    void initSlider()
+    {
+        slider.gameObject.SetActive(true);
+        slider.onValueChanged.AddListener(delegate { thermalSlider(); });
+    }
+
+
+    void initDropdown()
+    {
+        dropdown.gameObject.SetActive(true);
         dropdown.AddOptions(new List<string>(changeCompounds));
         dropdown.onValueChanged.AddListener(delegate { changeDropdown(); });
         changeDropdown();
     }
 
-    public void initPS()
+    void initPS()
     {
         var psr = ps.GetComponent<ParticleSystemRenderer>();
         psr.material = changeMaterials[0];
@@ -65,8 +97,39 @@ public class ThermalEnergyLab : MonoBehaviour
 
     }
 
-    void thermalSlider()
+    int lastShown = 0;
+    void checkSliderShow(int value)
     {
+        int index = 0;
+        for(index = 0; index < sliderValues.Count; index++)
+        {
+            if(sliderValues[index] > value)
+            {
+                break;
+            }
+        }
+        if(index < lastShown)
+        {
+            return;
+        }
+
+        Information.panelIndex = index + infoPanel.startOffset; // and then figure out what to do here
+        infoPanel.loadNewModel();
+        lastShown = index;
+    }
+
+    void thermalSlider()
+    {        
+        if (currentShowPanel.activeSelf)
+        {
+            slider.interactable = false;
+            return;
+        } else
+        {
+            checkSliderShow((int)slider.value);
+        }
+
+        
         var noise = ps.noise;
         float inversePercentage = (1 - slider.value / (slider.maxValue)) + 0.2f; ;
 
@@ -75,6 +138,8 @@ public class ThermalEnergyLab : MonoBehaviour
 
         noise.frequency = inversePercentage * 2;
         noise.positionAmount = percentage * 1.3f;
+
+        
 
         if (slider.value < 20)
         {
@@ -113,7 +178,7 @@ public class ThermalEnergyLab : MonoBehaviour
             else
             {
                 //it is condensating
-                outputText.text = "The molecules are now condensating";
+                outputText.text = "The molecules are now condensing";
             }
 
         }
@@ -127,6 +192,7 @@ public class ThermalEnergyLab : MonoBehaviour
 
     int offset = 20;
     float prevValue = 0;
+    int previousState = 0;
     void changeDensity(float amount)
     {
         if (prevValue == 0)
@@ -147,7 +213,11 @@ public class ThermalEnergyLab : MonoBehaviour
 
     }
 
-
-    int previousState = 0;
-
+    private void Update()
+    {
+        if (!currentShowPanel.activeSelf)
+        {
+            slider.interactable = true;
+        }
+    }
 }

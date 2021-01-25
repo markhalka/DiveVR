@@ -16,4 +16,13 @@ public class WrongAnswer
         currQuestionIndex = cqi;
         useImage = ui;
     }
+
+    public int modelIndex;
+    public int questionIndex;
+    public WrongAnswer(int modelIndex, int questionIndex, bool ui)
+    {
+        this.modelIndex = modelIndex;
+        this.questionIndex = questionIndex;
+        useImage = ui;
+    }
 }

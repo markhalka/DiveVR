@@ -155,7 +155,7 @@ public class LogIn : MonoBehaviour
                     outputText = "There was an error, please check your network connection and try again";
                     break;
                 case 0:
-                    outputText = "Please enter a differnet username and password, or make an account by clicking the button";
+                    outputText = "Please enter a different username and password, or make an account by clicking the button";
                     webpage.gameObject.SetActive(true);
                     break;
 

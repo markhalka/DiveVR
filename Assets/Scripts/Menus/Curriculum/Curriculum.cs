@@ -1,9 +1,28 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+public static class MyExtensions
+{
+    public static IEnumerable<T> Shuffle<T>(this IList<T> list)
+    {
+        int[] indexes = Enumerable.Range(0, list.Count).ToArray();
+        System.Random generator = new System.Random();
+
+        for (int i = 0; i < list.Count; ++i)
+        {
+            int position = generator.Next(i, list.Count);
+
+            yield return list[indexes[position]];
+
+            indexes[position] = indexes[i];
+        }
+    }
+}
 
 public class Curriculum : MonoBehaviour
 {
@@ -18,6 +37,7 @@ public class Curriculum : MonoBehaviour
     public AudioClip buttonSound;
     public AudioClip sort;
 
+    Random random;
     //two problems with this:
     //after the placment test, have some sort of panel that shays good job or something
     //the first thing is skipped (it never does matter and mass for some reason)
@@ -31,12 +51,12 @@ public class Curriculum : MonoBehaviour
 
     LearningPlan learningPlan;
 
+    public GameObject saveOrDont;
 
 
     void Start()
     {
-        utility = new utilities();
-      
+        random = new Random();
         addListeners();
         ParseData.startXML();
         if (Information.subject == "science")
@@ -314,7 +334,6 @@ public class Curriculum : MonoBehaviour
 
 
     public GameObject rightPanel;
-    utilities utility;
     Lesson currentLesson;
 
     void takeClick(Lesson lesson)
@@ -330,18 +349,13 @@ public class Curriculum : MonoBehaviour
         int difficulty = (int)(lesson.topic.level * 10);
 
         string sampleProblem = "";
-        if (Information.subject == "math")
-        {
-            utility.getQuestion(lesson.topic.topics[lesson.index].ToString(), 0.5f);
-            sampleProblem = differentiator.question[0].question;
-        }
-        else
-        {
+       
+
             Information.nextScene = lesson.topic.topics[0];
             ParseData.parseModelFromSubject(currentElement);
 
-            Debug.LogError(Information.userModels.Count + " usermodels count");
-            List<string> questions = Information.userModels[utility.getRandom(1, Information.userModels.Count - 1)].questions;
+
+        List<string> questions = Information.userModels[Random.Range(1, Information.userModels.Count - 1)].questions;
             int sanityCheck = 0;
             while (questions.Count < 1)
             {
@@ -351,19 +365,17 @@ public class Curriculum : MonoBehaviour
                     Debug.LogError("NO QUESTIONS FOUND");
                     return;
                 }
-                questions = Information.userModels[utility.getRandom(1, Information.userModels.Count - 1)].questions;
+                questions = Information.userModels[Random.Range(1, Information.userModels.Count - 1)].questions;
             }
-            sampleProblem = questions[utility.getRandom(0, questions.Count - 1)];
+            sampleProblem = questions[Random.Range(0, questions.Count - 1)];
 
 
-        }
+        
 
         rightPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = name;
         rightPanel.transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = sampleProblem;
         rightPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = name;
         rightPanel.transform.GetChild(2).GetComponent<Slider>().value = difficulty;
-        differentiator.question = new List<utilities.Question>();
-
     }
 
 
@@ -410,10 +422,10 @@ public class Curriculum : MonoBehaviour
         for (int j = 0; j < miniumum && j < topic.topics.Count; j++)
         {
 
-            int next = utility.getRandom(0, topic.topics.Count - 1);
+            int next = Random.Range(0, topic.topics.Count - 1);
             while (included.Contains(topic.topics[next]))
             {
-                next = utility.getRandom(0, topic.topics.Count - 1);
+                next = Random.Range(0, topic.topics.Count - 1);
 
             }
             included.Add(topic.topics[next]);
@@ -429,7 +441,6 @@ public class Curriculum : MonoBehaviour
     }
 
 
-    public GameObject saveOrDont;
     public void takeBack()
     {
         saveOrDont.SetActive(true);

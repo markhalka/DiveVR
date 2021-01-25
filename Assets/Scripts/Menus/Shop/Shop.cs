@@ -14,13 +14,11 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
 
-    public GameObject shopContainer;
     public GameObject giftCardContainer;
     public GameObject giftCardPurchase;
     public GameObject warningObject;
     public GameObject savingPanel;
 
-    public Button giftCardbutton;
     public Button giftCardBack;
     public Button saveButton;
     public Button buyAnyway;
@@ -50,8 +48,7 @@ public class Shop : MonoBehaviour
         gameObject.GetComponent<AudioSource>().clip = soundBell;
         gameObject.GetComponent<AudioSource>().Play();
         Information.currentScene = "Shop";
-        giftCardbutton.onClick.AddListener(delegate { takeGiftCard(); });
-        giftCardBack.onClick.AddListener(delegate { takeCardback(); });
+ //       giftCardBack.onClick.AddListener(delegate { takeCardback(); });
         buyAnyway.onClick.AddListener(delegate { takePurchaseConfirm(); }); 
 
         initGiftCard();
@@ -157,7 +154,7 @@ public class Shop : MonoBehaviour
 
         if (Information.totalEarnedPoints < 500)
         {
-            erorrText.text = "Not enought Dive points!";
+            erorrText.text = "Not enough Dive points!";
             amountslider.interactable = false;
         }
 
@@ -193,7 +190,7 @@ public class Shop : MonoBehaviour
 
         giftCardPurchase.gameObject.SetActive(true);
         image.sprite = curr.GetComponent<Image>().sprite;
-        emailText.text = Information.username;
+        emailText.text = "test@email.com"; //Information.username;
         for (int i = 0; i < giftCardContainer.transform.GetChild(2).childCount; i++)
         {
             if (curr == giftCardContainer.transform.GetChild(2).GetChild(i).gameObject)
@@ -203,11 +200,5 @@ public class Shop : MonoBehaviour
 
             }
         }
-    }
-
-    void takeGiftCard()
-    {
-        giftCardContainer.gameObject.SetActive(true);
-
     }
 }

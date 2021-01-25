@@ -8,7 +8,6 @@ public class Recycling : MonoBehaviour
 
     GameObject currentObject;
     List<RecyclingObject> currentObjects;
-    utilities utility;
 
     public GameObject[] trash;
     public GameObject[] recycling;
@@ -69,7 +68,6 @@ public class Recycling : MonoBehaviour
         {
             UnityEngine.XR.XRSettings.enabled = true;
         }
-        utility = new utilities();
         start.onClick.AddListener(delegate { takeStart(); });
         exit.onClick.AddListener(delegate { takeExit(); });
         score = 0;
@@ -103,7 +101,7 @@ public class Recycling : MonoBehaviour
         while (playingGame)
         {
 
-            if (utility.toss())
+            if (Random.Range(0,1) == 0)
             {
                 getRecycling();
             }
@@ -124,7 +122,7 @@ public class Recycling : MonoBehaviour
     void getRecycling()
     {
         RecyclingObject curr = new RecyclingObject();
-        GameObject newObject = recycling[utility.getRandom(0, recycling.Length - 1)];
+        GameObject newObject = recycling[Random.Range(0, recycling.Length - 1)];
         curr.gameObject = Instantiate(newObject, newObject.transform, true);
         curr.gameObject.transform.SetParent(curr.gameObject.transform.parent.parent);
         curr.isTrash = false;
@@ -136,7 +134,7 @@ public class Recycling : MonoBehaviour
     void getTrash()
     {
         RecyclingObject curr = new RecyclingObject();
-        GameObject newObject = trash[utility.getRandom(0, trash.Length - 1)];
+        GameObject newObject = trash[Random.Range(0, trash.Length - 1)];
         curr.gameObject = Instantiate(newObject, newObject.transform, true);
         curr.gameObject.transform.SetParent(curr.gameObject.transform.parent.parent);
         curr.isTrash = true;
