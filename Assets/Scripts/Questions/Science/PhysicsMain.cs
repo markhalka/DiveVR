@@ -26,8 +26,6 @@ public class PhysicsMain : MonoBehaviour
 
     public void openModule()
     {
-
-        Debug.LogError("opening");
         switch (Information.nextScene)
         {
             case 7: //magnets

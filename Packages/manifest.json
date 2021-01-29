@@ -5,12 +5,8 @@
     "com.unity.collab-proxy": "1.2.16",
     "com.unity.package-manager-ui": "2.1.2",
     "com.unity.purchasing": "2.0.6",
-    "com.unity.shadergraph": "5.7.2",
     "com.unity.textmeshpro": "2.0.1",
     "com.unity.timeline": "1.0.0",
-    "com.unity.xr.oculus.standalone": "1.38.4",
-    "com.unity.xr.openvr.standalone": "1.0.5",
-    "com.yasirkula.nativeshare": "https://github.com/yasirkula/UnityNativeShare.git",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
     "com.unity.modules.assetbundle": "1.0.0",
@@ -41,11 +37,5 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  },
-  "lock": {
-    "com.yasirkula.nativeshare": {
-      "hash": "9826f61d14eeb01b1ccfa205a97ca90c48e76c50",
-      "revision": "HEAD"
-    }
   }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,198 +9,120 @@ using UnityEngine.UI;
 // get rid of the lables here, and get the questions yourself
 // also, add options for section based questions? (na just keep that in quiz menu, but just get rid of the labels i guess?)
 
+// honestly, just take the quiz menu way of coming up with questions...
 public class Quiz
 {
-    public List<string> pastQuestions;
-    public List<string[]> wrongLabels;
-    public List<string[]> lables;
 
-    public int nextId = 0;
-    private int score = 0;
-    private int questions = 0;
-    private int totalQuestions = 0;
-
-    public bool isQuiz = false;
-    public bool wrongAnswerMode;
-
-    public bool startWrong()
-    {
-        if (wrongLabels == null || wrongLabels.Count == 0)
-            return false;
-
-        wrongAnswerMode = true;
-
-        return true;
-    }
-
-    public void initQuiz(List<string[]> q)
-    {
-
-        isQuiz = true;
-        lables = new List<string[]>();
-        pastQuestions = new List<string>();
-        questions = -1;
-        score = 0;
-
-        if (wrongAnswerMode)
-        {
-            lables = wrongLabels;
-        }
-        else
-        {
-            for (int i = 0; i < q.Count; i++)
-            {
-                lables.Add(q[i]);
-            }
-            wrongLabels = new List<string[]>();
-        }
-
-    }
+    public string currAnswer;
     string currQuestion = "";
 
-    public bool noRepeat()
+    public int currentRightCount;
+    public int currentWrongCount;
+    public int questionIndex;
+    public int modelIndex;
+
+    public List<Model> questions;
+    public List<string> pastQuestions;
+
+
+
+    public bool isQuiz = false;
+
+    public void initQuiz(List<Model> q)
     {
-        nextId = UnityEngine.Random.Range(0, lables.Count - 1);
+        isQuiz = true;
+        pastQuestions = new List<string>();
+        questions = q;
 
-        string output = "";
-        output = lables[nextId][0];
+        currentRightCount = 0;
+        currentWrongCount = 0;
 
-        if (pastQuestions.Contains(output))
+        currQuestion = "";
+        currAnswer = "";
+    }
+
+
+    public string getTextQuestion(Action<string> show = null)
+    {
+        string currentQuestion = "";
+
+        modelIndex = UnityEngine.Random.Range(0, questions.Count);
+        questionIndex = UnityEngine.Random.Range(0, questions[modelIndex].questions.Count);
+
+        currentQuestion = questions[modelIndex].questions[questionIndex];
+
+        while (pastQuestions.Contains(currentQuestion))
         {
-            return false;
+            modelIndex = UnityEngine.Random.Range(0, questions.Count);
+            questionIndex = UnityEngine.Random.Range(0, questions[modelIndex].questions.Count);
+            currentQuestion = questions[modelIndex].questions[questionIndex];
         }
-        pastQuestions.Add(output);
-        questions++;
-        currQuestion = output;
-        return true;
+
+        pastQuestions.Add(currentQuestion);
+
+        currAnswer = questions[modelIndex].simpleInfo[0];
+
+        show?.Invoke(currentQuestion);
+        return currentQuestion;
     }
 
-
-    public string next()
+    public bool check(int index) 
     {
-        while (!noRepeat()) ;
-
-        return currQuestion;
-
-    }
-
-    public string nextWrong(int id)
-    {
-        nextId = id;
-        questions++;
-        string output = lables[nextId][0];
-        return output;
-    }
-
-
-    public bool check(string name)
-    {
-        if (name == lables[nextId][1])
+        if (index == modelIndex)
         {
-            score++;
+            currentRightCount++;
             Information.isCorrect = true;
             Information.isIncorrect = false;
             return true;
         }
 
-
         Information.isCorrect = false;
         Information.isIncorrect = true;
-        if (!wrongAnswerMode && !wrongLabels.Contains(lables[nextId]))
-            wrongLabels.Add(lables[nextId]);
-        totalQuestions++;
+        currentWrongCount++;
         return false;
-    }
+    } 
 
     public bool checkName(string name)
     {
-
-        if (name == Information.userModels[int.Parse(lables[nextId][1])].simpleInfo[0])
+        if (name.ToLower().Trim().Equals(currAnswer.ToLower().Trim()))
         {
-
-            score++;
+            currentRightCount++;
             Information.isCorrect = true;
             Information.isIncorrect = false;
             return true;
         }
-
         Information.isCorrect = false;
         Information.isIncorrect = true;
 
-        if (!wrongAnswerMode && !wrongLabels.Contains(lables[nextId]))
-            wrongLabels.Add(lables[nextId]);
-
-        totalQuestions++;
+        currentWrongCount++;
         return false;
-    }
-
-    public string getIndex()
-    {
-        return lables[nextId][1];
-    }
-
-    public int getScore()
-    {
-        return score;
-    }
+    } 
 
     public int getQuestions()
     {
-        return questions;
+        return currentRightCount;
     }
 
-
-    // util functions 
-    public IEnumerator changeColor(bool right)
-    {
-        rightPanel.gameObject.SetActive(true);
-        if (right)
-        {
-            source.clip = rightAnswer;
-            source.Play();
-            rightPanel.GetComponent<Image>().color = Information.rightColor;
-        }
-        else
-        {
-            source.clip = wrongAnswer;
-            source.Play();
-
-            rightPanel.GetComponent<Image>().color = Information.wrongColor;
-            if (!wrongAnswerMode)
-                wrongAnswers.Add(new WrongAnswer(modelIndex, questionIndex, useImage));
-        }
-
-        yield return new WaitForSeconds(1);
-        rightPanel.GetComponent<Image>().color = Information.defualtColor;
-    }
-
-
-
-    // starting things
-    public void checkQuiz()
+    public void checkQuiz(Action start = null, Action end = null)
     {
         if (!isQuiz)
         {
             if (Information.isQuiz == 1)
             {
-                startQuiz();
+                startQuiz(start);
             }
-
         }
         else
         {
             if (Information.isQuiz == 0)
             {
-                endQuiz();
+                endQuiz(end);
             }
         }
     }
 
-    public void endQuiz()
+    public void endQuiz(Action end = null)
     {
-        //    nextIndex = -1;
-        wrongAnswerMode = false;
-
         if (!Information.isCurriculum && Information.topics != null)
         {
             float score = 0;
@@ -213,11 +136,12 @@ public class Quiz
                 }
                 else
                 {
-                    /*  Topic.Test currTest = new Topic.Test();
+                      Debug.LogError("SAVING QUIZ...");
+                      Topic.Test currTest = new Topic.Test();
                       currTest.date = DateTime.Today.ToString("MM/dd/yyyy");
                       currTest.score = Information.score.ToString();
                       currTest.time = "0";
-                      Information.topics[ParseData.getScienceScene()].tests.Add(currTest); //that should save it */
+                      Information.topics[ParseData.getScienceScene()].tests.Add(currTest); //that should save it 
                     XMLWriter.saveMiniTest(Information.currentTopic, score, 0, false);
 
 
@@ -226,53 +150,35 @@ public class Quiz
             }
         }
 
-
-        if (Information.wasPreTest)
-        {
-            //  gameObject.SetActive(false);
-
-            if (quizButton != null)
-                quizButton.gameObject.SetActive(true);
-
-            Information.panelIndex = -1;
-            Information.lableIndex = 0;
-            //     panel.transform.parent.GetComponent<InformationPanel>().quizPanel.SetActive(true); //probably the wrong panel
-
-            Information.isQuiz = 0;
-        }
-        {
-            inBetween.SetActive(true);
-            panel.SetActive(false);
-        }
         isQuiz = false;
+        Debug.LogError("ok finished, ending quiz...");
+        end?.Invoke();
 
-        transform.GetChild(0).gameObject.SetActive(false);
     }
 
-
-    public void startQuiz()
+    public int totalQuestions()
     {
-        if (Information.wasPreTest)
-        {
-            startPretest();
-        }
+        return currentRightCount + currentWrongCount;
+    }
+
+    public void startQuiz(Action start = null)
+    {
 
         pastQuestions = new List<string>();
-        if (!wrongAnswerMode)
-        {
-            wrongAnswers = new List<WrongAnswer>();
-        }
 
         currentRightCount = 0;
         currentWrongCount = 0;
 
-        startOffset = panel.GetComponent<InformationPanel>().startOffset; //double check that, probably not good
-
         List<Section> section = ParseData.createSections();
         questions = new List<Model>();
-        for (int i = section.Count - 1; i >= 0; i--)
+        for (int i = 0; i < section.Count; i++)
         {
-            for (int j = section[i].questions.Count - 1; j >= 0; j--)
+            if(section[i].section == -1)
+            {
+                continue;
+            }
+
+            for (int j = 0; j < section[i].questions.Count; j++)
             {
                 if (section[i].questions[j].questions.Count > 0)
                 {
@@ -280,13 +186,20 @@ public class Quiz
                 }
             }
         }
-        Debug.LogError(questions.Count + " # questions");
-        StartCoroutine(nextQuestionTimeout());
+
+
+        initQuiz(questions);
+
+
+        //  Debug.LogError(questions.Count + " # questions");
+        //  StartCoroutine(nextQuestionTimeout());
 
         //   panel.transform.parent.GetComponent<InformationPanel>().quizPanel.SetActive(false); //again probably the wrong panel
         isQuiz = true;
-        Debug.LogError("quiz started");
-        transform.GetChild(0).gameObject.SetActive(true);
+
+
+        start?.Invoke();
+        //   transform.GetChild(0).gameObject.SetActive(true);
     }
 
 

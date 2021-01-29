@@ -10,6 +10,7 @@ public class QuizMenu : MonoBehaviour
     public GameObject inBetween;
     public GameObject panel;
     public GameObject rightPanel;
+    public GameObject[] button;
 
     public Button quizButton;
     public Button notSure;
@@ -23,25 +24,12 @@ public class QuizMenu : MonoBehaviour
     public AudioClip rightAnswer;
     public AudioClip wrongAnswer;
 
-    public int currentRightCount;
-    public int currentWrongCount;
     public int imageCount = 3;
-    public int wrongAnswerIndex = 0;
     public int startOffset;
 
-    public bool wrongAnswerMode = false;
     public bool useImage = false;
-    bool isQuiz = false;
 
- 
-    List<string> pastQuestions;
-    List<WrongAnswer> wrongAnswers;
-  
-
-    public GameObject[] button;
-    string currAnswer;
-
-    Quiz quiz;
+    public Quiz quiz;
 
 
     private void Start()
@@ -52,6 +40,8 @@ public class QuizMenu : MonoBehaviour
         quizButton.onClick.AddListener(delegate { quiz.startQuiz(); });
 
         initAnswerButtons();
+
+        startOffset = panel.GetComponent<InformationPanel>().startOffset; // you probably need to make sure this is delayed to have it work
     }
 
     void initAnswerButtons()
@@ -67,15 +57,10 @@ public class QuizMenu : MonoBehaviour
 
     }
 
-
-    void startPretest()
-    {
-        notSure.gameObject.SetActive(true);
-    }
     void takeNotSure()
     {
-        currentWrongCount++;
-        if (currentWrongCount + currentRightCount > Information.rightCount)
+        quiz.currentWrongCount++;
+        if (quiz.totalQuestions() > Information.RIGHT_COUNT)
         {
             quiz.endQuiz();
         }
@@ -114,34 +99,11 @@ public class QuizMenu : MonoBehaviour
         return -1;
     }*/
 
-    public bool redoWrongAnswers()
-    {
-        if (wrongAnswers == null || wrongAnswers.Count == 0)
-        {
-            Debug.LogError("no wrong ansewrs in quiz menu");
-            return false;
-        }
 
-        wrongAnswerMode = true;
-        quiz.startQuiz();
-        return true;
-    }
-    List<Model> questions;
-
-    // these should be in the quiz class
-
- 
     void Update()
     {
         quiz.checkQuiz();   
     }
-
-
-
-
-    //you should save it to file here...
-
-    //
 
 
     void checkAnswer(Button curr)
@@ -165,10 +127,10 @@ public class QuizMenu : MonoBehaviour
 
         if (correct)
         {
-            currentRightCount++;
-            StartCoroutine(quiz.changeColor(true));
+            quiz.currentRightCount++;
+            StartCoroutine(changeColor(true));
 
-            if (currentRightCount + currentWrongCount > Information.rightCount && Information.currentScene != "ScienceTest")
+            if (quiz.totalQuestions() > Information.RIGHT_COUNT && Information.currentScene != "ScienceTest")
             {
                 quiz.endQuiz();
             } else
@@ -178,14 +140,37 @@ public class QuizMenu : MonoBehaviour
         }
         else
         {
-            currentWrongCount++;
-            StartCoroutine(quiz.changeColor(false));
+            quiz.currentWrongCount++;
+            StartCoroutine(changeColor(false));
         }
     }
 
+    public IEnumerator changeColor(bool right)
+    {
+        rightPanel.gameObject.SetActive(true);
+        if (right)
+        {
+            source.clip = rightAnswer;
+            source.Play();
+            rightPanel.GetComponent<Image>().color = Information.rightColor;
+        }
+        else
+        {
+            source.clip = wrongAnswer;
+            source.Play();
+
+            rightPanel.GetComponent<Image>().color = Information.wrongColor;
+        }
+
+        yield return new WaitForSeconds(1);
+        rightPanel.GetComponent<Image>().color = Information.defualtColor;
+    }
+
+
+
     bool checkTextAnswer(Button button)
     {
-        return button.GetComponentInChildren<TMPro.TMP_Text>().text == currAnswer;
+        return button.GetComponentInChildren<TMPro.TMP_Text>().text == quiz.currAnswer;
     }
     int rightIndex;
     bool checkAnswerImage(Button curr)
@@ -202,36 +187,9 @@ public class QuizMenu : MonoBehaviour
         return i == rightIndex;
     }
 
-
-    int questionIndex;
-    int modelIndex;
-
-
-    string getTextQuestion()
-    {
-        string currentQuestion = "";
-
-        modelIndex = Random.Range(0, questions.Count);
-        questionIndex = Random.Range(0, questions[modelIndex].questions.Count);
-
-        currentQuestion = questions[modelIndex].questions[questionIndex];
-
-        return currentQuestion;
-    }
-
-
-    // generating text questions should also be generalized and put into the quiz class
-    // then you could get rid of the labels shit that you have rn 
-    // so just take half this code and put it in quiz
-    // the only thing here should be to deal with image questions
-
-    // and then re-add the hints as well
-
-
-
     IEnumerator nextQuestionTimeout()
     {
-        if (currentRightCount > 0)
+        if (quiz.currentRightCount > 0)
         {
             yield return new WaitForSeconds(1.3f);
         }
@@ -241,34 +199,16 @@ public class QuizMenu : MonoBehaviour
             button[i].transform.GetChild(1).gameObject.SetActive(false);
         }
 
-        /*    errorCount = 0;
-            choices = new List<string>();
-            if (wrongAnswerMode)
-            {
-                if (wrongAnswerIndex > wrongAnswers.Count - 1)
-                {
-                    endQuiz();
-                    return;
-                }
-                var curr = wrongAnswers[wrongAnswerIndex++];
-                currSection = curr.currSection;
-                currQuestion = curr.currQuestion;
-                currQuestionIndex = curr.currQuestionIndex;
-            }
-            else
-            { */
-
-        string question = getTextQuestion();
+        string question = quiz.getTextQuestion();
         simple.text = question;
-        pastQuestions.Add(question);
         nextTextQuestion();
         yield break;
-        //        nextIndex = getImageIndex(currSection, currQuestion); put this somewhere
     }
+
     List<Model> getSameSection(int section)
     {
         List<Model> output = new List<Model>();
-        foreach(var m in questions)
+        foreach(var m in quiz.questions)
         {
             if(m.section == section)
             {
@@ -277,18 +217,19 @@ public class QuizMenu : MonoBehaviour
         }
         return output;
     }
+
     List<int> generateOptions()
     {
         List<int> included = new List<int>();
-        included.Add(modelIndex);
-        var sameSection = getSameSection(questions[modelIndex].section);
+        included.Add(quiz.modelIndex);
+        var sameSection = getSameSection(quiz.questions[quiz.modelIndex].section);
         for (int i = 0; i < 2 && i < sameSection.Count; i++)
         {
 
-            int index = Random.Range(0, questions.Count); //did start at start offset
+            int index = Random.Range(0, quiz.questions.Count); //did start at start offset
             while (included.Contains(index))
             {
-                index = Random.Range(0, questions.Count);
+                index = Random.Range(0, quiz.questions.Count);
             }
 
             included.Add(index);
@@ -302,7 +243,7 @@ public class QuizMenu : MonoBehaviour
 
         for (int i = 0; i < included.Count; i++)
         {
-            choices.Add(questions[included[i]].simpleInfo[0]);
+            choices.Add(quiz.questions[included[i]].simpleInfo[0]);
         }
 
         choices.Shuffle();
@@ -332,7 +273,7 @@ public class QuizMenu : MonoBehaviour
                 return;
             }
 
-            if (included[i] == modelIndex)
+            if (included[i] == quiz.modelIndex)
             {
                 rightIndex = i;
             }
@@ -343,8 +284,6 @@ public class QuizMenu : MonoBehaviour
 
     public void nextTextQuestion()
     {
-
-        currAnswer = questions[modelIndex].simpleInfo[0];
         var included = generateOptions();
 
         if (useImage)
@@ -358,6 +297,6 @@ public class QuizMenu : MonoBehaviour
 
     int getImageIndex()
     {
-        return questionIndex + modelIndex - startOffset;
+        return quiz.questionIndex + quiz.modelIndex - startOffset;
     }
 }

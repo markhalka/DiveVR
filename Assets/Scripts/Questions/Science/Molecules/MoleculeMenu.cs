@@ -87,12 +87,7 @@ public class MoleculeMenu : MonoBehaviour
     // 26 checmical reactions
     private void Start()
     {
-        tempLoad();
-        // here you do all the temp stuff
-        Information.subject = "science";
-        Information.grade = "Grade 7";
-        Information.nextScene = 26;
-        //
+      
         ParseData.parseModel();
 
         Information.panelIndex = -1;

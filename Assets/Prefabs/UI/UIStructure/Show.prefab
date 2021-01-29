@@ -1798,7 +1798,7 @@ RectTransform:
   - {fileID: 969869967136785622}
   - {fileID: 431376263981280742}
   m_Father: {fileID: 4280447884583928750}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2918,7 +2918,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4280447884583928750}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3003,10 +3003,10 @@ RectTransform:
   - {fileID: 4280447885105380873}
   - {fileID: 9193203625920146809}
   - {fileID: 4072287397635729512}
-  - {fileID: 7157566986631105547}
   - {fileID: 4280447884455297130}
   - {fileID: 4280447884931028074}
   - {fileID: 9065900962476961191}
+  - {fileID: 1313619878292078944}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3050,7 +3050,7 @@ MonoBehaviour:
   postTestOk: {fileID: 5341459243944903437}
   startOffset: 0
   locationPanel: {fileID: 6391488656887306885}
-  pretest: {fileID: 5636764046313522898}
+  pretest: {fileID: 0}
 --- !u!82 &6696300129346577134
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3202,7 +3202,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4280447884583928750}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7289,6 +7289,63 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &8021293920489814905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1313619878292078944}
+  - component: {fileID: 3909188952421639265}
+  m_Layer: 5
+  m_Name: pretestContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1313619878292078944
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8021293920489814905}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7157566986631105547}
+  m_Father: {fileID: 4280447884583928750}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3909188952421639265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8021293920489814905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6abdbf57013114c8ce247eb05c9c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelContainer: {fileID: 2288078180352565600}
+  quizPanel: {fileID: 1823971270056036308}
+  pretestNotOkButton: {fileID: 9079502450605974869}
+  pretestOkButton: {fileID: 8680527288525329970}
+  dontShowAgain: {fileID: 7588237244303668257}
+  isTutorialPanel: 0
+  justTitle: {fileID: 2326977488364552784}
+  pretestPanel: {fileID: 8523204772528826116}
 --- !u!1 &8265943656399414581
 GameObject:
   m_ObjectHideFlags: 0
@@ -7911,7 +7968,6 @@ GameObject:
   - component: {fileID: 7157566986631105547}
   - component: {fileID: 5531456568087705194}
   - component: {fileID: 5910309342938163415}
-  - component: {fileID: 5636764046313522898}
   m_Layer: 5
   m_Name: PreTest
   m_TagString: Untagged
@@ -7936,12 +7992,12 @@ RectTransform:
   - {fileID: 1604634713098474416}
   - {fileID: 8929022432058056614}
   - {fileID: 5740207499655909222}
-  m_Father: {fileID: 4280447884583928750}
-  m_RootOrder: 6
+  m_Father: {fileID: 1313619878292078944}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000012398, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 627.9, y: 322.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5531456568087705194
@@ -7981,25 +8037,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &5636764046313522898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8523204772528826116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca6abdbf57013114c8ce247eb05c9c43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelContainer: {fileID: 2288078180352565600}
-  quizPanel: {fileID: 1823971270056036308}
-  pretestNotOkButton: {fileID: 9079502450605974869}
-  pretestOkButton: {fileID: 8680527288525329970}
-  dontShowAgain: {fileID: 7588237244303668257}
-  isTutorialPanel: 0
-  justTitle: {fileID: 2326977488364552784}
 --- !u!1 &8661030198051453106
 GameObject:
   m_ObjectHideFlags: 0

@@ -20527,7 +20527,7 @@ MonoBehaviour:
   forward: {fileID: 776784603}
   backward: {fileID: 383562658}
   infoPanel: {fileID: 705750782}
-  currentShowPanel: {fileID: 0}
+  currentShowPanel: {fileID: 356718190}
 --- !u!1 &960253158
 GameObject:
   m_ObjectHideFlags: 0
@@ -32510,6 +32510,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3733300386297253882, guid: b7c92f82ae034e445b73d83107fbeb67,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5455381977536267273, guid: b7c92f82ae034e445b73d83107fbeb67,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -32784,11 +32789,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3733300386297253882, guid: b7c92f82ae034e445b73d83107fbeb67,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7c92f82ae034e445b73d83107fbeb67, type: 3}

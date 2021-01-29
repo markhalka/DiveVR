@@ -65,10 +65,11 @@ public class InformationPanel : MonoBehaviour
     public PretestPanel pretest;
     public Panel panel;
 
-   
+
     void OnEnable()
     {
-        panel = new Panel();   
+        tookPostTest = false;
+        panel = new Panel();
         closeOnEnd = true;
         startOffset = 0;
         startPanels = new List<int>();
@@ -81,14 +82,19 @@ public class InformationPanel : MonoBehaviour
             justTitle.gameObject.SetActive(false);
         }
 
+        hintButton.onClick.AddListener(delegate { takeHint(); });
+        startQuizButton.onClick.AddListener(delegate { startQuiz(); });
+        postTestOk.onClick.AddListener(delegate { takePostTestOk(); });
 
+        soundButtonCenter.onClick.AddListener(delegate { playSound(); });
+        soundButtonLeft.onClick.AddListener(delegate { playSound(); });
+        soundButtonRight.onClick.AddListener(delegate { playSound(); });
 
+    }
 
-            hintButton.onClick.AddListener(delegate { takeHint(); });
-            startQuizButton.onClick.AddListener(delegate { startQuiz(); });
-            postTestOk.onClick.AddListener(delegate { takePostTestOk(); });
-
-
+    void playSound()
+    {
+        Information.tts = locationPanel.advanced.text;
     }
 
     public void showPanel(int index)
@@ -102,6 +108,11 @@ public class InformationPanel : MonoBehaviour
     {
         justTitle.transform.parent.gameObject.SetActive(true);
         justTitle.text = Information.userModels[index + startOffset].simpleInfo[0];
+    }
+
+    public void showPostTest()
+    {
+        StartCoroutine(panel.panelAnimation(true, postTest.transform));
     }
 
     #region startPanels
@@ -123,10 +134,9 @@ public class InformationPanel : MonoBehaviour
         }
         if (startOffset > 0)
         {
+            justTitle.transform.parent.gameObject.SetActive(false);
             changeStart();
-        }
-
-        StartCoroutine(panel.panelAnimation(true, pretestPanel.transform));
+        }      
     }
 
     //this method should not close it, but it should just show the next text 
@@ -150,6 +160,8 @@ public class InformationPanel : MonoBehaviour
 
         if(startPanelIndex > startPanels.Count - 2)
         {
+            wasShowingTitle = true;//SUPER TEMP
+            justTitle.text = Information.userModels[startPanels[0]].simpleInfo[0];
             closeOnEnd = true;
         }
         currentModel = Information.userModels[startPanels[startPanelIndex]];
@@ -161,12 +173,22 @@ public class InformationPanel : MonoBehaviour
 
     #endregion
 
+    public void closePanel()
+    {
+      /*  if (panelContainer.activeSelf)
+        {
+            StartCoroutine(panel.panelAnimation(false, panelContainer.transform));
+        }      */
+    }
+
     void takePostTestOk()
     {
-        postTest.SetActive(false);
-        Information.wasPreTest = false;
-        panelContainer.SetActive(true); //??
+        // Information.wasPreTest = false;
+        StartCoroutine(panel.panelAnimation(false, postTest.transform));
+        initStartPanels();
+
     }
+    
 
 
     public void takeHint()
@@ -183,26 +205,26 @@ public class InformationPanel : MonoBehaviour
             curr = GameObject.Find("Quiz");
          //   curr.GetComponent<QuizMenu>().takeHelp();
         }
-
     }
-  
 
+    bool tookPostTest = false;
     void Update()
     {
 
         if (buttonPause < buttonThres)
         {
             buttonPause++;
-        }
+        }   
 
-   /*     if (Information.wasPreTest && Information.isQuiz == 0 && pretestPanel.activeSelf && !isTutorialPanel && !postTest.activeSelf)
+        if (Information.wasPreTest && Information.isQuiz == 0 && !postTest.activeSelf && !tookPostTest)
         {
             quizPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = "Start Quiz";
-            pretest.pretestNotOk();
+           // pretest.pretestNotOk();
             panelContainer.SetActive(false);
-            postTest.SetActive(true);
+            StartCoroutine(panel.panelAnimation(true, postTest.transform));
+            tookPostTest = true;
         }
-   */
+   
    /*     if (!closeOnEnd)
         {
             if (!Information.panelClosed && !newModelLoaded && !pretestPanel.activeSelf)
@@ -217,6 +239,7 @@ public class InformationPanel : MonoBehaviour
                 loadNewModel();
             }
         } */
+
     }
 
     void startQuiz()
@@ -233,8 +256,7 @@ public class InformationPanel : MonoBehaviour
         {
             quizPanel.SetActive(false);
         }
-
-        StartCoroutine(locationPanel.moveAnimation(false));
+        closePanel();
     }
 
     
@@ -266,7 +288,7 @@ public class InformationPanel : MonoBehaviour
         }
         currentModel = getModel();
 
-       locationPanel. simple.text = currentModel.simpleInfo[0];
+       locationPanel.simple.text = currentModel.simpleInfo[0];
 
         if (currentModel.advancedInfo.Count > 0)
         {

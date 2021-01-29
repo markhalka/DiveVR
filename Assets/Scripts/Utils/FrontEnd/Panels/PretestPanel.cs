@@ -19,23 +19,33 @@ public class PretestPanel : MonoBehaviour
     public TMP_Text justTitle;
 
     Panel panel;
+    public GameObject pretestPanel;
 
-    void Start()
+    void OnEnable()
     {
         panel = new Panel();
 
         pretestNotOkButton.onClick.AddListener(delegate { pretestNotOk(); });
         pretestOkButton.onClick.AddListener(delegate { pretestOk(); });
         dontShowAgain.onClick.AddListener(delegate { takeDontShowAgain(); });
+        StartCoroutine(delayShow());
 
+    }
+
+    IEnumerator delayShow()
+    {
+        yield return new WaitForSeconds(1);
+        Debug.LogError(Information.showPreTest + " " + Information.isQuiz + " " + isTutorialPanel);
         if (Information.showPreTest && !isTutorialPanel && Information.isQuiz == 0)
         {
+            Debug.LogError("showing...");
             showPreTest();
         }
     }
 
     void showPreTest()
     {
+        StartCoroutine(panel.panelAnimation(true, pretestPanel.transform));
         justTitle.transform.parent.gameObject.SetActive(false);
     }
 

@@ -54,7 +54,7 @@ public class ThermalEnergyLab : MonoBehaviour
     void initSliderValues()
     {
         sliderValues = new List<int>();
-        var triggerValues = new int[] { 5, 15, 25, 35, 45, 55};
+        var triggerValues = new int[] { 5, 25, 45, 65, 75, 90};
         for (int i = 0; i < triggerValues.Length; i++)
         {
             sliderValues.Add(triggerValues[i]);
@@ -108,7 +108,7 @@ public class ThermalEnergyLab : MonoBehaviour
                 break;
             }
         }
-        if(index < lastShown)
+        if(index <= lastShown || index >= sliderValues.Count)
         {
             return;
         }

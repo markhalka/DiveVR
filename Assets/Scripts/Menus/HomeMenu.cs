@@ -9,10 +9,6 @@ public class HomeMenu : MonoBehaviour
 
     public GameObject grades;
 
-    public Button defualt;
-    public Button placementTest;
-    public Button back;
-
     public TMP_Text title;
 
     public AudioClip buttonSound;
@@ -22,8 +18,6 @@ public class HomeMenu : MonoBehaviour
     void Start()
     {
 
-        defualt.onClick.AddListener(delegate { takeDefault(); });
-        placementTest.onClick.AddListener(delegate { takeLearningPlan(); });
 
         initButtons();
         Information.currentScene = "HomeMenu";
@@ -37,7 +31,6 @@ public class HomeMenu : MonoBehaviour
 
     void initButtons()
     {
-        back.onClick.AddListener(delegate { takeGradeBack(); });
         List<GameObject> newEntities = new List<GameObject>();
 
         for (int i = 0; i < grades.transform.childCount; i++)
@@ -71,15 +64,6 @@ public class HomeMenu : MonoBehaviour
         Information.currentBox = null;
     }
 
-
-    void takeGradeBack()
-    {
-        source.clip = buttonSound;
-        source.Play();
-
-        SceneManager.LoadScene("StudentMenu");
-    }
-
     int getGradeNumber()
     {
         for (int i = 0; i < grades.transform.childCount; i++)
@@ -93,23 +77,6 @@ public class HomeMenu : MonoBehaviour
     }
 
     #endregion
-
-
-
-    public void takeLearningPlan()
-    {
-        Information.shouldRedo = true;
-        SceneManager.LoadScene("Curriculum");
-    }
-
-
-    public void takeDefault()
-    {
-        ParseData.copySubject();
-        ParseData.startXML();
-
-        SceneManager.LoadScene("ModuleMenu");
-    }
 
 
     void Update()

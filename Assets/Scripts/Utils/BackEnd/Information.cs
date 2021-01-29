@@ -27,6 +27,8 @@ public class Information
     public static bool notSure = false;
     public static bool isCurriculum;
 
+    public static string tts = "";
+
     public enum LearningType {VIDEO, MODEL };
     public static LearningType learningType;
 
@@ -90,8 +92,8 @@ public class Information
     public static bool isCorrect = false;
     public static bool isIncorrect = false;
 
-    public static Color rightColor = new Color(0.5606977f, 0.990566f, 0.7740753f);
-    public static Color wrongColor = new Color(0.9716981f, 0.5976017f, 0.5683517f);
+    public static Color rightColor = new Color(0.5606977f, 0.990566f, 0.7740753f, 0.3f);
+    public static Color wrongColor = new Color(0.9716981f, 0.5976017f, 0.5683517f, 0.3f);
     public static Color defualtColor = new Color(1, 1, 1, 1);//new Color(0.722f, 1, 1);
 
 
@@ -163,7 +165,7 @@ public class Information
     public static int lableIndex = 0;
     public static int panelIndex = 0;
 
-    public static int rightCount = 3;
+    public static int RIGHT_COUNT = 3;
 
     public static bool retry = false;
 

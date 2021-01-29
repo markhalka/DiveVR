@@ -146,11 +146,15 @@ public class Table : MonoBehaviour
 
     public void createTable(Action<GameObject> clickAction)
     {
-
+        if(table.transform.parent.childCount > 1)
+        {
+            // then it was already created (pretest)
+            return;
+        }
         //   table.transform.parent.GetChild(0).gameObject.SetActive(true); //this is the panel
         TableLayout layout = initTableRows(Information.userModels.Count);
-        int rows = layout.rows.Count;
 
+        int rows = layout.rows.Count;
 
         float yOffset = startOffset.y - (float)(rows - 1) / 2 * boxOffset.y;
         List<GameObject> newButtons = new List<GameObject>();

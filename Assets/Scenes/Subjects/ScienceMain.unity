@@ -345,7 +345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &154473431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,15 +358,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5892da803e2db49aa19952dfaf2398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreCount: {fileID: 0}
-  loadingContainer: {fileID: 4277208606066956629}
-  inBetwenScene: {fileID: 794199099}
-  YtVideoPlayer: {fileID: 2072947012}
   database: {fileID: 1370322968}
   ytEndPanel: {fileID: 6483846730309755408}
   ytStartPanel: {fileID: 1960064284696386268}
+  loadingContainer: {fileID: 4277208606066956629}
+  inBetwenScene: {fileID: 794199099}
   startRecc: {fileID: 1689755126851919567}
   startNotRecc: {fileID: 3902144838739853361}
+  scoreCount: {fileID: 0}
+  YtVideoPlayer: {fileID: 2072947012}
   VideoPanel: {fileID: 7348969834870406720}
   nextVideo: {fileID: 4740160561116603553}
   exitVideo: {fileID: 5322906278059672648}
@@ -1283,21 +1283,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6009217173642018047, guid: 5c8bee58fba98114abb6408d3dd9eeaa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779047230274806203, guid: 5c8bee58fba98114abb6408d3dd9eeaa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8523204772528826116, guid: 5c8bee58fba98114abb6408d3dd9eeaa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2326977488364552784, guid: 5c8bee58fba98114abb6408d3dd9eeaa,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1316,6 +1301,21 @@ PrefabInstance:
     - target: {fileID: 2326977488364552784, guid: 5c8bee58fba98114abb6408d3dd9eeaa,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779047230274806203, guid: 5c8bee58fba98114abb6408d3dd9eeaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6009217173642018047, guid: 5c8bee58fba98114abb6408d3dd9eeaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523204772528826116, guid: 5c8bee58fba98114abb6408d3dd9eeaa,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3153371410296727435, guid: 5c8bee58fba98114abb6408d3dd9eeaa,

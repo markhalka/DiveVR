@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -6,11 +8,17 @@ using YoutubePlayer;
 
 public class Science : MonoBehaviour
 {
-    
 
-    public Text scoreCount;
+    public GameObject database;
+    public GameObject ytEndPanel;
+    public GameObject ytStartPanel;
     public GameObject loadingContainer;
     public GameObject inBetwenScene;
+
+    public Button startRecc;
+    public Button startNotRecc;
+
+    public Text scoreCount;
 
     public SimpleYoutubeVideo YtVideoPlayer;
 
@@ -24,6 +32,117 @@ public class Science : MonoBehaviour
     // (maybe you can show the estimated time as well)
     // then whicheve is their main option make it big, and make the other one small
     //and done
+    
+
+    int[] good_models = new int[] { 1, 5, 9, 12, 14, 15, 16, 18, 21, 22, 29, 31, 35, 37, 38, 42, 44 };
+
+    int[] ok_models = new int[] { 2, 4, 11, 17, 19, 20, 26, 30, 33, 34, 36, 39, 41, 45 };
+
+
+    int[] only_videos = new int[] { 3, 6, 7, 8, 24, 27, 28, 32, 40, 43, 47 };
+
+    class VideoModel
+    {
+        public int index;
+        public bool prefer;
+        public int minGrade = 0;
+        public VideoModel(int index, bool prefer = false)
+        {
+
+        }
+
+        public VideoModel(int index, int minGrade)
+        {
+
+        } 
+    }
+
+    VideoModel[] video_model = new VideoModel[] {new VideoModel(14,8), new VideoModel(15,8), new VideoModel(16), new VideoModel(41), new VideoModel(36, true),
+new VideoModel(21), new VideoModel(38, 7), new VideoModel(1, 8), new VideoModel(26, true), new VideoModel(35, 8),
+new VideoModel(2, 8), new VideoModel(19, true) };
+
+    void decideWhatToDo()
+    {
+        string sceneToLoad = getScene();
+        VideoModel videoModel = null;
+        foreach (var model in video_model)
+        {
+            if (model.index == Information.nextScene)
+            {
+                videoModel = model;
+                break;
+            }
+        }
+
+        Debug.LogError(Information.nextScene + " " + videoModel);
+        // check if it is only model
+        if (good_models.Contains(Information.nextScene))
+        {        
+            if (videoModel != null)
+            {
+                if(videoModel.prefer && videoModel.minGrade <= getGrade()) // figure out how to extract grade 
+                {
+                    // prefer video, show panel
+                    createStartPanel(sceneToLoad, Information.LearningType.VIDEO);
+                } else
+                {
+                    // then prefer model, and show panel 
+                    createStartPanel(sceneToLoad, Information.LearningType.MODEL);
+                }
+            } else
+            {
+                // only open model
+                StartCoroutine(LoadScene(sceneToLoad));
+            }
+        } else if (ok_models.Contains(Information.nextScene))
+        {
+            if (videoModel != null)
+            {
+                if (videoModel.minGrade <= getGrade())
+                {
+                    // prefer video, show panel
+                    createStartPanel(sceneToLoad, Information.LearningType.VIDEO);
+                } else
+                {
+                    //prefer model, show panel
+                    createStartPanel(sceneToLoad, Information.LearningType.MODEL);
+                }
+            } else
+            {
+                // only open model
+                StartCoroutine(LoadScene(sceneToLoad));
+            }
+        } else if (only_videos.Contains(Information.nextScene))
+        {
+            // only show video
+            playVideo();
+        } else
+        {
+            // error 
+            Debug.LogError("ERROR: COULD NOT FIND WHAT TO DO WITH TOPIC INDEX");
+        }
+    }
+
+    int getGrade()
+    {
+        string a = Information.grade;
+        string b = string.Empty;
+        int val = 0;
+
+        for (int i = 0; i < a.Length; i++)
+        {
+            if (Char.IsDigit(a[i]))
+                b += a[i];
+        }
+
+        if (b.Length > 0)
+            val = int.Parse(b);
+
+        return val;
+
+    }
+
+        
 
     void Start()
     {
@@ -32,74 +151,35 @@ public class Science : MonoBehaviour
 
         startAnimation();
 
-        if (Information.subject == "science")
-        {
-            openScene();
-        }
-        else if (Information.subject == "social science")
-        {
-            openSceneSocialScience();
-        }
+        openScene();
 
         //   ParseData.startXML(); 
         Information.currentScene = "OtherScience";
-
-
         XMLWriter.savePastSubjectAndGrade();
-       
-
-    }
-
-    
+    }  
 
     void startAnimation()
     {
-        int random = Random.Range(0, loadingContainer.transform.childCount - 1);
+        int random = UnityEngine.Random.Range(0, loadingContainer.transform.childCount - 1);
         loadingContainer.transform.GetChild(random).gameObject.SetActive(true);
 
         loadingContainer.gameObject.SetActive(true);
     }
 
 
-    public void openSceneSocialScience()
-    {
-        Information.nextScene = Information.topics[Information.topicIndex++].topics[0];
-        string sceneToLoad = "";
-
-        switch (Information.nextScene)
-        {
-            case 69: //canada geography 
-
-                sceneToLoad = "Science";
-                break;
-
-        }
-
-        if (sceneToLoad.Length > 1)
-        {
-            SceneManager.LoadScene(sceneToLoad);
-        }
-    }
-
-    public GameObject database;
-    public GameObject ytEndPanel;
-    public GameObject ytStartPanel;
-    public Button startRecc;
-    public Button startNotRecc;
-
-    public void createStartPanel(string sceneToLoad)
+    public void createStartPanel(string sceneToLoad, Information.LearningType learningType)
     {
         // first check if there is an optoin 
         string text = "";
         string reccText = "";
         string notReccText = "";
-        if(Information.learningType == Information.LearningType.MODEL)
+        if(learningType== Information.LearningType.MODEL)
         {
             text = "We think you'd learn best with our interactive models! Choose the way you'd like to learn:";
             reccText = "Model";
             notReccText = "Video";
             startRecc.onClick.AddListener(delegate { takeModel(sceneToLoad); });
-            startNotRecc.onClick.AddListener(delegate { StartCoroutine(website.GetRequest(Information.youtubeVideosUrl + "/" + Information.topicIndex, takeVideo)); });
+            startNotRecc.onClick.AddListener(delegate { playVideo(); });
 
         }
         else
@@ -107,7 +187,7 @@ public class Science : MonoBehaviour
             text = "We think you'd learn best with the help of videos! Choose the way you'd like to learn:";
             reccText = "Video";
             notReccText = "Model";
-            startRecc.onClick.AddListener(delegate { StartCoroutine(website.GetRequest(Information.youtubeVideosUrl + "/" + Information.topicIndex, takeVideo));  });
+            startRecc.onClick.AddListener(delegate { playVideo(); });
             startNotRecc.onClick.AddListener(delegate { takeModel(sceneToLoad); });
         }
         ytStartPanel.transform.GetChild(0).GetChild(1).GetComponent<TMPro.TMP_Text>().text = text;
@@ -116,6 +196,11 @@ public class Science : MonoBehaviour
         startNotRecc.GetComponentInChildren<TMPro.TMP_Text>().text = notReccText;
 
         StartCoroutine(panel.panelAnimation(true, ytStartPanel.transform));
+    }
+
+    void playVideo()
+    {
+        StartCoroutine(website.GetRequest(Information.youtubeVideosUrl + "/" + Information.topicIndex, takeVideo));
     }
 
     #region video stuff
@@ -174,35 +259,14 @@ public class Science : MonoBehaviour
         {
             StartCoroutine(LoadScene(sceneToLoad));
         }
-        else
-        {
-            Debug.LogError("the scene: " + Information.nextScene + " was not found");
-
-        }
     }
 
+    // here, always show that learn panel, but default it to the model if it exists (you can fix this later...)
+    // you need to put azure here
     public void openScene()
     {
-        if (Information.topicIndex > Information.topics.Count - 1)
-        {
-            Information.topicIndex = 0;
-        }
-        if (Information.retry)
-        {
-            Information.retry = false;
-        }
-        else
-        {
-            Information.nextScene = Information.topics[Information.topicIndex++].topics[0];
-        }
+        Information.nextScene = Information.topics[Information.topicIndex++].topics[0];
 
-
-        if (Information.nextScene < 0)
-        {
-            Information.nextScene = 0;
-        }
-
-        
         Information.doneLoading = false;
         database.SetActive(false);
         //    Information.isQuiz = 0;
@@ -211,13 +275,16 @@ public class Science : MonoBehaviour
         Information.isSelect = false;
         string sceneToLoad = getScene();
 
-        if(sceneToLoad != "")
+        decideWhatToDo();
+
+
+    /*    var learningType = Information.LearningType.MODEL;
+        if (sceneToLoad == "")
         {
-            createStartPanel(sceneToLoad);
-        } else
-        {
-            takeModel(sceneToLoad);
+            learningType = Information.LearningType.VIDEO;
+
         }
+        createStartPanel(sceneToLoad, learningType); */
     }
 
     public string getScene()
@@ -389,6 +456,7 @@ public class Science : MonoBehaviour
 
 
         }
+        Debug.LogError(Information.nextScene + " " + sceneToLoad);
         return sceneToLoad;
     }
 

@@ -7,23 +7,44 @@ public class Hints : MonoBehaviour
 {
 
     public GameObject table;
+    public GameObject horizontalSnap;
+    public Animations animations;
+
+    public InformationPanel infoPanel;
+
+
     public Quiz quiz;
 
     //for this one, it hides the correct answer?
     List<int> randomNames;
     bool tookHint = false;
     bool showAnswer = false;
-    void takeHint(GameObject[] entities, int index)
-    {
-        //get the right answer from quiz, and 3 more random dots 
-        //you need to tie the dots to answers, and the answers to dots? 
 
+    // maybe here you can go for user models 
+    void takeHint(GameObject[] entities)
+    {
+        if (tookHint)
+        {
+            showAnswer = true;
+        } else {
+            showAnswer = false;
+        }
+
+        if (showAnswer || horizontalSnap.activeSelf)
+        {
+            takeShowAnswer();
+            return;
+        } else if (table.activeSelf)
+        {
+            tableHint();
+            return;
+        }
 
         tookHint = true;
         //the table one is easier, stat with that 
         randomNames = new List<int>();
 
-        randomNames.Add(index);
+        randomNames.Add(quiz.modelIndex);
 
         for (int i = 0; i < 3; i++)
         {
@@ -50,32 +71,12 @@ public class Hints : MonoBehaviour
         }
     }
 
-    public void checkShowAnswer(bool shouldShow)
-    {
-        if (tookHint)
-        {
-            showAnswer = true;
-        }
-        else if (shouldShow)
-        {
-            showAnswer = true;
-        }
-        else
-        {
-            showAnswer = false;
-        }
 
-        if (showAnswer)
-        {
-            takeShowAnswer();
-            return;
-        }
-    }
-
-    public void tableHint(int index)
+    public void tableHint()
     {
+
         //now choose 3 more random ones
-        int buttonIndex = getButtonIndexFromName(Information.userModels[index].simpleInfo[0]);
+        int buttonIndex = getButtonIndexFromName(quiz.currAnswer);
         randomNames.Add(buttonIndex);
         for (int i = 0; i < 3; i++)
         {
@@ -87,42 +88,35 @@ public class Hints : MonoBehaviour
             randomNames.Add(next);
         }
 
-
-
         for (int i = 0; i < table.transform.parent.childCount; i++)
         {
             if (!randomNames.Contains(i))
             {
                 table.transform.parent.GetChild(i).gameObject.SetActive(false);
             }
-
         }
     }
 
-    public GameObject horizontalSnap;
-    public Animations animations;
+
 
     public void takeShowAnswer()
     {
 
-        int index = int.Parse(quiz.lables[quiz.nextId][1]);
-
         if (horizontalSnap.activeSelf)
         {
 
-        //    horizontalSnap.GetComponent<UnityEngine.UI.Extensions.HorizontalScrollSnap>().ChangePage(index - modelOffset);
+            horizontalSnap.GetComponent<UnityEngine.UI.Extensions.HorizontalScrollSnap>().ChangePage(quiz.modelIndex); // not sure if that'll work tbh
         }
         else
         {
-         //   animations.addAnimation(index - modelOffset, Information.animationLength, true, Information.animationGrowth);
+            animations.addAnimation(quiz.modelIndex, Information.animationLength, true, Information.animationGrowth);
         }
 
         tookHint = false;
 
-        Information.panelIndex = index;
-        Information.lableIndex = 0;
-        //just show here
+        infoPanel.showPanel(quiz.modelIndex);
     }
+
 
     int getButtonIndexFromName(string name)
     {
@@ -136,9 +130,10 @@ public class Hints : MonoBehaviour
         return -1;
     }
 
+
     void closeHint()
     {
-       /* if (inTable)
+     /*   if (inTable)
         {
             for (int i = 1; i < table.transform.parent.childCount; i++) //the first one is the defualt 
             {
@@ -150,6 +145,14 @@ public class Hints : MonoBehaviour
         {
             isHiding = true;
             takeHideclick();
+        }  */
+    }
+
+    private void Update()
+    {
+      /*  if(showAnswer && !infoPanel.panelContainer.activeSelf)
+        {
+            closeHint();
         } */
-    } 
+    }
 }

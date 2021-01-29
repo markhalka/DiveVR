@@ -56,7 +56,8 @@ public class ScienceTest : MonoBehaviour
             currWrong++;
             StartCoroutine(changeColor(false));
         }
-        simple.text = tableQuiz.next();
+
+        simple.text = tableQuiz.getTextQuestion();
         if (tableQuiz.getQuestions() >= 2)
         {
             endTableQuiz();
@@ -124,8 +125,9 @@ public class ScienceTest : MonoBehaviour
                     currLables.Add(new string[] { question, i.ToString() });
                 }
             }
-            tableQuiz.initQuiz(currLables);
-            simple.text = tableQuiz.next();
+
+            tableQuiz.startQuiz();
+            simple.text = tableQuiz.getTextQuestion();
             createTable();
 
         }
@@ -208,7 +210,7 @@ public class ScienceTest : MonoBehaviour
     void nextMultiQuiz()
     {
         var script = multiQuiz.GetComponent<QuizMenu>();
-        if (script.currentRightCount + script.currentWrongCount >= 2)
+        if (script.quiz.totalQuestions() >= 2)
         {
             multiQuiz.gameObject.SetActive(false);
 
@@ -225,16 +227,16 @@ public class ScienceTest : MonoBehaviour
         if (multiQuiz.activeSelf)
         {
 
-            if (currWrong != script.currentWrongCount)
+            if (currWrong != script.quiz.currentWrongCount)
             {
                 Debug.LogError("calling next question");
-                currWrong = script.currentWrongCount;
+                currWrong = script.quiz.currentWrongCount;
               //  script.nextQuestion();
 
             }
-            else if (currRight != script.currentRightCount)
+            else if (currRight != script.quiz.currentRightCount)
             {
-                currRight = script.currentRightCount;
+                currRight = script.quiz.currentRightCount;
 
             }
             nextMultiQuiz();

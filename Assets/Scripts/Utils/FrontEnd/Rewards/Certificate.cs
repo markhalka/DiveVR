@@ -171,7 +171,7 @@ public class Certificate : MonoBehaviour
         }
 
         //    UnityNativeSharingHelper.ShareScreenshotAndText(text, screenshotPath, false, "Select App To Share With");
-        new NativeShare().AddFile(screenshotPath).SetText("Check out my achievement on Dive!").Share();
+    //    new NativeShare().AddFile(screenshotPath).SetText("Check out my achievement on Dive!").Share();
         certificate.Attribute("date").Value = DateTime.Today.ToString("MM/dd/yyyy");
         XMLWriter.saveFile();
     }

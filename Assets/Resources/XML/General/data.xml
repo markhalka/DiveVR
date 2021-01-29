@@ -57,12 +57,12 @@
       <lesson topics="5" level="0.5" name="plants"></lesson> //nothing for now
       <lesson topics="6" level="0.5" name="force and motion"></lesson>
       <lesson topics="7" level="0.5" name="magnets"></lesson>
-      <lesson topics="8" level="0.5" name="classification"></lesson>
+      <lesson topics="8" level="0.5" name="natural selection"></lesson>
       <lesson topics="9" level="0.5" name="scientific names"></lesson>
-      <lesson topics="10" level="0.5" name="animal life cycles"></lesson>
+
       <lesson topics="11" level="0.5" name="simple machines"></lesson> //nothing
       <lesson topics="12" level="0.5" name="microscope"></lesson> //nothing
-      <lesson topics="13" level="0.5" name="classification"></lesson> //nothing
+
       <lesson topics="14" level="0.5" name="animal cells"></lesson>
       <lesson topics="15" level="0.5" name="plant cells"></lesson>
       <lesson topics="16" level="0.5" name="ecology"></lesson>
@@ -72,9 +72,8 @@
       <lesson topics="20" level="0.5" name="greenhouse gasses"></lesson>
       <lesson topics="21" level="0.5" name="water cycle"></lesson>
       <lesson topics="22" level="0.5" name="astronomy"></lesson>
-      <lesson topics="23" level="0.5" name="lab tools"></lesson>
+
       <lesson topics="24" level="0.5" name="designing experiments"></lesson>
-      <lesson topics="25" level="0.5" name="engineering practices"></lesson>
       <lesson topics="26" level="0.5" name="chemical reactions"></lesson>
       <lesson topics="27" level="0.5" name="velocity, acceleration and forces"></lesson>
       <lesson topics="28" level="0.5" name="kinetic and potential energy"></lesson>
@@ -92,7 +91,7 @@
       <lesson topics="40" level="0.5" name="current electricity"></lesson> //nothing
       <lesson topics="41" level="0.5" name="ecosystems"></lesson>
       <lesson topics="42" level="0.5" name="energy sources"></lesson>
-      <lesson topics="43" level="0.5" name="static electricity"></lesson>
+      <lesson topics="43" level="0.5" name="circuits"></lesson>
       <lesson topics="44" level="0.5" name="environment"></lesson>
       <lesson topics="45" level="0.5" name="weathering"></lesson>
 
@@ -112,41 +111,18 @@
         <model section="-1">
           <simple>Matter</simple>
           <advanced>In this module you will learn about matter, atoms, bonds, compounds and subatomic particles</advanced>
-          <advanced>Matter is the substance of which all material is made. Matter is anything that has mass and takes up space.</advanced>
-          <advanced>We all know when something takes up space, but what exactly is mass?</advanced>
-          <advanced>Mass is simply the amount of matter in an object. If you hold a brick in one hand and a feather in your other hand, can you tell which object has more mass? </advanced>
-          <advanced>The brick feels heavier, and therefor the brick has more mass. We can confirm this by using a scale to measure the mass of both objects.</advanced>
+          <advanced>Matter is the substance of which all material is made. Matter is anything that has mass and takes up space. We all know when something takes up space, but what exactly is mass?</advanced>
+          <advanced>Mass is simply the amount of matter in an object. If you hold a brick in one hand and a feather in your other hand, can you tell which object has more mass? The brick feels heavier, and therefore the brick has more mass.</advanced>
+          <advanced>Now that we understand what matter is, lets learn more about atoms and compounds.</advanced>
           <quiz>This is the substance of which all material is made</quiz>
           <quiz>This is anything that has mass and takes up space</quiz>
         </model>
 
-        //new stuff =----------------
-        <model section="-1">
-          <simple>Volume</simple>
-          <advanced>The amount of space that something takes up is described in a measurement called volume</advanced>
-          <advanced>Measuring the volume of something depends on its shape. For example, to measure the volume of a box-shaped object, we would measure its length, width, and height. Then, we multiply these three measurements together.</advanced>
-          <advanced>If the measurements are in centimeters, the unit for volume is cubic centimeters (cm3).</advanced>
-          <quiz>This is the amount of space that something takes up</quiz>
-        </model>
-
-        <model section="-1">
-          <simple>Properties of matter</simple>
-          <advanced>Matter can be experience with our senses, and they have different properties, let's take a look at a few of the common ones!</advanced>
-          <advanced>Mass is the amount of matter in an object </advanced>
-          <advanced>Volume is the amount of space an object takes up</advanced>
-          <advanced>Texture is what an object feels like when you touch it </advanced>
-          <advanced>Hardness is the ability of an object to be scratched. For example, glass can be scratched but a diamond cannot.</advanced>
-          <advanced>Flexibility is how much an object can bend before it breaks; paper has a lot of flexibility, but a rock has very little or no flexibility. </advanced>
-          <advanced>Absorbency is whether an object can soak up liquids; a tissue absorbs water, but a brick does not.</advanced>
-          <advanced>Buoyancy is whether an object floats; an ice cube floats in water, but a penny does not. </advanced>
-        </model>
-        //new stuff-------------
 
         <model>
           <simple>Bonds</simple>
           <advanced>All atoms would like to have a full outer shell of electrons, because this is when they are most stable. When atoms without full outer shells come into contact with other atoms, they want to give up or gain electrons, this is called bonding</advanced>
-          <advanced>Only the very outside electrons can form bonds, these are called "valance electrons"</advanced>
-          <advanced>There are two general types of bonds that atoms can form: Ionic and covalent</advanced>
+          <advanced>Only the very outside electrons can form bonds, these are called "valance electrons". There are two general types of bonds that atoms can form: Ionic and covalent</advanced>
           <advanced>Ionic bonding occurs when one element donates an electron (or electrons) to another so that both atoms will have a full outer shell. </advanced>
           <advanced>In covalent bonding electrons aren't donated, but shared between electrons. So for ionic bonding, electrons move completely from one atom to another, and in covalent bonding, the same electrons are used by both atoms to have a full outer shell</advanced>
           <advanced>After bonding, the atoms become more stable than before, and their energy levels become lower</advanced>
@@ -157,15 +133,13 @@
         <model>
           <simple>Hydrogen</simple>
           <advanced>It is the simplest possible atom composed of one proton in the nucleus which is orbited by a single electron. Hydrogen is the lightest of the elements and is the most abundant element in the universe.</advanced>
-          <advanced>Hydrogen is a colorless, odorless, and tasteless gas.</advanced>
-          <advanced>Hydrogen is very flammable and burns with an invisible flame. It burns when it comes into contact with oxygen. The byproduct of a hydrogen and oxygen explosion is water.</advanced>
+          <advanced>Hydrogen is a colorless, odorless, and tasteless gas. It is also very flammable and burns with an invisible flame. It burns when it comes into contact with oxygen. The byproduct of a hydrogen and oxygen explosion is water.</advanced>
           <quiz>This is the first element in the periodic table</quiz>
           <quiz>This gas is flammable, colorless and odorless</quiz>
         </model>
         <model>
           <simple>Oxygen</simple>
-          <advanced>Oxygen is a colorless, tasteless and odorless gas. The air, and even the water we drink has oxygen</advanced>
-          <advanced>Oxygen is a very reactive element that easily forms compounds such as oxides.</advanced>
+          <advanced>Oxygen is a colorless, tasteless and odorless gas. The air, and even the water we drink has oxygen. Oxygen is a very reactive element that easily forms compounds such as oxides.</advanced>
           <quiz>This element has chemical Symbol O</quiz>
           <quiz>This element is very reactive, and easily forms compounds such as oxides</quiz>
         </model>
@@ -179,8 +153,7 @@
         </model>
         <model>
           <simple>Electron cloud</simple>
-          <advanced>The electron is a negatively charged particle that spins around the outside of the nucleus.</advanced>
-          <advanced>Electrons spin so fast around the nucleus, scientists can never be 100% sure where they are located, therefore they are said to exist in shells</advanced>
+          <advanced>The electron is a negatively charged particle that spins around the outside of the nucleus. Electrons spin so fast around the nucleus, scientists can never be 100% sure where they are located, therefore they are said to exist in shells</advanced>
           <advanced>Each shell can only contain a certain number of electrons: the first layer can hold two electrons, the second layer eight electrons, the third layer eighteen electrons, etc.</advanced>
           <advanced> If there are the same number of electrons and protons in an atom, then the atom is said to have a neutral charge. </advanced>
           <advanced>Electrons have a mass of about 1/2000 of a proton, therefore, we say that they do not affect the mass of the atom, however, they're charge is equally strong as that of a proton</advanced>
@@ -197,25 +170,24 @@
         </model>
         <model>
           <simple>Atom</simple>
-          <advanced>The atom is the basic building block for all matter in the universe. Atoms are tiny and are made up of a few even smaller particles. </advanced>
-          <advanced>Every atom can be thought of as a circular shape with two parts: a nucleus and electrons</advanced>
+          <advanced>The atom is the basic building block for all matter in the universe. Atoms are tiny and are made up of a few even smaller particles. Every atom can be thought of as a circular shape with two parts: a nucleus and electrons </advanced>
           <advanced>The nucleus is found at the center of every atom and has a positive charge.  Negatively charged electrons surround the nucleus and it's these two opposite charges that hold an atom together. </advanced>
           <quiz>This is the building block of all matter in the universe</quiz>
         </model>
         <model>
-          <simple>Neutron</simple>
+          <simple>Neutrons</simple>
           <advanced>The neutron doesn't have any charge. The number of neutrons affects the mass and the radioactivity of the atom.</advanced>
           <quiz>This subatomic particle has no charge</quiz>
           <quiz>This subatomic particle affects the mass, but not the charge of the atom</quiz>
         </model>
         <model>
           <simple>Proton</simple>
-          <advanced>The proton is a positively charged particle that is located at the center of the atom in the nucleus.</advanced>
-          <advanced>Protons also affect the mass and charge of the atom, and have the same amount of mass of a neutron</advanced>
+          <advanced>The proton is a positively charged particle that is located at the center of the atom in the nucleus. Protons also affect the mass and charge of the atom, and have the same amount of mass of a neutron</advanced>
           <quiz>This subatomic particle has a positive charge</quiz>
           <quiz>Every element has this subatomic particle, found in the nucleus of the atom</quiz>
         </model>
       </lesson> //this is good matter 2 new things section 1   //4,5,6,7,8
+      
       <lesson name="Heat and thermal energy" topics="2" level="5" index="63" inq="Can you explain why water at 20 degrees feels hotter than air at 20 degrees?" score="0">
         //also have physical and chemical change
         <model section="-1">
@@ -227,8 +199,6 @@
         <model section="-1">
           <simple>Temperature</simple>
           <advanced>Heat and temperature are two words that we use interchangeably every day, but they mean very different things in science!</advanced>
-          <advanced>Before we take a look at what temperature means, we need to know what matter is</advanced>
-          <advanced>Matter is anything that occupies space. All matter is made up of particles. </advanced>
           <advanced>The temperature of something depends on how fast its particles are moving. In other words, temperature is related to the kinetic energy (the energy of movement) of the particles of matter.  </advanced>
           <advanced> Matter that has faster-moving particles (higher kinetic energy) has a higher temperature than matter that has slower-moving particles (lower kinetic energy). </advanced>
           <advanced>temperature is a measure of the average kinetic energy of the particles in a substance. The unit for temperature is the degree Celsius.</advanced>
@@ -239,37 +209,21 @@
 
         <model section="-1">
           <simple>Heat</simple>
-          <advanced>The amount of heat in an object depends on its temperature, mass, and composition. </advanced>
-          <advanced>Heat is a form of energy. Therefore, heat is related to other forms of energy, such as sound energy, electrical energy, nuclear energy etc.</advanced>
-          <advanced>All these types of energy have one thing in common: energy can cause matter to change.</advanced>
-          <advanced>Heat (or heat energy), is the energy that is transferred from matter at a higher temperature to matter at a lower temperature.</advanced>
+          <advanced>The amount of heat in an object depends on its temperature, mass, and composition. Heat is a form of energy. Therefore, heat is related to other forms of energy, such as sound energy, electrical energy, nuclear energy etc. </advanced>
+          <advanced>All these types of energy have one thing in common: energy can cause matter to change. Heat (or heat energy), is the energy that is transferred from matter at a higher temperature to matter at a lower temperature.</advanced>
           <advanced>The SI unit for heat energy is the joule. </advanced>
           <advanced>Thermometers demonstrate the ability of heat to change matter. Adding heat energy to matter generally causes matter to expand—the volume increases. Removing heat energy from matter generally causes matter to contract—the volume decreases.</advanced>
           <advanced>Now that we understand heat, lets take a look at the particle theory of matter</advanced>
           <quiz>This is a form of energy, which is related to the transfer of temperature</quiz>
-
           <quiz>The unit of measurement for this is joule </quiz>
         </model>
 
         <model section="-1">
           <simple>Particle theory of matter</simple>
           <advanced>The following are the main ideas of the particle theory of matter:</advanced>
-          <advanced>All matter is made up of extremely tiny particles, which are attracted or bonded to each other.</advanced>
-          <advanced>The particles of matter are always moving and vibrating. This movement involves kinetic energy.</advanced>
-          <advanced>Adding heat energy to matter makes the particles move around faster and vibrate faster.</advanced>
+          <advanced>All matter is made up of extremely tiny particles, which are attracted or bonded to each other. The particles of matter are always moving and vibrating. This movement involves kinetic energy. Adding heat energy to matter makes the particles move around faster and vibrate faster.</advanced>
           <advanced>Faster-moving things have more kinetic energy. So adding heat energy increases the kinetic energy of the particles.</advanced>
           <advanced>The particles also have space between them. This is empty space not filled with air. Different states of matter have different amounts of space between the particles.</advanced>
-        </model>
-
-        <model section="-1">
-          <simple>Types of change</simple>
-          <advanced>Finally, let's look at the different types of change</advanced>
-          <advanced>Above, the kinetic particle theory talked about matter changing states, this type of change is known as a reversible change.</advanced>
-          <advanced>There are two general types of change, reversible and irreversible</advanced>
-          <advanced>Reversible means you can change a substance back to the way it was before the change of state happened. It can also mean that its characteristics do not change.</advanced>
-          <advanced> If you melt ice into water, you can refreeze the water to turn it back into ice. If you cut a piece of paper in half, you have not changed its properties. </advanced>
-          <advanced> Other changes of state are non-reversible. Non-reversible means that a new product is formed after the substance goes through a change of state. If you burned the paper, would you be able to change it back into paper again?</advanced>
-          <advanced>Reversible changes are often called physical change. Irreversible changes are called chemical changes</advanced>
         </model>
 
         //new shit --------------
@@ -340,8 +294,7 @@
         </model>
         <model section="-1">
           <simple>Mixtures</simple>
-          <advanced>A mixture is made when two or more substances are combined, but they are not combined chemically.</advanced>
-          <advanced>A pure substance, such as table salt, is made up of just one type of particle. A mixture, such as soil, is made up of more than one type of particle. </advanced>
+          <advanced>A mixture is made when two or more substances are combined, but they are not combined chemically. A pure substance, such as table salt, is made up of just one type of particle. A mixture, such as soil, is made up of more than one type of particle.</advanced>
           <advanced> General properties of a mixture: The components of a mixture can be easily separated, the components each keep their original properties, the proportion of the components is variable</advanced>
         </model>
         <model section="-1">
@@ -498,7 +451,7 @@
 
 
       </lesson> //this is good   //5,6,7,8,9
-      <lesson name="Classification" topics="8" level="5" index="68" inq="Can you think of another name to remember the levels in Linnaeus's system? Write them below!" score="0">
+      <lesson name="Natrual Selection" topics="8" level="5" index="68" inq="Can you think of another name to remember the levels in Linnaeus's system? Write them below!" score="0">
         <model section="-1">
           <simple>Classification</simple>
           <advanced>In this module you will learn about the history of taxonomy, and how we classify all living things</advanced>
@@ -1052,114 +1005,6 @@
           <quiz>Triticum aestivum</quiz>
         </model>
       </lesson> //good    6,7,8,9,10
-      <lesson name="Animals" topics="10" level="5" index="70" inq="Can you think of some other animals that change over the course of their lives? Write them below!" score="10">
-        <model section="-1">
-          <simple>Animal Life Cycles</simple>
-          <advanced>In this module you will learn about some common animal life cycles, and how many animals change over the course of their lives</advanced>
-          <advanced>To use this module click on the animals to reveal their life cycles, then click on each of the parts of their life cycles to learn more about them!</advanced>
-        </model>
-        <model>
-          <simple>Chickens</simple>
-          <advanced>A chicken is a kind of domesticated bird. It is raised widely for its meat and eggs. </advanced>
-          <advanced>There are 24 billion chickens worldwide. They are usually kept by humans as livestock, which means it is kept for its meat and eggs.</advanced>
-          <advanced>A male chicken is called a rooster or a cock (short for cockerel). A female chicken is called a hen. </advanced>
-          <quiz>These animals are domesticated birds, kept for their meat and eggs</quiz>
-          <quiz>There are about 24 billion of these kept by humans worldwide</quiz>
-        </model>
-        <model>
-          <simple>Chick</simple>
-          <advanced>Hens fiercely guard their chicks, and brood them when necessary to keep them warm, at first often returning to the nest at night. She leads them to food and water and will call them toward edible items, but seldom feeds them directly. She continues to care for them until they are several weeks old.</advanced>
-          <quiz>After hatching, this is what chickens become</quiz>
-        </model>
-        <model>
-          <simple>Chicken Egg</simple>
-          <advanced>Fertile chicken eggs hatch at the end of the incubation period, about 21 days.</advanced>
-          <advanced>Development of the chick starts only when incubation begins, so all chicks hatch within a day or two of each other, despite perhaps being laid over a period of two weeks or so. </advanced>
-          <quiz>This is how chickens start their lives</quiz>
-          <quiz>These eggs hatch in about 21 days</quiz>
-        </model>
-        <model>
-          <simple>Beetles</simple>
-          <advanced>Beetles, the order Coleoptera, are the largest group of insects. There are 350,000 different species of beetles which have been named: about 40% of all known insects. </advanced>
-          <advanced>In common with other insects, there are three main parts to a beetle's body: the head, the thorax (the middle part), and the abdomen (the back part).</advanced>
-          <quiz>There are over 350,000 different types of these</quiz>
-          <quiz>Like other insects, these animals have three main parts, head, thorax and abdomen</quiz>
-        </model>
-        <model>
-          <simple>Beetle Pupa</simple>
-          <advanced>When the pupa opens, an adult beetle, sometimes called an imago, comes out. This way of growing up is called complete metamorphosis.</advanced>
-          <quiz>When this opens, and adult beetle, sometimes called an imago, comes out</quiz>
-        </model>
-        <model>
-          <simple>Beetle Instar</simple>
-          <advanced>A larva comes out when an egg hatches. Most beetle larvae do not look like adult beetles.</advanced>
-          <advanced> Beetles eat the most when they are larvae. A beetle larva eats and grows larger until it changes and becomes a pupa.</advanced>
-          <quiz>This is what hatches out of a beetle egg</quiz>
-          <quiz>Beetles eat most in this stage of their lives</quiz>
-          <quiz>This eats and grows until it becomes a pupa</quiz>
-        </model>
-        <model>
-          <simple>Beetle Egg</simple>
-          <advanced>Beetles start out as eggs that a female beetle lays. Some beetles can lay thousands of eggs during their lives.</advanced>
-          <quiz>Sometimes thousands of these can be laid at once</quiz>
-        </model>
-        <model>
-          <simple>Dragonflies</simple>
-          <advanced>Dragonflies are flying insects of the order Odonata. There are about 5,300 species of dragonfly. </advanced>
-          <advanced>Dragonflies have large compound eyes, which is their main sense organ. They have four strong transparent wings, and a long body. Even though dragonflies have six legs (like any other insect), they cannot walk.</advanced>
-          <advanced>Dragonflies are usually found around lakes, ponds, streams and wetlands. They are predators which eat mosquitoes, and other small insects such as flies, bees, ants, and butterflies.</advanced>
-          <advanced>Dragonflies have been around for 300 million years</advanced>
-          <quiz>There are about 5,300 different species of this animal</quiz>
-          <quiz>These animals are predators, and eat mosquitoes and other small insects</quiz>
-          <quiz>These animals have existed for over 300 million years</quiz>
-        </model>
-        <model>
-          <simple>Larvae</simple>
-          <advanced>Dragonfly larvae, known as 'nymphs', are aquatic. While in the nymph stage they eat mosquito larvae and other things.</advanced>
-          <advanced>The larval stage of large dragonflies may last as long as five years. </advanced>
-          <advanced>Most of a dragonfly's life is spent in the nymph form, beneath the water's surface. It is quite active.</advanced>
-          <advanced> It can extend its jaws in front of its mouth to catch prey. Tiny vertebrates such as tadpoles and fish are part of its diet. Some nymphs even hunt on land. </advanced>
-          <advanced>They draw water in and out of their rectum. They can move fast by squirting water out of the anus. They also have gills in their rectum.</advanced>
-          <quiz>These animals, also known as 'nymphs' are aquatic</quiz>
-          <quiz>Most of the dragonfly's life is spent in this stage</quiz>
-        </model>
-        <model>
-          <simple>Dragonfly Egg</simple>
-          <advanced>Female dragonflies lay eggs in or near water, often on plants. When laying eggs, some species go under the water to lay their eggs on a good surface</advanced>
-          <quiz>These eggs are laid near water, often on plants</quiz>
-        </model>
-        <model>
-          <simple>Butterfly</simple>
-          <advanced>A butterfly is a usually day-flying insect of the order Lepidoptera. They are grouped together in the suborder Rhopalocera. Butterflies are closely related to moths, from which they evolved.</advanced>
-          <advanced>The other notable features of butterflies are their extraordinary range of colors and patterns, and their wings.</advanced>
-          <advanced>Like moths, butterflies have four wings covered with tiny scales. When a butterfly is not flying, its wings are usually folded over its back. The wings are patterned and are often brightly colored. </advanced>
-          <quiz>These animals evolved from moths</quiz>
-          <quiz>These animals are notable for their wings</quiz>
-        </model>
-        <model>
-          <simple>Butterfly Pupa</simple>
-          <advanced>The pupa (plural, pupae) is formed after the last molt. </advanced>
-          <advanced>During this stage, the digestive tract is emptied. The caterpillar sheds its skin. The pupa is now exposed. The caterpillar's tissues are broken down and rebuilt into the butterfly's tissues.</advanced>
-          <advanced>There are many tiny holes on the pupa. They allow respiratory gases to move in and out of the pupa.</advanced>
-          <advanced>Most butterfly pupae do not have cocoons to protect themselves. Instead, the pupae have brown or green colors to camouflage themselves among leaves and branches. Pupae that do not have cocoons are called chrysalids or chrysalises.</advanced>
-          <quiz>This is formed after the last molt of a butterfly</quiz>
-          <quiz>During this stage of a butterflies life, its tissues are broken down, then rebuilt</quiz>
-          <quiz>Most butterflies use colors, or cocoons to camouflage themselves during this stage</quiz>
-        </model>
-        <model>
-          <simple>Caterpillar</simple>
-          <advanced>Butterfly caterpillars can vary in size, color, and shape. They may have spines, bristles, or soft body extensions. All caterpillars have 13 body segments. </advanced>
-          <advanced>A caterpillar's skin does not grow. As the caterpillar grows inside its skin, the skin becomes too tight. In order for the caterpillar to grow bigger, it sheds </advanced>
-          <advanced> A caterpillar will molt four to five times before turning into a pupa. Each part between molts is called an instar.</advanced>
-          <quiz>This stage of the butterfly's life is spent eating and molting multiple times</quiz>
-        </model>
-        <model>
-          <simple>Butterfly Eggs</simple>
-          <advanced>A female butterfly will lay her eggs on or near the food plant of the caterpillar (the food plant is the plant that the caterpillar feeds on).</advanced>
-          <advanced> The female will choose a place to lay her eggs using smell, taste, touch, and sight. Most species will lay just one egg on the food plant. Others will lay groups of five to over 100 eggs on the food plant. </advanced>
-          <quiz>Often, only one of these eggs are laid on a food plant.</quiz>
-        </model>
-      </lesson> //this is good   //4,5,6,7,8
       <lesson name="Simple machines" topics="11" level="5" index="112" score="" inq="List 3 simple machines that you use every day!">
 
         <model section="-1">
@@ -1797,6 +1642,7 @@
           <quiz>Around 10 percent of the water vapour in the atmosphere is estimated to come from here</quiz>
         </model>
       </lesson> //good   //4,5,6,7,8
+      
       <lesson name="Astronomy" topics="22" level="5" index="81" inq="What would be the best planet for humans to colonize? The second best?" score="0">
         <model section="-1">
           <simple>Our Solar System</simple>
@@ -3274,57 +3120,36 @@
 
       <scene name="StudentMenu">
         <panel index="0">
-
-
-          <model>
-            <simple>Your Character</simple>
-            <advanced>This is your customizable Dive character. You can change him/her however you like! If you want to add a little extra you can buy your character gear from the Dive shop!</advanced>
-          </model>
-
-
+          
           <model>
             <simple>Shop</simple>
-            <advanced>Here you can spend your well-earned Dive points! Currently, you can purchase a variety of e-gift cards. </advanced>
-            <advanced>Enter the tutorial in the shop to learn more!</advanced>
-          </model>
-
-          <model>
-            <simple>About Me</simple>
-            <advanced>Here you can keep track of your progress, view and edit your learning plan and see all your past achievements!</advanced>
+            <advanced>Here you can spend your well-earned Dive points! Currently, you can purchase a variety of e-gift cards. Enter the tutorial in the shop to learn more</advanced>
           </model>
 
           <model>
             <simple>Dive Points</simple>
             <advanced>As you learn and discover more, you will be rewarded with Dive points. You can use Dive points to purchase things from the shop!</advanced>
           </model>
-        </panel>
+       
 
-        //points panel
+          <model>
+            <simple>About Me</simple>
+            <advanced>Here you can keep track of your progress, view and edit your learning plan and see all your past achievements</advanced>
+          </model>
+        </panel>
+        
+        //about me panel
         <panel index="1">
           <model>
-            <simple>Current Balance</simple>
-            <advanced>You can earn Dive points by logging on every day, and improving in lessons!</advanced>
-            <advanced>Here you can see how many Dive points you currently have</advanced>
-          </model>
-
-          <model>
-            <simple>Monthly limit</simple>
-            <advanced>Each month you can spend a maximum of number of Dive points, shown here</advanced>
-          </model>
-        </panel>
-
-        //about me panel
-        <panel index="2">
-          <model>
             <simple>Student Information</simple>
-            <advanced>This is where all the results from your past tests and quizzes are kept, to help you keep track of your progress over time!</advanced>
+            <advanced>This is where all the results from your past tests and quizzes are kept, to help you keep track of your progress over time</advanced>
             <advanced>Be sure to visit this page often, to see how you've improved and set new goals to help keep you motivated (and earn some Dive points!)</advanced>
-            <advanced>This is also where you can edit your learning plans. If you want to learn a specific topic sooner, change the difficulty of the questions, change the topics you learn or anything else to do with your learning plan then come here! </advanced>
+            <advanced>This is also where you can edit your learning plans.</advanced>
+            <advanced>If you want to change the difficulty of the questions, change the topics you learn or anything else to do with your learning plan then come here</advanced>
           </model>
           <model>
             <simple>Achievements</simple>
-            <advanced>This is where all of your past certificated and medals are stored!</advanced>
-            <advanced>You can earn them by participating in competitions, improving in subjects, or studying every day!</advanced>
+            <advanced>This is where all of your past certificates and medals are stored!</advanced>
             <advanced>If you want to earn extra Dive points, be sure to share your achievements with your friends, by clicking the "Share" button!</advanced>
           </model>
         </panel>
@@ -3337,22 +3162,8 @@
           </model>
         </panel>
 
-        <panel index="2">
-          //learning panel
-          <model>
-            <simple>Continue last lesson</simple>
-            <advanced>If you want to continue from where you left off, then just click this button</advanced>
-          </model>
-          <model>
-            <simple>Learn something new</simple>
-            <advanced>If you want to learn more math, science or public speaking, then click here!</advanced>
-          </model>
-        </panel>
-
-
-
         //main menu
-        <panel index="3">
+        <panel index="2">
           <model>
             <simple>Menu</simple>
             <advanced>This menu can be found in any scene, simply click the three bars to open it</advanced>
@@ -3378,24 +3189,19 @@
             <simple>Tutorial</simple>
             <advanced>Click this button to get the tutorial for the current scene. Use this button anytime you are confused!</advanced>
           </mode>
-
           <model>
             <simple>Bon Voyage</simple>
             <advanced>That's the end of this tutorial! Have fun learning!</advanced>
             <advanced>Click here to continue</advanced>
           </model>
         </panel>
-
-
       </scene>
 
       <scene name="Shop">
         <panel index="0">
-
           <model>
             <simple>Shop</simple>
-            <advanced>Here you can spend your well-earned Dive points!</advanced>
-            <advanced>Be sure to save! The more you save the better prizes you can buy.</advanced>
+            <advanced>Here you can spend your well-earned Dive points.</advanced>
             <advanced>To buy a prize, simply click on the prize you wish to buy, and enter the amount of Dive points you would like to spend, remember, 500 Dive points is 1 dollar</advanced>
           </model>
         </panel>
@@ -3410,15 +3216,14 @@
             <simple>Gift Card Amount</simple>
             <advanced>Here enter how many Dive points you would like on your gift card. It must be less than your balance and current Dive points limit.</advanced>
           </model>
-        </panel>
-        
+        </panel>       
       </scene>
 
       <scene name="StudentInfo">
         <panel index="0">
           <model>
             <simple>Student Information</simple>
-            <advanced>Here you can find your learning plan, your goals, and your past progress!</advanced>
+            <advanced>Here you can find your learning plan, your goals, and your past progress</advanced>
           </model>
 
           <model>
@@ -3439,7 +3244,7 @@
             <simple>Edit Plan</simple>
             <advanced>Here you can edit your learning plan for this subject.</advanced>
             <advanced>Your learning plan is exactly which topics, in which order, and in what difficulty you learn</advanced>
-            <advanced> Here, you can also write a quick placement test, and Dive will automatically choose the right topics, order and difficulty for you so you can spend less time worrying and more time learning! </advanced>
+            <advanced>You can also write a quick placement test, and Dive will automatically choose the right topics, order and difficulty for you so you can spend less time worrying and more time learning! </advanced>
           </model>
 
         </panel>
@@ -3455,6 +3260,16 @@
 
         </panel>
       </scene>
+
+      <scene name="Achievement">
+        <panel index="0">
+        <model>
+          <simple>Certificates</simple>
+          <advanced>Earn certificates by completing lessons and goals. </advanced>
+          <advanced>You can share certificates with your friends for extra Dive Points!</advanced>
+        </model>
+        </panel>
+      </scene>
       <scene name="Curriculum">
         <panel index="1">
           <model>
@@ -3464,8 +3279,7 @@
 
           <model>
             <simple>Current topics</simple>
-            <advanced>Here you can see all the current topics that are in your plan</advanced>
-            <advanced>Topics are sorted into similar groups based on their colours.</advanced>
+            <advanced>Here you can see all the current topics that are in your plan. Topics are sorted into similar groups based on their colours.</advanced>
             <advanced>To remove a topic, drag it to the left, to learn more about a topic and change its difficulty, click on it. To change the order of topics, just drag and drop them here</advanced>
           </model>
 
@@ -3479,8 +3293,7 @@
             <simple>Topic information</simple>
             <advanced>Here you can find information about the current topic</advanced>
             <advanced>The name is shown at the top, followed by an example questions, and finally the difficulty.</advanced>
-            <advanced>To change the difficulty, simply move the slider!</advanced>
-            <advanced>If you changed the difficulty, make sure you click "Save" to save your selection</advanced>
+            <advanced>To change the difficulty, simply move the slider. If you changed the difficulty, make sure you click "Save" to save your selection</advanced>
           </model>
 
           <model>
@@ -3493,31 +3306,18 @@
       </scene>
 
       <scene name="HomeMenu">
-        <panel index="0">
-
-          <model>
-            <simple>Subjects</simple>
-            <advanced>When you want to learn a new topic, you can choose what to learn here!</advanced>
-            <advanced>you can choose from four topics, Math, Science, Public speaking and Social science</advanced>
-
-          </model>
-
-        </panel>
         <panel index="1">
           //the grades
 
           <model>
             <simple>Grades</simple>
-            <advanced>When you've chosen your subject, you can now choose what grade you would like to learn it in!</advanced>
+            <advanced>Select a grade to continue learning Science</advanced>
             <advanced>Note: it doesn't matter which grade you choose, and it doesn't have to be your current grade, if you are in grade 7 feel free to learn science in Grade 5 or in Grade 10!</advanced>
           </model>
-
-
         </panel>
       </scene>
 
       <scene name="ModuleMenu">
-        //science module menu
         <panel index="0">
           <model>
             <simple>Module Menu</simple>
@@ -3535,112 +3335,6 @@
 
         </panel>
       </scene>
-      <scene name="Math">
-        <panel index="0">
-          //number bar question
-          <model>
-            <simple>Math</simple>
-            <advanced>Here you can learn and practice math. There are few different ways to answer questions, lets go through them!</advanced>
-          </model>
-          <model>
-            <simple>Question</simple>
-            <advanced>The question is shown at the top of the screen. You will be given a few different ways to answer the question below</advanced>
-          </model>
-
-          <model>
-            <simple>Number Bar</simple>
-            <advanced>Here you can see the number bar. Using this you can enter the answer to the above question, the number you type will appear in the box in the middle</advanced>
-            <advanced>Sometimes there are multiple boxes you need to write answers in. To select a box simply click on it to select it, then you can enter a number</advanced>
-          </model>
-
-          <model>
-            <simple>Correct answer</simple>
-            <advanced>When you get a correct answer, the question counter on the right side will increase, and the next question will be shown</advanced>
-            <advanced>The question counter shows you how many questions you have answered, and how many questions you have left</advanced>
-          </model>
-
-        </panel>
-        <panel index="1">
-          //drag and drop
-          <model>
-            <simple>Drag and Drop</simple>
-            <advanced>Here, you can to sort the numbers. To do this, simply click on the box you want to place, and click in any of the empty spots</advanced>
-            <advanced>If you make a mistake, simply click on the box and it will return to the top</advanced>
-            <advanced>When all the numbers are sorted, the next question will be shown</advanced>
-          </model>
-        </panel>
-
-        <panel index="2">
-          //multiple choice
-          <model>
-            <simple>Multiple Choice</simple>
-            <advanced>Here, to answer the question you will need to click on the right multiple choice answer</advanced>
-            <advanced>When you've finished all the questions in a section, there's a quick mini-quiz. This quiz is only meant to help you see how much you've learned, and if you need some more practice!</advanced>
-          </model>
-        </panel>
-
-        <panel index="3">
-          //quiz
-          <model>
-            <simple>Quiz</simple>
-            <advanced>After finishing each topic, there is a small quiz. You have 5 minutes to answer a few questions. The timer is on the right side of the screen</advanced>
-            <advanced>Don't stress! The only thing the test is used for is helping you learn as well as possible, and helping you achieve your goals, so make sure you do your best, but don't worry!</advanced>
-          </model>
-        </panel>
-
-        <panel index="4">
-          //inbetween scene
-          <model>
-            <simple>In between scene</simple>
-            <advanced>This scene separates the topics, the quizzes and the games</advanced>
-            <advanced>It gives you a little break, and lets you decide what you want to do next!</advanced>
-            <advanced>If you want to continue, click on the white button in the middle, or just wait for the timer to finish</advanced>
-            <advanced>If you want to skip the game, there will be a skip button you can press</advanced>
-            <advanced>If you want to retry the section, and keep practicing before a quiz, you can click the retry button</advanced>
-          </model>
-        </panel>
-
-        <panel index="5">
-          //finish this later
-          <model>
-            <simple>Menu</simple>
-            <advanced>In most scenes, you can open the menu by click the space bar on your computer</advanced>
-            <advanced>In the menu there are a variety of options</advanced>
-          </model>
-        </panel>
-      </scene>
-
-      <scene name="DiveGame">
-        <panel index="0">
-          <model>
-            <simple>Question</simple>
-            <advanced>Sometimes after a quiz, there is a quick game to help you take a break! </advanced>
-            <advanced>There are many games, and these are covered in the advanced tutorial at the end</advanced>
-            <advanced>This game asks you four operations questions, the options are on the fish, to answer a question, just click a fish!</advanced>
-          </model>
-
-          <model>
-            <simple>Oxygen tank</simple>
-            <advanced>Your diver only has a limited amount of oxygen, when they're oxygen runs out the game is over</advanced>
-            <advanced>As you answer more questions, and dive deeper, your oxygen begins to run out faster!</advanced>
-          </model>
-          <model>
-            <simple>Fish</simple>
-            <advanced>If you click the wrong fish, you will lose a small amount of oxygen, so be careful how you answer and don't guess!</advanced>
-          </model>
-          <model>
-            <simple>Oxygen bubbles</simple>
-            <advanced>Whenever you get a correct answer, oxygen bubbles will rise from the bottom, if you can click them your diver will put more oxygen in their tank!</advanced>
-          </model>
-        </panel>
-        <panel index="1">
-          <model>
-            <simple>End Panel</simple>
-            <advanced>When you've finished the game, you can see your score, </advanced>
-          </model>
-        </panel>
-      </scene>
-
 
       <scene name="Models">
         <panel index="0">
@@ -3739,9 +3433,6 @@
         </panel>
       </scene>
 
-
-
-
       <scene name="Molecules">
         <panel index="0">
           //show heat and thermal energy
@@ -3784,91 +3475,12 @@
           <advanced>You can move the sliders around to better understand what each of these terms mean, and how they are related!</advanced>
         </panel>
       </scene>
-
-      <scene name="publicSpeaking">
-        <panel index="0">
-          //show them the choices
-          <model>
-            <simple>Public speaking</simple>
-            <advanced>Finally, lets explore the Virtual presentation module</advanced>
-            <advanced>For this module to work best, you will need any VR headset, that you can put your phone into. These can be purchased at any only retailer, or at our website www.DiveVR.org</advanced>
-          </model>
-
-          <model>
-            <simple>Locations</simple>
-            <advanced>You can choose to present in a variety of scenarios, including a school presentation, job interview, and podium presentation among others</advanced>
-            <advanced>
-              feel free to practice in all of these locations, even though you may not actually be in that scenario, it will still help you be more comfortable
-              with speaking in unfamiliar places, a very important skill
-            </advanced>
-          </model>
-
-        </panel>
-
-        <panel index="1">
-          //show the school presentation start screen tips
-          <model>
-            <simple>Start Screen</simple>
-            <advanced>When you choose a location, you will be given some tips and techniques to focus on while you present</advanced>
-            <advanced>During your presentation, Dive will measure how well you've done these</advanced>
-          </model>
-        </panel>
-
-        <panel index="2">
-          //making eye contact with someone
-          <model>
-            <simple>Eye contact</simple>
-            <advanced>When you successfully make eye contact with someone, there will be a glow indicating that you have engaged them in your speech</advanced>
-            <advanced>Try to make eye contact with your audience in your speech, and don't keep eye contact with any one person for too long!</advanced>
-          </model>
-        </panel>
-
-        <panel index="3">
-          //show the filler words
-          <model>
-            <simple>Results page</simple>
-            <advanced>Here, you can learn view the results of your speech!</advanced>
-            <advanced>The bar graph below shows which filler words you used during your speech, and how many times</advanced>
-          </model>
-        </panel>
-        <panel index="4">
-          //eye contact
-          <model>
-            <simple>Eye Contact</simple>
-            <advanced>This pie graph shows the amount of eye contact you gave each person in your audience. With the grey part representing no eye contact</advanced>
-            <advanced>Click the button to continue</advanced>
-          </model>
-        </panel>
-        <panel index="5">
-          //tones checkboxes
-          <model>
-            <simple>Tone</simple>
-            <advanced>Finally, you need to choose which tones you wanted to convey with your speech. The selected tones are feelings that you wanted your audience to feel during your speech</advanced>
-          </model>
-        </panel>
-        <panel index="6">
-          //tone graph
-          <model>
-            <simple>Tone Graph</simple>
-            <advanced>This graph shows you how well you're speech's tone matched with the tones you wished to convey</advanced>
-            <advanced>The way the scoring works is it rewards you if your audience felt the tones you wanted them to feel, and takes away points if they didn't feel any of the tones you wanted them to, or felt a tone you didn't want them to</advanced>
-            <advanced>Remember, the tone is from the words in the speech itself, not necessarily how you say it</advanced>
-          </model>
-        </panel>
-        <panel index="7">
-          <model>
-            <simple>Results</simple>
-            <advanced>Finally, all of your results are summarized on this page. The results can be seen anytime by going to the Student Information menu, and selecting Presentations</advanced>
-            <advanced>Click the button to continue</advanced>
-          </model>
-        </panel>
-      </scene>
+      
       <scene name="HomeMenuFinal">
         <panel index="0">
           <model>
             <simple>Done!</simple>
-            <advanced>We hope you've enjoyed the tour of Dive! Remember, the actual app will look and feel different, but the features will be the same</advanced>
-            <advanced>If you would like to continue to learn more about other features, such as Games, or competitions, click on the Advanced Tutorial button, otherwise, click the exit button</advanced>
+            <advanced>We hope you've enjoyed the tour of Dive! Remember, the actual app may look and feel different, but the features will be the same</advanced>
             <advanced>Have fun and Bon Voyage!</advanced>
           </model>
         </panel>

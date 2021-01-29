@@ -278,6 +278,9 @@
     <Reference Include="HtmlAgilityPack">
       <HintPath>C:/Users/pc/Desktop/VR1/Assets/HtmlAgilityPack.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CognitiveServices.Speech.csharp">
+      <HintPath>C:/Users/pc/Desktop/VR1/Assets/SpeechSDK/Plugins/x86_64/Microsoft.CognitiveServices.Speech.csharp.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>C:/Users/pc/Desktop/VR1/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>

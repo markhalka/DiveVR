@@ -11,11 +11,11 @@ using UnityEngine.UI;
 public class MenuBar : MonoBehaviour
 {
 
-    
+    // add tts on to here, just create an object and put it there, and then it should be good
+
       public GameObject mainMenu;
       public GameObject showQuiz;
       public GameObject showTutorial;
-
 
       public Button backButton;
       public Button quitButton;
@@ -25,16 +25,11 @@ public class MenuBar : MonoBehaviour
       public Button tutorialButton;
       public Button openMenu;
       public Button previousSceneButton;
-
       public Button backToHomeButton;
-
       public Button showQuizOk;
       public Button showQuizNo;
-
       public Button showTutorialOk;
       public Button showTutorialNo;
-
-
 
       public AudioClip buttonSound;
       public AudioClip menuOpen;
@@ -43,6 +38,8 @@ public class MenuBar : MonoBehaviour
 
       public Vector3 start;
       public Vector3 end;
+
+    public TextToSpeech tts;
 
 
 
@@ -137,10 +134,15 @@ public class MenuBar : MonoBehaviour
     }
 
 
-    //ok, so it actually doesn't really matter, so just leave this shit for now
-    //well there are only two options, they go to a different scene from inbetween, or from the back button?
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if(scene.name == "StudentMenu")
+        {
+            previousSceneButton.gameObject.SetActive(false);
+        } else
+        {
+            previousSceneButton.gameObject.SetActive(true);
+        }
         handleButtonsCalled = false;
         Information.minutesInScene = 0;
     }
@@ -235,6 +237,12 @@ public class MenuBar : MonoBehaviour
         {
             handleButtonsCalled = true;
             //   handleButtons();
+        }
+
+        if(Information.tts != "")
+        {
+            tts.SynthesizeAudioAsync(Information.tts);
+            Information.tts = "";
         }
 
 

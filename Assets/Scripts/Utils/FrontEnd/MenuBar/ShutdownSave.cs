@@ -91,7 +91,7 @@ public class ShutdownSave : MonoBehaviour
             }
 
             Information.minutesInScene += 0.25f;
-            if (Information.minutesInScene > minuteForQuiz && Information.currentScene == "Mdoels" || Information.currentScene == "Database")
+            if (Information.minutesInScene > minuteForQuiz && Information.currentScene == "Models" || Information.currentScene == "Database")
             {
                 startQuiz.SetActive(true);
                 Information.minutesInScene = 0;

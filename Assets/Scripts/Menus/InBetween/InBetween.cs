@@ -7,29 +7,28 @@ using UnityEngine.UI;
 public class InBetween : MonoBehaviour
 {
 
-    public Image LoadingBar;
+    public GameObject inquiry;
+    public GameObject survey;
+
     public Button retry;
     public Button exit;
     public Button skipLoad;
 
-    public GameObject redoPanel;
-    public GameObject inquiry;
+    public Image LoadingBar;
+
+    Panel surveyPanelAnimation;
 
     public TMPro.TMP_Text title;
 
     float currentValue;
     float speed = 15;
-    public bool showInquiry = false;
 
+    public bool showInquiry = false;
+    bool showedSurvey = false;
 
     public AudioSource source;
     public AudioClip buttonSound;
 
-    public GameObject survey;
-
-
-    bool showedSurvey = false;
-    Panel surveyPanelAnimation;
 
     void Start()
     {
@@ -42,28 +41,14 @@ public class InBetween : MonoBehaviour
         Information.pretestScore = -1;
         Information.wasPreTest = false;
 
-        retry.onClick.AddListener(delegate { openRetry(); });
         exit.onClick.AddListener(delegate { takeBack(); });
         skipLoad.onClick.AddListener(delegate { takeSkipLoad(); });
+        retry.onClick.AddListener(delegate { takeRetry(); });
 
-
-
-
-        redoPanel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(delegate { takeWrongAnswer(); });
-        redoPanel.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(delegate { takeRetry(); });
-        redoPanel.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { takeContinue(); });
 
         Information.totalEarnedPoints += 15;
     }
 
-
-    void openRetry()
-    {
-        source.clip = buttonSound;
-        source.Play();
-
-        redoPanel.gameObject.SetActive(true);
-    }
 
     void handleInquiry()
     {
@@ -92,7 +77,7 @@ public class InBetween : MonoBehaviour
         }
         else
         {
-            retry.onClick.AddListener(delegate { openRetry(); });
+            retry.onClick.AddListener(delegate { takeRetry(); });
             retry.transform.GetChild(0).GetComponent<TMP_Text>().text = "Retry";
         }
         if (Information.wasWrongAnswer)
@@ -113,52 +98,6 @@ public class InBetween : MonoBehaviour
         }
     }
 
-    void OnDisable()
-    {
-        redoPanel.gameObject.SetActive(false); //make sure it doesn't pop up again
-    }
-
-
-
-    void takeWrongAnswer()
-    {
-        source.clip = buttonSound;
-        source.Play();
-
-        GameObject curr = null;
-      
-            if (Information.currentScene == "Models")
-            {
-                curr = GameObject.Find("Main");
-             //   curr.GetComponent<ScienceModels>().startWrongQuiz();
-                gameObject.SetActive(false);
-            }
-            else
-            {
-                curr = GameObject.Find("Quiz");
-                if (curr == null)
-                {
-                    Debug.LogError("could not find quiz in the current thing ");
-                    return;
-                }
-                curr.GetComponent<QuizMenu>().redoWrongAnswers();
-                gameObject.SetActive(false);
-
-            }
-        redoPanel.SetActive(false);
-        gameObject.SetActive(false);
-        Information.wasWrongAnswer = true;
-    }
-
-    void takeContinue()
-    {
-        source.clip = buttonSound;
-        source.Play();
-
-        redoPanel.SetActive(false);
-        currentValue = 0;
-    }
-
     void takeSkipLoad()
     {
         source.clip = buttonSound;
@@ -171,19 +110,8 @@ public class InBetween : MonoBehaviour
         source.clip = buttonSound;
         source.Play();
 
-        if (Information.subject == "science")
-        {
-            Information.retry = true;
-            //    Information.nextScene--;
-            SceneManager.LoadScene("ScienceMain");
-            return;
-        }
-        else
-        {
-            Information.retry = true;
-            Information.doneLoading = true;
-        }
-
+        Information.retry = true;
+        SceneManager.LoadScene("ScienceMain");
     }
 
     void takeBack()
@@ -203,8 +131,6 @@ public class InBetween : MonoBehaviour
     public GameObject certificate;
     bool checkCertificate()
     {
-
-
         Information.socialMediaMessage = "";
 
         float currScore = Information.score;
@@ -307,8 +233,7 @@ public class InBetween : MonoBehaviour
             handleInquiry();
             wasCertificat = false;
         }
-
-        if (!inquiry.activeSelf && !certificate.activeSelf && !redoPanel.activeSelf && !survey.activeSelf)
+        if (!inquiry.activeSelf && !certificate.activeSelf && !survey.activeSelf)
         {
             if (!survey.activeSelf && !showedSurvey && Information.shouldShowSurvey)
             {
@@ -331,7 +256,9 @@ public class InBetween : MonoBehaviour
             }
             else
             {
-                Information.doneLoading = true;
+               // Information.nextScene++; // ????
+                SceneManager.LoadScene("ModuleMenu"); // ?
+                //Information.doneLoading = true;
             }
         }
 

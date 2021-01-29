@@ -22,7 +22,6 @@ public class OpenModule : MonoBehaviour
     public AudioClip scrollSound;
     public AudioClip buttonClick;
 
-    Vector3 offset = new Vector3(0, -30, 0);
 
     int[] indecies;
 
@@ -31,6 +30,9 @@ public class OpenModule : MonoBehaviour
     bool isPC = true;
     void Start()
     {
+        tempLoad();
+        Information.grade = "Grade 5";
+        Information.subject = "science";
 
         Information.isQuiz = 0;
         Information.panelClosed = true;
@@ -59,6 +61,22 @@ public class OpenModule : MonoBehaviour
 
         scrollRect.onValueChanged.AddListener(delegate { takeScroll(); });
 
+    }
+
+    void tempLoad()
+    {
+        TextAsset mytxtData = (TextAsset)Resources.Load("XML/General/UserData");
+        string txt = mytxtData.text;
+        Information.xmlDoc = XDocument.Parse(txt);
+
+        mytxtData = (TextAsset)Resources.Load("XML/General/Data");
+        txt = mytxtData.text;
+        Information.loadDoc = XDocument.Parse(txt);
+        Information.name = "none";
+        Information.doneLoadingDocuments = true;
+        Information.firstTime = true;
+        //    Debug.LogError(Information.xmlDoc.ToString());
+        //   Debug.LogError(Information.loadDoc.ToString());
     }
 
     float preValue = 0;
@@ -108,7 +126,6 @@ public class OpenModule : MonoBehaviour
     public GameObject grid;
     void createOption(string header, string score, int index, int firstTopic)
     {
-
         GameObject curr = Instantiate(MainButton, MainButton.transform, true);
         curr.transform.SetParent(grid.transform);
         curr.transform.GetChild(1).GetComponent<TMPro.TMP_Text>().text = header;
@@ -193,7 +210,7 @@ public class OpenModule : MonoBehaviour
         {
             if (MainButton.transform.parent.GetChild(i).transform == curr.transform)
             {
-                Information.nextScene = i - 1;
+                Information.nextScene = i;
                 if (Information.topics[Information.nextScene].topics.Count < 1 || Information.topics[Information.nextScene].topics[0] == -1)
                 {
                     Debug.LogError("could not open anything");

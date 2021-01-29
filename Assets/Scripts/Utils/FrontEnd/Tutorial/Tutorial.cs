@@ -27,8 +27,6 @@ public class Tutorial : MonoBehaviour
     TutorialScene currentScene;
     void Start()
     {
-
-
         //help.onClick.AddListener(delegate { takeHelp(); });
     }
 
@@ -54,7 +52,7 @@ public class Tutorial : MonoBehaviour
 
         foreach (var scene in Information.tutorialScenes)
         {
-
+            Debug.LogError(Information.currentScene + " " + scene.sceneName);
             if (Information.currentScene == scene.sceneName)
             {
                 currentScene = scene;

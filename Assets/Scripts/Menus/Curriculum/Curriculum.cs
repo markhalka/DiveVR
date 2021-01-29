@@ -258,7 +258,7 @@ public class Curriculum : MonoBehaviour
 
     }
 
-
+    // here you need to remove the current one, so that you can add the new one (but that might fuck with it so make sure its right)
     void saveOrderToFile()
     {
         var grade = XMLReader.findGrade(Information.xmlDoc, Information.grade);
@@ -272,6 +272,7 @@ public class Curriculum : MonoBehaviour
             GameObject currItem = currentItem.transform.parent.GetChild(i).gameObject;
             if (!currItem.activeSelf)
                 continue;
+
 
             int level = (int)(userLessons[currItem].topic.level * 10); //there was an error here, it didfnt find the current item
             if (level <= 0)

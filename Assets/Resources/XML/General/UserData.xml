@@ -26,11 +26,6 @@
   
   //so this will be the user data
   <goals>
-    <goal goal="Heat and thermal energy" name="science" number="Grade 5" score="80" endDate="6/18/2020 12:00:00 AM" r="1" />
-    <goal goal="Mixtures" name="science" number="Grade 5" score="84" endDate="6/18/2020 12:00:00 AM" r="1" />
-    <goal goal="Physical and chemical change" name="science" number="Grade 5" score="84" endDate="6/27/2020 12:00:00 AM" r="1" />
-    <goal goal="Magnets" name="science" number="Grade 5" score="84" endDate="6/27/2020 12:00:00 AM" r="1" />
-    <goal goal="Mixtures" name="science" number="Grade 5" score="86.1527939" endDate="6/27/2020 12:00:00 AM" r="1" />
   </goals>
   <past subject="science" grade="Grade 5"></past>
   <socialMedia>
@@ -72,7 +67,6 @@
 
     //change the scores here, than delete this
     <subject name="science">
-      <lesson name="Static Electricity" topics="43" level="5" index="114" inq="Why is it important to understand the rights of Native Americans?" score="0" />
       <lesson name="Matter and mass" topics="1" level="5" index="62" inq="Can you think of some compounds and elements we use everyday? Write your answers below!" score="3/16/2020,120,76 3/16/2020,120,100 3/16/2020,120,72" />
       <lesson name="Heat and thermal energy" topics="2" level="5" index="63" inq="Can you explain why water at 20 degrees feels hotter than air at 20 degrees?" score="0" />
       <lesson name="Water cycle" topics="21" level="5" index="80" inq="Can you explain how global warming can cause more rain in some areas?" score="0" />
@@ -185,7 +179,7 @@
 
 
       <lesson name="Plants" topics="5" level="5" index="89" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!"  score="0" />
-      <lesson name="Classification" topics="8" level="5" index="68" inq="Can you think of another name to remember the levels in Linnaeus's system? Write them below!" score="0" />
+      <lesson name="Natural Selection" topics="8" level="5" index="68" inq="Sometimes humans can interfer with nature, find some animals that humans have made extinct" score="0" />
       <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
       <lesson name="Fossils" topics="19" level="5" index="78" inq="Can you explain how fossils become buried so deep in the ground?" score="0" />
       <lesson name="Flight" topics="32" level="5" index="110" inq="go online to www.DiveVR.org/expirments/airplane, and make your own paper airplane, tell us how far yours flew!"  score="0" />
@@ -234,7 +228,7 @@
       <lesson name="Structures"  topics="-1" level="5" index="120" inq="Why is it important to understand the rights of Native Americans?" score="0" />
 
       <lesson name="Plants" topics="5" level="5" index="89" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!"  score="0" />
-      <lesson name="Classification" topics="8" level="5" index="68" inq="Can you think of another name to remember the levels in Linnaeus's system? Write them below!" score="0" />
+      <lesson name="Natural Selection" topics="8" level="5" index="68" inq="Sometimes humans can interfer with nature, find some animals that humans have made extinct" score="0" />
       <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
       <lesson name="Fossils" topics="19" level="5" index="78" inq="Can you explain how fossils become buried so deep in the ground?" score="0" />
       <lesson name="Flight" topics="32" level="5" index="110"  inq="go online to www.DiveVR.org/expirments/airplane, and make your own paper airplane, tell us how far yours flew!"  score="0" />
@@ -304,13 +298,13 @@
       <lesson name="Rocks and minerals" topics="18" level="5" index="77" inq="Can you identify all the rocks in your local park? What are the most common types of rocks you found?" score="0" />
 
       <lesson name="Plants" topics="5" level="5" index="89" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!"  score="0" />
-      <lesson name="Classification" topics="8" level="5" index="68" inq="Can you think of another name to remember the levels in Linnaeus's system? Write them below!" score="0" />
+      <lesson name="Natural Selection" topics="8" level="5" index="68" inq="Sometimes humans can interfer with nature, find some animals that humans have made extinct" score="0" />
       <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
       <lesson name="Fossils" topics="19" level="5" index="78" inq="Can you explain how fossils become buried so deep in the ground?" score="0" />
       <lesson name="Flight" topics="32" level="5" index="110" inq="go online to www.DiveVR.org/expirments/airplane, and make your own paper airplane, tell us how far yours flew!"  score="0" />
       <lesson name="Photosynthesis" topics="35" level="5" index="90" inq="Do all plants use photosynthesis? Do some animals use photosynthesis? Write your answers below!" score="0" />
       <lesson name="properties of liquids"  topics="-1" level="5" index="121" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
+      <lesson name="Circuits" topics="43" level="5" index="114" inq="Can you find the circuit element that lets doorbells work?" score="0" />
       <lesson name="Mixtures" topics="4" level="5" index="65" inq="Sometimes concentrations can make a big difference, can you think of two everyday mixtures that have the same substances but different concentrations? How are they different/similar?" score="0" />
       <lesson name="Velocity, acceleration, and forces" topics="27" level="5" index="66" inq="Can you think of a new way to get to space? Describe it below!" score="0" />
       <lesson name="Scientific Names" topics="9" level="5" index="69" inq="Can you find some latin words that look very similar to the one we use in English? Can you explain why they are so similar?" score="0" />
@@ -394,9 +388,9 @@
       <lesson name="climate" topics="34" index="79" level="5" inq="What climate do you live in? How does this influence the weather?"  score="0" />
       <lesson name="Structures"  topics="-1" level="5" index="120" inq="Why is it important to understand the rights of Native Americans?" score="0" />
       <lesson name="Rocks and minerals" topics="18" level="5" index="77" inq="Can you identify all the rocks in your local park? What are the most common types of rocks you found?" score="0" />
-
+      <lesson name="Circuits" topics="43" level="5" index="114" inq="Can you find the circuit element that lets doorbells work?" score="0" />
       <lesson name="Plants" topics="5" level="5" index="89" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!"  score="0" />
-      <lesson name="Classification" topics="8" level="5" index="68" inq="Can you think of another name to remember the levels in Linnaeus's system? Write them below!" score="0" />
+      <lesson name="Natural Selection" topics="8" level="5" index="68" inq="Sometimes humans can interfer with nature, find some animals that humans have made extinct" score="0" />
       <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
       <lesson name="Fossils" topics="19" level="5" index="78" inq="Can you explain how fossils become buried so deep in the ground?" score="0" />
       <lesson name="Flight" topics="32" level="5" index="110" inq="go online to www.DiveVR.org/expirments/airplane, and make your own paper airplane, tell us how far yours flew!"  score="0" />
@@ -448,13 +442,13 @@
 
     <subject name="science">
       <lesson name="Plants" topics="5" level="5" index="89" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!"  score="0" />
-      <lesson name="Classification" topics="8" level="5" index="68" inq="Can you think of another name to remember the levels in Linnaeus's system? Write them below!" score="0" />
+      <lesson name="Natural Selection" topics="8" level="5" index="68" inq="Sometimes humans can interfer with nature, find some animals that humans have made extinct" score="0" />
       <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
       <lesson name="Fossils" topics="19" level="5" index="78" inq="Can you explain how fossils become buried so deep in the ground?" score="0" />
       <lesson name="Flight" topics="32" level="5" index="110" inq="go online to www.DiveVR.org/expirments/airplane, and make your own paper airplane, tell us how far yours flew!" score="0" />
       <lesson name="Photosynthesis" topics="35" level="5" index="90" inq="Do all plants use photosynthesis? Do some animals use photosynthesis? Write your answers below!" score="0" />
       <lesson name="properties of liquids"  topics="-1" level="5" index="121" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
+      <lesson name="Circuits" topics="43" level="5" index="114" inq="Can you find the circuit element that lets doorbells work?" score="0" />
 
 
       <lesson name="Mixtures" topics="4" level="5" index="65" inq="Sometimes concentrations can make a big difference, can you think of two everyday mixtures that have the same substances but different concentrations? How are they different/similar?" score="0" />
@@ -540,7 +534,7 @@
       <lesson name="Biochemistry" topics="30" level="5" index="87" inq="What is DNA? Summarize your answer below, remember, try to keep it simple!" score="0" />
       <lesson name="Materials and structures" topics="-1" level="5" index="117" inq="Why is it important to understand the rights of Native Americans?" score="0" />
       <lesson name="Sound"  topics="-1" level="5" index="116" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
+      <lesson name="Circuits" topics="43" level="5" index="114" inq="Can you find the circuit element that lets doorbells work?" score="0" />
       <lesson name="Organ Systems"  topics="46" level="5" index="118" inq="Which organ systems does high-colesteral affect? Why is it important to eat healthy food?" score="0" />
 
       <lesson name="tissues"  topics="-1" level="5" index="119" inq="Why is it important to understand the rights of Native Americans?" score="0" />
@@ -549,8 +543,7 @@
       <lesson name="Light" topics="-1" level="5" index="122" inq="Why is it important to understand the rights of Native Americans?" score="0" />
       <lesson name="reflections" topics="-1" level="5" index="123" inq="Why is it important to understand the rights of Native Americans?" score="0" />
       <lesson name="current electricity" topics="-1" level="5" index="113" inq="go online to www.divevr.org/expirments/lemon_battery, and try building the curcuit shown, write down what you learned!"  score="0" />
-      <lesson name="Static Electricity" topics="-1" level="5" index="114" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
+      
       <lesson name="magnets"  topics="-1" level="5" index="67" inq="Why is it important to understand the rights of Native Americans?" score="0" />>
 
     </subject>

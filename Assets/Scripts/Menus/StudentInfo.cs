@@ -7,12 +7,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// find a way to locally save goals
 
 public class StudentInfo : MonoBehaviour
 {
-
- 
-
     public Button back;
     public Button curriculum;
     public GameObject entity;
@@ -42,12 +40,6 @@ public class StudentInfo : MonoBehaviour
     public AudioClip completeGoal;
 
     public TMP_Text defaultText;
-
-
-    //test all the warning panels, and make sure they work 
-    //test the line graph, than you are pretty much done here 
-
-
 
     public TMP_Text title;
 
@@ -213,7 +205,9 @@ public class StudentInfo : MonoBehaviour
 
             Information.xmlDoc.Root.Element("goals").Add(new XElement("goal", new XAttribute("goal", name), new XAttribute("name", Information.subject),
                 new XAttribute("number", Information.grade), new XAttribute("score", goalScore), new XAttribute("endDate", monthFromToday), new XAttribute("r", reasonable))); //that looks good 
-                                                                                                                                                                               //radialSlider.transform.GetChild(0).
+
+            Debug.LogError(Information.xmlDoc.Root.Element("goals").ToString() + " saved");
+            //radialSlider.transform.GetChild(0).
         }
 
         fadeText.text = "Goals Saved!";
@@ -249,21 +243,18 @@ public class StudentInfo : MonoBehaviour
             if (currScore == null)
             {
                 Debug.LogError("could not find score from name");
-                return;
+                continue;
             }
 
             float currentGrade = 0;
             string temp = currScore.transform.GetChild(2).GetComponent<Text>().text;
+            Debug.LogError(currScore.name + " thing name");
 
-            if (!float.TryParse(temp.Substring(0, temp.Length - 1), out currentGrade))
-            {
+            float.TryParse(temp.Substring(0, temp.Length - 1), out currentGrade);
 
-                Debug.LogError("could not parse temp " + temp);
-                return;
-            }
 
             float targetValue = float.Parse(value);
-
+            Debug.LogError(targetValue + " target value");
             if (currentGrade >= targetValue)
             {
 
@@ -303,12 +294,6 @@ public class StudentInfo : MonoBehaviour
             goalContainer.GetComponent<UnityEngine.UI.Extensions.ReorderableList>().IsDropable = false;
             goalFillerText.gameObject.SetActive(false);
         }
-        if (goalCount > 0 && goalCount < 3)
-        {
-            clearButton.transform.GetChild(0).GetComponent<Text>().text = "Add new goals";
-
-        }
-
     }
 
 
@@ -351,8 +336,10 @@ public class StudentInfo : MonoBehaviour
     List<XElement> getGoalElements()
     {
         List<XElement> output = new List<XElement>();
+        Debug.LogError(Information.xmlDoc.Descendants("goal").ToString() + " idk reading goals");
         foreach (var element in Information.xmlDoc.Descendants("goal"))
         {
+            Debug.LogError(element.Name + " goal name");
             if (element.Attribute("number").Value == Information.grade && element.Attribute("name").Value == Information.subject)
             {
 
@@ -390,7 +377,7 @@ public class StudentInfo : MonoBehaviour
         }
 
         radialSlider.transform.GetChild(0).GetComponent<Image>().color = color;
-        radialSlider.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = newScore + "%";
+        radialSlider.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = newScore + "%";
         radialSlider.transform.GetChild(0).GetComponent<UnityEngine.UI.Extensions.RadialSlider>().Value = newScore / 100;
 
         if (goalContainer.transform.GetChild(0).childCount > 3)

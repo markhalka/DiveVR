@@ -218,7 +218,7 @@ public class WavesSimple : MonoBehaviour
         }
 
 
-        quiz.GetComponent<QuizMenu>().endQuiz();
+        quiz.GetComponent<QuizMenu>().quiz.endQuiz();
         //quiz.gameObject.SetActive(false);
     }
 
