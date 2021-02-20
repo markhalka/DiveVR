@@ -15,21 +15,18 @@ public class TextToSpeech : MonoBehaviour
     SpeechConfig config;
     SpeechSynthesizer synthesizer;
 
-private object threadLocker = new object();
-private bool waitingForReco;
-private string message;
 
     void Start()
     {
         config = SpeechConfig.FromSubscription("b28be6e3166e4026810578159dd8c5af", "eastus");
         synthesizer = new SpeechSynthesizer(config);
 
-        SynthesizeAudioAsync("Hello world");
+        //SynthesizeAudioAsync("Hello world");
         
     }
 
     public async Task SynthesizeAudioAsync(string text)
-    {     
+    {
         await synthesizer.SpeakTextAsync(text);
     }
 

@@ -102,15 +102,14 @@ public class InBetween : MonoBehaviour
     {
         source.clip = buttonSound;
         source.Play();
-        Information.doneLoading = true;
+        SceneManager.LoadScene("ModuleMenu");
     }
 
     void takeRetry()
     {
         source.clip = buttonSound;
         source.Play();
-
-        Information.retry = true;
+     //   Information.nextScene--; // i dont know why this is needed but oh well
         SceneManager.LoadScene("ScienceMain");
     }
 
@@ -124,8 +123,9 @@ public class InBetween : MonoBehaviour
 
     void takeSkip()
     {
-        Information.doneLoading = true;
-        Information.skip = true;
+        doneLoading = true;
+        //Information.doneLoading = true;
+       // Information.skip = true;
     }
 
     public GameObject certificate;
@@ -133,7 +133,7 @@ public class InBetween : MonoBehaviour
     {
         Information.socialMediaMessage = "";
 
-        float currScore = Information.score;
+        int currScore = (int) Information.score;
         Information.score = 0;
 
 
@@ -186,9 +186,9 @@ public class InBetween : MonoBehaviour
         else
         {
             var tests = Information.topics[currentScene].tests;
-            float pastScore;
-            float improvment;
-            if (tests.Count > 0 && float.TryParse(tests[tests.Count - 1].score, out pastScore))
+            int pastScore;
+            int improvment;
+            if (tests.Count > 0 && int.TryParse(tests[tests.Count - 1].score, out pastScore))
             {
                 improvment = currScore - pastScore;
                 if (improvment > 20)
@@ -202,7 +202,7 @@ public class InBetween : MonoBehaviour
             if (Information.pretestScore > 0)
             {
 
-                improvment = currScore - Information.pretestScore;
+                improvment = currScore - (int) Information.pretestScore;
                 if (improvment > 20)
                 {
                     Information.acheivment = "improving " + improvment + "% in " + topicName;
@@ -224,7 +224,8 @@ public class InBetween : MonoBehaviour
     }
 
     bool submitedDAta = false;
- 
+
+    bool doneLoading = false;
     void Update()
     {
         if (wasCertificat && !certificate.activeSelf)
@@ -256,10 +257,13 @@ public class InBetween : MonoBehaviour
             }
             else
             {
-               // Information.nextScene++; // ????
-                SceneManager.LoadScene("ModuleMenu"); // ?
-                //Information.doneLoading = true;
+                doneLoading = true;
             }
+        }
+
+        if (doneLoading)
+        {
+            SceneManager.LoadScene("ModuleMenu"); 
         }
 
         LoadingBar.fillAmount = currentValue / 100;

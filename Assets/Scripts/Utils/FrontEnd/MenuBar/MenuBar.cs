@@ -141,6 +141,7 @@ public class MenuBar : MonoBehaviour
             previousSceneButton.gameObject.SetActive(false);
         } else
         {
+            if(previousSceneButton!=null)
             previousSceneButton.gameObject.SetActive(true);
         }
         handleButtonsCalled = false;

@@ -30,10 +30,11 @@ public class OpenModule : MonoBehaviour
     bool isPC = true;
     void Start()
     {
-        tempLoad();
-        Information.grade = "Grade 5";
+     /*   tempLoad();
+        Information.grade = "Grade 3";
         Information.subject = "science";
 
+        */
         Information.isQuiz = 0;
         Information.panelClosed = true;
 
@@ -167,7 +168,17 @@ public class OpenModule : MonoBehaviour
 
         curr.SetActive(true);
         buttons.Add(curr);
+    }
 
+    public GameObject invisible;
+    void addInvisible()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            GameObject curr = Instantiate(invisible, invisible.transform, true);
+            curr.transform.SetParent(grid.transform);
+            curr.SetActive(true);
+        }
     }
 
     GameObject currentObject;
@@ -203,23 +214,22 @@ public class OpenModule : MonoBehaviour
         source.clip = buttonClick;
         source.Play();
 
-        Dictionary<string, string> nameToScene = new Dictionary<string, string>() { { "math", "Math"}, { "science", "ScienceMain"},
-            { "social science", "ScienceMain"}, {"public speaking", "Presentation"} };
+
 
         for (int i = 0; i < MainButton.transform.parent.childCount; i++)
         {
             if (MainButton.transform.parent.GetChild(i).transform == curr.transform)
             {
-                Information.nextScene = i;
-                if (Information.topics[Information.nextScene].topics.Count < 1 || Information.topics[Information.nextScene].topics[0] == -1)
+                Information.nextScene = Information.topics[i-1].topics[0];
+           /*     if (Information.topics[Information.nextScene].topics.Count < 1 || Information.topics[Information.nextScene].topics[0] == -1)
                 {
                     Debug.LogError("could not open anything");
                     return;
-                }
+                }*/
 
-                Information.topicIndex = Information.nextScene;
-
-                SceneManager.LoadScene(nameToScene[Information.subject]);
+            //    Information.topicIndex = Information.nextScene;
+            //    Debug.LogError(curr.)
+                SceneManager.LoadScene("ScienceMain"); ;
             }
         }
     }
@@ -242,6 +252,7 @@ public class OpenModule : MonoBehaviour
             }
             createOption(topic.name, max.ToString(), topic.index, topic.topics[0]);
         }
+        addInvisible();
     }
 }
 

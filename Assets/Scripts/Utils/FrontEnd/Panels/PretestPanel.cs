@@ -49,6 +49,7 @@ public class PretestPanel : MonoBehaviour
         justTitle.transform.parent.gameObject.SetActive(false);
     }
 
+
     void pretestOk()
     {
         Information.isQuiz = 1;

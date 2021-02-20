@@ -11,8 +11,11 @@ public class QuizMenu : MonoBehaviour
     public GameObject panel;
     public GameObject rightPanel;
     public GameObject[] button;
+    public GameObject quizObjects;
 
-    public Button quizButton;
+    public InformationPanel infoPanel;
+
+  //  public Button quizButton;
     public Button notSure;
 
     public Sprite defualtImage;
@@ -37,7 +40,7 @@ public class QuizMenu : MonoBehaviour
         quiz = new Quiz();
 
         notSure.onClick.AddListener(delegate { takeNotSure(); });
-        quizButton.onClick.AddListener(delegate { quiz.startQuiz(); });
+   //     quizButton.onClick.AddListener(delegate { quiz.startQuiz(); });
 
         initAnswerButtons();
 
@@ -99,10 +102,45 @@ public class QuizMenu : MonoBehaviour
         return -1;
     }*/
 
+    void startQuiz()
+    {
+
+        if (!Information.wasPreTest)
+        {
+            infoPanel.hintPanel.SetActive(true);
+            infoPanel.quizPanel.SetActive(false);
+        }
+
+        infoPanel.justTitle.gameObject.transform.parent.gameObject.SetActive(false);
+        infoPanel.closePanel();
+        quizObjects.SetActive(true);
+        StartCoroutine(nextQuestionTimeout());
+    }
+
+    void endQuiz()
+    {
+       
+        infoPanel.justTitle.transform.parent.gameObject.SetActive(false);
+
+        if (Information.wasPreTest)
+        {
+            //infoPanel.showPostTest();
+            quizObjects.SetActive(false);
+            Information.wasPreTest = false;
+        }
+        else
+        {
+            inBetween.SetActive(true);
+        }
+
+        infoPanel.hintPanel.SetActive(false);
+        infoPanel.quizPanel.SetActive(true);
+
+    }
 
     void Update()
     {
-        quiz.checkQuiz();   
+        quiz.checkQuiz(startQuiz, endQuiz);   
     }
 
 
@@ -125,18 +163,18 @@ public class QuizMenu : MonoBehaviour
             correct = checkTextAnswer(curr);
         }
 
+
+        if (quiz.totalQuestions() >= Information.RIGHT_COUNT && Information.currentScene != "ScienceTest")
+        {
+            Information.isQuiz = 0;
+        }
+
         if (correct)
         {
             quiz.currentRightCount++;
             StartCoroutine(changeColor(true));
+            StartCoroutine(nextQuestionTimeout());
 
-            if (quiz.totalQuestions() > Information.RIGHT_COUNT && Information.currentScene != "ScienceTest")
-            {
-                quiz.endQuiz();
-            } else
-            {
-                StartCoroutine(nextQuestionTimeout());
-            }
         }
         else
         {

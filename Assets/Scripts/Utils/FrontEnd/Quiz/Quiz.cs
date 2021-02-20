@@ -51,8 +51,15 @@ public class Quiz
 
         currentQuestion = questions[modelIndex].questions[questionIndex];
 
+        int count = 0;
+
         while (pastQuestions.Contains(currentQuestion))
         {
+            count++;
+            if(count > 10)
+            {
+                break;
+            }
             modelIndex = UnityEngine.Random.Range(0, questions.Count);
             questionIndex = UnityEngine.Random.Range(0, questions[modelIndex].questions.Count);
             currentQuestion = questions[modelIndex].questions[questionIndex];
@@ -98,10 +105,10 @@ public class Quiz
         return false;
     } 
 
-    public int getQuestions()
+  /*  public int getQuestions()
     {
         return currentRightCount;
-    }
+    }*/
 
     public void checkQuiz(Action start = null, Action end = null)
     {
@@ -163,7 +170,7 @@ public class Quiz
 
     public void startQuiz(Action start = null)
     {
-
+        Debug.LogError("starting quiz");
         pastQuestions = new List<string>();
 
         currentRightCount = 0;

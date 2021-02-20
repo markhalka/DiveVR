@@ -4158,12 +4158,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7607435770527101156, guid: 5c8bee58fba98114abb6408d3dd9eeaa,
+    - target: {fileID: 1823971270056036308, guid: 5c8bee58fba98114abb6408d3dd9eeaa,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1823971270056036308, guid: 5c8bee58fba98114abb6408d3dd9eeaa,
+    - target: {fileID: 7607435770527101156, guid: 5c8bee58fba98114abb6408d3dd9eeaa,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -20433,7 +20433,7 @@ MonoBehaviour:
   source: {fileID: 8787782278668583128}
   start: {x: 0, y: 450, z: 0}
   end: {x: 0, y: 0, z: 0}
-  tts: {fileID: 0}
+  tts: {fileID: 1926175601}
 --- !u!114 &21223187362227241
 MonoBehaviour:
   m_ObjectHideFlags: 0

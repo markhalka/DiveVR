@@ -169,7 +169,7 @@ public class ParseData
         foreach (var lesson in subject.Elements())
         {
             if (lesson.Attribute("topics").Value == Information.nextScene.ToString())
-            {
+            {      
                 curr = lesson;
                 break;
             }

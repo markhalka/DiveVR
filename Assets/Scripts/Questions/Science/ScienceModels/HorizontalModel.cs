@@ -40,8 +40,8 @@ public class HorizontalModel : MonoBehaviour
     int currentPage = 0;
     void pageChanged()
     {
-        source.clip = swipe;
-        source.Play();
+     //   source.clip = swipe;
+       // source.Play();
 
         currentPage = horizontalSnap.GetComponent<UnityEngine.UI.Extensions.HorizontalScrollSnap>().CurrentPage;
 

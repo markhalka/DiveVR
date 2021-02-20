@@ -63,32 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ElectricCurcuits\CircuitElements.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\CircuitManager.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\ContainerInitiate.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\CurrentDot.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\Data Object\Capacitor.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\Data Object\Device.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\Data Object\DeviceNode.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\Data Object\Ground.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\Data Object\Node.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\Data Object\PulseVoltageSource.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\Data Object\Resistor.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\Data Object\Wire.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\Data Structure\Container.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\Data Structure\JetBrains.Annotations.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\Data Structure\MonoBehaviourSingleton.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\Data Structure\Tags.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\DragScript.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\EventManager.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\FeatureLayout.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\FeatureLayout0.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\Simulator.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\Simulator0.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\TestContainer.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\TestDevice.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\TestSimulation.cs" />
-    <Compile Include="Assets\Scripts\ElectricCurcuits\UIManager.cs" />
     <Compile Include="Assets\Scripts\Games\Recycling.cs" />
     <Compile Include="Assets\Scripts\Menus\Achievments.cs" />
     <Compile Include="Assets\Scripts\Menus\Curriculum\Curriculum.cs" />
@@ -109,8 +83,6 @@
     <Compile Include="Assets\Scripts\Menus\StudentMenu\StudentMenu.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Database\Database.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Database\HorizontalSnap.cs" />
-    <Compile Include="Assets\Scripts\Questions\Science\Database\Lessons\animalLifeCycleDb.cs" />
-    <Compile Include="Assets\Scripts\Questions\Science\Database\Lessons\ClassificationDb.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Database\Lessons\identifyEcosystemDb.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Database\Lessons\ScientificNamesDb.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Database\Lessons\tectonicDb.cs" />
@@ -133,7 +105,7 @@
     <Compile Include="Assets\Scripts\Questions\Science\ScienceModels\ScienceModels.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\ScienceModels\Table.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\ScienceTest.cs" />
-    <Compile Include="Assets\Scripts\Questions\Science\staticElectricity.cs" />
+    <Compile Include="Assets\Scripts\Questions\Science\VideoQuiz.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Water\PhysicsHelper.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Water\WaterBoat.cs" />
     <Compile Include="Assets\Scripts\Questions\Science\Water\WaterFloat.cs" />
@@ -383,14 +355,14 @@
     <Compile Include="Assets\ThirdParty\unity-ui-extensions\Scripts\Utilities\UISelectableExtension.cs" />
     <Compile Include="Assets\ThirdParty\unity-ui-extensions\Scripts\VR Extensions\VRCursor.cs" />
     <Compile Include="Assets\ThirdParty\unity-ui-extensions\Scripts\VR Extensions\VRInputModule.cs" />
-    <Compile Include="Assets\YoutubePlayer\Scripts\DownloadYoutubeVideo.cs" />
-    <Compile Include="Assets\YoutubePlayer\Scripts\PanoramicSkyboxVideo.cs" />
-    <Compile Include="Assets\YoutubePlayer\Scripts\PlayVideo.cs" />
-    <Compile Include="Assets\YoutubePlayer\Scripts\PrepareYoutubeVideo.cs" />
-    <Compile Include="Assets\YoutubePlayer\Scripts\SimpleCameraController.cs" />
-    <Compile Include="Assets\YoutubePlayer\Scripts\SimpleYoutubeVideo.cs" />
-    <Compile Include="Assets\YoutubePlayer\Scripts\VideoMetadata.cs" />
-    <Compile Include="Assets\YoutubePlayer\Scripts\VideoPlayerProgress.cs" />
+    <Compile Include="Assets\ThirdParty\YoutubePlayer\Scripts\DownloadYoutubeVideo.cs" />
+    <Compile Include="Assets\ThirdParty\YoutubePlayer\Scripts\PanoramicSkyboxVideo.cs" />
+    <Compile Include="Assets\ThirdParty\YoutubePlayer\Scripts\PlayVideo.cs" />
+    <Compile Include="Assets\ThirdParty\YoutubePlayer\Scripts\PrepareYoutubeVideo.cs" />
+    <Compile Include="Assets\ThirdParty\YoutubePlayer\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\ThirdParty\YoutubePlayer\Scripts\SimpleYoutubeVideo.cs" />
+    <Compile Include="Assets\ThirdParty\YoutubePlayer\Scripts\VideoMetadata.cs" />
+    <Compile Include="Assets\ThirdParty\YoutubePlayer\Scripts\VideoPlayerProgress.cs" />
     <None Include="Assets\ThirdParty\unity-ui-extensions\Shaders\UIAdditive.shader" />
     <None Include="Assets\StreamingAssetsdata.xml" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

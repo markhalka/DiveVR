@@ -1,54 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <grades>
-
-
+  
   <version>1</version>
-
   <points>2500</points>
   //are these even every used??
   <curr>
-    //all possible math modules
-    <math>
-      <lesson topics="0" level="0.5" name="place value"></lesson>
-      <lesson topics="1" level="0.5" name="addition"></lesson>
-      <lesson topics="2" level="0.5" name="subtraction"></lesson>
-      <lesson topics="3" level="0.5" name="multiplication"></lesson>
-      <lesson topics="4" level="0.5" name="division"></lesson>
-      <lesson topics="5" level="0.5" name="halving"></lesson>
-      <lesson topics="6" level="0.5" name="doubling"></lesson>
-      <lesson topics="7" level="0.5" name="fraction of an amount"></lesson>
-      <lesson topics="8" level="0.5" name="percent of an amount"></lesson>
-      <lesson topics="9" level="0.5" name="rounding whole numbers"></lesson>
-      <lesson topics="10" level="0.5" name="negatives"></lesson>
-      <lesson topics="11" level="0.5" name="powers of ten"></lesson>
-      <lesson topics="12" level="0.5" name="ratio share"></lesson>
-      <lesson topics="13" level="0.5" name="fractions, decimals and percents"></lesson>
-      <lesson topics="14" level="0.5" name="collecting terms"></lesson>
-      <lesson topics="15" level="0.5" name="factoring"></lesson>
-      <lesson topics="16" level="0.5" name="multiples"></lesson>
-      <lesson topics="17" level="0.5" name="highest common factor"></lesson>
-      <lesson topics="18" level="0.5" name="lowest common factor"></lesson>
-      <lesson topics="19" level="0.5" name="simplyfying ratios"></lesson>
-      <lesson topics="20" level="0.5" name="simplyfying fractions"></lesson>
-      <lesson topics="21" level="0.5" name="finding linear terms"></lesson>
-      <lesson topics="22" level="0.5" name="generating linear terms"></lesson>
-      <lesson topics="23" level="0.5" name="four operations"></lesson>
-      <lesson topics="24" level="0.5" name="adding coins"></lesson>
-      <lesson topics="25" level="0.5" name="counting coins"></lesson>
-      <lesson topics="26" level="0.5" name="speed, distance and time"></lesson>
-      <lesson topics="27" level="0.5" name="powers and roots"></lesson>
-      <lesson topics="28" level="0.5" name="ordering numbers"></lesson>
-      <lesson topics="29" level="0.5" name="one-step equations"></lesson>
-      <lesson topics="30" level="0.5" name="up to and over"></lesson>
-      <lesson topics="31" level="0.5" name="add and subtract fractions"></lesson>
-      <lesson topics="32" level="0.5" name="multiply and divide fractions"></lesson>
-      <lesson topics="33" level="0.5" name="mean"></lesson>
-      <lesson topics="34" level="0.5" name="median"></lesson>
-      <lesson topics="35" level="0.5" name="range"></lesson><lesson topics="36" level="0.5" name="mode"></lesson>
-      <lesson topics="37" level="0.5" name="averages"></lesson><lesson topics="38" level="0.5" name="two-step equation"></lesson><lesson topics="39" level="0.5" name="multiply in standard form"></lesson><lesson topics="40" level="0.5" name="add in standard form"></lesson><lesson topics="41" level="0.5" name="convert to standard form"></lesson><lesson topics="42" level="0.5" name="converting fractions"></lesson><lesson topics="43" level="0.5" name="three-step equations"></lesson><lesson topics="44" level="0.5" name="mixed equations"></lesson><lesson topics="45" level="0.5" name="metric length"></lesson><lesson topics="46" level="0.5" name="equations with brackets"></lesson><lesson topics="47" level="0.5" name="next term in sequences"></lesson><lesson topics="48" level="0.5" name="multiple equations with brackets"></lesson><lesson topics="49" level="0.5" name="percentage increase or decrease"></lesson><lesson topics="50" level="0.5" name="reverse percentage"></lesson><lesson topics="51" level="0.5" name="substitution"></lesson><lesson topics="52" level="0.5" name="reverse ratios"></lesson><lesson topics="53" level="0.5" name="unitary method"></lesson><lesson topics="54" level="0.5" name="four operations with fractions"></lesson><lesson topics="55" level="0.5" name="metric weight"></lesson><lesson topics="56" level="0.5" name="metric volume"></lesson><lesson topics="57" level="0.5" name="converting metric units"></lesson><lesson topics="58" level="0.5" name="probability"></lesson><lesson topics="59" level="0.5" name="fractional change"></lesson><lesson topics="60" level="0.5" name="differences"></lesson><lesson topics="61" level="0.5" name="temperatures"></lesson><lesson topics="62" level="0.5" name="polygons"></lesson><lesson topics="63" level="0.5" name="expected frequency"></lesson><lesson topics="64" level="0.5" name="multiplying terms"></lesson><lesson topics="65" level="0.5" name="single brackets"></lesson><lesson topics="66" level="0.5" name="expaning and simplyfing"></lesson><lesson topics="67" level="0.5" name="interchanging fractions, decimals and percents"></lesson><lesson topics="68" level="0.5" name="one step inequalities"></lesson><lesson topics="69" level="0.5" name="two step inequalities"></lesson><lesson topics="70" level="0.5" name="three step inequalities"></lesson><lesson topics="71" level="0.5" name="fibonacci sequence"></lesson><lesson topics="72" level="0.5" name="geometric sequences"></lesson><lesson topics="73" level="0.5" name="generating quadratic terms"></lesson><lesson topics="74" level="0.5" name="converting time"></lesson><lesson topics="75" level="0.5" name="subtract in standard form"></lesson><lesson topics="76" level="0.5" name="divide in standard form"></lesson><lesson topics="77" level="0.5" name="different forms of fractions"></lesson><lesson topics="78" level="0.5" name="different forms of percents"></lesson><lesson topics="79" level="0.5" name="converting decimals"></lesson><lesson topics="80" level="0.5" name="converting fractions"></lesson><lesson topics="81" level="0.5" name="converting percents"></lesson><lesson topics="82" level="0.5" name="slope between two points"></lesson><lesson topics="83" level="0.5" name="midpoint between two points"></lesson><lesson topics="84" level="0.5" name="completing the square"></lesson><lesson topics="85" level="0.5" name="vertex of parabolas"></lesson><lesson topics="86" level="0.5" name="factor quadratics"></lesson><lesson topics="87" level="0.5" name="expand quadratics"></lesson><lesson topics="88" level="0.5" name="index law of multiplication"></lesson><lesson topics="89" level="0.5" name="index law of division"></lesson><lesson topics="90" level="0.5" name="index law power of power"></lesson><lesson topics="91" level="0.5" name="index laws"></lesson><lesson topics="92" level="0.5" name="ratios"></lesson><lesson topics="93" level="0.5" name="combining ratios"></lesson><lesson topics="94" level="0.5" name="ratio difference"></lesson><lesson topics="95" level="0.5" name="percentage multiplier"></lesson><lesson topics="96" level="0.5" name="percentage change"></lesson><lesson topics="97" level="0.5" name="repeated percentage change"></lesson><lesson topics="98" level="0.5" name="adding negatives"></lesson><lesson topics="99" level="0.5" name="subtracting negatives"></lesson><lesson topics="100" level="0.5" name="multiplying negatives"></lesson><lesson topics="101" level="0.5" name="dividing negatives"></lesson><lesson topics="102" level="0.5" name="converting from standard form"></lesson><lesson topics="103" level="0.5" name="place value"></lesson> //you do this multiple times?
-      <lesson topics="104" level="0.5" name="identify place value"></lesson><lesson topics="105" level="0.5" name="convert between place value"></lesson><lesson topics="106" level="0.5" name="expanded form"></lesson><lesson topics="107" level="0.5" name="written to number"></lesson><lesson topics="108" level="0.5" name="comparing numbers"></lesson><lesson topics="109" level="0.5" name="estimating"></lesson> //again, you did this twice?
-      <lesson topics="110" level="0.5" name="elapsed time"></lesson><lesson topics="111" level="0.5" name="time problems"></lesson><lesson topics="112" level="0.5" name="covnerting between 12 and 24 hours"></lesson><lesson topics="113" level="0.5" name="BEDMAS"></lesson><lesson topics="114" level="0.5" name="primes and composites"></lesson><lesson topics="115" level="0.5" name="primes factorization"></lesson><lesson topics="116" level="0.5" name="classifying numbers"></lesson><lesson topics="117" level="0.5" name="four operations with multiple numbers"></lesson><lesson topics="118" level="0.5" name="rounding decimals"></lesson><lesson topics="119" level="0.5" name="next term in sequences"></lesson><lesson topics="120" level="0.5" name="exponents in expanded form"></lesson><lesson topics="121" level="0.5" name="operations with multiple decimals"></lesson><lesson topics="122" level="0.5" name="converting cubic and square metric length"></lesson><lesson topics="123" level="0.5" name="inequalities with decimals"></lesson><lesson topics="124" level="0.5" name="equations with decimals"></lesson><lesson topics="125" level="0.5" name="adding decimals"></lesson><lesson topics="126" level="0.5" name="adding multiple decimals"></lesson><lesson topics="127" level="0.5" name="operations with decimals"></lesson><lesson topics="128" level="0.5" name="inequalities"></lesson><lesson topics="129" level="0.5" name="roman to arabic numbers"></lesson><lesson topics="130" level="0.5" name="arabic to roman numbers"></lesson><lesson topics="131" level="0.5" name="point to coordinates"></lesson><lesson topics="132" level="0.5" name="coordinate to point"></lesson><lesson topics="133" level="0.5" name="bar graphs"></lesson><lesson topics="134" level="0.5" name="pie graphs"></lesson><lesson topics="135" level="0.5" name="double bar graphs"></lesson><lesson topics="136" level="0.5" name="line graphs"></lesson><lesson topics="137" level="0.5" name="scatter plots"></lesson><lesson topics="138" level="0.5" name="tables"></lesson><lesson topics="139" level="0.5" name="double line graphs"></lesson><lesson topics="140" level="0.5" name="angles"></lesson><lesson topics="141" level="0.5" name="types of polygons"></lesson><lesson topics="142" level="0.5" name="qualdrilaterals"></lesson><lesson topics="143" level="0.5" name="triangles based on angles"></lesson><lesson topics="144" level="0.5" name="trianglesl based on sides"></lesson><lesson topics="145" level="0.5" name="types of lines"></lesson><lesson topics="146" level="0.5" name="drawing lines from equations"></lesson><lesson topics="147" level="0.5" name="drawing lines from tables"></lesson><lesson topics="148" level="0.5" name="interpereting lines"></lesson><lesson topics="149" level="0.5" name="properties of 3d shapes"></lesson><lesson topics="150" level="0.5" name="nets of 3d shapes"></lesson><lesson topics="151" level="0.5" name="distance between two points"></lesson><lesson topics="152" level="0.5" name="transformations"></lesson>
-    </math>
     <science>
       <lesson topics="1" level="0.5" name="matter and mass"></lesson>
       <lesson topics="2" level="0.5" name="heat and thermal energy"></lesson>
@@ -59,46 +15,42 @@
       <lesson topics="7" level="0.5" name="magnets"></lesson>
       <lesson topics="8" level="0.5" name="natural selection"></lesson>
       <lesson topics="9" level="0.5" name="scientific names"></lesson>
-
+      <lesson topics="10" level="0.5" name="light"></lesson> // add
       <lesson topics="11" level="0.5" name="simple machines"></lesson> //nothing
       <lesson topics="12" level="0.5" name="microscope"></lesson> //nothing
 
       <lesson topics="14" level="0.5" name="animal cells"></lesson>
       <lesson topics="15" level="0.5" name="plant cells"></lesson>
-      <lesson topics="16" level="0.5" name="ecology"></lesson>
+      
       <lesson topics="17" level="0.5" name="recycling"></lesson>
       <lesson topics="18" level="0.5" name="rocks and minerals"></lesson>
       <lesson topics="19" level="0.5" name="fossils"></lesson>
       <lesson topics="20" level="0.5" name="greenhouse gasses"></lesson>
       <lesson topics="21" level="0.5" name="water cycle"></lesson>
       <lesson topics="22" level="0.5" name="astronomy"></lesson>
-
-      <lesson topics="24" level="0.5" name="designing experiments"></lesson>
+      <lesson topics="23" level="0.5" name="Organ systems"></lesson>
+      <lesson topics="24" level="0.5" name="scientific method"></lesson>
+      
       <lesson topics="26" level="0.5" name="chemical reactions"></lesson>
       <lesson topics="27" level="0.5" name="velocity, acceleration and forces"></lesson>
       <lesson topics="28" level="0.5" name="kinetic and potential energy"></lesson>
       <lesson topics="29" level="0.5" name="waves"></lesson>
       <lesson topics="30" level="0.5" name="biochemistry"></lesson>
       <lesson topics="31" level="0.5" name="organs"></lesson>
-      <lesson topics="32" level="0.5" name="flight"></lesson> //nothing
-      <lesson topics="33" level="0.5" name="weather and climate"></lesson> //nothing
+      <lesson topics="32" level="0.5" name="flight"></lesson> 
+
       <lesson topics="34" level="0.5" name="weather and climate"></lesson>
       <lesson topics="35" level="0.5" name="photosynthesis"></lesson>
       <lesson topics="36" level="0.5" name="ecological interactions"></lesson>
-      <lesson topics="37" level="0.5" name="plate tectonics"></lesson> //nothing
+
       <lesson topics="38" level="0.5" name="plate tectonics"></lesson>
       <lesson topics="39" level="0.5" name="weather and atmosphere"></lesson>
-      <lesson topics="40" level="0.5" name="current electricity"></lesson> //nothing
+      <lesson topics="40" level="0.5" name="current electricity"></lesson> 
       <lesson topics="41" level="0.5" name="ecosystems"></lesson>
       <lesson topics="42" level="0.5" name="energy sources"></lesson>
       <lesson topics="43" level="0.5" name="circuits"></lesson>
       <lesson topics="44" level="0.5" name="environment"></lesson>
       <lesson topics="45" level="0.5" name="weathering"></lesson>
-
-      <lesson topics="46" level="0.5" name="electric circuits"></lesson>
-      <lesson topics="47" level="0.5" name="parallel circuits"></lesson>
-      <lesson topics="48" level="0.5" name="scientific method"></lesson>
-
 
 
     </science>
@@ -186,8 +138,7 @@
           <quiz>This subatomic particle has a positive charge</quiz>
           <quiz>Every element has this subatomic particle, found in the nucleus of the atom</quiz>
         </model>
-      </lesson> //this is good matter 2 new things section 1   //4,5,6,7,8
-      
+      </lesson> //this is good matter 2 new things section 1   //4,5,6,7,8   
       <lesson name="Heat and thermal energy" topics="2" level="5" index="63" inq="Can you explain why water at 20 degrees feels hotter than air at 20 degrees?" score="0">
         //also have physical and chemical change
         <model section="-1">
@@ -285,6 +236,41 @@
         </model>
 
       </lesson> //should be good now, //just test it?? //4,5,6,7,8
+      <lesson name="Types of change" topics="3" level="5" index="64" inq="Is melting two different metals together a physical or chemical change?">
+      <model>
+        <simple>Physical Change</simple>
+        <advanced>Physical changes happen when there is no change in the chemical formula. In other words, no chemical bonds were broken or created</advanced>
+        <advanced>Some examples of physical change include changing states (such as a solid to a liquid). In general, its easy to undo physical changes (like freezing the water again) </advanced>
+        <quiz>Ice melting is an example of this type of change</quiz>
+        <quiz>Breaking metal in half is an example of this type of change</quiz>
+        <quiz>Mixing sand and water is an example of this type of change</quiz>
+      </model> 
+       
+     <model>
+       <simple>Chemical Change</simple>
+       <advanced>Chemical changes happen when the chemical formula becomes different. In other words, there was some chemical bond that was broken, or created.</advanced>
+       <advanced>Some examples of chemical changes include burning, dissolving, and other chemical reactions. In general, its much harder to undo chemical changes. </advanced>
+     <quiz>This type of change includes a change in composition</quiz>
+     <quiz>Propane burning is an example of this type of change</quiz>
+       <quiz>Metal rusting is an example of this type of change</quiz>
+       <quiz>Dissolving salt in water is an example of this type of change</quiz>
+     </model>
+       
+     <model>
+       <simple>Chemical bonds</simple>
+     <advanced>Chemical bonds are forces that hold atoms together in a single molecule. Some examples of chemical bonds include ionic bonds, and covalent bonds.</advanced>
+     <advanced>These bonds are very strong, and are difficult to break.</advanced>
+     <quiz>This is what holds atoms together in a molecule</quiz>
+       <quiz>These types of bonds are strong, and difficult to break</quiz>
+     </model>
+
+       <model>
+         <simple>Intermolecular bonds</simple>
+       <advanced>Intermolecular bonds are forces that hold molecules together. All molecules have some form of intermolecular forces, although they may be very weak.</advanced>
+         <quiz>These types of bonds act between molecules, and are relatively weak</quiz>
+       </model>
+      
+     </lesson>       
       <lesson name="Mixtures" topics="4" level="5" index="65" inq="Sometimes concentrations can make a big difference, can you think of two everyday mixtures that have the same substances but different concentrations? How are they different/similar?" score="0">
 
         <model section="-1">
@@ -451,78 +437,6 @@
 
 
       </lesson> //this is good   //5,6,7,8,9
-      <lesson name="Natrual Selection" topics="8" level="5" index="68" inq="Can you think of another name to remember the levels in Linnaeus's system? Write them below!" score="0">
-        <model section="-1">
-          <simple>Classification</simple>
-          <advanced>In this module you will learn about the history of taxonomy, and how we classify all living things</advanced>
-          <advanced>Back in the 18th century, a Swedish man named Carolus Linnaeus thought it was important to organize living things, and he developed a system to do just that. </advanced>
-          <advanced>His system first only contained plants, however, he quickly expanded it to include all living organisms. We still use the essence of his system today. Scientists are constantly refining the system based on new knowledge. </advanced>
-          <advanced>Putting animals in order like this is called taxonomy. The taxonomists — people who name animals — use a book called the International Code of Zoological Nomenclature, or ICZN, to tell them the rules for classifying animals.</advanced>
-        </model>
-        <model section="-1">
-          <simple>Linnaeus’s system</simple>
-          <advanced> His system has seven levels: Kingdom, Phylum, Class, Order, Family, Genus, and Species</advanced>
-          <advanced>Every animal on the planet, down to the most microscopic creature you can imagine, can be classified according to this system.</advanced>
-          <advanced>An easy way to remember the order is to use the mnemonic: King Phillip, come out, for goodness’ sake!</advanced>
-          <advanced>To use this module, simply click on the names of the levels, and look at some animals in those levels, try and see how they are related!</advanced>
-        </model>
-        <model>
-          <simple>Kingdom</simple>
-          <advanced>Generally, scientists agree there are six kingdoms. The animal kingdom (called Kingdom Animalia) is just one of those. </advanced>
-          <advanced>The others are Archaebacteria, Eubacteria, Protists, Fungi and Plants.</advanced>
-          <advanced>Originally, Linnaeus only identified two kingdoms: plant and animal. Some scientists think that viruses should have their own kingdom, but currently they are not included under this system.</advanced>
-          <advanced>Some animals found in the Animal kingdom are shown below</advanced>
-          <quiz>There are six of these</quiz>
-          <quiz>This is the first level of Linnaeus's system</quiz>
-          <quiz>Archaebacteria, protists, Fungi and Plants are all examples of this level</quiz>
-        </model>
-        <model>
-          <simple>Phylum</simple>
-          <advanced>Within the animal kingdom, the animals are divided into more than 30 phyla (which is the plural of “phylum”). </advanced>
-          <advanced>Some better known phyla are Phylum Chordata and Phylum Arthropoda. Phylum Chordata is the one humans and all animals with backbones are in.</advanced>
-          <advanced>Phylum Arthropoda contains insects, spiders and other animals with segmented bodies, like shrimp.  Arthropods have their skeletons on the outside of their bodies (think of the hard shell of a lobster) and other characteristics in common. </advanced>
-          <advanced>Some animals in the Phylum Chordata are shown below</advanced>
-          <quiz>This is the second level in Linnaeus's system</quiz>
-          <quiz>There are 30 of these in the animal kingdom</quiz>
-        </model>
-        <model>
-          <simple>Class</simple>
-          <advanced>The third level of classification is class. For example, Phylum Chordata has classes in it like birds, mammals (Mammalia) and reptiles.</advanced>
-          <advanced>Some animals in the Mammalia class are shown below</advanced>
-          <quiz>This is the third level of Linnaeus's system</quiz>
-          <quiz>Birds, mammals, and reptiles are examples of this level</quiz>
-        </model>
-        <model>
-          <simple>Order</simple>
-          <advanced>The next level, or rank, is order. Orders are smaller groups within the different classes.</advanced>
-          <advanced>Different orders include Lepidoptera and Carnivora. Lepidoptera is the order of moths and butterflies. Carnivora is the order within Mammalia that has the most diversity in animal size.</advanced>
-          <advanced>Some animals in the Carnivora order are shown below</advanced>
-          <quiz>This is the fourth level in Linnaeus's system</quiz>
-          <quiz>Lepidoptera, and Carnivora are examples of this level</quiz>
-        </model>
-        <model>
-          <simple>Family</simple>
-          <advanced>The fifth rank of classification is family. </advanced>
-          <advanced>Some animals in the Canidae family are shown below</advanced>
-          <quiz>This is the fifth level in Linnaeus's system</quiz>
-        </model>
-        <model>
-          <simple>Genus</simple>
-          <advanced>Genus the second-to-last rank, and a genus may have only one or two animals in it. If animals are in the same genus, they are really closely related. </advanced>
-          <advanced> In fact, you may not be able to tell them apart just by looking at them! When we write the name of the genus, we capitalize it and italicize it.</advanced>
-          <advanced>For example, the genus of dogs (and wolves, too!) is Canis.</advanced>
-          <quiz>This is the sixth level in Linnaeus's system</quiz>
-          <quiz>If animals are in this level together they are very closely related</quiz>
-        </model>
-        <model>
-          <simple>Species</simple>
-          <advanced>If animals can breed together successfully, they are a species. When an animal is called by its scientific name, then that means it is being identified by its genus and species. </advanced>
-          <advanced> We use a lowercase letter and italics for the species. </advanced>
-          <advanced>For example, the scientific name of dogs is Canis familiaris; however, the scientific name of wolves is Canis lupus.</advanced>
-          <quiz>This is the last level of Linnaeus's system</quiz>
-          <quiz>Animals are considered together on this level if they can successfully breed together</quiz>
-        </model>
-      </lesson> //good    //5,6,7,8,9
       <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0">
         <model section="-1">
           <simple>Energy Sources</simple>
@@ -725,7 +639,7 @@
         </model>
 
       </lesson> //new shit but its all section 1   //5,6,7,8,9
-      <lesson name="Flight" topics="32" level="5" index="110" score="" inq="go online to www.DiveVR.org/expirments/airplane, and make your own paper airplane, tell us how far yours flew!">
+      <lesson name="Flight" topics="32" level="5" index="110" score="" inq="Can you fly a regular airplane into spcae? Why or why not?">
 
         <model section="-1">
           <simple>Flight</simple>
@@ -822,108 +736,6 @@
           <quiz>This is what the plant produces through photosynthesis, which it uses to grow and reproduce</quiz>
         </model>
       </lesson> //good   //5,6,7,8,9
-      <lesson name="Velocity, acceleration, and forces" topics="27" level="5" index="66" inq="Can you think of a new way to get to space? Describe it below!" score="0">
-        <model>
-          <simple>Newtons laws and gravity</simple>
-          <advanced>In this module you will learn about Newtons laws, and gravity. By the end of this module you will understand the basics of Newtons laws, and how they apply to the real world example of launching a rocket!</advanced>
-          <advanced>First, choose the material and the fuel you would like to use in your rocket. Then click the launch button to launch your rocket! The higher your rocket goes, the more you will learn.</advanced>
-
-          <advanced>To turn off the pop-ups, simple deselect Active Learning the setting's menu</advanced>
-        </model>
-        <model>
-          <simple>Steel</simple>
-          <advanced>Steel is a mixture of several metals (this is called an alloy) but most of it is iron.</advanced>
-          <advanced>Something made of pure iron is softer than steel because the atoms can slip over one another. If other atoms like carbon are added, they are different from iron atoms and stop the iron atoms from sliding apart so easily. This makes the metal stronger and harder.</advanced>
-          <advanced>Although steel is stronger and lighter than iron, it is often not strong or light enough for use in most rockets</advanced>
-        </model>
-        <model>
-          <simple>Aluminum</simple>
-          <advanced>Aluminum is a chemical element. It is the most abundant metal, and is known for its resistance to corrosion and its light weight.</advanced>
-          <advanced> Aluminum, however, melts at the high reentry temperatures. So, if a rocket needs to come back to Earth (like the Space Shuttle), heat shield tiles are added</advanced>
-        </model>
-        <model>
-          <simple>Titanium</simple>
-          <advanced>Titanium is a very strong metal. It is chemical element number 22 on the periodic table </advanced>
-          <advanced>Titanium is used for making the strongest and lightest parts of fighter jets, aircraft, and rockets</advanced>
-          <advanced>However, it can burn at high temperatures, and titanium dust is extremely flammable. </advanced>
-        </model>
-        <model>
-          <simple>Carbon composite</simple>
-          <advanced> It has the highest compressive strength of all the reinforcing materials (composites), and it has a high strength to weight ratio and low coefficient of thermal expansion</advanced>
-          <advanced> The density of carbon fiber is also much lower than the density of steel.</advanced>
-          <advanced>Carbon fiber is in the form of several thousand long, thin strands of material that is composed of mostly carbon atoms.</advanced>
-        </model>
-        <model>
-          <simple>Spring</simple>
-          <advanced>Spring propelled rockets use the potential energy stored in a compressed spring, to form kinetic energy, and launch the rocket up</advanced>
-          <advanced>These types of rockets are easy to make at home, however, they do not go very high!</advanced>
-        </model>
-        <model>
-          <simple>Compressed air</simple>
-          <advanced>Compressed air rockets use the pressure of a compressed air tank, to form kinetic energy launching the rocket up</advanced>
-          <advanced>These systems are more powerful than spring powered ones, however, they </advanced>
-        </model>
-        <model>
-          <simple>Solid fuel</simple>
-          <advanced>Solid rocket fuels are those in which the fuel and oxidizer compounds are already combined.</advanced>
-          <advanced>Most use an aluminum powder as the fuel and an ammonium perchlorate as the oxidizer, while an iron powder is used as a catalyst for the reaction.</advanced>
-          <advanced>Solid fuels are generally used more for the initial launch sequence, when the speed needs to be at its maximum, whereas liquid fuels are used later so the speed can be adjusted to get the rocket’s payload on to the right trajectory.</advanced>
-        </model>
-        <model>
-          <simple>Liquid fuel</simple>
-          <advanced>Liquid propellants separate fuel and oxidizers and the two are combined in a combustion chamber where they burn and are ﬁred out from the base of the rocket.</advanced>
-          <advanced>Liquid fuels are further sub-categorized into either petroleum, cryogens or hypergols.</advanced>
-          <advanced>Petroleum is fuel derived from crude oil and hydrocarbons, it consists of a highly refined kerosene mixed with liquid oxygen.</advanced>
-          <advanced>Cryogens are those stored at very low temperatures (such as liquid hydrogen)</advanced>
-          <advanced>Hypergols are able to self-ignite on contact between the fuel and the oxidizer.  These fuels simply needs nitric acid in order to ignite and are frequently used for propulsion when out in space.</advanced>
-        </model>
-        <model>
-          <simple>Gravity</simple>
-          <advanced>Gravity is one of the four fundamental forces of nature, although it is the weakest of these four forces, it is important to life on Earth and the structure of the universe.</advanced>
-          <advanced>Everything that has matter generates gravity, from a grain of sand to the largest objects in the universe. The larger an object is, the stronger its force</advanced>
-          <advanced>In order for a rocket to reach space, the force it exerts up, must be more than the force of gravity pulling it down</advanced>
-        </model>
-        <model section="2">
-          <simple>Newtons Third Law</simple>
-          <advanced>Rocket fuel works on the basis of Newton’s Third Law of Motion, which states that ‘every action is accompanied by an equal and opposite reaction'.</advanced>
-          <advanced>By ﬁring fuel out the back of a rocket, the force propels it upwards with acceleration equal to the force at which the fuel is expelled.</advanced>
-          <quiz>This law states that every action has an equal and opposite reaction</quiz>
-          <quiz>Rockets are based on this law, it is what causes the rocket to be pushed up, when the exhaust is pushed down</quiz>
-        </model>
-        <model section="2">
-          <simple>Newtons Second Law</simple>
-          <advanced>Newtons Second Law says that the acceleration of an object produced by a net (total) applied force is directly related to the magnitude of the force, the same direction as the force, and inversely related to the mass of the object</advanced>
-          <quiz>This law states that acceleration is directly related to the force, and inversely related to the mass of an object</quiz>
-          <quiz>It is because of this law that it is harder to push heavier things </quiz>
-        </model>
-        <model>
-          <simple>Space</simple>
-          <advanced>Space begins about 100 km above Earth's surface.</advanced>
-          <advanced>However, the space around Earth is not empty. There are many artificial satellites, about 5000, these are used for gather information, navigation, and communication among other things.</advanced>
-          <advanced>There is also a large amount of space junk. Space junk is any human-made object orbiting Earth that no longer serves a useful purpose. Scientists estimate there are about 500,000 pieces of space junk today.</advanced>
-        </model>
-        <model section="2">
-          <simple>Newtons First Law</simple>
-          <advanced>Newtons First Law says that an object at rest tends to stay at rest, and an object in motion tends to stay in motion, with the same direction and speed</advanced>
-          <advanced>For example, if you watch videos of astronauts in space, you will notice that their tools float, and they won't move unless the astronaut pushes or pulls it, at which point it will keep moving until it is stopped</advanced>
-          <quiz>This law states that an object will stay at rest, or continue in motion unless acted on by an external force</quiz>
-          <quiz>It is because of this law that objects stay in one spot in space</quiz>
-        </model>
-        <model section="1">
-          <simple>Slower</simple>
-          <quiz>If a rocket was launched from Jupiter, (where the gravity is higher) would it be faster, slower or the same speed?</quiz>
-        </model>
-        <model section="1">
-          <simple>Faster</simple>
-          <quiz>If the same rocket was launched from the moon (where gravity is lower) would it be faster, slower, or the same speed?</quiz>
-          <quiz>If a lighter material was used for the rocket body would it be faster, slower, or the same speed?</quiz>
-          <quiz>If you push a small object with some force, and then push a larger object with the same force, will the larger object go faster, slower or the same speed?</quiz>
-        </model>
-        <model section="1">
-          <simple>Same speed</simple>
-          <quiz>If a rocket runs out of fuel in space, but it is moving forward, in 1000 years, will it be traveling faster, slower or at the same speed?</quiz>
-        </model>
-      </lesson> //this is good     //6,7,8,9,10
       <lesson name="Scientific Names" topics="9" level="5" index="69" inq="Can you find some latin words that look very similar to the one we use in English? Can you explain why they are so similar?" score="0">
         <model section="-1">
           <simple>Scientific Names</simple>
@@ -1081,7 +893,7 @@
           <quiz>Examples of this simple machine include roadways or bridges with a height difference</quiz>
         </model>
       </lesson>   //6,7,8,9,10
-      <lesson name="Microscope" topics="12" level="5" index="111" score="" inq="Go online to www.diveVR.org/expirments/microscope, and try to build your own microscope at home, tell us what you saw!">
+      <lesson name="Microscope" topics="12" level="5" index="111" score="" inq="How powerful was the first microscope? Compare that to how powerful they are today!">
         <model section="-1">
           <simple>Microscopes</simple>
           <advanced> In this module you will learn about the different types, and different parts in a microscope </advanced>
@@ -1162,7 +974,7 @@
           <quiz>This part of the microscope serves as the foundation for the rest of the microscope</quiz>
         </model>
       </lesson> //good  //6,7,8,9,10
-      <lesson name="Animal Cell" topics="14" level="5" index="71" inq="How does smoking affect the cells in the lungs? Do some research and summarize it below!" score="0">
+      <lesson name="Animal Cell" topics="14" level="5" index="71" inq="How many cells are in your body? Do some research to find out!" score="0">
         <model section="-1">
           <simple>Animal Cells</simple>
           <advanced>In this module you will learn about the structure and parts of an animal cell, as well as some information about cell theory and organisms</advanced>
@@ -1365,28 +1177,11 @@
           <quiz>This is the barrier of the cell</quiz>
         </model>
       </lesson> //good    //6,7,8,9,10
-      <lesson name="Ecosystems" topics="41" level="5" index="73" inq="What type of ecosystem do you live in, which would be your favorite ecosystem to live in and why?" score="0">
+      <lesson name="Ecosystems" topics="41" level="5" index="94" inq="What type of ecosystem do you live in, which would be your favorite ecosystem to live in and why?" score="0">
 
         <model section="-1">
           <simple>Ecosystems</simple>
           <advanced>In this module you will learn to identify and classify the major ecosystems on our planet</advanced>
-        </model>
-        <model>
-          <simple>Forest Ecosystems</simple>
-          <advanced>Forest ecosystems are classified according to their climate type as tropical, temperate or boreal.</advanced>
-          <advanced> In the tropics, rainforest ecosystems contain more diverse flora and fauna than ecosystems in any other region on earth.</advanced>
-          <advanced> In temperate zones, forest ecosystems may be deciduous, coniferous or oftentimes a mixture of both, in which some trees shed their leaves each fall, while others remain evergreen year-round.</advanced>
-          <advanced>In the far north, just south of the Arctic, boreal forests – also known as taiga – feature abundant coniferous trees.</advanced>
-          <quiz>This type of ecosystem can either be tropical, temperate or boreal</quiz>
-          <quiz>Rainforests are a part of this ecosystem</quiz>
-        </model>
-        <model>
-          <simple>Grassland Ecosystems</simple>
-          <advanced>Different types of grassland ecosystems can be found in prairies, savannas and steppes.</advanced>
-          <advanced>Grassland ecosystems are typically found in tropical or temperate regions, although they can exist in colder areas as well, as is the case with the well-known Siberian steppe. </advanced>
-          <advanced>Trees are sparse or nonexistent, but flowers may be interspersed with the grasses. Grasslands provide an ideal environment for grazing animals.</advanced>
-          <quiz>This type of ecosystem can be found in prairies, savannas and steppes</quiz>
-          <quiz>This type of ecosystem is ideal for grazing animals</quiz>
         </model>
         <model>
           <simple>Desert Ecosystems</simple>
@@ -1396,12 +1191,13 @@
           <quiz>This type of ecosystem has very low precipitation</quiz>
         </model>
         <model>
-          <simple>Tundra Ecosystems</simple>
-          <advanced>In the snow-covered, windswept, treeless tundra, the soil may be frozen year-round, a condition known as permafrost. </advanced>
-          <advanced>During the brief spring and summer, snows melt, producing shallow ponds which attract migrating waterfowl.</advanced>
-          <advanced>The term “tundra” most commonly denotes polar areas, but at lower latitudes, tundra-like communities known as alpine tundra may be found at high elevations.</advanced>
-          <quiz>This type of ecosystem can have a condition known as permafrost</quiz>
-          <quiz>This type of ecosystem is commonly found in polar areas</quiz>
+          <simple>Forest Ecosystems</simple>
+          <advanced>Forest ecosystems are classified according to their climate type as tropical, temperate or boreal.</advanced>
+          <advanced> In the tropics, rain forest ecosystems contain more diverse flora and fauna than ecosystems in any other region on earth.</advanced>
+          <advanced> In temperate zones, forest ecosystems may be deciduous, coniferous or oftentimes a mixture of both, in which some trees shed their leaves each fall, while others remain evergreen year-round.</advanced>
+          <advanced>In the far north, just south of the Arctic, boreal forests – also known as taiga – feature abundant coniferous trees.</advanced>
+          <quiz>This type of ecosystem can either be tropical, temperate or boreal</quiz>
+          <quiz>Rainforest's are a part of this ecosystem</quiz>
         </model>
         <model>
           <simple>Freshwater Ecosystems</simple>
@@ -1412,49 +1208,40 @@
           <quiz>This type of ecosystem is home to fish, algae, plankton, and insects among others</quiz>
         </model>
         <model>
+          <simple>Grassland Ecosystems</simple>
+          <advanced>Different types of grassland ecosystems can be found in prairies, savannas and steppes.</advanced>
+          <advanced>Grassland ecosystems are typically found in tropical or temperate regions, although they can exist in colder areas as well, as is the case with the well-known Siberian steppe. </advanced>
+          <advanced>Trees are sparse or nonexistent, but flowers may be interspersed with the grasses. Grasslands provide an ideal environment for grazing animals.</advanced>
+          <quiz>This type of ecosystem can be found in prairies, savannas and steppes</quiz>
+          <quiz>This type of ecosystem is ideal for grazing animals</quiz>
+        </model>
+        <model>
           <simple>Marine Ecosystems</simple>
           <advanced>Marine ecosystems differ from freshwater ecosystems in that they contain saltwater, which usually supports different types of species than does freshwater. </advanced>
           <advanced> Marine ecosystems are the most abundant types of ecosystems in the word. They encompass not only the ocean floor and surface but also tidal zones, estuaries, salt marshes and saltwater swamps, mangroves and coral reefs.</advanced>
           <quiz>This is the most abundant type of ecosystem in the world</quiz>
           <quiz>This ecosystem contains tidal zones, salt marshes and saltwater swamps</quiz>
         </model>
-      </lesson> //this one is identifiying  //4,5,6,7,8
-      <lesson name="Conservation and natural resources" topics="-1" level="5" index="75" score="0">
         <model>
-          <simple>Glass</simple>
-          <quiz>Often used for bottles, this material should be recycled</quiz>
+          <simple>Tundra Ecosystems</simple>
+          <advanced>In the snow-covered, windswept, treeless tundra, the soil may be frozen year-round, a condition known as permafrost. </advanced>
+          <advanced>During the brief spring and summer, snows melt, producing shallow ponds which attract migrating waterfowl.</advanced>
+          <advanced>The term “tundra” most commonly denotes polar areas, but at lower latitudes, tundra-like communities known as alpine tundra may be found at high elevations.</advanced>
+          <quiz>This type of ecosystem can have a condition known as permafrost</quiz>
+          <quiz>This type of ecosystem is commonly found in polar areas</quiz>
         </model>
-        <model>
-          <simple>Paper</simple>
-          <quiz>Used for books and magazines, this material should be recycled</quiz>
-        </model>
-
-        <model>
-          <simple>Cardboard</simple>
-          <quiz>Used for creating boxes, this material should be recycled</quiz>
-        </model>
-
-        <model>
-          <simple>Plastic</simple>
-          <quiz>Used for a variety of things, this material should be thrown in the trash</quiz>
-        </model>
-
-      </lesson> //good   //4,5,6,7,8
+      </lesson> //this one is identifiying  //4,5,6,7,8     
       <lesson name="Rocks and minerals" topics="18" level="5" index="77" inq="Can you identify all the rocks in your local park? What are the most common types of rocks you found?" score="0">
         <model section="-1">
           <simple>Rocks and minerals</simple>
           <advanced>Rocks and minerals are all around us, and they can be found from building materials to medicine and pharmaceuticals</advanced>
           <advanced>This module will introduce you to the three types of rocks, as well as some common rocks and minerals</advanced>
-        </model>
-
-        //new shit-----------------
-        <model section="-1">
-          <simple>Rocks and Minerals</simple>
           <advanced>Geologists are scientists who study rocks. </advanced>
           <advanced>To a geologist, a rock and a mineral are two different things that occur in nature.</advanced>
           <advanced>Imagine two chocolate bars. One is pure chocolate, and the other has caramel and nuts in it. The pure chocolate bar is like a mineral. In science, a mineral is a solid that is made of the same substance throughout.</advanced>
           <advanced>The chocolate bar that contains nuts and caramel is like a rock. A rock is a solid that is made of two or more minerals. </advanced>
         </model>
+
 
         <model section="-1">
           <simple>Minerals</simple>
@@ -1641,8 +1428,7 @@
           <quiz>This is the process during which plants release water that is evaporated</quiz>
           <quiz>Around 10 percent of the water vapour in the atmosphere is estimated to come from here</quiz>
         </model>
-      </lesson> //good   //4,5,6,7,8
-      
+      </lesson> //good   //4,5,6,7,8    
       <lesson name="Astronomy" topics="22" level="5" index="81" inq="What would be the best planet for humans to colonize? The second best?" score="0">
         <model section="-1">
           <simple>Our Solar System</simple>
@@ -1991,7 +1777,7 @@
           <quiz>The main functions of this molecule include signalling, storing energy, and building the cell membrane</quiz>
         </model>
       </lesson> //bunch of shit to add here   //6,7,8,9,10  //good now
-      <lesson name="Anatomy and physiology" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0">
+      <lesson name="Organs" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0">
         <model section="-1">
           <simple>Human Organs</simple>
           <advanced>In this module, you will learn about the most important organs in the human body</advanced>
@@ -2030,7 +1816,7 @@
           <quiz>This organ is important in keeping homeostasis</quiz>
         </model>
       </lesson> //good    //6,7,8,9,10
-      <lesson name="Ecological interactions" topics="36" level="5" index="91" inq="How have humans effected some ecologys? Write some examples below!" score="0">
+      <lesson name="Ecological interactions" topics="36" level="5" index="91" inq="How have humans effected some ecosystems? Write some examples below!" score="0">
         <model section="-1">
           <simple>Ecological interaction</simple>
           <advanced>In this module you will learn about the different interactions in a food web and food chain</advanced>
@@ -2295,7 +2081,7 @@
         </model>
 
       </lesson> //good  //4,5,6,7,8
-      <lesson name="climate" topics="34" index="79" level="5" inq="What climate do you live in? How does this influence the weather?">
+      <lesson name="climate" topics="34" index="98" level="5" inq="What climate do you live in? How does this influence the weather?">
         <model section="-1">
           <simple>Weather and climate</simple>
           <advanced>In this module, you will learn about the different types of climates on planet Earth</advanced>
@@ -2402,106 +2188,54 @@
           <quiz>This region receives very little precipitation, and has a very large temperature changes ranging from 45 °C to 0 °C in one day</quiz>
         </model>
       </lesson> //good   //4,5,6,7,8,9
+      <lesson name="Circuits" topics="43" level="5" index="114" inq="Why is it important to understand the rights of Native Americans?" score="0">
+       <model>
+         <simple>Resistor</simple>
+         <advanced></advanced>
+       <quiz>The symbol for this circuit element a squiggly line, or a rectangular box</quiz>
+         <quiz>Another symbol for this circuit element is an R</quiz>
+       </model>
+         
+           <model>
+         <simple>Capacitor</simple>
+         <advanced></advanced>
+       <quiz>The symbol for this circuit element is two parallel plates</quiz>
+           <quiz>Another symbol for this circuit element is a C</quiz>
+       </model>
+         
+         <model>
+         <simple>Inductor</simple>
+         <advanced></advanced>
+       <quiz>The symbol for this circuit element looks like a spring</quiz>
+           <quiz>Another symbol for this circuit element is L</quiz>
+       </model>
 
-
-      //this one is good, just need to fix up the sprites, and the general functionaly
-
-      //modules to improve rn:
-      //1. classification
-      //2. animals
-
-      //3. fossils //just get better models, and more relevant infomration
-      //4. enviornment //replace this with the 3d model, and the animated deer
-      //5. weather and atmosphere //maybe replace this with 2d or 3d scene, and have animated clouds, and maybe a few weather patterns
-      //6. rocket ( - have interactive quizes during the actual launch) //so for example they would
-
-   
-      //2. make the balloon, and charging animation look better
-      //3. add the particles faster, and make them move aroundis?
-      //4. when it is fully charged, have some sort of animation showing that they need to touch it to the rod
-      //5. make the spark animation look better, and it should be more accurate
-      <lesson name="Static Electricity" topics="43" level="5" index="114" inq="Why is it important to understand the rights of Native Americans?" score="0">
-        <model section="1">
-          <simple>Electricity</simple>
-          <advanced>Electricity is one of the most important forms of energy today. It is what powers your phone, keeps the lights on, and even what allows you to think and move!</advanced>
-          <advanced>In this module you will learn about static electricity, and why it is important</advanced>
-          <advanced>Before we understand static electricity, we need to understand forces</advanced>
-        </model>
-
-        <model section="1">
-          <simple>Force</simple>
-          <advanced>In science, a force is a push or a pull that makes an object move, stop moving, or change direction or shape.</advanced>
-          <advanced>When forces act directly on objects like this, scientists call them contact forces.</advanced>
-          <quiz>This is either a push or a pull on an object</quiz>
-          <quiz>This effects an objects motion, or shape</quiz>
-        </model>
-
-        <model>
-          <simple>Friction</simple>
-          <advanced>When two objects slide over each other, they rub and resist, or try to stop, moving against each other. Scientists call this resistance to movement the force of friction</advanced>
-          <advanced>Friction is a contact force that happens when two objects rub together, try rubbing your two hands together and see for yourself!</advanced>
-          <quiz>This is the force that happens when two objects slide over each other</quiz>
-          <quiz>This force resists motion</quiz>
-        </model>
-
-        <model>
-          <simple>Particles</simple>
-          <advanced>Scientists understand that everything in the universe is made up of tiny particles. They are too small to see with your eyes or even a microscope. </advanced>
-          <quiz>Everything in the universe is made of these</quiz>
-        </model>
-
-        <model>
-          <simple>Static Electricity</simple>
-          <advanced> So, rubbing the balloon on the carpet will cause the balloon to pick up some particles from the carpet. The balloon will now have extra particles. It is now charged with static electricity. Static electricity is the build-up of extra particles. </advanced>
-          <quiz>This is the build up of excess particles </quiz>
-          
-        </model>
+           <model>
+             <simple>Voltage source</simple>
+           <advanced>An ideal voltage source produces the same amount of voltage in a circuit, no matter what.</advanced>
+             <advanced>Voltage sources always have an area of higher voltage, and lower voltage, (shown with a + and a -). The current then flows from areas of higher to lower voltage</advanced>
+           <quiz>The symbol for this circuit element is a circle, with a + and a - on the inside</quiz>
+             <quiz>Another symbol for this circuit element, are long and short lines stacked on top of each other</quiz>
+           </model>
+           
+           <model>
+             <simple>Current source</simple>
+           <advanced>An ideal current source produces the same amount of current in a circuit, no matter what.</advanced>
+             <advanced>There is always a direction in which the current flows, you can think of current as water, and the current source as a pump pushing the water in one direction</advanced>
+           <quiz>The symbol for this circuit element is a circle with an arrow.</quiz>
+           </model>
+           
+           <model>
+             <simple>Ohms Law</simple>
+             <advanced>Ohm's Law relates current, voltage and resistance. </advanced>
+             <advanced>It tells us that if we increase the current through a resistor, the voltage across the resistor will increase by the same amount.</advanced>
+             <advanced>It also tells us that if we increase the resistance of a resistor, the voltage drop will also increase.</advanced>
+             <quiz>The name of the equation V=i*R</quiz>
+           </model>
+         
+         
       </lesson> //good?  //6,7,8,9,10  //5:00
-
-      //you can use that $5 model heres, and just put it in science
-      <lesson name="Organ Systems"  topics="46" level="5" index="118" inq="Which organ systems does high-colesteral affect? Why is it important to eat healthy food?" score="0">
-
-        <model section="1">
-          <simple>Organ Systems</simple>
-          <advanced>In this module you will learn about the different organ systems, what they do, and how they work</advanced>
-        </model>
-
-
-        <model section="1">
-          <simple>Cells</simple>
-          <advanced> Scientists have found that our bodies are made of trillions of tiny cells. Cells are the basic building blocks of life. They  make up every part of you—your skin, your eyes, your brain, your stomach, your blood, and even your bones. </advanced>
-          <advanced> Most cells are too small to see without a microscope. There are about 200 different kinds of cells in the human body. Each kind has a different size, shape, and function.</advanced>
-          <advanced> For example, nerve cells carry electrical messages that control the body and white blood cells help keep you healthy. </advanced>
-        </model>
-
-        <model section="1">
-          <simple>Cells, tissues and Organs</simple>
-          <advanced> Groups of similar cells make up tissues. Cells and tissues make up organs, which are parts of the body that perform certain jobs. Your eyes, ears, heart, and lungs are all organs. </advanced>
-          <advanced>There are four different tissue types in the human body: connective, epithelial, nervous, and muscle.</advanced>
-          <advanced>The structures in your body are made up of different combinations of these four types of tissue. </advanced>
-        </model>
-
-        <model section="1">
-          <simple>Connective Tissue</simple>
-          <advanced>Connective tissue supports other tissues and connects different parts of the body. Blood is a connective tissue and so are fat, bones, cartilage, and tendons. </advanced>
-        </model>
-
-        <model section="1">
-          <simple>Epithelial Tissue</simple>
-          <advanced> Epithelial tissue covers the surface of your body and the outside of your organs. The skin and the linings of the various passages inside your body are made of epithelial tissue.</advanced>
-          <advanced>Depending on its location, epithelial tissue may release substances to the surroundings or absorb substances from the surroundings.</advanced>
-        </model>
-
-        <model section="1">
-          <simple> Nervous Tissue</simple>
-          <advanced>Nervous tissue carries messages to and from various parts of the body. Your brain, spinal cord, and nerves are all made of nervous tissue. </advanced>
-        </model>
-
-        <model section="1">
-          <simple>Muscle Tissue:</simple>
-          <advanced>Muscle tissue allows your body to move. This tissue is specialized for contraction. Different muscle tissues pump blood through your body, push food through your intestines, and allow you to move the various structures in your body </advanced>
-        </model>
-
+      <lesson name="Organ Systems"  topics="23" level="5" index="118" inq="Which organ systems does high-colesteral affect? Why is it important to eat healthy food?" score="0">
         <model>
           <simple>Respiratory System</simple>
           <advanced>Breathing helps bring oxygen into your body and take carbon dioxide out of your body. Scientists call this process respiration.</advanced>
@@ -2605,513 +2339,226 @@
           <quiz>This system includes special cells called white blood cells</quiz>
         </model>
       </lesson> //6-10
-
-//done list
-
-
-
-      //this one will be gold ruberg with the 3rd party software
-      //just have the drag and drop, have the battery, have the resistor, and be able to make a simple curcuit
-      /for this one, in the background have the outline of a simple circuit, that they can turn off or on, 
-      <lesson name="current electricity" topics="-1" level="5" index="113" inq="go online to www.divevr.org/expirments/lemon_battery, and try building the curcuit shown, write down what you learned!">
-        <model section="1">
-          <simple>Current electricity</simple>
-          <advanced>In this module you will learn about current electricity, and simple circuits</advanced>
-          <advanced>When electricity flows it is called current electricity. For this movement or flow of electricity, you need a circuit, which provides a place for the electricity to flow and a path for it to move through. Without a circuit, current electricity cannot move. </advanced>
-        </model>
-
-        <model section="1">
-          <simple>Electrical circuits</simple>
-          <advanced>In the circuit, there are materials needed to create working current electricity. You need a source of electrical energy, a path that the energy can move through, and a load that converts the electrical energy into something that you can use.</advanced>
-          <advanced>Let's look at the different types of circuits</advanced>
-        </model>
-        
-        <model section="1">
-          <simple>Series and parallel circuits</simple>
-          <advanced>There are two general types of circuits, Series and parallel</advanced>
-          <advanced>If you can place your finger on any part of the circuit and trace a single path back to the start, you have a series circuit. </advanced>
-          <advanced>A parallel circuit is different because it can be recognized by having more than one loop</advanced>
-          <advanced>Now lets create your own electrical circuit. Drag objects from the left. Try and add a power source, a load and wires</advanced>
-        </model>
-
-        //these just pop up when they click on soemthing to place
-        <model>
-          <simple>Load</simple>
-          <advanced>Electricity is a form of energy, but we can change that energy into other forms in order to make it more useful in our world. Scientists call these changes transformations. </advanced>
-          <advanced>They occur when electrical energy is converted into heat, light, sound, motion, or magnetic energy. </advanced>
-          <advanced> An electrical device is anything that requires electricity to operate. This is usually referred to as the load. A radio, television, computer, light bulb, or LED are all examples of electrical devices. </advanced>
-          <quiz>This is an electrical device that requires electricity to operate</quiz>
-          <quiz>A radio, television or computer would be an example of this</quiz>
-        </model>
-
-        <model>
-          <simple>Conductors or insulators</simple>
-          <advanced>Materials that allow electricity to move through them are called conductors. Conductors are used to make wires for circuits. Electricity could even be defined as a form of energy that can flow through conductors.</advanced>
-          <advanced>The materials that stop electricity from moving through are called insulators. Insulators are useful too. They wrap around conductor wires to keep people safe from electric shock.</advanced>
-          <quiz>These are materials that allow electricity to move through them</quiz>
-          <quiz>These are materials that don't allow electricity to move through them</quiz>
-          <quiz>These materials are often wrapped around conductors to keep people safe from electric shock</quiz>
-        </model>
-
-        <model>
-          <simple>Batteries</simple>
-          <advanced>Batteries are often called cells. There are two types of cells, Primary and secondary </advanced>
-          <advanced>It is called a primary cell if it cannot be recharged, and a secondary cell if it can be recharged.</advanced>
-          <quiz>These are what supply the electrical energy to a system</quiz>
-        </model>
-
-        <model>
-          <simple>Switches</simple>
-          <advanced> A switch or control is a device that controls the flow of electricity by breaking or completing the circuit. There are many different types of switches available.</advanced>
-          <quiz>These devices control the flow of electricity by completing or breaking the circuit</quiz>
-        </model>
-//----------------------
-
-//this pops up when they run it, and it works 
-<model>
-  <simple>Electric current</simple>
-</model>
-
-      </lesson> //not done //6,7,8,9,10  //7:00
-
+ <lesson name="current electricity" topics="40" level="5" index="113" inq="What is the voltage of the electricity in your house? Is this different in other countries?">
+   <model>
+     <simple>Voltage</simple>
+   <advanced>Voltage gives electrons energy, and the ability for them to do work.</advanced>
+     <advanced>You can think of voltage as a skii lift, that brings electrons to the top of a hill, and allows them to roll down, while doing work</advanced>
+   <quiz>This is what allows electrons to do work</quiz>
+   <quiz>This can create current</quiz>
+   </model>
+ 
+    <model>
+     <simple>Current</simple>
+   <advanced>Current is simply the flow of electrons. Imagine current as flowing water in a pipe. You need a pump to push the water (voltage) and you can meassure how much water is flowing in the pipe (current)</advanced>
+  <advanced>We say positive current is the direction in which the positive charges move. </advanced>
+    <quiz>This is the amount of charge per second</quiz>
+   <quiz>To measure this, you would have to count the amount of charged particles passing in one second</quiz> 
+   
+   </model>
      
-
-      //just make this a 2d animation or simulation with a submarine, they can change certain properties of the liquid to see how it effects the forces
-      //or you could make this like flight, and just have different systems demonstrating the different principles, and than just put a bunch of shit in section 1
-      //for this one get rid of the hydralics, and just have a 2d submarine in waves 
-      <lesson name="properties of liquids"  topics="-1" level="5" index="121" inq="Why is it important to understand the rights of Native Americans?" score="0">
+      <model>
+     <simple>Law of attraction</simple>
+   <advanced>The law of attraction states that like charges repel, and opposites attract</advanced>
+        <advanced>For example, if you had two magnets, and you held the opposite ends together they would pull together, but if you flipped one of them around, they would push apart</advanced>
+        <advanced>In electricity, the negative charges are often electons, while the positive charges are protons</advanced>
+   <quiz>This states that opposite charges attract</quiz>
+      <quiz>This states that like charges repel</quiz>
+   </model>
+     
+          <model>
+     <simple></simple>
+   <advanced></advanced>
+   <quiz></quiz>
+   </model>
+      </lesson> //not done //6,7,8,9,10  //7:00
+      <lesson name="magnets"  topics="7" level="5" index="67" inq="Can magnets damage electric devices?" score="0">
         <model>
-          <simple>Viscosity</simple>
-          <advanced>How fluids flow is determined by a property called viscosity.  Viscosity is a liquid’s internal resistance or friction that keeps it from flowing. </advanced>
-          <advanced>Recall from the Particle Theory that the particles in a liquid slide around and roll over each other. In a gas, the particles move around more easily because they are far apart. </advanced>
-          <advanced>In a fluid, the greater the friction or rubbing between the particles, the higher the viscosity. Fluids with a high viscosity do not flow as easily as fluids with a low viscosity. </advanced>
-          <advanced>There are several ways to determine the viscosity of fluids. Two common ways you will investigate are the bubble test and the ramp method. </advanced>
-          <advanced>In the bubble test, you time how long it takes an air bubble to rise through a tube of fluid. </advanced>
-          <advanced>In the ramp method, you time how long it takes a fluid to flow down a ramp </advanced>
-          <advanced> As temperature increases, the viscosity of a liquid decreases. Particles at higher temperatures move with more energy. Particles are able to move out of the way and make room for other particles to pass, allowing the liquid to flow more easily. </advanced>
-          <advanced>The opposite is also true. As temperature decreases, the viscosity of a liquid increases. Particles at lower temperatures move with less energy. The spaces between particles get smaller, making less room for other particles to pass. This causes the liquid to flow less easily.</advanced>
+          <simple>Poles</simple>
+          <advanced>Every magnet in natures has two poles (or in other words, is dipolar).</advanced>
+          <advanced>We call these poles North, and South. They are arbitrary, but we call the North pole of a magnet, the one that points towards the North pole of the Earth</advanced>
+        <quiz>Every magnet has two of these</quiz>
+          <quiz>There are two types of these, north and south</quiz>
         </model>
-
+      
         <model>
-          <simple>Volume</simple>
-          <advanced>The volume of an object is a measure of how much space it takes up. Volume and mass are both important measurements when determining the density of an object. Density can be measured by finding the mass of a substance in a given volume. </advanced>
+          <simple>Law of attraction</simple>
+          <advanced>The law of attraction states that like charges repel, and opposite charges attract</advanced>
+        <quiz>This states that opposites attract</quiz>
+          <quiz>This states that like charges repel</quiz>
         </model>
-
-        <model>
-          <simple>Mass and weight</simple>
-          <advanced>Weight is a measure of the force of gravity on an object, while the mass of an object measures the amount of matter that is in the object. </advanced>
-          <advanced>If you were to go to the Moon, you would find that the force of gravity is one-sixth of that on Earth. The mass of an object on the Moon is the same as on Earth. So, what would happen to an astronaut’s weight when she travels to the Moon? </advanced>
-          <advanced>Well because the force of gravity is one-sixth, and the mass remains the same, the weight will be one-sixth of the weight on Earth. </advanced>
+      
+      <model>
+          <simple>Magnetic field</simple>
+          <advanced>Magnets have magnetic fields. If an object is within a magnets magnetic field, than it can be effected by it.</advanced>
+        <advanced>Magnetic field lines come from the North pole, and go into the south pole of a magnet</advanced> 
+      <quiz>This is created by the electron spins inside of a material</quiz>
         </model>
-
-        <model>
-          <simple>Density</simple>
-          <advanced>Density is the amount of matter or number of particles in a given volume. The Particle Theory can help you understand density. </advanced>
-          <advanced> The density of a substance is the ratio of its mass to its volume. This can be written as an equation: D = m / V</advanced>
-        </model>
-
-        <model>
-          <simple>Density and temperature</simple>
-          <advanced>As particles move more rapidly, the space between them increases. This can cause two things to happen. First, the volume increases because the particles need more room to move. The volume increases, but the number of particles does not, meaning that the density decreases.</advanced>
-        </model>
-
-        <model>
-          <simple>Floating</simple>
-          <advanced>A force is a push or a pull that tends to cause an object to move or change its motion. </advanced>
-          <advanced>Floating occurs when the upward force on an object is equal to or greater than the force of gravity pulling the object down.</advanced>
-          <advanced> Objects in fluids may rise or sink if these two forces are not balanced forces. </advanced>
-          <advanced>When an object is in a liquid, the force of gravity or gravitational force on the object pulls the object down toward Earth. The liquid, however, exerts an opposite force, called the buoyant force, and tries to push the object up. </advanced>
-          <advanced> If the mass of the object is greater than the mass of the water the object displaces, then the gravitational force is greater than the buoyant force and the object will sink or dive. </advanced>
-          <advanced>If the mass of the object is less than the mass of the water that the object displaces then the gravitational force is less than the buoyant force and the object will rise.</advanced>
-          <advanced> The unit that scientists use for gravitational force is called the newton (N). It is equal to the amount of force required to accelerate a mass of one kilogram at a rate of one metre per second per second.</advanced>
-        </model>
-
-        <model>
-          <simple>Archimedes’ principle</simple>
-          <advanced> Archimedes and the boat floated on the surface of the water. Archimedes made an important conclusion, known today as the Archimedes’ principle—the buoyant force acting on an object equals the weight or gravitational force of the fluid displaced by the object.</advanced>
-          <advanced> For example, suppose you drop an object into a container. When the fluid rises, it will flow into the beaker. You already know that the volume of the displaced fluid equals the volume of the object. </advanced>
-          <advanced>You are now discovering that the weight of that overflow fluid equals the buoyant force of  the fluid pushing up on the object.</advanced>
-        </model>
-
-        
-        
-        
-        
-        <model>
-          <simple>Machines from fluids</simple>
-          <advanced>Hydraulic devices use water or some other liquid in motion; pneumatic devices use air or other gases. </advanced>
-        </model>
-
-        <model>
-          <simple>Pressure</simple>
-          <advanced> They define pressure as the amount of force applied to a particular area, or force per unit area. The amount of pressure depends on two things: </advanced>
-          <advanced>the amount of force being applied, measured in newtons (N), </advanced>
-          <advanced>the size of an area the force pushes or pulls on, measured in square metres (m2)</advanced>
-          <advanced>The more force you can apply to a given area, the greater the pressure. The pressure on a given area can also be changed by making the area smaller (for greater pressure) or larger (for less pressure).</advanced>
-        </model>
-
-        <model>
-          <simple>Compressability</simple>
-          <advanced>Another property of fluids is compressibility, the ability to become more compact when squeezed. When a force pushes on an object, the object is said to be under compression. </advanced>
-          <advanced>Objects under compression tend to deform in shape. For example, when you kick a soccer ball, the force of your foot compresses the ball and temporarily deforms it.</advanced>
-        </model>
-
-        <model>
-          <simple>Pascals law</simple>
-          <advanced>Pascal’s law states that when pressure is applied to a contained liquid, that pressure and force are transmitted without losing any force and in all directions throughout the liquid. </advanced>
-        </model>
-
-        <model>
-          <simple>Hydraulic systems</simple>
-          <advanced>Systems that use liquids in a confined space to transfer forces are called hydraulic systems. These systems operate according to Pascal's law. The liquid put into a hydraulic system is called hydraulic fluid. It is moved through the system by a pump.</advanced>
-          <advanced> A hydraulic system can create a mechanical advantage. This  means that the output force is larger than the input force. </advanced>
-          <advanced>In the hydraulic system, a fluid exerts the same amount of pressure throughout the system, so there is 16 times as much force being exerted by the fluid on the larger piston. </advanced>
-          <advanced> The hydraulic fluid in a system is not used up. It continues to circulate throughout the system. A pump, a machine or device that displaces a fluid by physical or mechanical action, is used to force the fluid to flow, allowing it to move against gravity. </advanced>
-          <advanced> Valves control the flow of fluid and keep the fluid flowing in the desired direction. </advanced>
-          <advanced>There are many technologies that use hydraulic systems to move large, heavy objects easily. These include backhoes and excavators, and different systems in a vehicle including brakes and steering.</advanced>
-        </model>
-
-      </lesson> //5-9    8:30
-
-      //not alot of content here
-      <lesson name="magnets"  topics="-1" level="5" index="67" inq="Why is it important to understand the rights of Native Americans?" score="0">
-
-        <model>
-          <simple>Types of Magnets</simple>
-          <advanced>Scientists call these objects magnetic. Likewise, they call objects that are not attracted to magnets non-magnetic.</advanced>
-          <advanced>Magnets that we make can be temporary or permanent. Temporary magnets, such as the nail magnet you made in the last lesson, lose their magnetism quickly. Permanent magnets stay magnetized for a long time.</advanced>
-          <advanced>All magnets have two ends called poles. Both poles can attract iron and nickel objects. The space around magnets is where magnetic forces act. Scientists call this space the magnetic field.</advanced>
-        </model>
-
-        <model>
-          <simple>Natural Magnets</simple>
-          <advanced>Magnets made by Earth are called natural magnets. You have also learned that we can make iron and nickel objects into magnets. But we cannot make copper, aluminum, and other metal objects into magnets.</advanced>
-        </model>
-
-        //grade 6 magnets and shit like that
-        <model>
-          <simple>Magnetism</simple>
-          <advanced>Magnetism is the force around a magnet. It is strongest at the magnetic poles. The poles are labelled N and S. N is for the north pole of the magnet, and S is for the south pole of the magne</advanced>
-        </model>
-
-        <model>
-          <simple>Magnetic force</simple>
-          <advanced>The actions of south and north poles pulling together or of two north poles or two south poles pushing away from each other are examples of magnetic force.</advanced>
-        </model>
-
-        <model>
-          <simple>Types of magnets</simple>
-          <advanced>Some magnets are permanent magnets. These magnets stay magnetized for long periods of time.</advanced>
-          <advanced> Other magnets are considered temporary magnets. They can turn their magnetism on and off.</advanced>
-          <advanced>For example, a motor, a fire alarm bell, and a telephone all require temporary magnets called electromagnets. Electromagnets act as magnets when electricity flows through wire coils wrapped around an iron bar.</advanced>
-        </model>
-
-        <model>
-          <simple>Measuring power</simple>
-          <advanced> The amount of electricity used by an appliance is  measured in units called watts (W) or kilowatts (kW) of power.</advanced>
-        </model>
-
+     
       </lesson> //9-10
+<lesson name="Light" topics="10" level="5" index="122" inq="We can only see a small part of the electromagnetic specturm, are there animals that can see more?" score="0">
+  <model>
+    <simple>Electric fields</simple>
+    <advanced>Electric fields are created by charged particles, and point radially outward, away from the particle.</advanced>
+    <quiz>This is created by a charged particle</quiz>
+  <quiz>This can create magnetic fields</quiz>
+  </model>
+  
+  <model>
+    <simple>Magnetic fields</simple>
+    <advanced>Magnetic fields can be created by a changing current.</advanced>
+    <quiz>This is created by a changing electric current</quiz>
+    <quiz>This can create electric fields</quiz>
+  </model>
+      
+    <model>
+    <simple>Electromagnetic fields</simple>
+    <advanced>Electromagnetic fields are created by changing electric and magnetic fields. Both the electric and magnetic fields are perpendicular to each other, and the direction they are travelling in.</advanced>
+      <advanced>Electromagnetic fields travel at the speed of light, which is about 3 * 10^8 meters per second</advanced>
+      <quiz>This is a combination of electric and magnetic fields</quiz>
+      <quiz>This travels at the speed of light</quiz>
+  </model>
+    
+    <model>
+    <simple>Electromagnetic spectrum</simple>
+    <advanced>The frequency of electromagnetic fields can create an electromagnetic specturm. Waves with lower frequencies have less energy than waves with higher frequencies</advanced>
+      <advanced>On the low end, we have microwaves, and infrared waves. Then as the frequency increases we have uv waves, x-rays and gamma rays</advanced>
+    <quiz>The visible spectrum is apart of this</quiz>
+      <quiz>Microwaves are apart of this</quiz>
+  </model>
+    
+</lesson>
 
-//for these ones just have a construction site, whre you can click on different parts and it tells you info
-      //have them build their own structure (just use gold ruberg interface)
-      <lesson name="Materials and structures" topics="-1" level="5" index="117" inq="Why is it important to understand the rights of Native Americans?" score="0">
-        <module section="1">
-          <simple>structures</simple>
-          <advanced>In this module you will learn about materials and structures, their terminology and why they are important</advanced>
-          <advanced>A structure is something that holds weight. The weight that a structure supports is called a load.</advanced>
-          <advanced>You have learned that the strongest shape is a triangle. A triangle is also the most stable shape. A stand that holds a camera steady is shaped like a triangle. It has three points of contact with the ground. </advanced>
-          <advanced>There are many different types of structures, let's learn about them!</advanced>
-        </module>
+<lesson name="velocity and acceleration" topics="27" level="5" index="85" inq="What is the fastest acclerating car today? What is its accelration?">
+  <model>
+    <simple>Vector</simple>
+    <advanced>A vector is something that has a magnitude and a direction</advanced>
+  <quiz>This has a magnitude and a direction</quiz>
+    <quiz>Driving 50 km/h North is an example of this</quiz>
+  <quiz>Moving 5 meters to the left is an example of this</quiz>
+  <quiz>Velocity is an example of this</quiz>
+    <quiz>We represent this with an arrow on top</quiz>
+  </model>
+  <model>
+    <simple>Scalar</simple>
+    <advanced>A scalar only has a magnitude or size</advanced>
+  <quiz>This only has a magnitude</quiz>
+    <quiz>Driving 50 km/h is an example of this</quiz>
+  <quiz>Moving 5 meters is an example of this</quiz>
+  <quiz>Speed is an example of this</quiz>
+  </model>
+      <model>
+    <simple>Average velocity</simple>
+    <advanced>The average velocity is simply the total displacement over the total time.</advanced>
+        <advanced>Notice, that sometimes your average velocity will not equal your instantaneous velocity.
+        <advanced></advanced>For example, if you drive from your house to the store at 50 km/h, but you stop at a stop sign. Your instantaneous speed in most places is 50 km/h, but your average speed may only be 30 km/h</advanced>
+  <quiz>the equation of this is displacement over time</quiz>
+      <quiz>The symbol of this is a 'v' with an arrow on top</quiz>
+  </model>
+      <model>
+    <simple>Instantaneous velocity</simple>
+    <advanced></advanced>
+  <quiz>This is the velocity of an object at a single instance</quiz>
+        <quiz>If you are driving a car, and look at the speedometer, this is the value you would see</quiz>
+  </model>
 
-        <model section="1">
-          <simple>Solid structures</simple>
-          <advanced>Solid structures are not hollow. They are the same throughout and are usually made of one material. </advanced>
+    <model>
+    <simple>Instantaneous velocity</simple>
+    <advanced></advanced>
+  <quiz>To find this, you would need to find the slope at a certain point in time, for the velocity and time graph.</quiz>
+  </model>
+
+  <model>
+    <simple>Acceleration</simple>
+    <advanced>This is the change in velocity over time.</advanced>
+    <quiz>This is the  change in velocity over time</quiz>
+    <quiz>meters per second squared would be the units for this measurement</quiz>
+  </model>
+
+</lesson>
+<lesson name="kinetic and potential energy" topics="28" level="5" index="66" inq="How much energy do humans consume in a day?">
+   <model section="2">
+          <simple>Newtons First Law</simple>
+          <advanced>Newtons First Law says that an object at rest tends to stay at rest, and an object in motion tends to stay in motion, with the same direction and speed</advanced>
+          <advanced>For example, if you watch videos of astronauts in space, you will notice that their tools float, and they won't move unless the astronaut pushes or pulls it, at which point it will keep moving until it is stopped</advanced>
+          <quiz>This law states that an object will stay at rest, or continue in motion unless acted on by an external force</quiz>
+          <quiz>It is because of this law that objects on ice travel so far</quiz>
+     <quiz></quiz>
         </model>
-
-        <model section="1">
-          <simple>Frame structures</simple>
-          <advanced>Frame structures are made of firm parts that are fastened together.</advanced>
+  
+        <model section="2">
+          <simple>Newtons Second Law</simple>
+          <advanced>Newtons Second Law says that the acceleration of an object produced by a net (total) applied force is directly related to the magnitude of the force, the same direction as the force, and inversely related to the mass of the object</advanced>
+          <quiz>This law states that acceleration is directly related to the force, and inversely related to the mass of an object</quiz>
+          <quiz>It is because of this law that it is harder to push heavier things </quiz>
         </model>
-
-        <model section="1">
-          <simple>Shell structures</simple>
-          <advanced>Shell structures are hollow with hard outer cases that hold the structure together. But, whether a structure is a solid, a frame, or a shell, it holds a load.</advanced>
+  
+        <model section="2">
+          <simple>Newtons Third Law</simple>
+          <advanced>Rocket fuel works on the basis of Newton’s Third Law of Motion, which states that ‘every action is accompanied by an equal and opposite reaction'.</advanced>
+          <advanced>By ﬁring fuel out the back of a rocket, the force propels it upwards with acceleration equal to the force at which the fuel is expelled.</advanced>
+          <quiz>This law states that every action has an equal and opposite reaction</quiz>
+          <quiz>Rockets are based on this law, it is what causes the rocket to be pushed up, when the exhaust is pushed down</quiz>
         </model>
-
+    
+</lesson>
+<lesson name="scientific method" level="5" topics="24" index="99" inq="Why is it important that we use the scientific method, instead of going with our gut feeling?">
+  <model>
+    <simple>Scientific Method</simple>
+  <advanced>The scientific method is a logical and structured way of thinking about our world. It focuses on using observations and evidence, instead of just gut feeling and guesses</advanced>
+    <quiz>This is a logical way of thinking about our world</quiz>
+  </model>
+  
+    <model>
+    <simple>Observation</simple>
+  <advanced>Whenever we encounter something we do not have an explanation for, we could consider it an observation.</advanced>
+   <advanced>It is important that we try to consider only what is observed, and ignore any previous assumptions or guesses</advanced>
+      <quiz>This is the first step in the scientific method</quiz>
+      <quiz>This step is where we notice something we cannot explain</quiz>
+  </model>
+  
+  
+    <model>
+    <simple>Ask a question</simple>
+  <advanced>After we observe something unexplainable, we should ask the question "why ...", and attempt to answer it</advanced>
+    <quiz>This is the second step in the scientific method</quiz>
+  </model>
+  
+    <model>
+    <simple>Hypothesis</simple>
+  <advanced>A hypothesis is a testable explanation for something we observed.</advanced>
+    <quiz>This is a testable explanation</quiz>
+    <quiz>This is the third step in the scientific method</quiz>
+    <quiz>In this step, we come up with a guess for our observation</quiz>
+  </model>
+  
+      <model>
+    <simple>Experiment</simple>
+  <advanced>We use an experiment to try to test our hypothesis. During the experiment, we should try and isolate for only the variables in our hypothesis</advanced>
+  <advanced>Our experiment should also be reproducible, such that others can also test our hypothesis</advanced>
+        <quiz>This is the fourth step in the scientific method</quiz>
+    <quiz>This is the process of testing out hypothesis</quiz>
+      <quiz>In this step, we try to isolate a single variable and test for it</quiz>
+        <quiz>This must be reproducible</quiz>
+  </model>
+  
         <model>
-          <simple>Fasteners</simple>
-          <advanced> Materials can be joined together with fasteners. Fasteners are objects that fix or hold materials together.</advanced>
-          <advanced>Some examples of fasteners include Nails,screws, zippers, and Velcro™.</advanced>
-        </model>
+    <simple>Prediction</simple>
+  <advanced>We predict what will happen during our experiment, using our hypothesis. Our prediction will be either wrong, partially wrong, or correct</advanced>
+    <quiz>This is the fifth step in the scientific method</quiz>
+          <quiz>In this step we guess what will happen during our experiment</quiz>
+  </model>
+  
+          <model>
+    <simple>Validation and repeat</simple>
+  <advanced>After our experiment, we may have new questions or observations. We then repeat the process of the scientific method</advanced>
+    <quiz>This is the last step in the scientific method</quiz>
+  </model>
 
-      </lesson> //6-10
-      //maybe you can combine this with materials, so first they build, than they see the different types of forces that are undergoing in their structure
-      <lesson name="Structures"  topics="-1" level="5" index="120" inq="Why is it important to understand the rights of Native Americans?" score="0">
-
-        <model>
-          <simple>Structures</simple>
-          <advanced>
-            A structure is made up of one or more parts put together that can support a load.
-          </advanced>
-          <advanced> Every structure has a form and a function. The  form is the basic shape; the function is its purpose. The function may be easy to identify—a ladder is for reaching higher up. </advanced>
-          <advanced>Some structures have several functions—a rock can be used to heat up a sweat lodge, or be a seat or part of a wall. </advanced>
-        </model>
-
-        <model>
-          <simple>Forces in and on structures</simple>
-          <advanced>All structures experience forces at all times. Sometimes the effects of those forces are not known until time has passed. That is why it is important to design a structure carefully, build it skilfully, and monitor it diligently throughout its useful life. </advanced>
-          <advanced>
-            Four properties describe how a force acts on a structure:
-            • magnitude: the strength of the force
-            • direction: the direction that the force is coming from
-            • plane of application: the “slice” that the force travels along
-            • point of application: the location where the force meets the
-            structure
-          </advanced>
-        </model>
-
-        <model>
-          <simple>forces</simple>
-          <advanced> The external forces acting on a structure are often referred to as the load. The total load is the sum of the static and dynamic loads.</advanced>
-          <advanced>The static load is a force that does not move or change. The effect of gravity on a structure is an example of a static load. </advanced>
-          <advanced>The dynamic load is made up of the forces that move or change while acting on a structure. Their magnitude, direction, and point or plane of application can change.</advanced>
-        </model>
-
-        <model>
-          <simple>Internal forces</simple>
-          <advanced>Some forces are caused by one part of a structure acting on other parts of the structure. This is an internal force. Examples include the tension in a stretched elastic and the compression caused by a roof pressing down on the walls of a building.</advanced>
-        </model>
-
-        <model>
-          <simple>compression</simple>
-          <advanced>a force that squeezes or presses something together </advanced>
-        </model>
-
-        <model>
-          <simple>shear</simple>
-          <advanced>a force that pushes in opposite directions</advanced>
-        </model>
-
-        <model>
-          <simple>tension</simple>
-          <advanced>a force that stretches apart to expand or lengthen </advanced>
-        </model>
-
-        <model>
-          <simple>torsion</simple>
-          <advanced>a force that twists</advanced>
-        </model>
-
-        <model>
-          <simple>Center of gravity and stability</simple>
-          <advanced>The centre of gravity is the point at which a mass is equally balanced in all directions. </advanced>
-          <advanced> Stability is a measure of how resistant a structure is to being knocked over. Stability depends on materials and construction techniques, as well as the centre of gravity. </advanced>
-          <advanced>A table has a high centre of gravity but is usually stable if it has four legs relatively far apart. The closer together the legs are, the less stable it becomes. A table with one large leg in the middle tends to be more wobbly than a table with legs at each corner.</advanced>
-        </model>
-
-        <model>
-          <simple>Structural stress</simple>
-          <advanced> The bend in the shelf is a sign of  structural stress. When the book is removed, the shelf may go back to its original shape. </advanced>
-          <advanced>Over time, repeated stress might crack the shelf. Permanent changes are signs of structural fatigue. Eventually, the shelf might collapse under the load of books. In that case, the external forces acting on the shelf were too strong. The result: structural failure.</advanced>
-        </model>
-
-        <model>
-          <simple>Structural efficiency</simple>
-          <advanced>Structural efficiency has to do with using the smallest amount of material to support a load. For example, to be efficient, the packaging for a remote control car should be the lightest needed to protect the car. </advanced>
-          <advnaced> efficiency =mass of load / mass of structure </advnaced>
-        </model>
-      </lesson> //4-8
-
-
-//for these ones, make them in science models, just have a few swipable lenses, and write some custome code for light rays, than have different things you can click on 
-      //these two are not bad, you just need to get the 3rd party code working
-      <lesson name="Light" topics="-1" level="5" index="122" inq="Why is it important to understand the rights of Native Americans?" score="0">
-        <model section="1">
-          <simple>Light</simple>
-          <advanced>In this module you will learn about light, what it is, and how it is made</advanced>
-          <advanced>Light is a form of energy. It travels faster than anything else</advanced>
-          <advanced>Below you can experiment with light, mirrors and lenses</advanced>
-          <advanced>Light travels in rays. A ray is a straight line of light. Most light sources send light in so many directions that it is hard to see just one ray.</advanced>
-          <advanced> A directed straight line that represents the path followed by the light is called a ray. A ray diagram illustrates the direction of the path of light. Straight lines and an arrowhead indicate the direction the light travels. </advanced>
-        </model>
-
-        <model>
-          <simple>Types of light sources</simple>
-          <advanced>Light sources can be grouped as either natural or artificial. </advanced>
-          <advanced> Natural light sources, such as fire or lightning, would exist without people. </advanced>
-          <advanced>Artificial light sources, such as fireworks and light bulbs, are made by people.</advanced>
-          <advanced> Light sources can also be grouped by whether they reflect (bounce) light from another source or emit (make their own) light. </advanced>
-          <advanced> The Sun emits light and the Moon reflects light. Both of these light sources are Natural. </advanced>
-        </model>
-
-        //use these for more advanced grades --------------------
-        //ok, so these will be the light sources you can choose from
-        <model>
-          <simple>Bioluminescence</simple>
-          <advanced>The phenomenon of bioluminescence happens when a naturally occurring chemical reaction (see chemiluminescence below) takes place within a living organism and results in the emission of light.</advanced>
-          <advanced> Fireflies and glow-worms (their larvae) use a complex reaction to make their tails glow. Other organisms such as shrimp, squid, and starfish use bioluminescence for communication.</advanced>
-          <advanced>Some forms of fungi that cause wood decay glow at night. This creates the eerie nighttime phenomenon known as foxfire. Bioluminescence is a naturally occurring source of light.</advanced>
-        </model>
-
-        <model>
-          <simple>Chemiluminescence</simple>
-          <advanced>Items that glow in the dark (produce light) due to a chemical reaction are described as chemiluminescent. When a glow stick is bent, the two liquids inside the stick mix, resulting in a chemical reaction.</advanced>
-          <advanced>This chemical reaction causes the stick to glow for several hours until the chemical energy is depleted. In crime scene investigations, blood is detected from a luminol test. Luminol glows blue when it chemically reacts with iron in the blood. </advanced>
-        </model>
-
-        <model>
-          <simple>Phosphorescent</simple>
-          <advanced>These items when exposed to light absorb it and then glow. Phosphorescent materials absorb light energy, store it for long periods of time, and then release it as a form of light. </advanced>
-          <advanced>Other items that use phosphorescence are photographic-darkroom timers and wristwatch dials.</advanced>
-        </model>
-
-        <model>
-          <simple>electroluminescence</simple>
-          <advanced>semiconductor and light is emitted, the phenomenon is known as electroluminescence. Light-emitting diodes (LEDs) and organic light-emitting diodes (OLEDs) are technologies that  are applications of electroluminescence. </advanced>
-          <advanced>Many wristwatches use electroluminescence to turn on a backlight. This produces a blue or green glow, allowing the numbers to be seen in the night </advanced>
-        </model>
-
-
-
-        //for each light source, it will have a luminecance
-        <model>
-          <simple>Luminance</simple>
-          <advanced>Luminance intensity, also known as brightness, refers to the light that is emitted from the surface of an object such as a light or candle.</advanced>
-          <advanced>The amount of light arriving at one place per unit area is referred to as luminescence. </advanced>
-        </model>
-
-        //this should be at the top-ish
-        <model section="1">
-          <simple>Optical Devices</simple>
-          <advanced>You have seen that mirrors are good reflectors of light. Any tool that uses or makes light is called an optical device. Periscopes and kaleidoscopes are two devices that use mirrors to reflect light.</advanced>
-        </model>
-
-        <model>
-          <simple>Transparent</simple>
-          <advanced>Materials that allow light to shine through are called transparent. You can see through transparent objects because they do not scatter or stop light. </advanced>
-        </model>
-
-        <model>
-          <simple>Translucent</simple>
-          <advanced> Materials that allow some light to pass through are called translucent. You cannot see through translucent materials clearly. Only some light can pass through. Most of the light is scattered, bouncing off in all directions.</advanced>
-        </model>
-
-        <model>
-          <simple>Opaque</simple>
-          <advanced>Materials that block all light from passing through are called opaque. Opaque objects absorb all the light or cause it all to bounce off. Because no light can pass through, opaque objects such as blinds cast a dark shadow.</advanced>
-        </model>
-
-        <model>
-          <simple>Refraction</simple>
-          <advanced> When light passes from air to water and from water to air, it changes direction. That is what made the pencil in the glass of water look broken.</advanced>
-        </model>
-
-        //use this for higher grades
-        <model>
-          <simple>More refraction</simple>
-          <advanced>When light travels through an interface between two regions at an angle other than 90°, it will most likely change direction depending on the properties of each region. </advanced>
-          <advanced>For example, when light travels from  air to water, it will change direction toward the normal. When light travels from water to air it will change direction away from the normal. </advanced>
-          <advanced>This change in direction happens if light travels at different speeds on either side of the interface. For example, light travels at different speeds through glass and water. The refractive index (or index of refraction) is a measure of how much the speed of light is reduced in the region. </advanced>
-        </model>
-
-        <model>
-          <simple>Prism</simple>
-          <advanced> Light also changes direction when it travels through a prism. A prism is a clear, smooth block with ends that are triangle shaped. </advanced>
-          <advanced>Sunlight is a mixture of all of the colours of light. When sunlight passes through a prism, each colour of light shifts direction a little bit. Violet light changes direction more than red light does. This divides white light into stripes of colours, with red on one side and violet on the other. </advanced>
-          <advanced>A rainbow contains all the colours of visible light that the human eye can see.</advanced>
-        </model>
-
-        <model>
-          <simple>Reflection</simple>
-          <advanced>If you use straight lines to represent the mirror and rays in a drawing, a line perpendicular to the mirror is called a normal. The angle between the incoming ray, the incident ray, and the normal is the angle of incidence. </advanced>
-          <advanced>The angle between the reflected ray and the normal is the angle of reflection.</advanced>
-          <advanced>Light behaves in the same way as the ball when reflecting off smooth and rough surfaces. Reflection off smooth surfaces results in a type of reflection known as specular (or regular) reflection. Mirrors, smooth metal surfaces, or calm water will create specular reflection. </advanced>
-          <advanced> If light reflects off an uneven surface such as the ocean surface, diffuse reflection occurs. A rough surface causes reflected light to scatter in many directions.</advanced>
-        </model>
-
-        <model>
-          <simple>Electromagnetic radiation</simple>
-          <advanced>However, the Sun emits many other types of energy which we cannot see. Scientists use the term  electromagnetic radiation to describe all of the energy that comes from the Sun. </advanced>
-          <advanced>Some of this energy can be seen, some can affect our bodies, and some can be used to make technology work. For example, you may have heard about radio waves, ultraviolet rays, and gamma rays. Special devices are needed to detect those types of electromagnetic radiation.</advanced>
-          <advanced>Electromagnetic radiation includes many types of energy from the Sun: visible light, infrared light which is sensed as heat, and ultraviolet light which causes tanning. </advanced>
-        </model>
-
-        //you left off here
-        <model>
-          <simple>Wave model of light</simple>
-          <advanced>The wave model of light is used to explain all electromagnetic radiation. The movement of waves in straight lines is called rectilinear propagation. </advanced>
-          <advanced>Just as each colour has its own wavelength, so does each of the invisible components of the electromagnetic spectrum. However, you  see only visible light. Your eyes are sensitive to the wavelengths  from red to violet. </advanced>
-          <advanced>You cannot see the other waves because your eyes are not sensitive to their wavelengths. </advanced>
-        </model>
-      </lesson> //ont done  //6,7,8,9,10
-      <lesson name="reflections" topics="-1" level="5" index="123" inq="Why is it important to understand the rights of Native Americans?" score="0">
-        <model>
-          <simple>Center of curvature</simple>
-          <advanced>The centre of curvature (C) is the point in space that would represent the centre of the sphere from which the mirror was cut. </advanced>
-        </model>
-
-        <model>
-          <simple>Principle point</simple>
-          <advanced>The principal focus (F) is a point on the principal axis at which rays parallel to the principal axis converge or appear to diverge from </advanced>
-        </model>
-
-        <model>
-          <simple>Focal point</simple>
-          <advanced>The focal point is located halfway between C and the mirror. </advanced>
-        </model>
-
-        <model>
-          <simple>Convex mirrors</simple>
-          <advanced>When you are shopping, you may have noticed a large mirror in the store. Convex surveillance mirrors are used to monitor a large area. </advanced>
-          <advanced>The outwardly-curved surface of a convex mirror reflects light from several parts of the room to the person’s eye so that a single mirror reflects a large area. Images in convex mirrors appear smaller than the object’s true size. </advanced>
-          <advanced>Convex mirrors are also used in parking garages so drivers can see if an oncoming car is coming around the corner. School buses use convex mirrors, which allow the driver to see children in front of and beside the bus.</advanced>
-          <advanced>When the object is far away from a convex mirror, the image is upright and very small. As the object comes closer to a convex mirror, the image remains upright and becomes larger, but is still smaller than the object.</advanced>
-          <advanced> Convex mirrors produce only virtual images </advanced>
-        </model>
-
-        <model>
-          <simple>Concave mirrors</simple>
-          <advanced>concave mirrors, ones in which the reflecting surface is curved inward like a bowl. Concave mirrors are used to  focus light rays or to create larger images.</advanced>
-          <advanced>Common concave mirrors are those found in car headlights or those used to apply makeup. In the next activity, you will investigate the size and orientation of images in convex and concave mirrors. </advanced>
-          <advanced> When the object is far away from a concave mirror, the image is upside down and smaller, but is a real image. When the object is very near, the image is upright and larger than the object. </advanced>
-          <advanced>The enlarged images formed from concave mirrors when the object is very close are virtual images. </advanced>
-        </model>
-
-        <model>
-          <simple>Virtual and real images</simple>
-          <advanced> This image is known as a virtual image. Light does not pass through the mirror, it only  appears that light is travelling from this location. Curved mirrors can produce both virtual and real images.</advanced>
-          <advanced> Real images are created on the same side of a concave mirror as the object; light passes through the image location and the image formed can be caught on a screen</advanced>
-        </model>
-
-        <model>
-          <simple>Lens</simple>
-          <advanced> A lens is a piece of transparent material (glass, plastic) with at least one curved surface.</advanced>
-        </model>
-
-        <model>
-          <simple>Convex Lens</simple>
-          <advanced>A convex lens curves outward. You can quickly spot a convex lens by noticing it is thicker in the middle than at the edges. </advanced>
-        </model>
-
-        <model>
-          <simple>Concave</simple>
-          <advanced> A concave lens curves inward. You can tell because concave lenses are thicker at the edges than in the middle.</advanced>
-        </model>
-
-        <model>
-          <simple>Objective lens</simple>
-          <advanced>The objective lens or mirror of a telescope gathers the light. The greater its diameter, the more light it can collect. More light means more information from a planet or star. The light forms an  image, which can be magnified further by the eyepiece lens. </advanced>
-          <advanced>In some telescopes, the image formed by the objective lens can be used to expose film or to activate a CCD matrix. </advanced>
-        </model>
-
-
-      </lesson> //not done   //6,7,8,9,10
-
-
-
-    </subject>
-
+    
+</lesson>
+ 
+  </subject>
   </headers>
   //you need to re-read all of the tutorial things
 
@@ -3527,475 +2974,194 @@
     </model>
     
   </LearningType>
-  //so, these will be all of the defualt values (and all of the possible values) for that subject
-
-  //so here, just get rid of any scores, the rest can stay
 
 <grade number="3">
   <subject name="science">
     
+      <lesson name="Plants" topics="5" level="5" index="89" score="" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!" />
+     <lesson name="Types of change" topics="3" level="5" index="64" inq="Is melting two different metals together a physical or chemical change?" />
+          <lesson name="Rocks and minerals" topics="18" level="5" index="77" inq="Can you identify all the rocks in your local park? What are the most common types of rocks you found?" score="0" />
+        <lesson name="Water cycle" topics="21" level="5" index="80" inq="Can you explain how global warming can cause more rain in some areas?" score="0" />
+          <lesson name="Astronomy" topics="22" level="5" index="81" inq="What would be the best planet for humans to colonize? The second best?" score="0" />
+     <lesson name="Environment" topics="44" level="5" index="73" inq="Can you name 3 biotic and 3 abiotic things in your backyard or local park?" />
+    <lesson name="scientific method" level="5" topics="24" index="99" inq="Why is it important that we use the scientific method, instead of going with our gut feeling?" />
+       <lesson name="Greenhouse gasses" topics="20" level="5" index="79" inq="What can people do to reduce the amount of greenhouse gasses?" score="0" />
+          <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
+          <lesson name="Ecosystems" topics="41" level="5" index="73" inq="What type of ecosystem do you live in, which would be your favorite ecosystem to live in and why?" score="0" />
+          <lesson name="climate" topics="34" index="98" level="5" inq="What climate do you live in? How does this influence the weather?" />
+          <lesson name="Ecological interactions" topics="36" level="5" index="91" inq="How have humans effected some ecosystems? Write some examples below!" score="0" />
+
   </subject>
 </grade>
   <grade number="4">
-    <subject name="math">
-      <lesson name="place value" index="0" topics="103,104,105,9,107,106" score="00.14.2020,3,80" level="5" />
-      <lesson name="addition and subtraction" index="1" topics="1,2" score="00142020,3,100" level="5" />
-      <lesson name="multiplication" index="2" topics="3,6" score="" level="5" />
-      <lesson name="division" index="3" topics="4,5" score="" level="5" />
-    </subject>
-
     <subject name="science">
-      <lesson name="Matter and mass" topics="1" level="5" index="62" inq="Can you think of some compounds and elements we use everyday? Write your answers below!" score="0" />
+      
+      <lesson name="Plants" topics="5" level="5" index="89" score="" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!" />
+         <lesson name="Matter and mass" topics="1" level="5" index="62" inq="Can you think of some compounds and elements we use everyday? Write your answers below!" score="0" />
+        <lesson name="Scientific Names" topics="9" level="5" index="69" inq="Can you find some latin words that look very similar to the one we use in English? Can you explain why they are so similar?" score="0" />  
+        <lesson name="Photosynthesis" topics="35" level="5" index="90" inq="Do all plants use photosynthesis? Do some animals use photosynthesis? Write your answers below!" score="0" />
+      <lesson name="Mixtures" topics="4" level="5" index="65" inq="Sometimes concentrations can make a big difference, can you think of two everyday mixtures that have the same substances but different concentrations? How are they different/similar?" score="0" />
       <lesson name="Heat and thermal energy" topics="2" level="5" index="63" inq="Can you explain why water at 20 degrees feels hotter than air at 20 degrees?" score="0" />
-      <lesson name="Water cycle" topics="21" level="5" index="80" inq="Can you explain how global warming can cause more rain in some areas?" score="0" />
-      <lesson name="Astronomy" topics="22" level="5" index="81" inq="What would be the best planet for humans to colonize? The second best?" score="0" />
-      <lesson name="Ecological interactions" topics="36" level="5" index="91" inq="How have humans effected some ecologys? Write some examples below!" score="0" />
-      <lesson name="Plate tectonics" topics="38" level="5" index="93" inq="Tectonic plates are always moving, can you describe how the world will look in 1,000,000 years? Don't be afraid to look it up!" score="0" />
-      <lesson name="Weather and Atmosphere" topics="39" index="115" level="5" score="0" inq="Go to www.DiveVR.org and try the  weather in a bottle expirment, write down what you learned!" />
-      <lesson name="Environment" topics="44" level="5" index="125" inq="Can you name 3 biotic and 3 abiotic things in your backyard or local park?" score="0" />
-      <lesson name="Ecosystems" topics="41" level="5" index="73" inq="What type of ecosystem do you live in, which would be your favorite ecosystem to live in and why?" score="0" />
-      <lesson name="Conservation and natural resources" topics="-1" level="5" index="75" score="0" />
-      <lesson name="weathering" topics="45" level="5" index="124" inq="What are some of the ways we can reduce the effects of errosion?" score="0" />
-      <lesson name="climate" topics="34" level="5" index="79" inq="What climate do you live in? How does this influence the weather?"  score="0" />
-      <lesson name="Structures"  topics="-1" level="5" index="120" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="Rocks and minerals" topics="18" level="5" index="77" inq="Can you identify all the rocks in your local park? What are the most common types of rocks you found?" score="0" />
-    </subject>
-
+      <lesson name="Types of change" topics="3" level="5" index="64" inq="Is melting two different metals together a physical or chemical change?" />
+          <lesson name="Rocks and minerals" topics="18" level="5" index="77" inq="Can you identify all the rocks in your local park? What are the most common types of rocks you found?" score="0" />
+        <lesson name="Water cycle" topics="21" level="5" index="80" inq="Can you explain how global warming can cause more rain in some areas?" score="0" />
+          <lesson name="Astronomy" topics="22" level="5" index="81" inq="What would be the best planet for humans to colonize? The second best?" score="0" />
+     <lesson name="Environment" topics="44" level="5" index="73" inq="Can you name 3 biotic and 3 abiotic things in your backyard or local park?" />
+    <lesson name="scientific method" level="5" topics="24" index="99" inq="Why is it important that we use the scientific method, instead of going with our gut feeling?" />
+       <lesson name="Greenhouse gasses" topics="20" level="5" index="79" inq="What can people do to reduce the amount of greenhouse gasses?" score="0" />
+          <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
+          <lesson name="Ecosystems" topics="41" level="5" index="73" inq="What type of ecosystem do you live in, which would be your favorite ecosystem to live in and why?" score="0" />
+          <lesson name="climate" topics="34" index="98" level="5" inq="What climate do you live in? How does this influence the weather?" />
+          <lesson name="Ecological interactions" topics="36" level="5" index="91" inq="How have humans effected some ecosystems? Write some examples below!" score="0" /> 
+   <lesson name="Fossils" topics="19" level="5" index="78" inq="Can you explain how fossils become buried so deep in the ground?" score="0" />   
+  </subject>
   </grade>
   <grade number="5">
-    <subject name="math">
-      <goals>
-      </goals>
-      <lesson name="place value" topics="103,104,105,9,107,106" level="5" index="0" score="3/16/2020,120,76"></lesson>
-      <lesson name="addition and subtraction" topics="1,2" level="5" index="1" score="0"></lesson>
-      <lesson name="multiplication" topics="3,6" level="5" index="2" score="3/18/2020,90,56"></lesson>
-      <lesson name="division" topics="4,5" level="5" index="3" score="3/16/2020,120,76"></lesson>
-      <lesson name="number theory" topics="116,114,115,15,16,17,18,10,108" level="5" index="4" score="0"></lesson>
-      <lesson name="add subtract decimals" topics="125" level="8" index="5" score="3/17/2020,100,56"></lesson>
-      <lesson name="operations with decimals" topics="127" level="7" index="6" score="0"></lesson>
-      <lesson name="money" topics="24,25,53" level="5" index="7" score="0"></lesson>
-      <lesson name="fractions and mixed numbers" topics="7,59" level="5" index="8" score="0"></lesson> //this one is converting between fractions and mixed //77-81 is fdp stuff, //54 is fraction 4 ops
-      <lesson name="fractions equivalence and ordering" topics="42,20,28" level="5" index="9" score="0"></lesson>
-      <lesson name="add subtract fractions" topics="31" level="5" index="10" score="0"></lesson>
-      <lesson name="multiply and divide fractions" topics="32" level="5" index="11" score="0"></lesson>
-      <lesson name="roman numbers" topics="129,130" level="5" index="102" score="0"></lesson>
-      <lesson name="paterns and sequences" topics="71,21,47" level="5" index="14" score="0"></lesson> //71 fibb 72 geometric   21 nth term linear  22 nth term generating  sequ 47
-      <lesson name="coordinate plane" topics="131,132" level="5" index="15" score="0"></lesson>
-      <lesson name="variable expresions" topics="68,64,65,29,51,30" level="5" index="16" score="0"></lesson> //simplyfying ratios 19
-      //one step 29   number bonds 30   two step 38,   three step 43  equa mixed 44   equ with brackets 46   equ with brackets both 48   sub 51
-      <lesson name="probability and statistics" topics="33,34,35,36,37,58,63" level="5" index="18" score="0"></lesson> //multiply terms 64   single brackets 65   expand simplify brackets 66     one, two, three step 68,69,70
-      <lesson name="time" topics="74,112,110,111,26" level="5" index="19" score="0"></lesson> //74 converting time  26 speed dist time    110 elapsed time   time problem 111  converting time 112
-      <lesson name="units of measurement" topics="55,56,57,45,74,112,61" level="5" index="20" score="0"></lesson>  //weight 55  volume 56  mixed 57   45 length   74 time  convertin time 112
-      <lesson name="two-dimensional figures" topics="141,142,143,144,62" level="5" index="21" score="0"></lesson>
-      <lesson name="angles" topics="140,143" level="5" index="103" score="0"></lesson> //replace these with
-      <lesson name="three-dimensional figures" topics="149,150" level="5" index="23" score="0"></lesson>
-      <lesson name="coordinate plane" topics="131,132" level="5" index="26" score="0"></lesson>
-      <lesson name="expressions and properties" topics="68,64,65,29,51,30" index="16" level="5" score="0"></lesson>
-      <lesson name="one-variable equations" topics="29,38,64,65,68,51,66,44" level="5" index="33" score="0"></lesson>
-      <lesson name="ratios and rates" topics="92,93,94,12,52,19" level="5" index="31" score="0"></lesson>
-      <lesson name="problem solving and estimation" topics="109" level="5" index="13" score="0"></lesson>
-      <lesson name="percents" topics="8,49,50,13,95,96,67,97" level="5" index="32" score="0"></lesson>
-      <lesson name="linear functions" topics="82,83,145,146,147,148" level="5" index="44" score="0"></lesson>
-    </subject>
     <subject name="science">
-      <lesson name="Matter and mass" topics="1" level="5" index="62" inq="Can you think of some compounds and elements we use everyday? Write your answers below!" score="0" />
+       <lesson name="Plate tectonics" topics="38" level="5" index="93" inq="Tectonic plates are always moving, can you describe how the world will look in 1,000,000 years? Don't be afraid to look it up!" score="0" />    
+      <lesson name="Plants" topics="5" level="5" index="89" score="" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!" />
+         <lesson name="Matter and mass" topics="1" level="5" index="62" inq="Can you think of some compounds and elements we use everyday? Write your answers below!" score="0" />
+        <lesson name="Scientific Names" topics="9" level="5" index="69" inq="Can you find some latin words that look very similar to the one we use in English? Can you explain why they are so similar?" score="0" />  
+        <lesson name="Photosynthesis" topics="35" level="5" index="90" inq="Do all plants use photosynthesis? Do some animals use photosynthesis? Write your answers below!" score="0" />
+       <lesson name="Flight" topics="32" level="5" index="110" score="" inq="Can you fly a regular airplane into spcae? Why or why not?" />
+       <lesson name="Simple machines" topics="11" level="5" index="112" score="" inq="List 3 simple machines that you use every day!" />
+      <lesson name="Mixtures" topics="4" level="5" index="65" inq="Sometimes concentrations can make a big difference, can you think of two everyday mixtures that have the same substances but different concentrations? How are they different/similar?" score="0" />
       <lesson name="Heat and thermal energy" topics="2" level="5" index="63" inq="Can you explain why water at 20 degrees feels hotter than air at 20 degrees?" score="0" />
-      <lesson name="Water cycle" topics="21" level="5" index="80" inq="Can you explain how global warming can cause more rain in some areas?" score="0" />
-      <lesson name="Astronomy" topics="22" level="5" index="81" inq="What would be the best planet for humans to colonize? The second best?" score="0" />
-      <lesson name="Ecological interactions" topics="36" level="5" index="91" inq="How have humans effected some ecologys? Write some examples below!" score="0" />
-      <lesson name="Plate tectonics" topics="38" level="5" index="93" inq="Tectonic plates are always moving, can you describe how the world will look in 1,000,000 years? Don't be afraid to look it up!" score="0" />
-      <lesson name="Weather and Atmosphere" topics="39" index="115" level="5" score="0" inq="Go to www.DiveVR.org and try the  weather in a bottle expirment, write down what you learned!" />
-      <lesson name="Environment" topics="44" level="5" index="125" inq="Can you name 3 biotic and 3 abiotic things in your backyard or local park?"  score="0" />
-      <lesson name="Ecosystems" topics="41" level="5" index="73" inq="What type of ecosystem do you live in, which would be your favorite ecosystem to live in and why?" score="0" />
-      <lesson name="Conservation and natural resources" topics="-1" level="5" index="75" score="0" />
-      <lesson name="weathering" topics="45" level="5" index="124" inq="What are some of the ways we can reduce the effects of errosion?" score="0" />
-      <lesson name="climate" topics="34" index="79" level="5" inq="What climate do you live in? How does this influence the weather?"  score="0" />
-      <lesson name="Structures"  topics="-1" level="5" index="120" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="Rocks and minerals" topics="18" level="5" index="77" inq="Can you identify all the rocks in your local park? What are the most common types of rocks you found?" score="0" />
-
-
-      <lesson name="Plants" topics="5" level="5" index="89" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!"  score="0" />
-      <lesson name="Classification" topics="8" level="5" index="68" inq="Can you think of another name to remember the levels in Linnaeus's system? Write them below!" score="0" />
-      <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
-      <lesson name="Fossils" topics="19" level="5" index="78" inq="Can you explain how fossils become buried so deep in the ground?" score="0" />
-      <lesson name="Flight" topics="32" level="5" index="110" inq="go online to www.DiveVR.org/expirments/airplane, and make your own paper airplane, tell us how far yours flew!"  score="0" />
-      <lesson name="Photosynthesis" topics="35" level="5" index="90" inq="Do all plants use photosynthesis? Do some animals use photosynthesis? Write your answers below!" score="0" />
-      <lesson name="properties of liquids"  topics="-1" level="5" index="121" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-    </subject>
+      <lesson name="Types of change" topics="3" level="5" index="64" inq="Is melting two different metals together a physical or chemical change?" />
+          <lesson name="Rocks and minerals" topics="18" level="5" index="77" inq="Can you identify all the rocks in your local park? What are the most common types of rocks you found?" score="0" />
+        <lesson name="Water cycle" topics="21" level="5" index="80" inq="Can you explain how global warming can cause more rain in some areas?" score="0" />
+          <lesson name="Astronomy" topics="22" level="5" index="81" inq="What would be the best planet for humans to colonize? The second best?" score="0" />
+     <lesson name="Environment" topics="44" level="5" index="73" inq="Can you name 3 biotic and 3 abiotic things in your backyard or local park?" />
+    <lesson name="scientific method" level="5" topics="24" index="99" inq="Why is it important that we use the scientific method, instead of going with our gut feeling?" />
+       <lesson name="Greenhouse gasses" topics="20" level="5" index="79" inq="What can people do to reduce the amount of greenhouse gasses?" score="0" />
+          <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
+          <lesson name="Ecosystems" topics="41" level="5" index="73" inq="What type of ecosystem do you live in, which would be your favorite ecosystem to live in and why?" score="0" />
+          <lesson name="climate" topics="34" index="98" level="5" inq="What climate do you live in? How does this influence the weather?" />
+          <lesson name="Ecological interactions" topics="36" level="5" index="91" inq="How have humans effected some ecosystems? Write some examples below!" score="0" /> 
+     <lesson name="Fossils" topics="19" level="5" index="78" inq="Can you explain how fossils become buried so deep in the ground?" score="0" />
+  </subject>
   </grade>
   <grade number="6">
-    <subject name="math">
-      <lesson name="whole numbers" topics="103,104,105,10,9,107,108,106" level="5" index="25" score="0"></lesson>
-      <lesson name="decimals" topics="125,118" level="5" index="28" score="0"></lesson>
-      <lesson name="addition and subtraction" topics="1,2" level="5" index="1" score="0"></lesson>
-      <lesson name="multiplication and division" topics="3,4,11,100,101,5,6" index="27" level="5" score="0"></lesson>
-      <lesson name="multiply and divide deicmals" topics="" level="5" index="6" score="0"></lesson> //need to add deicmals
-      <lesson name="exponents" topics="27,11,120" level="5" index="45" score="0"></lesson> //find exponents    27 power and roots ladder   11 power of 10   90 index law power of power
-      <lesson name="number theory" topics="114,115,15,16,17,18" level="5" index="4" score="0"></lesson> //make this less
-      <lesson name="fractions and mixed numbers" topics="20,7,42,59" index="8" level="5" score="0"></lesson><lesson name="add subtract fractions" topics="31" level="5" index="10" score="0"></lesson><lesson name="multiply and divide fractions" topics="32" level="5" index="11" score="0"></lesson><lesson name="fractions, decimals and percents" topics="77,78,79,80,81" index="38" level="5" score="0"></lesson><lesson name="rational numbers" topics="28" level="5" index="30" score="0"></lesson> //compare rational numbers and put them in order  28 is ordeing
-      <lesson name="problem solving and estimation" topics="109" level="5" index="13" score="0"></lesson>  //109 is estimating
-      <lesson name="ratios and rates" topics="92,93,94,12,52,19" level="5" index="31" score="0"></lesson> //92-94   ratio reverse 52 ratio share 12   simplyfying 19
-      <lesson name="percents" topics="8,49,50,13,95,96" level="5" index="32" score="0"></lesson>  //converting fdp 13 random   interchangin fdp 67 random   77-81 converting and interchanging
-      <lesson name="units of measurement" topics="55,56,57,45,74,112,61" index="20" level="5" score="0"></lesson> // 8 percent of an amount   49 percent +-   50 reverse percent   95 percent multip    96 percent change  97 repeated percent change
-      <lesson name="money" topics="24,25,53" level="5" index="7" score="0"></lesson><lesson name="time" topics="74,112,110,111,26" level="5" index="19" score="0"></lesson>
-      <lesson name="roman numbers" topics="129,130" level="5" index="102" score="0"></lesson><lesson name="number sequences" topics="119" level="5" index="14" score="0"></lesson>
-      <lesson name="coordinate plane" topics="131,132" level="5" index="26" score="0"></lesson>
-      <lesson name="expressions and properties" topics="68,64,65,29,51,30" index="16" level="5" score="0"></lesson>
-      <lesson name="one-variable equations" topics="29,38,64,65,68,51,66,44" level="5" index="33" score="0"></lesson>
-      <lesson name="two-variable equations" topics="" level="5" index="34" score="0"></lesson>
-      <lesson name="two-dimensional figures" topics="141,142,143,144,62" index="21" level="5" score="0"></lesson>
-      <lesson name="symetry and transformation" topics="-1" level="5" index="22" score="0"></lesson>
-      <lesson name="three-dimensional figures" topics="149,150" index="23" level="5" score="0"></lesson>
-      <lesson name="geometic measurment" topics="-1" level="5" index="20" score="0"></lesson>  //
-      <lesson name="data and graphs" topics="133,137,138" level="5" index="17" score="0"></lesson>
-      <lesson name="statistics and probability" topics="58,63,33,34,35,36,37" index="18" level="5" score="0"></lesson> //you can add a bunch of stuff here 58    expected freq 63   33-37 mean median stuff
-
-    </subject>
     <subject name="science">
-
-      <lesson name="Matter and mass" topics="1" level="5" index="62" inq="Can you think of some compounds and elements we use everyday? Write your answers below!" score="0" />
+         <lesson name="Matter and mass" topics="1" level="5" index="62" inq="Can you think of some compounds and elements we use everyday? Write your answers below!" score="0" />
       <lesson name="Heat and thermal energy" topics="2" level="5" index="63" inq="Can you explain why water at 20 degrees feels hotter than air at 20 degrees?" score="0" />
+      <lesson name="Types of change" topics="3" level="5" index="64" inq="Is melting two different metals together a physical or chemical change?" score="0" />
+      <lesson name="Mixtures" topics="4" level="5" index="65" inq="Sometimes concentrations can make a big difference, can you think of two everyday mixtures that have the same substances but different concentrations? How are they different/similar?" score="0" />
+      <lesson name="Plants" topics="5" level="5" index="89" score="" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!" />
+      <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
+       <lesson name="Flight" topics="32" level="5" index="110" score="" inq="Can you fly a regular airplane into spcae? Why or why not?" />
+      <lesson name="Photosynthesis" topics="35" level="5" index="90" inq="Do all plants use photosynthesis? Do some animals use photosynthesis? Write your answers below!" score="0" />
+      <lesson name="Scientific Names" topics="9" level="5" index="69" inq="Can you find some latin words that look very similar to the one we use in English? Can you explain why they are so similar?" score="0" />
+      <lesson name="Simple machines" topics="11" level="5" index="112" score="" inq="List 3 simple machines that you use every day!" />
+      <lesson name="Microscope" topics="12" level="5" index="111" score="" inq="How powerful was the first microscope? Compare that to how powerful they are today!" />
       <lesson name="Water cycle" topics="21" level="5" index="80" inq="Can you explain how global warming can cause more rain in some areas?" score="0" />
       <lesson name="Astronomy" topics="22" level="5" index="81" inq="What would be the best planet for humans to colonize? The second best?" score="0" />
-      <lesson name="Ecological interactions" topics="36" level="5" index="91" inq="How have humans effected some ecologys? Write some examples below!" score="0" />
+      <lesson name="Organs" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0" />
       <lesson name="Plate tectonics" topics="38" level="5" index="93" inq="Tectonic plates are always moving, can you describe how the world will look in 1,000,000 years? Don't be afraid to look it up!" score="0" />
-      <lesson name="Weather and Atmosphere" topics="39" index="115" level="5" score="0"  inq="Go to www.DiveVR.org and try the  weather in a bottle expirment, write down what you learned!" />
-      <lesson name="Environment" topics="44" level="5" index="125" inq="Can you name 3 biotic and 3 abiotic things in your backyard or local park?"  score="0" />
-      <lesson name="Ecosystems" topics="41" level="5" index="73" inq="What type of ecosystem do you live in, which would be your favorite ecosystem to live in and why?" score="0" />
-      <lesson name="Conservation and natural resources" topics="-1" level="5" index="75" score="0" />
-      <lesson name="weathering" topics="45" level="5" index="124" inq="What are some of the ways we can reduce the effects of errosion?" score="0" />
-      <lesson name="climate" topics="34" index="79"  level="5" inq="What climate do you live in? How does this influence the weather?"  score="0" />
-      <lesson name="Structures"  topics="-1" level="5" index="120" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-      <lesson name="Plants" topics="5" level="5" index="89" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!"  score="0" />
-      <lesson name="Classification" topics="8" level="5" index="68" inq="Can you think of another name to remember the levels in Linnaeus's system? Write them below!" score="0" />
-      <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
-      <lesson name="Fossils" topics="19" level="5" index="78" inq="Can you explain how fossils become buried so deep in the ground?" score="0" />
-      <lesson name="Flight" topics="32" level="5" index="110"  inq="go online to www.DiveVR.org/expirments/airplane, and make your own paper airplane, tell us how far yours flew!"  score="0" />
-      <lesson name="Photosynthesis" topics="35" level="5" index="90" inq="Do all plants use photosynthesis? Do some animals use photosynthesis? Write your answers below!" score="0" />
-      <lesson name="properties of liquids"  topics="-1" level="5" index="121" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="Rocks and minerals" topics="18" level="5" index="77" inq="Can you identify all the rocks in your local park? What are the most common types of rocks you found?" score="0" />
-      <lesson name="Mixtures" topics="4" level="5" index="65" inq="Sometimes concentrations can make a big difference, can you think of two everyday mixtures that have the same substances but different concentrations? How are they different/similar?" score="0" />
-      <lesson name="Velocity, acceleration, and forces" topics="27" level="5" index="66" inq="Can you think of a new way to get to space? Describe it below!" score="0" />
-      <lesson name="Scientific Names" topics="9" level="5" index="69" inq="Can you find some latin words that look very similar to the one we use in English? Can you explain why they are so similar?" score="0" />
-      <lesson name="Simple machines" topics="11" level="5" index="112" inq="List 3 simple machines that you use every day!"  score="0" />
-      <lesson name="Microscope" topics="12" level="5" index="111" inq="Go online to www.diveVR.org/expirments/microscope, and try to build your own microscope at home, tell us what you saw!"  score="0" />
-      <lesson name="Animal Cell" topics="14" level="5" index="71" inq="How does smoking affect the cells in the lungs? Do some research and summarize it below!" score="0" />
-      <lesson name="Plant Cell" topics="15" level="5" index="72" inq="Can you explain the difference and similarities between animal and plant cells?" score="0" />
-      <lesson name="Waves" topics="29" level="5" index="95" inq="Sound waves are measured in Decibels (Db), do some research and find out how loud the loudest sound you heard was, write the answer below!" score="0" />
-      <lesson name="Anatomy and physiology" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0" />
-
-      <lesson name="Biochemistry" topics="30" level="5" index="87" inq="What is DNA? Summarize your answer below, remember, try to keep it simple!" score="0" />
-      <lesson name="Materials and structures" topics="-1" level="5" index="117" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="Sound"  topics="-1" level="5" index="116" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="Chemical reactions" topics="26" level="5" index="84" inq="Can you think of some chemical reactions we use every day?" score="0" />
-      <lesson name="Organ Systems"  topics="46" level="5" index="118" inq="Which organ systems does high-colesteral affect? Why is it important to eat healthy food?" score="0" />
-
-      <lesson name="tissues"  topics="-1" level="5" index="119" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-
-      <lesson name="Light" topics="-1" level="5" index="122" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="reflections" topics="-1" level="5" index="123" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="current electricity" topics="-1" level="5" index="113" inq="go online to www.divevr.org/expirments/lemon_battery, and try building the curcuit shown, write down what you learned!"  score="0" />
-      <lesson name="Static Electricity" topics="-1" level="5" index="114" inq="Why is it important to understand the rights of Native Americans?" score="0" />
+      <lesson name="velocity and acceleration" topics="27" level="5" index="85" inq="What is the fastest acclerating car today? What is its accelration?" score="0" />
+      
     </subject>
 
 
   </grade>
   <grade number="7">
-    <subject name="math">
-      <lesson name="number theory" topics="114,115,15,16,17,18" level="5" index="4" score="0"></lesson>
-      <lesson name="integers" topics="15,16,17,18,23,98,99,10,60,100,101" index="35" level="5" score="0"></lesson>
-      <lesson name="decimals" topics="121,126,118" level="5" index="28" score="0"></lesson>
-      <lesson name="fractions and mixed numbers" topics="7,20,42" index="8" level="5" score="0"></lesson>
-      <lesson name="add subtract fractions" topics="31" level="5" index="10" score="0"></lesson>
-      <lesson name="multiply and divide fractions" topics="32" level="5" index="11" score="0"></lesson>
-      <lesson name="fractions, decimals and percents" topics="77,78,79,80,81" index="38" level="5" score="0"></lesson>
-      <lesson name="rational numbers" topics="28" index="30" level="5" score="0"></lesson>
-      <lesson name="exponents and square roots" topics="27,11,120" level="5" index="36" score="0"></lesson> //you need to add square roots
-      <lesson name="ratios and rates and proportions" topics="92,93,94,12,52,19" level="5" index="31" score="0"></lesson>
-      <lesson name="proportional relationships" topics="" level="5" index="37" score="0"></lesson> //need to make this
-      <lesson name="percents" topics="8,49,50,13,95,96,67" level="5" index="32" score="0"></lesson>
-      <lesson name="problem solving and estimation" topics="109" level="5" index="13" score="0"></lesson>
-      <lesson name="units of measurement" topics="55,56,57,45,74,112,122" index="20" level="5" score="0"></lesson>
-      <lesson name="coordinate plane" topics="131,132,142,151,152" level="5" index="15" score="0"></lesson>
-      <lesson name="number sequences" topics="21,22,71,72,47,119" level="5" index="14" score="0"></lesson>
-      <lesson name="expressions and properties" topics="68,64,65,29,51,14" level="5" index="16" score="0"></lesson>
-      <lesson name="one-variable equations" topics="29,38,64,65,68,51,66,44,46,124" level="5" index="33" score="0"></lesson>
-      <lesson name="two-variable equations" topics="" level="5" index="34" score="0"></lesson>
-      <lesson name="two-dimensional figures" topics="141,142,143,144,62" level="5" index="21" score="0"></lesson>
-      <lesson name="transformations and congruence" topics="" level="5" score="0"></lesson> //ned to make
-      <lesson name="constructions" topics="" level="5" score="0"></lesson> //not done, need to make
-      <lesson name="three-dimensional figures" topics="149,150" level="5" index="23" score="0"></lesson>
-      <lesson name="geometic measurment" topics="-1" level="5" index="20" score="0"></lesson>
-      <lesson name="data and graphs" topics="133,137,138,134,135,136" level="5" index="17" score="0"></lesson>
-      <lesson name="statistics and probability" topics="58,63,33,34,35,36,37" level="5" index="18" score="0"></lesson>
-    </subject>
-
     <subject name="science">
-      <lesson name="Matter and mass" topics="1" level="5" index="62" inq="Can you think of some compounds and elements we use everyday? Write your answers below!" score="0" />
-      <lesson name="Heat and thermal energy" topics="2" level="5" index="63" inq="Can you explain why water at 20 degrees feels hotter than air at 20 degrees?" score="0" />
-      <lesson name="Water cycle" topics="21" level="5" index="80" inq="Can you explain how global warming can cause more rain in some areas?" score="0" />
-      <lesson name="Astronomy" topics="22" level="5" index="81" inq="What would be the best planet for humans to colonize? The second best?" score="0" />
-      <lesson name="Ecological interactions" topics="36" level="5" index="91" inq="How have humans effected some ecologys? Write some examples below!" score="0" />
-      <lesson name="Plate tectonics" topics="38" level="5" index="93" inq="Tectonic plates are always moving, can you describe how the world will look in 1,000,000 years? Don't be afraid to look it up!" score="0" />
-      <lesson name="Weather and Atmosphere" topics="39" index="115" level="5" score="0"  inq="Go to www.DiveVR.org and try the  weather in a bottle expirment, write down what you learned!" />
-      <lesson name="Environment" topics="44" level="5" index="125" inq="Can you name 3 biotic and 3 abiotic things in your backyard or local park?"  score="0" />
-      <lesson name="Ecosystems" topics="41" level="5" index="73" inq="What type of ecosystem do you live in, which would be your favorite ecosystem to live in and why?" score="0" />
-      <lesson name="Conservation and natural resources" topics="-1" level="5" index="75" score="0" />
-      <lesson name="weathering" topics="45" level="5" index="124" inq="What are some of the ways we can reduce the effects of errosion?" score="0" />
-      <lesson name="climate" topics="34" index="79" level="5"  inq="What climate do you live in? How does this influence the weather?"  score="0" />
-      <lesson name="Structures"  topics="-1" level="5" index="120" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="Rocks and minerals" topics="18" level="5" index="77" inq="Can you identify all the rocks in your local park? What are the most common types of rocks you found?" score="0" />
-
-      <lesson name="Plants" topics="5" level="5" index="89" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!"  score="0" />
-      <lesson name="Classification" topics="8" level="5" index="68" inq="Can you think of another name to remember the levels in Linnaeus's system? Write them below!" score="0" />
-      <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
-      <lesson name="Fossils" topics="19" level="5" index="78" inq="Can you explain how fossils become buried so deep in the ground?" score="0" />
-      <lesson name="Flight" topics="32" level="5" index="110" inq="go online to www.DiveVR.org/expirments/airplane, and make your own paper airplane, tell us how far yours flew!"  score="0" />
-      <lesson name="Photosynthesis" topics="35" level="5" index="90" inq="Do all plants use photosynthesis? Do some animals use photosynthesis? Write your answers below!" score="0" />
-      <lesson name="properties of liquids"  topics="-1" level="5" index="121" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-      <lesson name="Mixtures" topics="4" level="5" index="65" inq="Sometimes concentrations can make a big difference, can you think of two everyday mixtures that have the same substances but different concentrations? How are they different/similar?" score="0" />
-      <lesson name="Velocity, acceleration, and forces" topics="27" level="5" index="66" inq="Can you think of a new way to get to space? Describe it below!" score="0" />
-      <lesson name="Scientific Names" topics="9" level="5" index="69" inq="Can you find some latin words that look very similar to the one we use in English? Can you explain why they are so similar?" score="0" />
-      <lesson name="Simple machines" topics="11" level="5" index="112" inq="List 3 simple machines that you use every day!"  score="0" />
-      <lesson name="Microscope" topics="12" level="5" index="111" inq="Go online to www.diveVR.org/expirments/microscope, and try to build your own microscope at home, tell us what you saw!"  score="0" />
-      <lesson name="Animal Cell" topics="14" level="5" index="71" inq="How does smoking affect the cells in the lungs? Do some research and summarize it below!" score="0" />
+        <lesson name="Animal Cell" topics="14" level="5" index="71" inq="How many cells are in your body? Do some research to find out!" score="0" />
       <lesson name="Plant Cell" topics="15" level="5" index="72" inq="Can you explain the difference and similarities between animal and plant cells?" score="0" />
       <lesson name="Waves" topics="29" level="5" index="95" inq="Sound waves are measured in Decibels (Db), do some research and find out how loud the loudest sound you heard was, write the answer below!" score="0" />
-      <lesson name="Anatomy and physiology" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0" />
-      <lesson name="Chemical reactions" topics="26" level="5" index="84" inq="Can you think of some chemical reactions we use every day?" score="0" />
-      <lesson name="Biochemistry" topics="30" level="5" index="87" inq="What is DNA? Summarize your answer below, remember, try to keep it simple!" score="0" />
-      <lesson name="Materials and structures" topics="-1" level="5" index="117" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="Sound"  topics="-1" level="5" index="116" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-      <lesson name="Organ Systems"  topics="46" level="5" index="118" inq="Which organ systems does high-colesteral affect? Why is it important to eat healthy food?" score="0" />
-
-      <lesson name="tissues"  topics="-1" level="5" index="119" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-
-      <lesson name="Light" topics="-1" level="5" index="122" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="reflections" topics="-1" level="5" index="123" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="current electricity" topics="-1" level="5" index="113" inq="go online to www.divevr.org/expirments/lemon_battery, and try building the curcuit shown, write down what you learned!"  score="0" />
-      <lesson name="Static Electricity" topics="-1" level="5" index="114" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-
+        <lesson name="Organs" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0" />
+     <lesson name="Organ Systems"  topics="23" level="5" index="118" inq="Which organ systems does high-colesteral affect? Why is it important to eat healthy food?" score="0" />
+       <lesson name="kinetic and potential energy" topics="28" level="5" index="66" inq="How much energy do humans consume in a day?" score="0" />
+   
+     <lesson name="Matter and mass" topics="1" level="5" index="62" inq="Can you think of some compounds and elements we use everyday? Write your answers below!" score="0" />
+      <lesson name="Heat and thermal energy" topics="2" level="5" index="63" inq="Can you explain why water at 20 degrees feels hotter than air at 20 degrees?" score="0" />
+      <lesson name="Types of change" topics="3" level="5" index="64" inq="Is melting two different metals together a physical or chemical change?" score="0" />
+      <lesson name="Mixtures" topics="4" level="5" index="65" inq="Sometimes concentrations can make a big difference, can you think of two everyday mixtures that have the same substances but different concentrations? How are they different/similar?" score="0" />
+      <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
+       <lesson name="Flight" topics="32" level="5" index="110" score="" inq="Can you fly a regular airplane into spcae? Why or why not?" />
+      <lesson name="Photosynthesis" topics="35" level="5" index="90" inq="Do all plants use photosynthesis? Do some animals use photosynthesis? Write your answers below!" score="0" />
+      <lesson name="Scientific Names" topics="9" level="5" index="69" inq="Can you find some latin words that look very similar to the one we use in English? Can you explain why they are so similar?" score="0" />
+      <lesson name="Simple machines" topics="11" level="5" index="112" score="" inq="List 3 simple machines that you use every day!" />
+      <lesson name="Microscope" topics="12" level="5" index="111" score="" inq="How powerful was the first microscope? Compare that to how powerful they are today!" />
+      <lesson name="Water cycle" topics="21" level="5" index="80" inq="Can you explain how global warming can cause more rain in some areas?" score="0" />
+      <lesson name="Astronomy" topics="22" level="5" index="81" inq="What would be the best planet for humans to colonize? The second best?" score="0" />
+      <lesson name="Organs" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0" />
+      <lesson name="Plate tectonics" topics="38" level="5" index="93" inq="Tectonic plates are always moving, can you describe how the world will look in 1,000,000 years? Don't be afraid to look it up!" score="0" />
+      <lesson name="velocity and acceleration" topics="27" level="5" index="85" inq="What is the fastest acclerating car today? What is its accelration?" score="0" />
+      
     </subject>
 
   </grade>
   <grade number="8">
-    <subject name="math">
-      <lesson name="number theory" topics="114,115,15,16,17,18" level="5" index="4" score="0"></lesson>
-      <lesson name="integers" topics="15,16,17,18,117,98,99,60,100,101" level="5" index="35" score="0"></lesson>
-      <lesson name="decimals" topics="121,126" level="5" index="28" score="0"></lesson>
-      <lesson name="operations with fractions" topics="7,20,54,42" level="5" index="39" score="0"></lesson>
-      <lesson name="fractions, decimals and percents" topics="77,78,79,80,81" index="38" level="5" score="0"></lesson>
-      <lesson name="operations with rational numbers" topics="" index="40" level="5" score="0"></lesson>
-      <lesson name="exponents and roots" topics="27,120,88,89" level="5" index="36" score="0"></lesson>
-      <lesson name="scientific notation" topics="39,40,41,75,76,102" level="5" index="41" score="0"></lesson>
-      <lesson name="ratios and rates and proportions" topics="92,93,94,12,52,19" level="5" index="31" score="0"></lesson>
-      <lesson name="proportional relationships" topics="" level="5" index="37" score="0"></lesson>
-      <lesson name="percents" topics="8,49,50,13,95,96,67,97" level="5" index="32" score="0"></lesson>
-      <lesson name="units of measurement" topics="55,56,57,45,74,112,122" index="20" level="5" score="0"></lesson>
-      <lesson name="problem solving" topics="" level="5" index="13" score="0"></lesson>
-      <lesson name="coordinate plane" topics="131,132,142,151,152" level="5" index="15" score="0"></lesson>
-      <lesson name="two-dimensional figures" topics="141,142,143,144,62" level="5" index="21" score="0"></lesson>
-      <lesson name="transformations and congruence" topics="" level="5" index="0" score="0"></lesson>
-      <lesson name="transformations and similarity" topics="" level="5" index="0" score="0"></lesson>
-      <lesson name="pythagorean theorem" topics="" level="5" index="42" score="0"></lesson>
-      <lesson name="three-dimensional figures" topics="149,150" level="5" index="23" score="0"></lesson>
-      <lesson name="geometic measurement" topics="-1" level="5" index="43" score="0"></lesson>
-      <lesson name="number sequences" topics="21,22,71,72,47" level="5" index="14" score="0"></lesson>
-      <lesson name="expressions and properties" topics="68,64,65,29,51,14" level="5" index="16" score="0"></lesson>
-      <lesson name="one-variable equations" topics="29,38,64,65,68,51,66,44,43,46,48,124" level="5" index="33" score="0"></lesson>
-      <lesson name="linear functions" topics="82,83,145,146,147,148" level="5" index="44" score="0"></lesson>
-      <lesson name="data and graphs" topics="133,137,138,134,135,136,139" level="5" index="17" score="0"></lesson>
-      <lesson name="statistics and probability" topics="58,63,33,34,35,36,37" level="5" index="18" score="0"></lesson>
-    </subject>
-
     <subject name="science">
-
-      <lesson name="Matter and mass" topics="1" level="5" index="62" inq="Can you think of some compounds and elements we use everyday? Write your answers below!" score="0" />
-      <lesson name="Heat and thermal energy" topics="2" level="5" index="63" inq="Can you explain why water at 20 degrees feels hotter than air at 20 degrees?" score="0" />
-      <lesson name="Water cycle" topics="21" level="5" index="80" inq="Can you explain how global warming can cause more rain in some areas?" score="0" />
-      <lesson name="Astronomy" topics="22" level="5" index="81" inq="What would be the best planet for humans to colonize? The second best?" score="0" />
-      <lesson name="Ecological interactions" topics="36" level="5" index="91" inq="How have humans effected some ecologys? Write some examples below!" score="0" />
-      <lesson name="Plate tectonics" topics="38" level="5" index="93" inq="Tectonic plates are always moving, can you describe how the world will look in 1,000,000 years? Don't be afraid to look it up!" score="0" />
-      <lesson name="Weather and Atmosphere" topics="39" index="115" level="5" score="0"  inq="Go to www.DiveVR.org and try the  weather in a bottle expirment, write down what you learned!" />
-      <lesson name="Environment" topics="44" level="5" index="125" inq="Can you name 3 biotic and 3 abiotic things in your backyard or local park?"  score="0" />
-      <lesson name="Ecosystems" topics="41" level="5" index="73" inq="What type of ecosystem do you live in, which would be your favorite ecosystem to live in and why?" score="0" />
-      <lesson name="Conservation and natural resources" topics="-1" level="5" index="75" score="0" />
-      <lesson name="weathering" topics="45" level="5" index="124" inq="What are some of the ways we can reduce the effects of errosion?" score="0" />
-      <lesson name="climate" topics="34" index="79" level="5" inq="What climate do you live in? How does this influence the weather?"  score="0" />
-      <lesson name="Structures"  topics="-1" level="5" index="120" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="Rocks and minerals" topics="18" level="5" index="77" inq="Can you identify all the rocks in your local park? What are the most common types of rocks you found?" score="0" />
-
-      <lesson name="Plants" topics="5" level="5" index="89" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!"  score="0" />
-      <lesson name="Classification" topics="8" level="5" index="68" inq="Can you think of another name to remember the levels in Linnaeus's system? Write them below!" score="0" />
-      <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
-      <lesson name="Fossils" topics="19" level="5" index="78" inq="Can you explain how fossils become buried so deep in the ground?" score="0" />
-      <lesson name="Flight" topics="32" level="5" index="110" inq="go online to www.DiveVR.org/expirments/airplane, and make your own paper airplane, tell us how far yours flew!"  score="0" />
-      <lesson name="Photosynthesis" topics="35" level="5" index="90" inq="Do all plants use photosynthesis? Do some animals use photosynthesis? Write your answers below!" score="0" />
-      <lesson name="properties of liquids"  topics="-1" level="5" index="121" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-      <lesson name="Mixtures" topics="4" level="5" index="65" inq="Sometimes concentrations can make a big difference, can you think of two everyday mixtures that have the same substances but different concentrations? How are they different/similar?" score="0" />
-      <lesson name="Velocity, acceleration, and forces" topics="27" level="5" index="66" inq="Can you think of a new way to get to space? Describe it below!" score="0" />
-      <lesson name="Scientific Names" topics="9" level="5" index="69" inq="Can you find some latin words that look very similar to the one we use in English? Can you explain why they are so similar?" score="0" />
-      <lesson name="Simple machines" topics="11" level="5" index="112" inq="List 3 simple machines that you use every day!"  score="0" />
-      <lesson name="Microscope" topics="12" level="5" index="111" inq="Go online to www.diveVR.org/expirments/microscope, and try to build your own microscope at home, tell us what you saw!"  score="0" />
-      <lesson name="Animal Cell" topics="14" level="5" index="71" inq="How does smoking affect the cells in the lungs? Do some research and summarize it below!" score="0" />
+      <lesson name="Animal Cell" topics="14" level="5" index="71" inq="How many cells are in your body? Do some research to find out!" score="0" />
       <lesson name="Plant Cell" topics="15" level="5" index="72" inq="Can you explain the difference and similarities between animal and plant cells?" score="0" />
       <lesson name="Waves" topics="29" level="5" index="95" inq="Sound waves are measured in Decibels (Db), do some research and find out how loud the loudest sound you heard was, write the answer below!" score="0" />
-      <lesson name="Anatomy and physiology" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0" />
-      <lesson name="Chemical reactions" topics="26" level="5" index="84" inq="Can you think of some chemical reactions we use every day?" score="0" />
-      <lesson name="Biochemistry" topics="30" level="5" index="87" inq="What is DNA? Summarize your answer below, remember, try to keep it simple!" score="0" />
-      <lesson name="Materials and structures" topics="-1" level="5" index="117" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="Sound"  topics="-1" level="5" index="116" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-      <lesson name="Organ Systems"  topics="46" level="5" index="118" inq="Which organ systems does high-colesteral affect? Why is it important to eat healthy food?" score="0" />
-
-      <lesson name="tissues"  topics="-1" level="5" index="119" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-
-      <lesson name="Light" topics="-1" level="5" index="122" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="reflections" topics="-1" level="5" index="123" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="current electricity" topics="-1" level="5" index="113" inq="go online to www.divevr.org/expirments/lemon_battery, and try building the curcuit shown, write down what you learned!"  score="0" />
-      <lesson name="Static Electricity" topics="-1" level="5" index="114" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-
+        <lesson name="Organs" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0" />
+     <lesson name="Organ Systems"  topics="23" level="5" index="118" inq="Which organ systems does high-colesteral affect? Why is it important to eat healthy food?" score="0" />
+       <lesson name="kinetic and potential energy" topics="28" level="5" index="66" inq="How much energy do humans consume in a day?" score="0" />
+     <lesson name="Chemical reactions" topics="26" level="5" index="84" inq="Can you think of some chemical reactions we use every day?" score="0" />
+       <lesson name="Biochemistry" topics="30" level="5" index="87" inq="What is DNA? Summarize your answer below, remember, try to keep it simple!" score="0" />
+      <lesson name="Circuits" topics="43" level="5" index="114" inq="Why is it important to understand the rights of Native Americans?" score="0" />
+   
+        <lesson name="Mixtures" topics="4" level="5" index="65" inq="Sometimes concentrations can make a big difference, can you think of two everyday mixtures that have the same substances but different concentrations? How are they different/similar?" score="0" />
+      <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
+       <lesson name="Flight" topics="32" level="5" index="110" score="" inq="Can you fly a regular airplane into spcae? Why or why not?" />
+      <lesson name="Photosynthesis" topics="35" level="5" index="90" inq="Do all plants use photosynthesis? Do some animals use photosynthesis? Write your answers below!" score="0" />
+      <lesson name="Scientific Names" topics="9" level="5" index="69" inq="Can you find some latin words that look very similar to the one we use in English? Can you explain why they are so similar?" score="0" />
+      <lesson name="Simple machines" topics="11" level="5" index="112" score="" inq="List 3 simple machines that you use every day!" />
+      <lesson name="Microscope" topics="12" level="5" index="111" score="" inq="How powerful was the first microscope? Compare that to how powerful they are today!" />
+      <lesson name="Water cycle" topics="21" level="5" index="80" inq="Can you explain how global warming can cause more rain in some areas?" score="0" />
+      <lesson name="Astronomy" topics="22" level="5" index="81" inq="What would be the best planet for humans to colonize? The second best?" score="0" />
+      <lesson name="Organs" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0" />
+      <lesson name="velocity and acceleration" topics="27" level="5" index="85" inq="What is the fastest acclerating car today? What is its accelration?" score="0" />
+      
     </subject>
 
   </grade>
   <grade number="9">
-    <subject name="math">
-      <lesson name="numbers" topics="15,16,17,18,98,99" level="5" index="35" score="0"></lesson>
-      <lesson name="operations" topics="16,17,18,117,54" level="5" index="40" score="0"></lesson>
-      <lesson name="ratios and rates and proportions" topics="92,93,94,12,52,19" level="5" index="31" score="0"></lesson>
-      <lesson name="percents" topics="8,49,50,13,95,96,67,97" level="5" index="32" score="0"></lesson>
-      <lesson name="geometry" topics="" level="5" index="46" score="0"></lesson>
-      <lesson name="coordinate plane" topics="131,132,142,151,152" level="5" index="15" score="0"></lesson>
-      <lesson name="properties" topics="" level="5" index="23" score="0"></lesson>
-      <lesson name="exponents" topics="27,88,89,90,91" level="5" index="45" score="0"></lesson>
-      <lesson name="scientific notation" topics="39,40,41,75,76,102" level="5" index="41" score="0"></lesson>
-      <lesson name="problem solving" topics="" level="5" index="13" score="0"></lesson>
-      <lesson name="number sequences" topics="21,22,71,72,47" index="14" level="5" score="0"></lesson>
-      <lesson name="variable expressions and equations" topics="38,43,48" level="5" index="16" score="0"></lesson>
-      <lesson name="solve equations" topics="" level="5" index="33" score="0"></lesson>
-      <lesson name="single-variable inequalities" topics="69,70,123" level="5" index="47" score="0"></lesson>
-      <lesson name="data and graphs" topics="133,137,138,134,135,136,139" level="5" index="17" score="0"></lesson>
-      <lesson name="relations and functions" topics="" level="5" index="37" score="0"></lesson>
-      <lesson name="direct variation" topics="" level="5" index="48" score="0"></lesson> //not added
-      <lesson name="linear functions" topics="82,83,145,146,147,148" level="5" index="44" score="0"></lesson>
-      <lesson name="systems of linear equations" topics="" level="5" score="0"></lesson>
-      <lesson name="monomials" topics="" level="5" score="0"></lesson>
-      <lesson name="polynomials" topics="" level="5" score="0"></lesson>
-      <lesson name="probability" topics="58,63" level="5" index="18" score="0"></lesson>
-    </subject>
-
     <subject name="science">
-      <lesson name="Plants" topics="5" level="5" index="89" inq="Honeybees may go extinct in the future, do some research and find out what plants this will affect the most!"  score="0" />
-      <lesson name="Classification" topics="8" level="5" index="68" inq="Can you think of another name to remember the levels in Linnaeus's system? Write them below!" score="0" />
-      <lesson name="Energy Sources" topics="42" level="5" index="76" inq="Which energy source is the best in your opinion? Explain why!" score="0" />
-      <lesson name="Fossils" topics="19" level="5" index="78" inq="Can you explain how fossils become buried so deep in the ground?" score="0" />
-      <lesson name="Flight" topics="32" level="5" index="110" inq="go online to www.DiveVR.org/expirments/airplane, and make your own paper airplane, tell us how far yours flew!" score="0" />
-      <lesson name="Photosynthesis" topics="35" level="5" index="90" inq="Do all plants use photosynthesis? Do some animals use photosynthesis? Write your answers below!" score="0" />
-      <lesson name="properties of liquids"  topics="-1" level="5" index="121" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-
-
-      <lesson name="Mixtures" topics="4" level="5" index="65" inq="Sometimes concentrations can make a big difference, can you think of two everyday mixtures that have the same substances but different concentrations? How are they different/similar?" score="0" />
-      <lesson name="Velocity, acceleration, and forces" topics="27" level="5" index="66" inq="Can you think of a new way to get to space? Describe it below!" score="0" />
-      <lesson name="Scientific Names" topics="9" level="5" index="69" inq="Can you find some latin words that look very similar to the one we use in English? Can you explain why they are so similar?" score="0" />
-      <lesson name="Simple machines" topics="11" level="5" index="112" inq="List 3 simple machines that you use every day!"  score="0" />
-      <lesson name="Microscope" topics="12" level="5" index="111" inq="Go online to www.diveVR.org/expirments/microscope, and try to build your own microscope at home, tell us what you saw!"  score="0" />
-      <lesson name="Animal Cell" topics="14" level="5" index="71" inq="How does smoking affect the cells in the lungs? Do some research and summarize it below!" score="0" />
+        <lesson name="Simple machines" topics="11" level="5" index="112" score="" inq="List 3 simple machines that you use every day!" />
+      <lesson name="Microscope" topics="12" level="5" index="111" score="" inq="How powerful was the first microscope? Compare that to how powerful they are today!"  />
+      <lesson name="Animal Cell" topics="14" level="5" index="71" inq="How many cells are in your body? Do some research to find out!" score="0" />
       <lesson name="Plant Cell" topics="15" level="5" index="72" inq="Can you explain the difference and similarities between animal and plant cells?" score="0" />
-      <lesson name="Waves" topics="29" level="5" index="95" inq="Sound waves are measured in Decibels (Db), do some research and find out how loud the loudest sound you heard was, write the answer below!" score="0" />
-      <lesson name="Anatomy and physiology" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0" />
       <lesson name="Chemical reactions" topics="26" level="5" index="84" inq="Can you think of some chemical reactions we use every day?" score="0" />
+      <lesson name="Waves" topics="29" level="5" index="95" inq="Sound waves are measured in Decibels (Db), do some research and find out how loud the loudest sound you heard was, write the answer below!" score="0" />
       <lesson name="Biochemistry" topics="30" level="5" index="87" inq="What is DNA? Summarize your answer below, remember, try to keep it simple!" score="0" />
-      <lesson name="Materials and structures" topics="-1" level="5" index="117" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="Sound"  topics="-1" level="5" index="116" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-      <lesson name="Organ Systems"  topics="46" level="5" index="118" inq="Which organ systems does high-colesteral affect? Why is it important to eat healthy food?" score="0" />
-
-      <lesson name="tissues"  topics="-1" level="5" index="119" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-
-      <lesson name="Light" topics="-1" level="5" index="122" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="reflections" topics="-1" level="5" index="123" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="current electricity" topics="-1" level="5" index="113" inq="go online to www.divevr.org/expirments/lemon_battery, and try building the curcuit shown, write down what you learned!"  score="0" />
-      <lesson name="Static Electricity" topics="-1" level="5" index="114" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
+      <lesson name="Organs" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0" />
+        <lesson name="Organ Systems"  topics="23" level="5" index="118" inq="Which organ systems does high-colesteral affect? Why is it important to eat healthy food?" score="0" />
+         <lesson name="current electricity" topics="40" level="5" index="113" inq="What is the voltage of the electricity in your house? Is this different in other countries?" score="0" />
+      <lesson name="magnets"  topics="7" level="5" index="67" inq="Can magnets damage electric devices?" score="0" />
+      <lesson name="Light" topics="10" level="5" index="122" inq="We can only see a small part of the electromagnetic specturm, are there animals that can see more?" score="0" />
+      <lesson name="velocity and acceleration" topics="27" level="5" index="85" inq="What is the fastest acclerating car today? What is its accelration?" score="0" />
+      <lesson name="kinetic and potential energy" topics="28" level="5" index="66" inq="How much energy do humans consume in a day?" score="0" />
+    
+      <lesson name="Circuits" topics="43" level="5" index="114" inq="Why is it important to understand the rights of Native Americans?" score="0" />
+    
     </subject>
 
 
   </grade>
   <grade number="10">
-    <subject name="math">
-      <lesson name="numbers" topics="15,16,17,18" level="5" index="35" score="0"></lesson>
-      <lesson name="exponents" topics="27,90,91" level="5" index="45" score="0"></lesson>
-      <lesson name="scientific notation" topics="39,40,41,75,76,102" level="5" score="0"></lesson>
-      <lesson name="radical expressions" topics="" level="5" score="0"></lesson>
-      <lesson name="radical exponents" topics="" level="5" score="0"></lesson>
-      <lesson name="coordinate plane" topics="131,132,142,151,152" level="5" index="15" score="0"></lesson>
-      <lesson name="solve equations" topics="43" level="5" score="0"></lesson>
-      <lesson name="single-variable inequalities" topics="69,70,123" level="5" score="0"></lesson>
-      <lesson name="data and graphs" topics="133,137,138,134,135,136,139" level="5" index="17" score="0"></lesson>
-      <lesson name="relations and functions" topics="73" level="5" score="0"></lesson>
-      <lesson name="direct and inverse variation" topics="" level="5" score="0"></lesson>
-      <lesson name="linear functions" topics="82,83,145,146,147,148" level="5" score="0"></lesson>
-      <lesson name="systems of linear equations" topics="" level="5" index="49" score="0"></lesson>
-      <lesson name="monomials" topics="" level="5" index="50" score="0"></lesson>
-      <lesson name="polynomials" topics="" level="5" idnex="51" score="0"></lesson>
-      <lesson name="factoring" topics="" level="5" index="52" score="0"></lesson>
-      <lesson name="quadratic equations" topics="84,85,86" level="5" index="53" score="0"></lesson>
-      <lesson name="functions: linear, quadratic, exponential" topics="86,87" level="5" index="54" score="0"></lesson>
-      <lesson name="rational functions and expressions" topics="" level="5" index="55" score="0"></lesson>
-      <lesson name="circles in the coordinate plane" topics="" level="5" index="56" score="0"></lesson>
-      <lesson name="measurement" topics="" level="5" index="20" score="0"></lesson>
-      <lesson name="two-dimensional figures" topics="" level="5" index="21" score="0"></lesson>
-      <lesson name="three-dimensional figures" topics="149,150" level="5" index="23" score="0"></lesson>
-      <lesson name="congruent figures" topics="" level="5" index="57" score="0"></lesson>
-      <lesson name="triangles" topics="" level="5" index="58" score="0"></lesson>
-      <lesson name="right triangles" topics="" level="5" index="59" score="0"></lesson>
-      <lesson name="trigonometry" topics="" level="5" index="60" score="0"></lesson>
-      <lesson name="transformations" topics="" level="5" index="61" score="0"></lesson>
-      <lesson name="probability" topics="" level="5" index="18" score="0"></lesson>
-    </subject>
-
-
     <subject name="science">
-
-      <lesson name="Mixtures" topics="4" level="5" index="65" inq="Sometimes concentrations can make a big difference, can you think of two everyday mixtures that have the same substances but different concentrations? How are they different/similar?" score="0" />
-      <lesson name="Velocity, acceleration, and forces" topics="27" level="5" index="66" inq="Can you think of a new way to get to space? Describe it below!" score="0" />
-      <lesson name="Scientific Names" topics="9" level="5" index="69" inq="Can you find some latin words that look very similar to the one we use in English? Can you explain why they are so similar?" score="0" />
-      <lesson name="Simple machines" topics="11" level="5" index="112" inq="List 3 simple machines that you use every day!"  score="0" />
-      <lesson name="Microscope" topics="12" level="5" index="111" inq="Go online to www.diveVR.org/expirments/microscope, and try to build your own microscope at home, tell us what you saw!"  score="0" />
-      <lesson name="Animal Cell" topics="14" level="5" index="71" inq="How does smoking affect the cells in the lungs? Do some research and summarize it below!" score="0" />
+   <lesson name="Simple machines" topics="11" level="5" index="112" score="" inq="List 3 simple machines that you use every day!"  />
+      <lesson name="Microscope" topics="12" level="5" index="111" score="" inq="How powerful was the first microscope? Compare that to how powerful they are today!"  />
+      <lesson name="Animal Cell" topics="14" level="5" index="71" inq="How many cells are in your body? Do some research to find out!" score="0" />
       <lesson name="Plant Cell" topics="15" level="5" index="72" inq="Can you explain the difference and similarities between animal and plant cells?" score="0" />
-      <lesson name="Waves" topics="29" level="5" index="95" inq="Sound waves are measured in Decibels (Db), do some research and find out how loud the loudest sound you heard was, write the answer below!" score="0" />
-      <lesson name="Anatomy and physiology" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0" />
       <lesson name="Chemical reactions" topics="26" level="5" index="84" inq="Can you think of some chemical reactions we use every day?" score="0" />
+      <lesson name="Waves" topics="29" level="5" index="95" inq="Sound waves are measured in Decibels (Db), do some research and find out how loud the loudest sound you heard was, write the answer below!" score="0" />
       <lesson name="Biochemistry" topics="30" level="5" index="87" inq="What is DNA? Summarize your answer below, remember, try to keep it simple!" score="0" />
-      <lesson name="Materials and structures" topics="-1" level="5" index="117" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="Sound"  topics="-1" level="5" index="116" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-      <lesson name="Organ Systems"  topics="46" level="5" index="118" inq="Which organ systems does high-colesteral affect? Why is it important to eat healthy food?" score="0" />
-
-      <lesson name="tissues"  topics="-1" level="5" index="119" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-
-      <lesson name="Light" topics="-1" level="5" index="122" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="reflections" topics="-1" level="5" index="123" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-      <lesson name="current electricity" topics="-1" level="5" index="113" inq="go online to www.divevr.org/expirments/lemon_battery, and try building the curcuit shown, write down what you learned!"  score="0" />
-      <lesson name="Static Electricity" topics="-1" level="5" index="114" inq="Why is it important to understand the rights of Native Americans?" score="0" />
-
-      <lesson name="magnets"  topics="-1" level="5" index="67" inq="Why is it important to understand the rights of Native Americans?" score="0" />>
-
+      <lesson name="Organs" topics="31" level="5" index="88" inq="What are the effects of alcohol on the body, and especially on the liver?" score="0" />
+        <lesson name="Organ Systems"  topics="23" level="5" index="118" inq="Which organ systems does high-colesteral affect? Why is it important to eat healthy food?" score="0" />
+         <lesson name="current electricity" topics="40" level="5" index="113" inq="What is the voltage of the electricity in your house? Is this different in other countries?" score="0" />
+      <lesson name="magnets"  topics="7" level="5" index="67" inq="Can magnets damage electric devices?" score="0" />
+      <lesson name="Light" topics="10" level="5" index="122" inq="We can only see a small part of the electromagnetic specturm, are there animals that can see more?" score="0" />
+      <lesson name="velocity and acceleration" topics="27" level="5" index="85" inq="What is the fastest acclerating car today? What is its accelration?" score="0" />
+      <lesson name="kinetic and potential energy" topics="28" level="5" index="66" inq="How much energy do humans consume in a day?" score="0" />
+    
+      <lesson name="Circuits" topics="43" level="5" index="114" inq="Why is it important to understand the rights of Native Americans?" score="0" />
+    
     </subject>
-
+    
   </grade>
 </grades>

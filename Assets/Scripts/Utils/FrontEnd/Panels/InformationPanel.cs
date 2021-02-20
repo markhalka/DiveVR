@@ -106,6 +106,7 @@ public class InformationPanel : MonoBehaviour
 
     public void showTitle(int index)
     {
+      
         justTitle.transform.parent.gameObject.SetActive(true);
         justTitle.text = Information.userModels[index + startOffset].simpleInfo[0];
     }
@@ -132,6 +133,8 @@ public class InformationPanel : MonoBehaviour
                 startPanels.Add(i);
             }
         }
+        Debug.LogError(startOffset + " start offset");
+
         if (startOffset > 0)
         {
             justTitle.transform.parent.gameObject.SetActive(false);
@@ -146,8 +149,6 @@ public class InformationPanel : MonoBehaviour
         closeOnEnd = false;
         panelContainer.transform.localPosition = locationPanel.centerStart;
         panelContainer.SetActive(true);
-        
-        //       StartCoroutine(locationPanel.moveAnimation(true));
         nextStart();
     }
 
@@ -160,11 +161,12 @@ public class InformationPanel : MonoBehaviour
 
         if(startPanelIndex > startPanels.Count - 2)
         {
-            wasShowingTitle = true;//SUPER TEMP
+            wasShowingTitle = true;
             justTitle.text = Information.userModels[startPanels[0]].simpleInfo[0];
             closeOnEnd = true;
         }
         currentModel = Information.userModels[startPanels[startPanelIndex]];
+
         locationPanel.simple.text = currentModel.simpleInfo[0];
         locationPanel.advanced.text = currentModel.advancedInfo[0]; //?
         startPanelIndex++;
@@ -175,10 +177,10 @@ public class InformationPanel : MonoBehaviour
 
     public void closePanel()
     {
-      /*  if (panelContainer.activeSelf)
+        if (panelContainer.activeSelf)
         {
             StartCoroutine(panel.panelAnimation(false, panelContainer.transform));
-        }      */
+        }      
     }
 
     void takePostTestOk()
@@ -186,7 +188,6 @@ public class InformationPanel : MonoBehaviour
         // Information.wasPreTest = false;
         StartCoroutine(panel.panelAnimation(false, postTest.transform));
         initStartPanels();
-
     }
     
 
@@ -218,8 +219,9 @@ public class InformationPanel : MonoBehaviour
 
         if (Information.wasPreTest && Information.isQuiz == 0 && !postTest.activeSelf && !tookPostTest)
         {
+            Debug.LogError("here after pretest");
             quizPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = "Start Quiz";
-           // pretest.pretestNotOk();
+            // pretest.pretestNotOk();
             panelContainer.SetActive(false);
             StartCoroutine(panel.panelAnimation(true, postTest.transform));
             tookPostTest = true;
@@ -244,18 +246,17 @@ public class InformationPanel : MonoBehaviour
 
     void startQuiz()
     {
+        if(Information.isQuiz == 1 && Information.wasPreTest)
+        {
+            Debug.LogError("taking not sure...");
+            Information.skip = true;
+            return;
+        }
+
         Information.isQuiz = 1;
         closeOnEnd = true;
-        if (Information.wasPreTest)
-        {
-            Information.isIncorrect = true;
-            Information.notSure = true;
-            Debug.LogError("here and setting incorrect to be true");
-        }
-        else
-        {
-            quizPanel.SetActive(false);
-        }
+
+       
         closePanel();
     }
 
@@ -334,18 +335,8 @@ public class InformationPanel : MonoBehaviour
             next.onClick.AddListener(delegate { takeInformationClick(true); });
             back.onClick.AddListener(delegate { takeInformationClick(false); });
         }
-
-
-        soundButtonCenter.onClick.AddListener(delegate { takeSound(); });
-        soundButtonLeft.onClick.AddListener(delegate { takeSound(); });
-        soundButtonRight.onClick.AddListener(delegate { takeSound(); });
     }
 
-    //here you would use the microsoft azure shit
-    void takeSound()
-    {
-      //  GameObject.Find("Menu").GetComponent<MenuBar>().setText(advanced.text);
-    }
 
     int buttonPause = 0;
     int buttonThres = 15;
@@ -396,7 +387,7 @@ public class InformationPanel : MonoBehaviour
             {
                 source.clip = close;
                 source.Play();
-
+                Debug.LogError("closing: " + wasShowingTitle);
                 if (wasShowingTitle)
                 {
                     justTitle.transform.parent.gameObject.SetActive(true);

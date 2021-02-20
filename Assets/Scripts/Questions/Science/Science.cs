@@ -8,38 +8,35 @@ using YoutubePlayer;
 
 public class Science : MonoBehaviour
 {
+    // ok, plan:
+    // create a seperate gameobject for the quiz, (just have the table and a gameobject for the script)
+    // in the script, you just pretty much copy science models (and maybe na.)
 
-    public GameObject database;
+    // for video stuff, you need to load user models 
+
+
     public GameObject ytEndPanel;
     public GameObject ytStartPanel;
     public GameObject loadingContainer;
     public GameObject inBetwenScene;
+    public GameObject VideoPanel;
 
+    public Button nextVideo;
+    public Button backVideo;
+    public Button exitVideo;
     public Button startRecc;
     public Button startNotRecc;
 
-    public Text scoreCount;
+    public Button modelsEndButton;
+    public Button rewatchEndButton;
+    public Button quizEndButton;
+    public Button exitEndButton;
 
     public SimpleYoutubeVideo YtVideoPlayer;
 
     Website website;
 
     Panel panel;
-
-    // so first, in student menu get the learning type
-    // then here you can access it from information
-    // check which one it is, show the choosing panel, let them choose
-    // (maybe you can show the estimated time as well)
-    // then whicheve is their main option make it big, and make the other one small
-    //and done
-    
-
-    int[] good_models = new int[] { 1, 5, 9, 12, 14, 15, 16, 18, 21, 22, 29, 31, 35, 37, 38, 42, 44 };
-
-    int[] ok_models = new int[] { 2, 4, 11, 17, 19, 20, 26, 30, 33, 34, 36, 39, 41, 45 };
-
-
-    int[] only_videos = new int[] { 3, 6, 7, 8, 24, 27, 28, 32, 40, 43, 47 };
 
     class VideoModel
     {
@@ -48,19 +45,93 @@ public class Science : MonoBehaviour
         public int minGrade = 0;
         public VideoModel(int index, bool prefer = false)
         {
-
+            this.index = index;
+            this.prefer = prefer;
         }
 
         public VideoModel(int index, int minGrade)
         {
-
-        } 
+            this.index = index;
+            this.minGrade = minGrade;
+            prefer = false;
+        }
     }
 
-    VideoModel[] video_model = new VideoModel[] {new VideoModel(14,8), new VideoModel(15,8), new VideoModel(16), new VideoModel(41), new VideoModel(36, true),
-new VideoModel(21), new VideoModel(38, 7), new VideoModel(1, 8), new VideoModel(26, true), new VideoModel(35, 8),
-new VideoModel(2, 8), new VideoModel(19, true) };
 
+    int[] good_models = new int[] { 1, 5, 9, 11, 12, 14, 15, 18, 21, 22, 29, 31, 32, 35, 37, 38, 42, 44 };
+    int[] ok_models = new int[] { 2, 4, 17, 19, 20, 26, 30, 33, 34, 36, 39, 41, 45 };
+    int[] only_videos = new int[] { 3, 6, 7, 8, 10, 23, 24, 27, 28, 40, 43, 47 };
+
+    VideoModel[] video_model = new VideoModel[] {new VideoModel(14,8), new VideoModel(15,8), new VideoModel(41), new VideoModel(36, true), new VideoModel(21), new VideoModel(38, 7),
+new VideoModel(1, 8), new VideoModel(26, true), new VideoModel(35, 8),new VideoModel(2, 8), new VideoModel(19, true) };
+
+
+
+
+
+    void Start()
+    {
+        panel = new Panel();
+        website = new Website();
+
+        startAnimation();
+        initVideoButtons();
+        initEndButtons();
+
+        openScene();
+
+        //   ParseData.startXML(); 
+        Information.currentScene = "OtherScience";
+        XMLWriter.savePastSubjectAndGrade();
+    }
+
+    void initVideoButtons()
+    {
+        nextVideo.onClick.AddListener(delegate { takeNextVideo(true); });
+        exitVideo.onClick.AddListener(delegate { takeExitVideo(); });
+        backVideo.onClick.AddListener(delegate { takeNextVideo(false); });
+    }
+
+    void initEndButtons()
+    {
+        modelsEndButton.onClick.AddListener(delegate { loadEndModel(); });
+        exitEndButton.onClick.AddListener(delegate { SceneManager.LoadScene("ModuleMenu"); });
+        rewatchEndButton.onClick.AddListener(delegate { replayVideo(); });
+        quizEndButton.onClick.AddListener(delegate { checkQuiz(); }); // for this one, you need 
+
+    }
+
+    public GameObject quizGb;
+
+    void checkQuiz()
+    {
+        string sceneToLoad = getScene();
+        if(sceneToLoad == "")
+        {
+            quizGb.SetActive(true);
+            StartCoroutine(panel.panelAnimation(false, ytEndPanel.transform));
+            loadingContainer.SetActive(false);
+        } else
+        {
+            Information.isQuiz = 1;
+            SceneManager.LoadScene(sceneToLoad);
+        }
+    }
+
+    // check if a model exists, if yes, just show it
+    void loadEndModel()
+    {
+        string sceneToLoad = getScene();
+        if (sceneToLoad == "")
+        {
+            SceneManager.LoadScene("ModuleMenu");
+        } else
+        {
+            SceneManager.LoadScene(sceneToLoad);
+        }
+    }
+
+    bool onlyVideo = false;
     void decideWhatToDo()
     {
         string sceneToLoad = getScene();
@@ -74,27 +145,31 @@ new VideoModel(2, 8), new VideoModel(19, true) };
             }
         }
 
-        Debug.LogError(Information.nextScene + " " + videoModel);
         // check if it is only model
         if (good_models.Contains(Information.nextScene))
-        {        
+        {
             if (videoModel != null)
             {
-                if(videoModel.prefer && videoModel.minGrade <= getGrade()) // figure out how to extract grade 
+                if (videoModel.prefer && videoModel.minGrade <= getGrade()) // figure out how to extract grade 
                 {
                     // prefer video, show panel
+
                     createStartPanel(sceneToLoad, Information.LearningType.VIDEO);
-                } else
+                }
+                else
                 {
                     // then prefer model, and show panel 
                     createStartPanel(sceneToLoad, Information.LearningType.MODEL);
                 }
-            } else
+            }
+            else
             {
                 // only open model
-                StartCoroutine(LoadScene(sceneToLoad));
+                Debug.LogError("opening good model");
+                takeModel(sceneToLoad);            
             }
-        } else if (ok_models.Contains(Information.nextScene))
+        }
+        else if (ok_models.Contains(Information.nextScene))
         {
             if (videoModel != null)
             {
@@ -102,24 +177,43 @@ new VideoModel(2, 8), new VideoModel(19, true) };
                 {
                     // prefer video, show panel
                     createStartPanel(sceneToLoad, Information.LearningType.VIDEO);
-                } else
+                }
+                else
                 {
                     //prefer model, show panel
                     createStartPanel(sceneToLoad, Information.LearningType.MODEL);
                 }
-            } else
+            }
+            else
             {
                 // only open model
-                StartCoroutine(LoadScene(sceneToLoad));
+                Debug.LogError("opening only model");
+                takeModel(sceneToLoad);
+                
             }
-        } else if (only_videos.Contains(Information.nextScene))
+        }
+        else if (only_videos.Contains(Information.nextScene))
         {
             // only show video
-            playVideo();
-        } else
+            Debug.LogError("playing video...");
+            onlyVideo = true;
+            videoQuizOrLesson();
+        }
+        else
         {
             // error 
             Debug.LogError("ERROR: COULD NOT FIND WHAT TO DO WITH TOPIC INDEX");
+        }
+    }
+
+    void videoQuizOrLesson()
+    {
+        if(Information.isQuiz > 0)
+        {
+            checkQuiz();
+        } else
+        {
+            playVideo();
         }
     }
 
@@ -139,24 +233,8 @@ new VideoModel(2, 8), new VideoModel(19, true) };
             val = int.Parse(b);
 
         return val;
-
     }
 
-        
-
-    void Start()
-    {
-        panel = new Panel();
-        website = new Website();
-
-        startAnimation();
-
-        openScene();
-
-        //   ParseData.startXML(); 
-        Information.currentScene = "OtherScience";
-        XMLWriter.savePastSubjectAndGrade();
-    }  
 
     void startAnimation()
     {
@@ -198,63 +276,113 @@ new VideoModel(2, 8), new VideoModel(19, true) };
         StartCoroutine(panel.panelAnimation(true, ytStartPanel.transform));
     }
 
+    void replayVideo()
+    {
+        StartCoroutine(panel.panelAnimation(false, ytEndPanel.transform));
+        videoIndex = 0;
+        YtVideoPlayer.videoUrl = videos[0];
+        VideoPanel.SetActive(true);
+      //  videoPanelObject.set
+
+    }
+
     void playVideo()
     {
-        StartCoroutine(website.GetRequest(Information.youtubeVideosUrl + "/" + Information.topicIndex, takeVideo));
+        StartCoroutine(panel.panelAnimation(false, ytStartPanel.transform));
+        string url = Information.youtubeVideosUrl + Information.nextScene;
+        StartCoroutine(website.GetRequest(url, takeVideo));
     }
 
     #region video stuff
 
     // this will handle showing the video and all that
-    public GameObject VideoPanel; // this is where you can keep the videos
-    public Button nextVideo;
-    public Button exitVideo;
+
     string[] videos;
     int videoIndex = 0;
 
     public void takeVideo(string videoUrls)
     {
+        Debug.LogError(videoUrls + " before");
+        videoUrls = videoUrls.Replace("</p>", "");
+        videoUrls = videoUrls.Replace("<p class=\"font_8\">", "");
+        Debug.LogError(videoUrls + " after");
         videos = videoUrls.Split(' ');
         videoIndex = 0;
+        Debug.LogError(videos[0] + " first url...");
 
-        exitVideo.gameObject.SetActive(true);
-        exitVideo.onClick.AddListener(delegate { takeExitVideo(); });
-        nextVideo.gameObject.SetActive(true);
-        nextVideo.onClick.AddListener(delegate { takeNextVideo(); });
-
-        VideoPanel.SetActive(true);
-        YtVideoPlayer.gameObject.SetActive(true);
         YtVideoPlayer.videoUrl = videos[0];
+          VideoPanel.SetActive(true);
+        loadingContainer.SetActive(false);
+        //  YtVideoPlayer.gameObject.SetActive(true);
     }
 
-    void takeNextVideo()
+    public GameObject loadingText;
+    public GameObject videoPanelObject;
+    public UnityEngine.Video.VideoPlayer videoPlayer;
+
+    // you need to check if it is a quiz or na...
+    private void Update()
     {
-        videoIndex++;
+
+        
+        if(loadingText.activeSelf && VideoPanel.activeSelf)
+        {
+            if (videoPlayer.isPlaying)
+            {
+                loadingText.SetActive(false);
+                videoPanelObject.SetActive(true);
+            }
+        }
+    }
+
+    void takeNextVideo(bool next)
+    {
+        Debug.LogError("taking next video...");
+        if (next)
+        {
+            videoIndex++;
+        } else
+        {
+            videoIndex--;
+        }
+
+        if (videoIndex < 0)
+        {
+            videoIndex = 0;
+        }
+        
         if(videoIndex >= videos.Length)
         {
             takeExitVideo();
             return;
         }
+
         YtVideoPlayer.videoUrl = videos[videoIndex];
     }
 
     void takeExitVideo()
     {
-        panel.panelAnimation(false, VideoPanel.transform);
-        panel.panelAnimation(true, ytEndPanel.transform);
+        Debug.LogError("closing exit video");
+        VideoPanel.SetActive(false);
+        showEndPanel();
+        
+    }
+
+    void showEndPanel()
+    {
+        if (onlyVideo)
+        {
+            exitEndButton.transform.position = modelsEndButton.transform.position;
+            modelsEndButton.gameObject.SetActive(false);
+        } 
+
+        StartCoroutine(panel.panelAnimation(true, ytEndPanel.transform));
     }
 
     #endregion
 
     void takeModel(string sceneToLoad)
     {
-        if (sceneToLoad == "Database")
-        {
-            loadingContainer.gameObject.SetActive(false);
-            database.gameObject.SetActive(true);
-            return;
-        }
-
         if (sceneToLoad != "")
         {
             StartCoroutine(LoadScene(sceneToLoad));
@@ -265,26 +393,17 @@ new VideoModel(2, 8), new VideoModel(19, true) };
     // you need to put azure here
     public void openScene()
     {
-        Information.nextScene = Information.topics[Information.topicIndex++].topics[0];
+    //    Information.nextScene = Information.topics[Information.topicIndex++].topics[0];
 
         Information.doneLoading = false;
-        database.SetActive(false);
+  
         //    Information.isQuiz = 0;
         Information.panelIndex = 0;
         Information.lableIndex = 0;
         Information.isSelect = false;
-        string sceneToLoad = getScene();
 
         decideWhatToDo();
 
-
-    /*    var learningType = Information.LearningType.MODEL;
-        if (sceneToLoad == "")
-        {
-            learningType = Information.LearningType.VIDEO;
-
-        }
-        createStartPanel(sceneToLoad, learningType); */
     }
 
     public string getScene()
@@ -300,33 +419,14 @@ new VideoModel(2, 8), new VideoModel(19, true) };
             case 2: //5 heat and thermal 6 thermal energy
                 sceneToLoad = "Molecules";
                 break;
-            case 3: //5 physical and chemical change   //not done
-                sceneToLoad = "Molecules"; //temp shit
-                Information.nextScene = 4;
-                break;
+          
             case 4: //5 mixtures 6 solutions
                 sceneToLoad = "Molecules";
                 break;
-            case 5: //plants   <---------------------------
+            case 5: //plants  
                 sceneToLoad = "Science";
                 break;
-            case 6: //5 force and motion
-                Information.nextScene = 6;
-                sceneToLoad = "Rocket"; //ima make this the rocket shit too
-                break;
-            case 7: //5 magnets   //not done
-                    // sceneToLoad = "Physics";
-                sceneToLoad = "Physics";
-                break;
-            case 8: //5 Classification
-                sceneToLoad = "Database";
-                //  ClassificationLadder();
-                break;
             case 9: //5 scientific names 6 class and names 
-                sceneToLoad = "Database";
-                break;
-            case 10: //5 Animals
-                     //just make it animal life cylces 
                 sceneToLoad = "Database";
                 break;
             case 11: //simple machines
@@ -335,23 +435,11 @@ new VideoModel(2, 8), new VideoModel(19, true) };
             case 12:  //microscope
                 sceneToLoad = "Science";
                 break;
-            case 13: //nothing here
-                Information.nextScene = 14; //temp shit
-                sceneToLoad = "Science";
-                break;
             case 14: //5 animal cell 6 animal cell
                 sceneToLoad = "Science";
                 break;
             case 15: //5 plant cell 6 plant cell
                 sceneToLoad = "Science";
-                break;
-            case 16: //5 ecology 6 ecology
-                sceneToLoad = "Database";
-                break;
-            case 17: //5 conservation of natural resources 
-                //natual, renewable, non renewable energy sources, recycling, not recycling
-                //you can make this a gmae 
-                sceneToLoad = "Recycling";
                 break;
             case 18: //5 rocks and minerals 6 rocks and minerals
                 sceneToLoad = "Science";
@@ -368,26 +456,8 @@ new VideoModel(2, 8), new VideoModel(19, true) };
             case 22: //5 astronomy 6 astronomy
                 sceneToLoad = "Science";
                 break;
-            case 23: //6 Science practices and tools    //not done
-                sceneToLoad = "Science"; //ok have the 3d models of the tools, and satey tips 
-                break;
-            case 24: //6 Designing experiments
-                sceneToLoad = "Design";     //not done
-                                            //have them design a simple plant growth experiemnt, or maybe have a small collection, have them follow the right process (maybe make this a seperate class)
-                break;
-            case 25: //6 Engineering practices    //not done
-                sceneToLoad = "Molecules";
-                Information.nextScene = 26;
-                //database 
-                break;
             case 26: //6 Chemical reactions
                 sceneToLoad = "Molecules";
-                break;
-            case 27: //6 Velocity, acceleration, and forces
-                sceneToLoad = "Rocket"; //this is the rocket shit 
-                break;
-            case 28: //6 Kinetic and potential energy
-                sceneToLoad = "Physics";
                 break;
             case 29: //6 Waves
                 sceneToLoad = "SampleScene";
@@ -401,11 +471,6 @@ new VideoModel(2, 8), new VideoModel(19, true) };
             case 32:  //flight
                 sceneToLoad = "Science";
                 break;
-            case 33:
-                Information.nextScene = 34;
-                sceneToLoad = "Science";
-                break;
-
             case 34: //weather and climate 
                 sceneToLoad = "Science";
                 break;
@@ -416,47 +481,26 @@ new VideoModel(2, 8), new VideoModel(19, true) };
                 sceneToLoad = "Science";
                 //db food web 
                 break;
-            case 37:
-                sceneToLoad = "Database";
-                break;
             case 38: //Plate tectonics
                 sceneToLoad = "Database";
                 break;
             case 39: //weather and atmosphere  //not done 
                 sceneToLoad = "Science";
                 break;
-            case 40:  // < ------------------------------ not done!  current electricity
-                sceneToLoad = "Physics";
-                break;
             case 41:
-                Information.nextScene = 41;
                 //ecosystem (forest, marine) 
                 sceneToLoad = "Database";
                 break;
-
             case 42://5 energy sources, 6 energy sources 7 energy sources 
                 sceneToLoad = "Science";
                 break;
-
-            case 43: //static electricity //<--------------- not done
-                sceneToLoad = "Physics";
-                break;
-
             case 44: //enviornment //< -------------------------- not done
                 sceneToLoad = "Science";
                 break;
-
             case 45: //weathering
                 sceneToLoad = "Science";
                 break;
-
-            case 46:
-                sceneToLoad = "Science";
-                break;
-
-
         }
-        Debug.LogError(Information.nextScene + " " + sceneToLoad);
         return sceneToLoad;
     }
 

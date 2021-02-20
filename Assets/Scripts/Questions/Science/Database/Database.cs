@@ -32,17 +32,18 @@ public class Database : MonoBehaviour
 
 
     public GameObject quiz;
-    public GameObject verticalScroll;
-
     public GameObject informationPanelGb;
     public GameObject currentPanel;
+    public GameObject page1;
+    public GameObject horizontalSnap;
 
     public GameObject currLesson;
     public GameObject tectonic;
-    public GameObject animalLifeCycle;
     public GameObject ecosystem;
-    public GameObject classification;
     public GameObject scientificNames;
+    public GameObject pretestPanel;
+
+    public Canvas currentCanvas;
 
     public AudioSource source;
     public AudioClip swipe;
@@ -62,71 +63,35 @@ public class Database : MonoBehaviour
     void Start()
     {
 
+//        ParseData.parseModel();
+       
         instructionsShown = false;
     //    quiz.GetComponent<QuizMenu>().startOffset = 1;
         Information.currentScene = "Database";
-
+      //  informationPanelGb.SetActive(true);
         informationPanel = informationPanelGb.GetComponent<InformationPanel>();
 
         currLesson = null;
        
     }
 
-    void tempLoad()
-    {
-        Information.grade = "Grade 3";
-        Information.subject = "science";
-        Information.nextScene = 38;
-
-        TextAsset mytxtData = (TextAsset)Resources.Load("XML/General/UserData");
-        string txt = mytxtData.text;
-        Information.xmlDoc = XDocument.Parse(txt);
-
-        mytxtData = (TextAsset)Resources.Load("XML/General/Data");
-        txt = mytxtData.text;
-        Information.loadDoc = XDocument.Parse(txt);
-
-        ParseData.startXML();
-    }
-
     void OnEnable()
     {
-        tempLoad(); //TEMP STUFF
-
-        userButtons = new List<GameObject>();
-        Vector2 offset = new Vector2(0, 0);
-
-        //     finishStart = 0;
-
-        ParseData.parseModel();
 
         Information.panelIndex = -1;
         Information.lableIndex = 0;
     }
 
-    //this is the panel gameobject
 
-
-    string[] currentNames;
-
- 
-
-    int tempStart = 0; // figure out how to add this 
     public GameObject InstructionAnimationGb;
    
     void initDatabase()
     {
 
         switch (Information.nextScene)
-        {
-            case 8: //classifcation
-                currLesson = classification;
-                break;
+        {    
             case 9: //scientific names      
                 currLesson = scientificNames;
-                break;
-            case 10:
-                currLesson = animalLifeCycle;
                 break;
             case 38:
                 currLesson = tectonic;
@@ -135,23 +100,13 @@ public class Database : MonoBehaviour
                 currLesson = ecosystem;
                 break;
         }
+
+        informationPanel.initStartPanels(); // ?
         currLesson.SetActive(true);
         initQuiz(); // that should work
     }
 
 
-    // this is the horizontal snap gameobject 
-
-    List<GameObject> userButtons;
-
-    Vector2 offsetAmount = new Vector2(1.5f, 0);
-    public Canvas currentCanvas;
-
-    public GameObject page1;
-    public GameObject horizontalSnap;
-
-
- 
     #region replace with in quiz
 
     void initQuiz()
@@ -175,10 +130,6 @@ public class Database : MonoBehaviour
     #endregion
  
 
-
-    public GameObject vsChild;
-
-
     void showInstructions()
     {
         if (!instructionsShown)
@@ -189,7 +140,7 @@ public class Database : MonoBehaviour
     }
 
 
-    public GameObject pretestPanel;
+
     void Update()
     {
         /*  if (!panel.activeSelf)
@@ -198,7 +149,7 @@ public class Database : MonoBehaviour
           }
           */
 
-        if (!currentPanel.activeSelf)
+        if (!instructionsShown)
         {
             showInstructions();
         }
@@ -206,6 +157,7 @@ public class Database : MonoBehaviour
         if(instructionsShown && !InstructionAnimationGb.activeSelf && currLesson == null)
         {
             Debug.LogError("creating new lesson");
+            pretestPanel.SetActive(true);
             initDatabase();
         }
 

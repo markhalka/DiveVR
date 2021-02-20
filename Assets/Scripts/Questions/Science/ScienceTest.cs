@@ -58,7 +58,7 @@ public class ScienceTest : MonoBehaviour
         }
 
         simple.text = tableQuiz.getTextQuestion();
-        if (tableQuiz.getQuestions() >= 2)
+        if (tableQuiz.totalQuestions() >= 2)
         {
             endTableQuiz();
         }

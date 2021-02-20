@@ -42,6 +42,18 @@ public class ScienceModels : MonoBehaviour
     public GameObject speechBubble;
     public GameObject inBetweenPanel;
     public GameObject background;
+    public GameObject outlinePanel;
+    public GameObject page1;
+    public GameObject rightPanel;
+
+    public AudioSource source;
+    public AudioClip rightAnswer;
+    public AudioClip wrongAnswer;
+
+    List<GameObject> dots;
+    List<GameObject> cursorInit;
+
+    GameObject pastCurr;
 
     public HorizontalModel horizontalModel;
 
@@ -69,18 +81,10 @@ public class ScienceModels : MonoBehaviour
     bool shouldGrow = true;
     bool isHorizontalSnap = false;
 
-    float selectionGrowth = 1.03f;
-    int selectionLength = 5;
     int currentModelIndex;
 
-    public GameObject outlinePanel;
 
-    List<GameObject> dots;
     public Camera cam;
-
-    public GameObject page1;
-    List<GameObject> cursorInit;
-
 
     Hints hints;
 
@@ -111,20 +115,6 @@ public class ScienceModels : MonoBehaviour
         Information.currentScene = "Models";
 
         speechBubble.GetComponent<Button>().onClick.AddListener(delegate { takeSpeechBubble(); });
-    }
-
-    void tempLoad()
-    {
-        TextAsset mytxtData = (TextAsset)Resources.Load("XML/General/UserData");
-        string txt = mytxtData.text;
-        Information.xmlDoc = XDocument.Parse(txt);
-
-        mytxtData = (TextAsset)Resources.Load("XML/General/Data");
-        txt = mytxtData.text;
-        Information.loadDoc = XDocument.Parse(txt);
-        Information.name = "none";
-        Information.doneLoadingDocuments = true;
-        Information.firstTime = true;
     }
 
 
@@ -270,14 +260,9 @@ public class ScienceModels : MonoBehaviour
 
         if (quiz.checkName(curr.GetComponentInChildren<TMPro.TMP_Text>().text))
         {
-            //      simple.text = quiz.next();
-            Debug.LogError(quiz.getQuestions() + " questions " + quiz.isQuiz);
-            if (quiz.getQuestions() > Information.RIGHT_COUNT)
+            if(quiz.totalQuestions() >= Information.RIGHT_COUNT * 2)
             {
-                Information.isQuiz = 0;
-                Debug.LogError("setting quiz to 0");
-                //quiz.endQuiz(endQuiz);
-            //    endQuiz();
+                Information.isQuiz = 0; 
             }
             quiz.getTextQuestion(nextQuestion);
             StartCoroutine(changeColor(true));
@@ -285,13 +270,15 @@ public class ScienceModels : MonoBehaviour
         {
             StartCoroutine(changeColor(false));
         }
-     
-        //   updateQuiz();
-
     }
 
     public void takeHideclick()
     {
+
+        if (dots == null)
+        {
+            return;
+        }
 
         foreach (var g in dots)
         {
@@ -331,7 +318,6 @@ public class ScienceModels : MonoBehaviour
                 break;
 
             case 5: //plants //not done
-                Debug.LogError("here at 5");
                 shouldRotate = false;
                 currentModelIndex = 5;
                 break;
@@ -380,11 +366,6 @@ public class ScienceModels : MonoBehaviour
                 isHorizontalSnap = true;
                 currentModelIndex = 1;
                 break;
-            case 23:     //science tools not done
-                isHorizontalSnap = true;
-                shouldRotate = false;
-                currentModelIndex = 14;
-                break;
             case 30: //biochem
                 currentModelIndex = 12;
                 isHorizontalSnap = true;
@@ -425,34 +406,52 @@ public class ScienceModels : MonoBehaviour
                 isHorizontalSnap = true;
                 currentModelIndex = 8;
                 break;
-
             case 44: //enviornemnt, for now just make it the same as food web
                 shouldRotate = false;
                 currentModelIndex = 20;
                 break;
-
             case 45: //weathering
                 shouldRotate = false;
                 currentModelIndex = 22;
                 break;
-
-            case 46: //organ systems 
-                shouldRotate = false;
-                currentModelIndex = 23;
-                break;
-
         }
     }
 
 
 
-    GameObject pastCurr;
+
 
     void Update()
     {
         if (!inBetweenPanel.activeSelf) 
         {
             quiz.checkQuiz(startQuiz, endQuiz);
+        }
+
+        if (speechOffset < 20)
+        {
+            speechOffset++;
+        }
+
+        if (quiz.isQuiz && Information.skip)
+        {
+            Information.skip = false;
+            quiz.currentWrongCount++;
+            quiz.getTextQuestion(nextQuestion);
+            if (table.gameObject.activeSelf)
+            {
+                if (quiz.totalQuestions() >= Information.RIGHT_COUNT * 2)
+                {
+                    Information.isQuiz = 0;
+                }
+            }
+            else
+            {
+                if (quiz.totalQuestions() > Information.RIGHT_COUNT)
+                {
+                    createTable();
+                }
+            }   
         }
 
         if (Information.currentBox != null) //&& !currInformationPanel.activeSelf)
@@ -465,13 +464,7 @@ public class ScienceModels : MonoBehaviour
                 return;
             }
 
-            if(!isHorizontalSnap)
-            {
-                handleClickUpdate(i);
-            } else
-            {
-
-            }
+          
 
             if (quiz.isQuiz && !table.gameObject.activeSelf)
             {
@@ -480,6 +473,7 @@ public class ScienceModels : MonoBehaviour
             {
                 if (!isHorizontalSnap)
                 {
+                    handleClickUpdate(i);
                     Information.lableIndex = 0;
                     simple.text = Information.userModels[i + infoPanel.startOffset].simpleInfo[0];
                 }
@@ -498,49 +492,53 @@ public class ScienceModels : MonoBehaviour
 
     void updateQuiz()
     {
-        /*  if (speechOffset < 20)
-          {
-              speechOffset++;
-          }
 
-          if (speechBubble.activeSelf && speechOffset < 20)
-          {
-              return;
-          }
-          speechOffset = 0; // put in the onclick method of the speech bubble
-        */ 
+        Debug.LogError("quiz update: " + speechOffset);
 
-          if (Information.currentBox.transform.childCount > 0 && !isHorizontalSnap)
-          {
-                if (currentDot != null && currentDot.transform.parent.gameObject == Information.currentBox || isHiding)
-                {
-                  quiz.check(getIndex(Information.currentBox));
-                }
-                else
-                {
-                    showPopUp();
-                    return;
-                } // FIGURE OUT WHEN TO SHOW THE POPUP
-          }
-          else
-          {
-              speechBubble.SetActive(false);
-          }
-          Debug.LogError("checking: " + Information.currentBox.name);
-          if (quiz.check(getIndex(Information.currentBox)))
-          {
-              quiz.getTextQuestion(nextQuestion);
-              StartCoroutine(changeColor(true));
-          } else
-          {
-              StartCoroutine(changeColor(false));
-          }
 
-          if(quiz.currentRightCount > 0)//Information.RIGHT_COUNT)
-          {
-              createTable();
-          }
-      }
+
+
+        if (Information.currentBox.transform.childCount > 0 && !isHorizontalSnap)
+        {
+            if (currentDot != null && currentDot.transform.parent.gameObject == Information.currentBox || isHiding)
+            {
+                quiz.check(getIndex(Information.currentBox));
+            }
+            else
+            {
+                showPopUp();
+                return;
+            } // FIGURE OUT WHEN TO SHOW THE POPUP
+        }
+        else
+        {
+            speechBubble.SetActive(false);
+        }
+
+        if (speechBubble.activeSelf && speechOffset < 20)
+        {
+            return;
+        } else
+        {
+            speechOffset = 0;
+        }
+
+        Debug.LogError("checking: " + Information.currentBox.name);
+        if (quiz.check(getIndex(Information.currentBox)))
+        {
+            quiz.getTextQuestion(nextQuestion);
+            StartCoroutine(changeColor(true));
+        }
+        else
+        {
+            StartCoroutine(changeColor(false));
+        }
+
+        if (quiz.totalQuestions() > Information.RIGHT_COUNT)
+        {
+            createTable();
+        }
+    }
 
 
       GameObject currentDot;
@@ -570,7 +568,6 @@ public class ScienceModels : MonoBehaviour
           speechBubble.transform.localPosition = new Vector3(tempOut.x, tempOut.y, 0);
           */
         speechBubble.transform.position = pos;
-        speechOffset = 0;
         Information.currentBox = null;
 
 
@@ -585,14 +582,12 @@ public class ScienceModels : MonoBehaviour
             //    quizQuestion(i);
           //  quiz.check(i);
            // quiz.checkName(currentDot.transform.parent.gameObject.name);
-            speechOffset = 0;
         }
     }
 
     // here you gotta move the model, and add the black overlay 
     void handleClickUpdate(int i)
     {
-        Debug.LogError("handling click update...");
         currentObject = Information.currentBox;
 
 
@@ -685,12 +680,6 @@ public class ScienceModels : MonoBehaviour
     }
 
     // ok just add this shit
-
-    public GameObject rightPanel;
-    public AudioSource source;
-    public AudioClip rightAnswer;
-    public AudioClip wrongAnswer;
-
     public IEnumerator changeColor(bool right)
     {
         rightPanel.SetActive(true);
@@ -711,51 +700,52 @@ public class ScienceModels : MonoBehaviour
         yield return new WaitForSeconds(1);
         rightPanel.SetActive(false);
     }
-    
 
-// todo now:
-// just go through and test every scene, make notes on what to do
+
+    // todo now:
+    // just go through and test every scene, make notes on what to do
 
     void startQuiz()
     {
 
         if (!Information.wasPreTest)
         {
-            currInformationPanel.transform.parent.GetComponent<InformationPanel>().hintPanel.SetActive(true);
-            currInformationPanel.transform.parent.GetComponent<InformationPanel>().quizPanel.SetActive(false);
+            infoPanel.hintPanel.SetActive(true);
+            infoPanel.quizPanel.SetActive(false);
         }
 
         if (wasSelected && pastCurr != null)
         {
-
             animations.resetSize(getIndex(pastCurr), wasSelected);
             wasSelected = false;
         }
 
-        infoPanel.justTitle.gameObject.transform.parent.gameObject.SetActive(true); //?
+        infoPanel.justTitle.gameObject.transform.parent.gameObject.SetActive(true);
         infoPanel.closePanel();
         quiz.getTextQuestion(nextQuestion);
     }
 
     public bool inTable = false;
     // in table you should also check to see if its already created
-    void endQuiz()
+    void endQuiz() 
     {
         infoPanel.justTitle.transform.parent.gameObject.SetActive(false);
 
         if (Information.wasPreTest)
         {
-          //  infoPanel.show
-        //    infoPanel.initStartPanels();
+            //  infoPanel.show
+            // infoPanel.initStartPanels();
+            infoPanel.showPostTest();
             initModel();
+            Information.wasPreTest = false;
             // do something 
         } else
         {
             inBetweenPanel.SetActive(true);
         }
 
-        currInformationPanel.transform.parent.GetComponent<InformationPanel>().hintPanel.SetActive(false);
-        currInformationPanel.transform.parent.GetComponent<InformationPanel>().quizPanel.SetActive(true);
+        infoPanel.hintPanel.SetActive(false);
+        infoPanel.quizPanel.SetActive(true);
        
         table.gameObject.SetActive(false);
 

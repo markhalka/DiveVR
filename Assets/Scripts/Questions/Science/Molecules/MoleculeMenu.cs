@@ -130,21 +130,6 @@ public class MoleculeMenu : MonoBehaviour
     }
 
 
-    void tempLoad()
-    {
-        TextAsset mytxtData = (TextAsset)Resources.Load("XML/General/UserData");
-        string txt = mytxtData.text;
-        Information.xmlDoc = XDocument.Parse(txt);
-
-        mytxtData = (TextAsset)Resources.Load("XML/General/Data");
-        txt = mytxtData.text;
-        Information.loadDoc = XDocument.Parse(txt);
-        Information.name = "none";
-        Information.doneLoadingDocuments = true;
-        Information.firstTime = true;
-    }
-
-
     float changeAmount = (360 - 244) / (float)(360 * 100);
     float startAmount = 244 / (float)360;
     void sliderValueChanged()

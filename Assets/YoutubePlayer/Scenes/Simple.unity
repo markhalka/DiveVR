@@ -361,6 +361,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1727668177662430737, guid: 07912ee41e9cec546bf3b8eca54a9fd2,
+        type: 3}
+      propertyPath: videoUrl
+      value: https://www.youtube.com/watch?v=1PuGuqpHQGo
+      objectReference: {fileID: 0}
     - target: {fileID: 1727668177662430743, guid: 07912ee41e9cec546bf3b8eca54a9fd2,
         type: 3}
       propertyPath: m_TargetCamera

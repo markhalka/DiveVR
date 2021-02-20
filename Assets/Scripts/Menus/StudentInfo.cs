@@ -361,7 +361,7 @@ public class StudentInfo : MonoBehaviour
             currScore = "70%";
         }
 
-        Color color = new Color(0.06603771f, 1, 0.1764455f, 1);
+        Color color = new Color(0.051f, 0.7f, 0.02f, 1);
         newScore = Mathf.Round(newScore);
         if (newScore < 50)
         {
@@ -373,7 +373,7 @@ public class StudentInfo : MonoBehaviour
         }
         else
         {
-            color = new Color(0.06603771f, 1, 0.1764455f, 1);//Color.green;
+            color = new Color(0.051f, 0.7f, 0.02f, 1);
         }
 
         radialSlider.transform.GetChild(0).GetComponent<Image>().color = color;
@@ -416,7 +416,7 @@ public class StudentInfo : MonoBehaviour
 
 
         int newScore = getReasonableGoal(score);
-        Color color = new Color(0.06603771f, 1, 0.1764455f, 1);
+        Color color = new Color(0.051f, 0.7f, 0.02f, 1);
 
         if (newScore < 50)
         {
@@ -428,7 +428,7 @@ public class StudentInfo : MonoBehaviour
         }
         else
         {
-            color = new Color(0.06603771f, 1, 0.1764455f, 1);
+            color = new Color(0.051f, 0.7f, 0.02f, 1);
         }
 
         radialSlider.transform.GetChild(0).GetComponent<Image>().color = color;
@@ -728,7 +728,7 @@ public class StudentInfo : MonoBehaviour
         currBar.SetActive(true);
         userTopics.Add(currBar, topic);
         float score = 0;
-        Color color = new Color(0.06603771f, 1, 0.1764455f, 1);
+        Color color = new Color(0.051f, 0.7f, 0.02f, 1);
         if (float.TryParse(lastTest.score, out score))
         {
             score = Mathf.Round(score);
@@ -742,7 +742,7 @@ public class StudentInfo : MonoBehaviour
             }
             else
             {
-                color = new Color(0.06603771f, 1, 0.1764455f, 1);//Color.green;
+                color = new Color(0.051f, 0.7f, 0.02f, 1);
             }
             currBar.GetComponent<Image>().color = color;
             currBar.transform.GetChild(1).GetComponent<TMPro.TMP_Text>().text = outerText;

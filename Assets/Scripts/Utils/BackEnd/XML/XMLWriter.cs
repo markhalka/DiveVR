@@ -26,7 +26,10 @@ public class XMLWriter
         Information.topics[ParseData.getScienceScene()].tests.Add(currTest); //that should save it */
 
         var lesson = XMLReader.findInformationLessonDoc();
-
+        if(lesson.Attribute("score") == null)
+        {
+            lesson.Add(new XAttribute("score", ""));
+        }
         lesson.Attribute("score").Value += " " + currTest.date + "," + currTest.time + "," + currTest.score;
         if (Information.pretestScore > 0)
         {
